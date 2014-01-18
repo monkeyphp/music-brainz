@@ -1,6 +1,6 @@
 <?php
 /**
- * MusicBrainzInterface.php
+ * MusicBrainz.php
  * 
  * @category MusicBrainz
  * @package  MusicBrainz
@@ -23,33 +23,50 @@
  */
 namespace MusicBrainz;
 
+use MusicBrainz\Connector\Factory\ConnectorFactory;
+use MusicBrainz\Connector\Factory\ConnectorFactoryInterface;
+
 /**
- * MusicBrainzInterface
- * 
+ * MusicBrainz
+ *
  * @category MusicBrainz
  * @package  MusicBrainz
  * @author   David White [monkeyphp] <david@monkeyphp.com>
  */
-interface MusicBrainzInterface
+class MusicBrainz implements MusicBrainzInterface
 {
     /**
-     * Lookup a resource
+     * Instance of ConnectorFactoryInterface
      * 
-     * @param array $options
+     * @var ConnectorFactoryInterface
      */
-    public function lookup($options = array());
+    protected $connectorFactory;
     
     /**
-     * Browse a resource
+     * Return an instance of ConnectorFactory
      * 
-     * @param array $options
+     * @return ConnectorFactory
      */
-    public function browse($options = array());
+    public function getConnectorFactory()
+    {
+        if (! isset($this->connectorFactory)) {
+            $this->connectorFactory = new ConnectorFactory();
+        }
+        return $this->connectorFactory;
+    }
     
-    /**
-     * Search a resource
-     * 
-     * @param array $options
-     */
-    public function search($options = array());
+    public function browse($options = array())
+    {
+        
+    }
+
+    public function lookup($options = array())
+    {
+        
+    }
+
+    public function search($options = array())
+    {
+        
+    }
 }

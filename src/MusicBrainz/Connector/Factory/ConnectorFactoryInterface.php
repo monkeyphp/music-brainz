@@ -1,10 +1,11 @@
 <?php
 /**
- * MusicBrainzInterface.php
+ * ConnectoryFactoryInterface.php
  * 
- * @category MusicBrainz
- * @package  MusicBrainz
- * @author   David White [monkeyphp] <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Connector\Factory
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
  * 
  * Copyright (C) 2014  David White
  * 
@@ -21,35 +22,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-namespace MusicBrainz;
+namespace MusicBrainz\Connector\Factory;
 
 /**
- * MusicBrainzInterface
+ * ConnectorFactoryInterface
  * 
- * @category MusicBrainz
- * @package  MusicBrainz
- * @author   David White [monkeyphp] <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Connector\Factory
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-interface MusicBrainzInterface
+interface ConnectorFactoryInterface
 {
-    /**
-     * Lookup a resource
-     * 
-     * @param array $options
-     */
-    public function lookup($options = array());
-    
-    /**
-     * Browse a resource
-     * 
-     * @param array $options
-     */
-    public function browse($options = array());
-    
-    /**
-     * Search a resource
-     * 
-     * @param array $options
-     */
-    public function search($options = array());
+    // nada
 }
