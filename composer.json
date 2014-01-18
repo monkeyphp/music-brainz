@@ -1,0 +1,26 @@
+{
+    "name"        : "monkeyphp/music-brainz",
+    "type"        : "library",
+    "description" : "Client library for accessing MusicBrainz api",
+    "keywords"    : ["music brainz", "music", "api", "client"],
+    "license"     : "GPL", 
+    "authors"     : [
+        {
+            "name":  "David White",
+            "email": "david@monkeyphp.com",
+            "role":  "Developer"
+        }
+    ],
+    "require": {
+        
+    },
+    "require-dev": {
+        
+    },
+    "minium-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "MusicBrainz": "src"
+        }
+    }
+}
