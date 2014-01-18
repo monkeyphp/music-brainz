@@ -1,10 +1,10 @@
 <?php
 /**
- * ConnectoryFactory.php
+ * ArtistConnectInterface.php
  * 
  * @category   MusicBrainz
  * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector\Factory
+ * @subpackage MusicBrainz\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  * 
  * Copyright (C) 2014  David White
@@ -22,37 +22,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-namespace MusicBrainz\Connector\Factory;
-
-use MusicBrainz\Connector\ArtistConnectorInterface;
+namespace MusicBrainz\Connector;
 
 /**
- * ConnectorFactory
+ * ArtistConnectorInterface
  * 
  * @category   MusicBrainz
  * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector\Factory
+ * @subpackage MusicBrainz\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-class ConnectorFactory implements ConnectorFactoryInterface
+interface ArtistConnectorInterface
 {
-    /**
-     * Instance of ArtistConnectorInterface
-     * 
-     * @var ArtistConnectorInterface
-     */
-    protected $artistConnector;
-    
-    /**
-     * Return an instance of ArtistConnectorInterface
-     * 
-     * @return ArtistConnectorInterface
-     */
-    public function getArtistConnector()
-    {
-        if (! isset($this->artistConnector)) {
-            $this->artistConnector = new ArtistConnector();
-        }
-        return $this->artistConnector;
-    }
+    // nada
 }
