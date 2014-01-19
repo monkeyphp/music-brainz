@@ -33,23 +33,25 @@ namespace MusicBrainz;
 interface MusicBrainzInterface
 {
     /**
-     * Lookup a resource
-     * 
-     * @param array $options
-     */
-    public function lookup($options = array());
-    
-    /**
      * Browse a resource
      * 
      * @param array $options
      */
-    public function browse($options = array());
+    public function browse($resource, $mbid, $options = array());
+    
+    /**
+     * Lookup a resource
+     * 
+     * @param array $options
+     */
+    public function lookup($resource, $mbid, $options = array());
+    
+    
     
     /**
      * Search a resource
      * 
      * @param array $options
      */
-    public function search($options = array());
+    public function search($resource, $options = array());
 }

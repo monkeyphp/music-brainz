@@ -1,6 +1,6 @@
 <?php
 /**
- * ArtistConnect.php
+ * ArtistConnector.php
  * 
  * @category   MusicBrainz
  * @package    MusicBrainz
@@ -32,7 +32,7 @@ namespace MusicBrainz\Connector;
  * @subpackage MusicBrainz\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-class ArtistConnector implements ArtistConnectorInterface
+class ArtistConnector extends AbstractConnector
 {
-    // nada
+    protected $resource = ConnectorInterface::RESOURCE_ARTIST;
 }

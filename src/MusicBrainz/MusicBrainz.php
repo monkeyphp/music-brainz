@@ -55,18 +55,63 @@ class MusicBrainz implements MusicBrainzInterface
         return $this->connectorFactory;
     }
     
-    public function browse($options = array())
+    /**
+     * Browse the MusicBrainz api
+     * 
+     * @param string $resource
+     * @param string $mbid
+     * @param array $options
+     * 
+     * @return \MusicBrainz\Entity
+     * @throws Exception
+     */
+    public function browse($resource, $mbid, $options = array())
     {
-        
+        try {
+            $connector = $this->getConnectorFactory()->getConnector($resource);
+            return $connector->browse($mbid, $options);
+        } catch (\Exception $exception) {
+            throw $exception;
+        }
+    }
+    
+    /**
+     * Lookup a resource
+     * 
+     * @param string $resource
+     * @param string $mbid
+     * @param array  $options
+     * 
+     * @return \MusicBrainz\Entity
+     * @throws Exception
+     */
+    public function lookup($resource, $mbid, $options = array())
+    {
+        try {
+            $connector = $this->getConnectorFactory()->getConnector($resource);
+            return $connector->lookup($mbid, $options);
+        } catch (\Exception $exception) {
+            throw $exception;
+        }
     }
 
-    public function lookup($options = array())
+    /**
+     * Search a resource
+     * 
+     * @param string $resource
+     * @param string $query
+     * @param array  $options
+     * 
+     * @return \MusicBrainz\Entity
+     * @throws Exception
+     */
+    public function search($resource, $query, $options = array())
     {
-        
-    }
-
-    public function search($options = array())
-    {
-        
+        try {
+            $connector = $this->getConnectorFactory()->getConnector($resource);
+            return $connector->search($query, $options);
+        } catch (\Exception $exception) {
+            throw $exception;
+        }
     }
 }

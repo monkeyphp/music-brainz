@@ -1,10 +1,10 @@
 <?php
 /**
- * ConnectorFactoryInterface.php
+ * UrlConnector.php
  * 
  * @category   MusicBrainz
  * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector\Factory
+ * @subpackage MusicBrainz\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  * 
  * Copyright (C) 2014  David White
@@ -22,31 +22,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-namespace MusicBrainz\Connector\Factory;
+namespace MusicBrainz\Connector;
 
 /**
- * ConnectorFactoryInterface
+ * UrlConnector
  * 
  * @category   MusicBrainz
  * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector\Factory
+ * @subpackage MusicBrainz\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-interface ConnectorFactoryInterface
+class UrlConnector extends AbstractConnector
 {
-    public function getArtistConnector();
-    
-    public function getLabelConnector();
-    
-    public function getRecordingConnector();
-    
-    public function getReleaseConnector();
-    
-    public function getReleaseGroupConnector();
-    
-    public function getWorkConnector();
-    
-    public function getAreaConnector();
-    
-    public function getUrlConnector();
+    protected $resource = ConnectorInterface::RESOURCE_URL;
 }

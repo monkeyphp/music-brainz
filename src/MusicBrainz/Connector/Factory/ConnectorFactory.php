@@ -1,6 +1,6 @@
 <?php
 /**
- * ConnectoryFactory.php
+ * ConnectorFactory.php
  * 
  * @category   MusicBrainz
  * @package    MusicBrainz
@@ -26,8 +26,15 @@ namespace MusicBrainz\Connector\Factory;
 
 use InvalidArgumentException;
 use MusicBrainz\Connector\AbstractConnector;
+use MusicBrainz\Connector\AreaConnector;
 use MusicBrainz\Connector\ArtistConnector;
 use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Connector\LabelConnector;
+use MusicBrainz\Connector\RecordingConnector;
+use MusicBrainz\Connector\ReleaseConnector;
+use MusicBrainz\Connector\ReleaseGroupConnector;
+use MusicBrainz\Connector\UrlConnector;
+use MusicBrainz\Connector\WorkConnector;
 
 /**
  * ConnectorFactory
