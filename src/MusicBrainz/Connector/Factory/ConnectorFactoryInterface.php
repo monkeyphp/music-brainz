@@ -34,5 +34,19 @@ namespace MusicBrainz\Connector\Factory;
  */
 interface ConnectorFactoryInterface
 {
-    // nada
+    public function getArtistConnector();
+    
+    public function getLabelConnector();
+    
+    public function getRecordingConnector();
+    
+    public function getReleaseConnector();
+    
+    public function getReleaseGroupConnector();
+    
+    public function getWorkConnector();
+    
+    public function getAreaConnector();
+    
+    public function getUrlConnector();
 }
