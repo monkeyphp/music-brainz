@@ -1,9 +1,9 @@
 <?php
 /**
- * MusicBrainzInterface.php
+ * MusicBrainzTest.php
  * 
- * @category MusicBrainz
- * @package  MusicBrainz
+ * @category MusicBrainzTest
+ * @package  MusicBrainzTest
  * @author   David White [monkeyphp] <david@monkeyphp.com>
  * 
  * Copyright (C) 2014  David White
@@ -21,37 +21,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-namespace MusicBrainz;
+namespace MusicBrainzTest;
+
+use MusicBrainz\MusicBrainz;
+use PHPUnit_Framework_TestCase;
 
 /**
- * MusicBrainzInterface
+ * MusicBrainzTest
  * 
- * @category MusicBrainz
- * @package  MusicBrainz
+ * @category MusicBrainzTest
+ * @package  MusicBrainzTest
  * @author   David White [monkeyphp] <david@monkeyphp.com>
  */
-interface MusicBrainzInterface
+class MusicBrainzTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * Browse a resource
-     * 
-     * @param array $options
-     */
-    public function browse($resource, $mbid, $options = array());
-    
-    /**
-     * Lookup a resource
-     * 
-     * @param array $options
-     */
-    public function lookup($resource, $mbid, $options = array());
-    
-    
-    
-    /**
-     * Search a resource
-     * 
-     * @param array $options
-     */
-    public function search($resource, $query, $options = array());
+    public function test__construct()
+    {
+        $musicBrainz = new MusicBrainz();
+        
+        $this->assertInstanceOf('\MusicBrainz\MusicBrainzInterface', $musicBrainz);
+    }
 }
