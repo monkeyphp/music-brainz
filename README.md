@@ -4,9 +4,24 @@ Client library for accessing the MusicBrainz Api.
 
 ## Links
 
-
+http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2
 
 ## Learn
+
+
+### Resources
+
+MusicBrainz provides the following resources
+
+- Artist
+- Label
+- Recording
+- Release
+- Release Group
+- Work
+- Area
+- Url
+
 
 ### Autoloading the MusicBrainz library
 
@@ -20,6 +35,22 @@ Composer autoloader.
 Create a default instance of MusicBrainz class.
 
     $musicBrainz = new MusicBrainz\MusicBrainz();
+
+### Browse a resource
+
+    $artist = $musicBrainz->browse('artist', $mbid);
+
+
+### Lookup a resource
+
+    $artist = $musicBrainz->lookup('artist', $mbid);
+
+
+### Search a resource
+
+    $artist = $musicBrainz->search('artist', 'Metallica');
+
+
 
 
 ## Run the PHPUnit tests
