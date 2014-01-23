@@ -98,9 +98,11 @@ class MusicBrainz implements MusicBrainzInterface
     /**
      * Search a resource
      * 
-     * @param string $resource
-     * @param string $query
-     * @param array  $options
+     * @link http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2/Search
+     * 
+     * @param string $resource (required) The resource
+     * @param string $query    (required) The Lucene query string
+     * @param array  $options  (optional) An optional array of search parameters
      * 
      * @return \MusicBrainz\Entity
      * @throws Exception
