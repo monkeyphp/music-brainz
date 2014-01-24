@@ -2,6 +2,8 @@
 
 Client library for accessing the MusicBrainz Api.
 
+[![Build Status](https://travis-ci.org/monkeyphp/music-brainz.png?branch=develop)](https://travis-ci.org/monkeyphp/music-brainz)
+
 ## Links
 
 http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2
