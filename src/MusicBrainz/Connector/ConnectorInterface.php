@@ -32,18 +32,81 @@ namespace MusicBrainz\Connector;
  */
 interface ConnectorInterface
 {
-    // resources
-    const RESOURCE_ARTIST        = 'artist';
-    const RESOURCE_LABEL         = 'label';
-    const RESOURCE_RECORDING     = 'recording';
-    const RESOURCE_RELEASE       = 'release';
-    const RESOURCE_RELEASE_GROUP = 'release-group';
-    const RESOURCE_WORK          = 'work';
-    const RESOURCE_AREA          = 'area';
-    const RESOURCE_URL           = 'url';
+    /**
+     * Resource artist
+     * 
+     * @var string
+     */
+    const RESOURCE_ARTIST = 'artist';
     
-    // formats
+    /**
+     * Resource label
+     * 
+     * @var string
+     */
+    const RESOURCE_LABEL = 'label';
+    
+    /**
+     * Resource recording
+     * 
+     * @var string
+     */
+    const RESOURCE_RECORDING = 'recording';
+    
+    /**
+     * Resource release
+     * 
+     * @var string
+     */
+    const RESOURCE_RELEASE = 'release';
+    
+    /**
+     * Resource release group
+     * 
+     * @var string
+     */
+    const RESOURCE_RELEASE_GROUP = 'release-group';
+    
+    /**
+     * Resource work
+     * 
+     * @var string
+     */
+    const RESOURCE_WORK = 'work';
+    
+    /**
+     * Resource area
+     * 
+     * @var string
+     */
+    const RESOURCE_AREA = 'area';
+    
+    /**
+     * Resource url
+     * 
+     * @var string
+     */
+    const RESOURCE_URL = 'url';
+    
+    /**
+     * Resource resource
+     * 
+     * @var string
+     */
+    const RESOURCE_RESOURCE = 'resource';
+    
+    /**
+     * Format json
+     * 
+     * @var string
+     */
     const FORMAT_JSON = 'json';
+    
+    /**
+     * Format xml
+     * 
+     * @var string
+     */
     const FORMAT_XML  = 'xml';
     
     // includes
@@ -114,10 +177,33 @@ interface ConnectorInterface
     const TYPE_REMIX       = 'remix';
     const TYPE_OTHER       = 'other';
     
-    
+    /**
+     * Browse a resource by supplying an mbid
+     * 
+     * @param string $mbid The MBID of the resource
+     * @param array  $options An array of options
+     * 
+     * @return mixed
+     */
     public function browse($mbid, $options = array());
     
+    /**
+     * Lookup a resource by supplying an mbid
+     * 
+     * @param string $mbid    The MBID of the resource 
+     * @param array  $options An array of options
+     * 
+     * @return mixed
+     */
     public function lookup($mbid, $options = array());
     
-    public function search($options = array());
+    /**
+     * Search for a resource by supplying a query string
+     * 
+     * @param string $query   A lucen query string
+     * @param array  $options An array of options
+     * 
+     * @return mixed
+     */
+    public function search($query, $options = array());
 }
