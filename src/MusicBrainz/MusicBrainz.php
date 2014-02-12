@@ -57,7 +57,7 @@ class MusicBrainz implements MusicBrainzInterface
     /**
      * Return an instance of ConnectorFactory
      *
-     * @return ConnectorFactory
+     * @return ConnectorFactoryInterface
      */
     public function getConnectorFactory()
     {
