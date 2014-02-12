@@ -34,5 +34,24 @@ namespace MusicBrainz\Connector;
  */
 class ArtistConnector extends AbstractConnector
 {
+    /**
+     * The name of the resource that this Connector handles
+     * 
+     * @var string
+     */
     protected $resource = ConnectorInterface::RESOURCE_ARTIST;
+    
+    /**
+     * The classname for search results
+     * 
+     * @var string
+     */
+    protected $searchStrategyClassname = 'MusicBrainz\Hydrator\Strategy\ArtistSearchStrategy';
+    
+    /**
+     * The classname for lookup results
+     * 
+     * @var string
+     */
+    protected $lookupStrategyClassname = 'MusicBrainz\Hydrator\Strategy\ArtistLookupStrategy';
 }

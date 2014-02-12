@@ -27,6 +27,8 @@ namespace MusicBrainz\Connector;
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
+use Zend\Config\Reader\Json;
+use Zend\Config\Reader\Xml;
 use Zend\Filter\Int;
 use Zend\Filter\StringToLower;
 use Zend\Http\Client;
@@ -45,7 +47,7 @@ use Zend\Validator\InArray;
  * @subpackage MusicBrainz\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-class AbstractConnector implements ConnectorInterface
+abstract class AbstractConnector implements ConnectorInterface
 {
     protected $defaultIncludes = array();
     
@@ -167,6 +169,11 @@ class AbstractConnector implements ConnectorInterface
         );
     }
     
+    /**
+     * Return an instance of InputFilter
+     * 
+     * @return InputFilter
+     */
     public function getInputFilter()
     {
         if (! isset($this->inputFilter)) {
@@ -187,7 +194,7 @@ class AbstractConnector implements ConnectorInterface
             // includes
             $includes = new Input('includes');
             $includes->setAllowEmpty(true);
-            $includes->getValidatorChain()->attach();
+            //$includes->getValidatorChain()->attach();
             
             // limit
             $limit = new Input('limit');
@@ -212,7 +219,7 @@ class AbstractConnector implements ConnectorInterface
             $mbid = new Input('mbid');
             $mbid->setAllowEmpty(true);
             
-            // query
+            // query // @todo validate the query string
             $query = new Input('query');
             
             // status
@@ -248,6 +255,7 @@ class AbstractConnector implements ConnectorInterface
                 ->add($query)
                 ->add($status)
                 ->add($type)
+                ->add($mbid)
                 ->add($toc);
             
             $this->inputFilter = $inputFilter;
@@ -344,6 +352,43 @@ class AbstractConnector implements ConnectorInterface
         return $params;
     }
     
+    public function parseLookupParams($options = array())
+    {
+        $params = array();
+        // format
+        if (isset($options['format'])) {
+            $params[self::PARAM_FORMAT] = $options['format'];
+        }
+        // includes
+        if (isset($options['includes'])) {
+            $params[self::PARAM_INCLUDES] = $this->prepareIncludes($options['includes']);
+        }
+        
+        return $params;
+    }
+    
+    public function parseSearchParams($options = array())
+    {
+        $params = array();
+        // format
+        if (isset($options['format'])) {
+            $params[self::PARAM_FORMAT] = $options['format'];
+        }
+        // limit
+        if (isset($options['limit'])) {
+            $params[self::PARAM_LIMIT] = $options['limit'];
+        }
+        // offset
+        if (isset($options['offset'])) {
+            $params[self::PARAM_OFFSET] = $options['offset'];
+        }
+        // query
+        if (isset($options['query'])) {
+            $params[self::PARAM_QUERY] = $options['query'];
+        }
+        return $params;
+    }
+    
     public function getRequest($uri, $params = array(), $method = Request::METHOD_GET)
     {
         $request = new Request();
@@ -361,10 +406,18 @@ class AbstractConnector implements ConnectorInterface
         return $this->resource;
     }
     
-    public function getUri()
+    public function getUri($path = array())
     {
-        return 'http://musicbrainz.org/ws/2/' + $this->getResource();
+        $url = 'http://musicbrainz.org/ws/2/' . $this->getResource();
+        foreach ($path as $fragment) {
+            $url .= '/' . $fragment;
+        }
+        return $url;
     }
+//    public function getUri()
+//    {
+//        return 'http://musicbrainz.org/ws/2/' . $this->getResource();
+//    }
     
     public function getHttpClient()
     {
@@ -404,37 +457,139 @@ class AbstractConnector implements ConnectorInterface
         }
     }
     
-    public function lookup($mbid, $options = array())
+    public function getReader($mode)
     {
-        // merge the options with the default options
-        $options = array_merge($this->getDefaultOptions(), $options);
-        
+        switch ($mode) {
+            case ConnectorInterface::FORMAT_XML:
+                return new Xml();
+            case ConnectorInterface::FORMAT_JSON:
+                return new Json();
+            default:
+                throw new \InvalidArgumentException('Invalid format supplied');
+        }
+    }
+    
+    public function getSearchStrategy()
+    {
+        if (! isset($this->searchStrategy)) {
+            $searchStrategyClassname = $this->getSearchStrategyClassname();
+            $this->searchStrategy = new $searchStrategyClassname;
+        }
+        return $this->searchStrategy;
+    }
+    
+    protected $searchStrategyClassname;
+    
+    public function getSearchStrategyClassname()
+    {
+        if (! isset($this->searchStrategyClassname)) {
+            throw new \RuntimeException('Did you set the search strategy classname?');
+        }
+        return $this->searchStrategyClassname;
+    }
+    
+    protected $lookupStrategyClassname;
+    
+    public function getLookupStrategyClassname()
+    {
+        if (! isset($this->lookupStrategyClassname)) {
+            throw new \RuntimeException('Did you set the lookup strategy classname?');
+        }
+        return $this->lookupStrategyClassname;
+    }
+    
+    public function getLookupStrategy()
+    {
+        if (! isset($this->lookupStrategy)) {
+            $lookupStrategyClassname = $this->getLookupStrategyClassname();
+            $this->lookupStrategy = new $lookupStrategyClassname;
+        }
+        return $this->lookupStrategy;
+    }
+    
+    /**
+     * Perform a search
+     * 
+     * Supported options are:
+     * - limit
+     * - offset
+     * - format
+     * 
+     * @param string $query   (required) The Lucense compatible search string
+     * @param array  $options (optional) The options
+     * 
+     * @return mixed
+     */
+    public function search($query, $options = array())
+    {
+        $options = array_merge($this->getDefaultOptions(), array('query' => $query), $options);
         $inputFilter = $this->getInputFilter()->setData($options);
-        if (! $inputFilter->isValid()) {
-            return $inputFilter->getMessages();
+        
+        if ($inputFilter->isValid()) {
+            $messages = $inputFilter->getMessages();
+            throw new InvalidArgumentException(reset($messages));
         }
         
         $options = $inputFilter->getValues();
+        $params = $this->parseSearchParams($options);
         
-        $params = $this->parseParams($options);
+        $uri = $this->getUri();
         
-        $request = $this->getRequest($this->getUri(), $params);
+        $request = $this->getRequest($uri, $params);
         
-        $response = $this->getResponse($request);
-        
-        $body = $response->getBody();
-        
-        var_dump($body);
+        try {
+            $response = $this->getResponse($request);
+            $body = $response->getBody();
+            
+            $reader = $this->getReader($options['format']);
+            $data = $reader->fromString($body);
+            
+            return $this->getSearchStrategy()->hydrate($data);
+            
+        } catch (Exception $exception) {
+            throw $exception;
+        }
     }
-
-    public function search($options = array())
+    
+    
+    /**
+     * @link http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2
+     * @param type $mbid
+     * @param type $options
+     */
+    public function lookup($mbid, $options = array())
     {
+        $options = array_merge($this->getDefaultOptions(), array('mbid' => $mbid), $options);
+        $inputFilter = $this->getInputFilter()->setData($options);
         
+        if ($inputFilter->isValid()) {
+            $messages = $inputFilter->getMessages();
+            throw new InvalidArgumentException(reset($messages));
+        }
+    
+        $options = $inputFilter->getValues();
+        $params = $this->parseLookupParams();
+        
+        $uri = $this->getUri(array($mbid));
+        
+        $request = $this->getRequest($uri, $params);
+        
+        try {
+            $response = $this->getResponse($request);
+            $body = $response->getBody();
+            
+            $reader = $this->getReader($options['format']);
+            $data = $reader->fromString($body);
+            
+            return $this->getLookupStrategy()->hydrate($data);
+            
+        } catch (Exception $exception) {
+            throw $exception;
+        }
     }
     
     public function browse($mbid, $options = array())
     {
-        
+        //
     }
-
 }
