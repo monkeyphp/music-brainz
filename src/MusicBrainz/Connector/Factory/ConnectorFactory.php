@@ -110,7 +110,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
      * @return AbstractConnector
      * @throws InvalidArgumentException
      */
-    protected function getConnector($resource)
+    public function getConnector($resource)
     {
         switch($resource) {
             case ConnectorInterface::RESOURCE_ARTIST:
