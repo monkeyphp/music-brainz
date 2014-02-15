@@ -303,6 +303,9 @@ class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that attempting to get a reader when an invalid format is
+     * supplied results in an exception
+     *
      * @expectedException InvalidArgumentException
      * @covers \MusicBrainz\Connector\AbstractConnector::getReader
      */
@@ -313,5 +316,32 @@ class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
         $connector->getReader('eggs');
     }
 
+    /**
+     * Test that we can get the default format
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getDefaultFormat
+     */
+    public function testGetDefaultFormat()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
 
+        $format = $connector->getDefaultFormat();
+
+        $this->assertInternalType('string', $format);
+    }
+
+    /**
+     * Test that we can set the default format
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getDefaultFormat
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultFormat
+     */
+    public function testSetDefaultFormat()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $format = 'json';
+
+        $this->assertSame($connector, $connector->setDefaultFormat($format));
+        $this->assertEquals($format, $connector->getDefaultFormat());
+    }
 }

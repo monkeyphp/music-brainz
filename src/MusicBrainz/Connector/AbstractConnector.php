@@ -575,6 +575,7 @@ offset	 Return search results starting at a given offset. Used for paging throug
     }
 
     /**
+     * Return the default format
      *
      * @return string
      */
@@ -586,6 +587,14 @@ offset	 Return search results starting at a given offset. Used for paging throug
         return $this->defaultFormat;
     }
 
+    /**
+     * Set the default format
+     *
+     * @param string|null $defaultFormat
+     *
+     * @return AbstractConnector
+     * @throws InvalidArgumentException
+     */
     public function setDefaultFormat($defaultFormat = null)
     {
         if (! is_null($defaultFormat)) {
@@ -620,6 +629,14 @@ offset	 Return search results starting at a given offset. Used for paging throug
         return $this->defaultLimit;
     }
 
+    /**
+     * Set the default limit
+     *
+     * @param null|int $defaultLimit
+     *
+     * @return AbstractConnector
+     * @throws InvalidArgumentException
+     */
     public function setDefaultLimit($defaultLimit = null)
     {
         if (! is_null($defaultLimit)) {
@@ -646,6 +663,13 @@ offset	 Return search results starting at a given offset. Used for paging throug
         return $this->defaultOffset;
     }
 
+    /**
+     * Set the default offset
+     *
+     * @param int $defaultOffset
+     *
+     * @return AbstractConnector
+     */
     public function setDefaultOffset($defaultOffset = null)
     {
         if (! is_null($defaultOffset)) {
