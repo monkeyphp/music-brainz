@@ -52,13 +52,13 @@ Create a default instance of MusicBrainz class.
 
     $artist = $musicBrainz->search('artist', 'Metallica');
 
+## Generate Unit tests with Codeception
 
+    $ vendor/bin/codecept generate:phpunit unit MusicBrainzTest/Entity/Alias
 
+## Run the Codeception tests
 
-## Run the PHPUnit tests
-
-    $ vendor/bin/phpunit -c tests/phpunit.xml
-
+    $ vendor/bin/codecep run
 
 
 ## License
