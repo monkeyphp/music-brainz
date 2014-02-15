@@ -1,0 +1,103 @@
+<?xml version="1.0" standalone="yes"?><metadata created="2014-02-15T18:25:21.387Z" xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ext="http://musicbrainz.org/ns/ext#-2.0">
+    <artist-list count="1" offset="0">
+        <artist id="65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab" type="Group" ext:score="100">
+            <name>Metallica</name>
+            <sort-name>Metallica</sort-name>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <begin-area id="1f40c6e1-47ba-4e35-996f-fe6ee5840e62">
+                <name>Los Angeles</name>
+                <sort-name>Los Angeles</sort-name>
+            </begin-area>
+            <life-span>
+                <begin>1981-10</begin>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="メタリカ">メタリカ</alias>
+                <alias locale="ko_KR" sort-name="메탈리카" primary="primary">메탈리카</alias>
+                <alias sort-name="Metalica">Metalica</alias>
+            </alias-list>
+            <tag-list>
+                <tag count="1">
+                    <name>américain</name>
+                </tag>
+                <tag count="1">
+                    <name>usa</name>
+                </tag>
+                <tag count="2">
+                    <name>speed metal</name>
+                </tag>
+                <tag count="1">
+                    <name>douchebag metal</name>
+                </tag>
+                <tag count="1">
+                    <name>american thrash metal</name>
+                </tag>
+                <tag count="3">
+                    <name>rock</name>
+                </tag>
+                <tag count="1">
+                    <name>90s</name>
+                </tag>
+                <tag count="1">
+                    <name>80s</name>
+                </tag>
+                <tag count="1">
+                    <name>seen live</name>
+                </tag>
+                <tag count="1">
+                    <name>rock and indie</name>
+                </tag>
+                <tag count="10">
+                    <name>thrash metal</name>
+                </tag>
+                <tag count="6">
+                    <name>heavy metal</name>
+                </tag>
+                <tag count="1">
+                    <name>thrash</name>
+                </tag>
+                <tag count="10">
+                    <name>metal</name>
+                </tag>
+                <tag count="1">
+                    <name>classic thrash metal</name>
+                </tag>
+                <tag count="1">
+                    <name>classic metal</name>
+                </tag>
+                <tag count="1">
+                    <name>los angeles</name>
+                </tag>
+                <tag count="1">
+                    <name>california</name>
+                </tag>
+                <tag count="1">
+                    <name>bay area</name>
+                </tag>
+                <tag count="1">
+                    <name>80s metal</name>
+                </tag>
+                <tag count="1">
+                    <name>90s metal</name>
+                </tag>
+                <tag count="1">
+                    <name>80s thrash metal</name>
+                </tag>
+                <tag count="6">
+                    <name>american</name>
+                </tag>
+                <tag count="5">
+                    <name>hard rock</name>
+                </tag>
+                <tag count="1">
+                    <name>band</name>
+                </tag>
+            </tag-list>
+        </artist>
+    </artist-list>
+</metadata>

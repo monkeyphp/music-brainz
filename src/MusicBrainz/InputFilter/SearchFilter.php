@@ -43,52 +43,104 @@ use Zend\Validator\Digits;
 class SearchFilter extends InputFilter
 {
     /**
-     * Constructr
+     *
+     * @var Input
+     */
+    protected $query;
+
+    /**
+     *
+     * @var Input
+     */
+    protected $format;
+
+    /**
+     *
+     * @var Input
+     */
+    protected $limit;
+
+    /**
+     *
+     * @var Input
+     */
+    protected $offset;
+
+    /**
+     * Return an instance of Input configured for query
+     *
+     * @return Input
+     */
+    protected function getQuery()
+    {
+        if (! isset($this->query)) {
+            $query  = new Input('query');
+            $query->setAllowEmpty(false);
+            $query->getFilterChain()->attach(
+                new StringToLower()
+            );
+            $this->query = $query;
+        }
+        return $this->query;
+    }
+
+    protected function getFormat()
+    {
+        if (! isset($this->format)) {
+            $format = new Input('format');
+            $format->setAllowEmpty(true);
+            $format->getFilterChain()->attach(
+                new StringToLower()
+            );
+            $this->format = $format;
+        }
+        return $this->format;
+    }
+
+    public function getLimit()
+    {
+        if (! isset($this->limit)) {
+            $limit = new Input('limit');
+            $limit->setAllowEmpty(true);
+            $limit->getFilterChain()->attach(new Int());
+            $limit->getValidatorChain()
+                ->attach(new Digits(), true)
+                ->attach(new Between(
+                    array (
+                        'min' => ConnectorInterface::SEARCH_LIMIT_MIN,
+                        'max' => ConnectorInterface::SEARCH_LIMIT_MAX
+                    )), true
+                );
+            $this->limit = $limit;
+        }
+        return $this->limit;
+    }
+
+    public function getOffset()
+    {
+        if (! isset($this->offset)) {
+            $offset  = new Input('offset');
+            $offset->setAllowEmpty(true);
+            $offset->getFilterChain()->attach(new Int());
+            $offset->getValidatorChain()->attach(
+                new Digits(),
+                true
+            );
+            $this->offset = $offset;
+        }
+        return $this->offset;
+    }
+
+    /**
+     * Constructor
      *
      * @return void
      */
     public function __construct()
     {
-        $query  = new Input('query');
-        $query->setAllowEmpty(false);
-        $query->getFilterChain()->attach(
-            new StringToLower()
-        );
-
-        $format = new Input('format');
-        $format->setAllowEmpty(true);
-        $format->getFilterChain()->attach(
-            new StringToLower()
-        );
-
-        $limit = new Input('limit');
-        $limit->setAllowEmpty(false);
-        $limit->getFilterChain()->attach(new Int());
-        $limit->getValidatorChain()
-            ->attach(
-                new Digits(),
-                true
-            )
-            ->attach(
-                new Between(
-                    array(
-                        'min' => ConnectorInterface::SEARCH_LIMIT_MIN,
-                        'max' => ConnectorInterface::SEARCH_LIMIT_MAX
-                    )
-                ), true
-            );
-
-        $offset  = new Input('offset');
-        $offset->setAllowEmpty(false);
-        $offset->getFilterChain()->attach(new Int());
-        $offset->getValidatorChain()->attach(
-            new Digits(),
-            true
-        );
-
-        $this->add($query)
-            ->add($format)
-            ->add($limit)
-            ->add($offset);
+        $this->add($this->getQuery())
+            ->add($this->getFormat())
+            ->add($this->getLimit())
+            ->add($this->getOffset());
     }
 }

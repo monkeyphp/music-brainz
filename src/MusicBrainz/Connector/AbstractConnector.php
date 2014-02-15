@@ -72,6 +72,13 @@ abstract class AbstractConnector implements ConnectorInterface
     protected $searchStrategy;
 
     /**
+     * Array of includes
+     *
+     * @var array
+     */
+    protected $includes = array();
+
+    /**
      * Array of default includes to include in calls to api
      *
      * @var array
@@ -209,10 +216,14 @@ abstract class AbstractConnector implements ConnectorInterface
      */
     public function search($query, $options = array())
     {
-        $options = array_merge($this->getDefaultOptions(), array('query' => $query), $options);
+        $options = array_merge(
+            $this->getDefaultOptions(),
+            array('query' => $query),
+            $options
+        );
         $inputFilter = $this->getSearchFilter()->setData($options);
 
-        if ($inputFilter->isValid()) {
+        if (! $inputFilter->isValid()) {
             $messages = $inputFilter->getMessages();
             throw new InvalidArgumentException(reset($messages));
         }
@@ -230,6 +241,8 @@ abstract class AbstractConnector implements ConnectorInterface
 
             $reader = $this->getReader($options['format']);
             $data = $reader->fromString($body);
+
+//            print_r($data);
 
             return $this->getSearchStrategy()->hydrate($data);
 
@@ -522,6 +535,22 @@ offset	 Return search results starting at a given offset. Used for paging throug
     }
 
     /**
+     * Return the includes
+     *
+     * If the includes property is not set or is not an array, this
+     * method will set the includes property to an emtpy array.
+     *
+     * @return array
+     */
+    public function getIncludes()
+    {
+        if (! isset($this->includes) || ! is_array($this->includes)) {
+            $this->includes = array();
+        }
+        return $this->includes;
+    }
+
+    /**
      * Prepare the supplied includes array
      *
      * @param string $includes
@@ -613,6 +642,9 @@ offset	 Return search results starting at a given offset. Used for paging throug
      */
     public function getDefaultIncludes()
     {
+        if (! is_array($this->defaultIncludes)) {
+            $this->defaultIncludes = array();
+        }
         return $this->defaultIncludes;
     }
 
@@ -706,10 +738,13 @@ offset	 Return search results starting at a given offset. Used for paging throug
         return $this->types;
     }
 
-    public function getIncludes()
-    {
-        return $this->includes;
-    }
+
+
+
+
+
+
+
 
 
     protected $formats = array(
@@ -743,34 +778,34 @@ offset	 Return search results starting at a given offset. Used for paging throug
      *
      * @var array
      */
-    protected $includes = array(
-        ConnectorInterface::INC_ARTISTS,
-        ConnectorInterface::INC_RECORDINGS,
-        ConnectorInterface::INC_RELEASES,
-        ConnectorInterface::INC_RELEASE_GROUPS,
-        ConnectorInterface::INC_WORKS,
-        ConnectorInterface::INC_LABELS,
-        ConnectorInterface::INC_TYPE,
-        ConnectorInterface::INC_STATUS,
-        ConnectorInterface::INC_DISCIDS,
-        ConnectorInterface::INC_MEDIA,
-        ConnectorInterface::INC_ISRCS,
-        ConnectorInterface::INC_ARTIST_CREDITS,
-        ConnectorInterface::INC_VARIOUS_ARTISTS,
-        ConnectorInterface::INC_ALIASES,
-        ConnectorInterface::INC_ANNOTATION,
-        ConnectorInterface::INC_TAGS,
-        ConnectorInterface::INC_RATINGS,
-        ConnectorInterface::INC_USER_TAGS,
-        ConnectorInterface::INC_USER_RATINGS,
-        ConnectorInterface::INC_RELS_RECORD_LEVEL,
-        ConnectorInterface::INC_RELS_WORK_LEVEL,
-        ConnectorInterface::INC_RELS_ARTIST,
-        ConnectorInterface::INC_RELS_LABEL,
-        ConnectorInterface::INC_RELS_RECORDING,
-        ConnectorInterface::INC_RELS_RELEASE,
-        ConnectorInterface::INC_RELS_RELEASE_GROUPS,
-        ConnectorInterface::INC_RELS_URL,
-        ConnectorInterface::INC_RELS_WORK,
-    );
+//    protected $includes = array(
+//        ConnectorInterface::INC_ARTISTS,
+//        ConnectorInterface::INC_RECORDINGS,
+//        ConnectorInterface::INC_RELEASES,
+//        ConnectorInterface::INC_RELEASE_GROUPS,
+//        ConnectorInterface::INC_WORKS,
+//        ConnectorInterface::INC_LABELS,
+//        ConnectorInterface::INC_TYPE,
+//        ConnectorInterface::INC_STATUS,
+//        ConnectorInterface::INC_DISCIDS,
+//        ConnectorInterface::INC_MEDIA,
+//        ConnectorInterface::INC_ISRCS,
+//        ConnectorInterface::INC_ARTIST_CREDITS,
+//        ConnectorInterface::INC_VARIOUS_ARTISTS,
+//        ConnectorInterface::INC_ALIASES,
+//        ConnectorInterface::INC_ANNOTATION,
+//        ConnectorInterface::INC_TAGS,
+//        ConnectorInterface::INC_RATINGS,
+//        ConnectorInterface::INC_USER_TAGS,
+//        ConnectorInterface::INC_USER_RATINGS,
+//        ConnectorInterface::INC_RELS_RECORD_LEVEL,
+//        ConnectorInterface::INC_RELS_WORK_LEVEL,
+//        ConnectorInterface::INC_RELS_ARTIST,
+//        ConnectorInterface::INC_RELS_LABEL,
+//        ConnectorInterface::INC_RELS_RECORDING,
+//        ConnectorInterface::INC_RELS_RELEASE,
+//        ConnectorInterface::INC_RELS_RELEASE_GROUPS,
+//        ConnectorInterface::INC_RELS_URL,
+//        ConnectorInterface::INC_RELS_WORK,
+//    );
 }

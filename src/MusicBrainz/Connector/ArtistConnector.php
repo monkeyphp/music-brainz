@@ -35,7 +35,31 @@ namespace MusicBrainz\Connector;
 class ArtistConnector extends AbstractConnector
 {
 
+    protected $searchFields = array(
+        'area',         // artist area
+        'beginarea',    // artist begin area
+        'endarea',      // artist end area
+        'arid',         // MBID of the artist
+        'artist',       // name of the artist
+        'artistaccent',	// name of the artist with any accent characters retained
+        'alias',        // the aliases/misspellings for the artist
+        'begin',        // artist birth date/band founding date
+        'comment',      // artist comment to differentiate similar artists
+        'country',      // the two letter country code for the artist country or 'unknown'
+        'end',          // artist death date/band dissolution date
+        'ended',        // true if know ended even if do not know end date
+        'gender',       // gender of the artist (“male”, “female”, “other”)
+        'ipi',          // IPI code for the artist
+        'sortname',     // artist sortname
+        'tag',          // a tag applied to the artist
+        'type',         // artist type (“person”, “group”, "other" or “unknown”)
+    );
 
+    /**
+     * Array of includes
+     *
+     * @var array
+     */
     protected $includes = array(
         ConnectorInterface::INC_ARTISTS,
         ConnectorInterface::INC_RECORDINGS,
