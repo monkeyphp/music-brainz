@@ -28,6 +28,7 @@ use Exception;
 use InvalidArgumentException;
 use MusicBrainz\InputFilter\BrowseFilter;
 use MusicBrainz\InputFilter\LookupFilter;
+use MusicBrainz\InputFilter\SearchFilter;
 use RuntimeException;
 use Zend\Config\Reader\Json;
 use Zend\Config\Reader\Xml;
@@ -160,11 +161,10 @@ abstract class AbstractConnector implements ConnectorInterface
 
         $options = $inputFilter->getValues();
 
-        $params = $this->parseLookupParams($options);
-
-        $uri = $this->getUri(array($mbid));
-
-        $request = $this->getRequest($uri, $params);
+        $request = $this->getRequest(
+            $this->getUri(array($mbid)),
+            $this->parseLookupParams($options)
+        );
 
         try {
             $response = $this->getResponse($request);
@@ -190,6 +190,11 @@ abstract class AbstractConnector implements ConnectorInterface
     /**
      * Perform a search
      *
+     * Selects the index to be searched, artist, release, release-group,
+     * recording, work, label (track is supported but maps to recording)
+     *
+     * @link http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2/Search
+     *
      * Supported options are:
      * - limit
      * - offset
@@ -203,7 +208,7 @@ abstract class AbstractConnector implements ConnectorInterface
     public function search($query, $options = array())
     {
         $options = array_merge($this->getDefaultOptions(), array('query' => $query), $options);
-        $inputFilter = $this->getInputFilter()->setData($options);
+        $inputFilter = $this->getSearchFilter()->setData($options);
 
         if ($inputFilter->isValid()) {
             $messages = $inputFilter->getMessages();
@@ -211,11 +216,11 @@ abstract class AbstractConnector implements ConnectorInterface
         }
 
         $options = $inputFilter->getValues();
-        $params = $this->parseSearchParams($options);
 
-        $uri = $this->getUri();
-
-        $request = $this->getRequest($uri, $params);
+        $request = $this->getRequest(
+            $this->getUri(),
+            $this->parseSearchParams($options)
+        );
 
         try {
             $response = $this->getResponse($request);
@@ -258,8 +263,9 @@ abstract class AbstractConnector implements ConnectorInterface
     }
 
     /**
+     * Return the complete uri
      *
-     * @param array $path
+     * @param array $path Additional path params
      *
      * @return string
      */
@@ -273,10 +279,12 @@ abstract class AbstractConnector implements ConnectorInterface
     }
 
     /**
+     * Return the Request instance
      *
-     * @param type $uri
-     * @param type $params
-     * @param type $method
+     * @param string $uri    The service uri
+     * @param array  $params Additional request params
+     * @param string $method Http method
+     *
      * @return Request
      * @throws Exception
      */
@@ -294,8 +302,10 @@ abstract class AbstractConnector implements ConnectorInterface
     }
 
     /**
+     * Make the call to the MusicBrainz api and return the response
      *
-     * @param Request $request
+     * @param Request $request The Request instance
+     *
      * @return Response
      * @throws Exception
      * @throws RuntimeException
@@ -348,7 +358,6 @@ abstract class AbstractConnector implements ConnectorInterface
         }
 
         $lookupStrategyClassname = $this->lookupStrategyClassname;
-
         $this->lookupStrategy = new $lookupStrategyClassname();
         return $this->lookupStrategy;
     }
@@ -358,24 +367,55 @@ abstract class AbstractConnector implements ConnectorInterface
 
     }
 
+    /**
+     *
+     *
+     * @return StrategyInterface
+     */
     public function getSearchStrategy()
     {
-
+        if (isset($this->searchStrategy)) {
+            return $this->searchStrategy;
+        }
+        if (! isset($this->searchStrategyClassname)) {
+            throw new \RuntimeException('It appears that the search strategy classname has not been set');
+        }
+        $searchStrategyClassname = $this->searchStrategyClassname;
+        $this->searchStrategy = new $searchStrategyClassname();
+        return $this->searchStrategy;
     }
 
+    /**
+     * Return an instance of LookupFilter
+     *
+     * @return LookupFilter
+     */
     protected function getLookupFilter()
     {
         if (! isset($this->lookupFilter)) {
             $this->lookupFilter = new LookupFilter($this->getFormats(), $this->getIncludes());
         }
-        return $this->lookupStrategy;
+        return $this->lookupFilter;
     }
 
+    /**
+     * Return an instance of SearchFilter
+     *
+     * @return SearchFilter
+     */
     public function getSearchFilter()
     {
-
+        if (! isset($this->searchFilter)) {
+            $this->searchFilter = new SearchFilter();
+        }
+        return $this->searchFilter;
     }
 
+    /**
+     * Return an instance of BrowseFilter
+     *
+     * @return BrowseFilter
+     */
     public function getBrowseFilter()
     {
         if (! isset($this->browseFilter)) {
@@ -394,6 +434,9 @@ abstract class AbstractConnector implements ConnectorInterface
     public function parseBrowseParams($options = array())
     {
         $params = array();
+        if (isset($options['format'])) {
+            $params[self::PARAM_FORMAT] = $options['format'];
+        }
         if (isset($options['limit'])) {
             $params[self::PARAM_LIMIT] = $options['limit'];
         }
@@ -406,6 +449,15 @@ abstract class AbstractConnector implements ConnectorInterface
         return $params;
     }
 
+    /**
+     *
+     *
+query	 Lucene search query, this is mandatory
+limit	 An integer value defining how many entries should be returned. Only values between 1 and 100 (both inclusive) are allowed. If not given, this defaults to 25.
+offset	 Return search results starting at a given offset. Used for paging through more than one page of results.
+     *
+     * @return type
+     */
     public function parseSearchParams($options = array())
     {
         $params = array();
