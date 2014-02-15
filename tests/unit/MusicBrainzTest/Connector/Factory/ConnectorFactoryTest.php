@@ -179,4 +179,107 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('\MusicBrainz\Connector\AreaConnector', $connector);
     }
+
+    /**
+     * Test that we can get the LabelConnector when we supply the label
+     * resource string
+     *
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorLabel()
+    {
+        $connectorFactory = new ConnectorFactory();
+
+        $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_LABEL);
+
+        $this->assertInstanceOf('\MusicBrainz\Connector\LabelConnector', $connector);
+    }
+
+    /**
+     * Test that we can get the RecordingConnector when we supply the recording
+     * resource string
+     *
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorRecording()
+    {
+        $connectorFactory = new ConnectorFactory();
+
+        $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_RECORDING);
+
+        $this->assertInstanceOf('\MusicBrainz\Connector\RecordingConnector', $connector);
+    }
+
+    /**
+     * Test that we can get the UrlConnector when we supply the url resource string
+     *
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorUrl()
+    {
+        $connectorFactory = new ConnectorFactory();
+
+        $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_URL);
+
+        $this->assertInstanceOf('\MusicBrainz\Connector\UrlConnector', $connector);
+    }
+
+    /**
+     * Test that we can get the WorkConnector when we supply the work resource
+     * string
+     *
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorWork()
+    {
+        $connectorFactory = new ConnectorFactory();
+
+        $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_WORK);
+
+        $this->assertInstanceOf('\MusicBrainz\Connector\WorkConnector', $connector);
+    }
+
+    /**
+     * Test that we can get the ReleaseConnector when we supply the release resource
+     * string
+     *
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorRelease()
+    {
+        $connectorFactory = new ConnectorFactory();
+
+        $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_RELEASE);
+
+        $this->assertInstanceOf('\MusicBrainz\Connector\ReleaseConnector', $connector);
+    }
+
+    /**
+     * Test that we can get the ReleaseGroupConnector when we supply the
+     * release group resource string
+     *
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorReleaseGroup()
+    {
+        $connectorFactory = new ConnectorFactory();
+
+        $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_RELEASE_GROUP);
+
+        $this->assertInstanceOf('\MusicBrainz\Connector\ReleaseGroupConnector', $connector);
+    }
+
+    /**
+     * Test that passing an invalid resource string results in an exception
+     * bring thrown
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorThrowsException()
+    {
+        $connectorFactory = new ConnectorFactory();
+
+        $connectorFactory->getConnector('foobar');
+    }
 }
