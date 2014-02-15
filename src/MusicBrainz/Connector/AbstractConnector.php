@@ -35,7 +35,9 @@ use Zend\Config\Reader\Xml;
 use Zend\Http\Client;
 use Zend\Http\Request;
 use Zend\Http\Response;
+use Zend\Stdlib\DispatchableInterface;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+use Zend\Uri\Http;
 
 /**
  * AbstractConnector
@@ -239,6 +241,10 @@ abstract class AbstractConnector implements ConnectorInterface
     /**
      * Return the Client instance
      *
+     * This method will return the instance of Client.
+     * If the Client instance has not already been set, this method
+     * will set it to an instance of Zend\Http\Client
+     *
      * @return Client
      */
     public function getHttpClient()
@@ -252,11 +258,11 @@ abstract class AbstractConnector implements ConnectorInterface
     /**
      * Set the Client instance
      *
-     * @param Client|null $httpClient
+     * @param DispatchableInterface|null $httpClient
      *
      * @return AbstractConnector
      */
-    public function setHttpClient($httpClient = null)
+    public function setHttpClient(DispatchableInterface $httpClient = null)
     {
         $this->httpClient = $httpClient;
         return $this;
@@ -267,7 +273,7 @@ abstract class AbstractConnector implements ConnectorInterface
      *
      * @param array $path Additional path params
      *
-     * @return string
+     * @return Http
      */
     public function getUri($path = array())
     {
@@ -275,20 +281,37 @@ abstract class AbstractConnector implements ConnectorInterface
         foreach ($path as $fragment) {
             $url .= '/' . $fragment;
         }
-        return $url;
+
+        $uri = new Http($url);
+
+        if (! $uri->isValid()) {
+            throw new \Exception('Could not construct a valid Uri');
+        }
+
+        return $uri;
+    }
+
+    /**
+     * Return the MusicBrainz webservice uri
+     *
+     * @return string
+     */
+    public function getServiceUri()
+    {
+        return $this->serviceUri;
     }
 
     /**
      * Return the Request instance
      *
-     * @param string $uri    The service uri
+     * @param Http   $uri    uri instance
      * @param array  $params Additional request params
      * @param string $method Http method
      *
      * @return Request
      * @throws Exception
      */
-    public function getRequest($uri, $params = array(), $method = Request::METHOD_GET)
+    public function getRequest(Http $uri, array $params = array(), $method = Request::METHOD_GET)
     {
         try {
             $request = new Request();
@@ -310,7 +333,7 @@ abstract class AbstractConnector implements ConnectorInterface
      * @throws Exception
      * @throws RuntimeException
      */
-    protected function getResponse(Request $request)
+    public function getResponse(Request $request)
     {
         try {
             $response = $this->getHttpClient()->dispatch($request);
@@ -390,10 +413,13 @@ abstract class AbstractConnector implements ConnectorInterface
      *
      * @return LookupFilter
      */
-    protected function getLookupFilter()
+    public function getLookupFilter()
     {
         if (! isset($this->lookupFilter)) {
-            $this->lookupFilter = new LookupFilter($this->getFormats(), $this->getIncludes());
+            $this->lookupFilter = new LookupFilter(
+                $this->getFormats(),
+                $this->getIncludes()
+            );
         }
         return $this->lookupFilter;
     }
@@ -506,9 +532,9 @@ offset	 Return search results starting at a given offset. Used for paging throug
     {
         return implode(
             self::PARAM_INC_SEPARATOR,
-            array_intersect_key(
+            array_intersect(
                 $includes,
-                array_flip($this->getDefaultIncludes())
+                $this->getDefaultIncludes()
             )
         );
     }
@@ -629,8 +655,20 @@ offset	 Return search results starting at a given offset. Used for paging throug
         return $this;
     }
 
+    /**
+     * Return the array of formats
+     *
+     * @return array
+     * @throws RuntimeException
+     */
     public function getFormats()
     {
+        if (! isset($this->formats)) {
+            $this->formats = array();
+        }
+        if (! is_array($this->formats)) {
+            throw new RuntimeException('Formats should be an array');
+        }
         return $this->formats;
     }
 
@@ -701,14 +739,14 @@ offset	 Return search results starting at a given offset. Used for paging throug
         ConnectorInterface::INC_RATINGS,
         ConnectorInterface::INC_USER_TAGS,
         ConnectorInterface::INC_USER_RATINGS,
-        ConnectorInterface::INC_RECORD_LEVEL_RELS,
-        ConnectorInterface::INC_WORK_LEVEL_RELS,
-        ConnectorInterface::INC_REL_ARTIST,
-        ConnectorInterface::INC_REL_LABEL,
-        ConnectorInterface::INC_REL_RECORDING,
-        ConnectorInterface::INC_REL_RELEASE,
-        ConnectorInterface::INC_REL_RELEASE_GROUPS,
-        ConnectorInterface::INC_REL_URL,
-        ConnectorInterface::INC_REL_WORK,
+        ConnectorInterface::INC_RELS_RECORD_LEVEL,
+        ConnectorInterface::INC_RELS_WORK_LEVEL,
+        ConnectorInterface::INC_RELS_ARTIST,
+        ConnectorInterface::INC_RELS_LABEL,
+        ConnectorInterface::INC_RELS_RECORDING,
+        ConnectorInterface::INC_RELS_RELEASE,
+        ConnectorInterface::INC_RELS_RELEASE_GROUPS,
+        ConnectorInterface::INC_RELS_URL,
+        ConnectorInterface::INC_RELS_WORK,
     );
 }

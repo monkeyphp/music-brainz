@@ -49,12 +49,12 @@ class ArtistConnector extends AbstractConnector
         ConnectorInterface::INC_RATINGS,
         ConnectorInterface::INC_USER_TAGS,
         ConnectorInterface::INC_USER_RATINGS,
-        ConnectorInterface::INC_REL_LABEL,
-        ConnectorInterface::INC_REL_RECORDING,
-        ConnectorInterface::INC_REL_RELEASE,
-        ConnectorInterface::INC_REL_RELEASE_GROUPS,
-        ConnectorInterface::INC_REL_URL,
-        ConnectorInterface::INC_REL_WORK,
+        ConnectorInterface::INC_RELS_LABEL,
+        ConnectorInterface::INC_RELS_RECORDING,
+        ConnectorInterface::INC_RELS_RELEASE,
+        ConnectorInterface::INC_RELS_RELEASE_GROUPS,
+        ConnectorInterface::INC_RELS_URL,
+        ConnectorInterface::INC_RELS_WORK,
     );
 
     /**
