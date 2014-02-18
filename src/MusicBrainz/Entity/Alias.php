@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+
 /**
  * Alias
  *
@@ -34,42 +36,108 @@ namespace MusicBrainz\Entity;
  */
 class Alias
 {
-
+    /**
+     * The locale of the Alias
+     *
+     * @var string|null
+     */
     protected $locale;
 
+    /**
+     * The sortname value of the Alias
+     *
+     * @var string|null
+     */
     protected $sortName;
 
+    /**
+     * The primary value of the Alias
+     *
+     * @var string|null
+     */
     protected $primary;
 
+    /**
+     * Return the locale
+     *
+     * @return string|null
+     */
     public function getLocale()
     {
         return $this->locale;
     }
 
+    /**
+     * Set the locale
+     *
+     * @param string|null $locale
+     *
+     * @throws InvalidArgumentException
+     * @return Alias
+     */
+    public function setLocale($locale = null)
+    {
+        if (! is_null($locale)) {
+            if (! is_string($locale)) {
+                throw new InvalidArgumentException('Expects a string');
+            }
+        }
+        $this->locale = $locale;
+        return $this;
+    }
+
+    /**
+     * Set the sortName value
+     *
+     * @return string|null
+     */
     public function getSortName()
     {
         return $this->sortName;
     }
 
+    /**
+     * Set the sortName value
+     *
+     * @param string|null $sortName
+     *
+     * @throws InvalidArgumentException
+     * @return Alias
+     */
+    public function setSortName($sortName = null)
+    {
+        if (! is_null($sortName)) {
+            if (! is_string($sortName)) {
+                throw new InvalidArgumentException('Expects a string');
+            }
+        }
+        $this->sortName = $sortName;
+        return $this;
+    }
+
+    /**
+     * Return the primary value of the Alias
+     * 
+     * @return string|null
+     */
     public function getPrimary()
     {
         return $this->primary;
     }
 
-    public function setLocale($locale)
+    /**
+     * Set the primary value of the Alias
+     *
+     * @param string|null $primary
+     *
+     * @return Alias
+     * @throws InvalidArgumentException
+     */
+    public function setPrimary($primary = null)
     {
-        $this->locale = $locale;
-        return $this;
-    }
-
-    public function setSortName($sortName)
-    {
-        $this->sortName = $sortName;
-        return $this;
-    }
-
-    public function setPrimary($primary)
-    {
+        if (! is_null($primary) && ! is_string($primary)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
         $this->primary = $primary;
         return $this;
     }
