@@ -105,11 +105,14 @@ class SearchFilter extends InputFilter
             $limit->getFilterChain()->attach(new Int());
             $limit->getValidatorChain()
                 ->attach(new Digits(), true)
-                ->attach(new Between(
-                    array (
-                        'min' => ConnectorInterface::SEARCH_LIMIT_MIN,
-                        'max' => ConnectorInterface::SEARCH_LIMIT_MAX
-                    )), true
+                ->attach(
+                    new Between(
+                        array (
+                            'min' => ConnectorInterface::SEARCH_LIMIT_MIN,
+                            'max' => ConnectorInterface::SEARCH_LIMIT_MAX
+                        )
+                    ),
+                    true
                 );
             $this->limit = $limit;
         }

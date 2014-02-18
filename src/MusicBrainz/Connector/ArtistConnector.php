@@ -35,6 +35,14 @@ namespace MusicBrainz\Connector;
 class ArtistConnector extends AbstractConnector
 {
 
+    /**
+     * Lucene search indexed fields
+     *
+     * Artist search terms with no fields specified search the artist,
+     * sortname and alias fields.
+     *
+     * @var array
+     */
     protected $searchFields = array(
         'area',         // artist area
         'beginarea',    // artist begin area

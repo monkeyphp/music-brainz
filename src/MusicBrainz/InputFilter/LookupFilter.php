@@ -50,7 +50,8 @@ class LookupFilter extends InputFilter
                 array(
                     'haystack' => $formats,
                 )
-            ), true
+            ),
+            true
         );
         $include = new ArrayInput('includes');
         $include->setAllowEmpty(true);
@@ -60,7 +61,8 @@ class LookupFilter extends InputFilter
                 array(
                     'haystack' => $includes,
                 )
-            ), true
+            ),
+            true
         );
 
         $this->add($format)

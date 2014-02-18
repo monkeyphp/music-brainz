@@ -1,6 +1,6 @@
 <?php
 /**
- * Tag.php
+ * AliasList.php
  *
  * @category    MusicBrainz
  * @package     MusicBrainz
@@ -25,38 +25,14 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Tag
+ * AliasList
  *
  * @category    MusicBrainz
  * @package     MusicBrainz
  * @subpackage  MusicBrainz\Entity
  * @author      David White <david@monkeyphp.com>
  */
-class Tag
+class AliasList
 {
-    protected $name;
-
-    protected $count;
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function setCount($count)
-    {
-        $this->count = $count;
-        return $this;
-    }
+    //put your code here
 }

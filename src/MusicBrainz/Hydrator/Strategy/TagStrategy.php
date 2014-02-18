@@ -1,6 +1,6 @@
 <?php
 /**
- * AreaStrategy.php
+ * TagStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
@@ -24,48 +24,25 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\Area;
-use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * AreaStrategy
+ * TagStrategy
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-class AreaStrategy implements StrategyInterface
+class TagStrategy implements StrategyInterface
 {
-
-    protected $hydrator;
-
-    public function getHydrator()
-    {
-        if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
-            $this->hydrator = $hydrator;
-        }
-        return $this->hydrator;
-    }
-
     public function extract($value)
     {
-        if (! $value instanceof Area) {
-            return null;
-        }
-        return $this->getHydrator()->extract($value);
+
     }
 
     public function hydrate($value)
     {
-        if (! is_array($value)) {
-            return null;
-        }
-        if (isset($value['sort-name'])) {
-            $value['sortName'] = $value['sort-name'];
-            unset($value['sort-name']);
-        }
-        return $this->getHydrator()->hydrate($value, new Area());
+
     }
 }

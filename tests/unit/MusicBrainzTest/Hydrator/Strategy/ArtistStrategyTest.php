@@ -1,10 +1,10 @@
 <?php
 /**
- * Area.php
+ * ArtistStrategyTest.php
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Entity
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Hydrator\Strategy
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
  * Copyright (C) 2014  David White
@@ -22,57 +22,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-namespace MusicBrainz\Entity;
+namespace MusicBrainzTest\Hydrator\Strategy;
+
+use PHPUnit_Framework_TestCase;
 
 /**
- * Area
+ * ArtistStrategyTest
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Entity
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Hydrator\Strategy
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-class Area
+class ArtistStrategyTest extends PHPUnit_Framework_TestCase
 {
-
-    protected $mbid;
-
-    protected $name;
-
-    protected $sortName;
-
-
-
-    public function getName()
+    /**
+     * Test that attempting to hydrate with a non array parameter
+     * returns null
+     *
+     * @covers \MusicBrainz\Hydrator\Strategy\ArtistStrategy::hydrate
+     */
+    public function testHydrateReturnsNull()
     {
-        return $this->name;
-    }
 
-    public function getSortName()
-    {
-        return $this->sortName;
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function setSortName($sortName)
-    {
-        $this->sortName = $sortName;
-        return $this;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
     }
 }

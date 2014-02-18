@@ -1,13 +1,6 @@
 <?php
 /**
- * AreaStrategy.php
- *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
- *
- * Copyright (C) 2014  David White
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,52 +13,60 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\Area;
+use MusicBrainz\Entity\AliasList;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * AreaStrategy
+ * Description of AliasListStrategy
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author David White <david@monkeyphp.com>
  */
-class AreaStrategy implements StrategyInterface
+class AliasListStrategy implements StrategyInterface
 {
-
+    /**
+     * Instance of ClassMethods
+     *
+     * @var ClassMethods
+     */
     protected $hydrator;
 
-    public function getHydrator()
+    protected function getHydrator()
     {
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
-            $this->hydrator = $hydrator;
+            $this->hydrator = new ClassMethods();
         }
         return $this->hydrator;
     }
 
     public function extract($value)
     {
-        if (! $value instanceof Area) {
-            return null;
-        }
-        return $this->getHydrator()->extract($value);
+
     }
 
+    /**
+     *
+     * @param mixed $value
+     *
+     * @return AliasList
+     */
     public function hydrate($value)
     {
-        if (! is_array($value)) {
+        if (! is_array($value) || ! isset($value['alias']) || ! is_array($value['alias'])) {
             return null;
         }
-        if (isset($value['sort-name'])) {
-            $value['sortName'] = $value['sort-name'];
-            unset($value['sort-name']);
+        $aliases = [];
+        $aliasStrategy = new AliasStrategy();
+        foreach ($value['alias'] as $index => $alias) {
+            $aliases[] = $aliasStrategy->hydrate($alias);
         }
-        return $this->getHydrator()->hydrate($value, new Area());
+        $values['aliases'] = $aliases;
+        unset($value['alias']);
+        return $this->getHydrator()->hydrate($values, new AliasList());
     }
 }

@@ -56,9 +56,9 @@ Create a default instance of MusicBrainz class.
 
     $ vendor/bin/codecept generate:phpunit unit MusicBrainzTest/Entity/Alias
 
-## Run the Codeception tests
+## Run the Codeception unit tests
 
-    $ vendor/bin/codecep run
+    $ vendor/bin/codecept run unit
 
 
 ## License

@@ -194,7 +194,10 @@ abstract class AbstractConnector implements ConnectorInterface
      * @param type $mbid
      * @param type $options
      */
-    public function browse($mbid, $options = array()) {}
+    public function browse($mbid, $options = array())
+    {
+        // nothing
+    }
 
     /**
      * Perform a search
@@ -241,8 +244,6 @@ abstract class AbstractConnector implements ConnectorInterface
 
             $reader = $this->getReader($options['format']);
             $data = $reader->fromString($body);
-
-//            print_r($data);
 
             return $this->getSearchStrategy()->hydrate($data);
 
@@ -357,7 +358,7 @@ abstract class AbstractConnector implements ConnectorInterface
                 throw new RuntimeException($message);
             }
             return $response;
-        } catch(Exception $exception) {
+        } catch (Exception $exception) {
             throw $exception;
         }
     }
@@ -490,10 +491,15 @@ abstract class AbstractConnector implements ConnectorInterface
 
     /**
      *
-     *
-query	 Lucene search query, this is mandatory
-limit	 An integer value defining how many entries should be returned. Only values between 1 and 100 (both inclusive) are allowed. If not given, this defaults to 25.
-offset	 Return search results starting at a given offset. Used for paging through more than one page of results.
+     * query
+     * Lucene search query, this is mandatory
+     * limit
+     * An integer value defining how many entries should be returned.
+     * Only values between 1 and 100 (both inclusive) are allowed.
+     * If not given, this defaults to 25.
+     * offset
+     * Return search results starting at a given offset.
+     * Used for paging through more than one page of results.
      *
      * @return type
      */
