@@ -7,7 +7,7 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\ArtistSearch;
-use MusicBrainz\Hydrator\Strategy\ArtistStrategy;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 /**
  * Description of ArtistsStrategy
@@ -16,46 +16,46 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class ArtistSearchStrategy implements StrategyInterface
 {
-    
-    protected $artistStrategy;
-    
-    protected function getArtistStrategy()
+    /**
+     * Instance of ClassMethods
+     *
+     * @var ClassMethods
+     */
+    protected $hydrator;
+
+    /**
+     * Return an instance of ClassMethods
+     *
+     * @return ClassMethods
+     */
+    protected function getHydrator()
     {
-        if (! isset($this->artistStrategy)) {
-            $this->artistStrategy = new ArtistStrategy();
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods();
+            $hydrator->addStrategy('artistList', new ArtistListStrategy());
+            $this->hydrator = $hydrator;
         }
-        return $this->artistStrategy;
+        return $this->hydrator;
     }
-    
+
     public function extract($value)
     {
-        
+
     }
-    
+
     public function hydrate($value)
     {
-        $artists = array();
-        $count = $offset = 0;
-        
-        if (is_array($value)) {
-            
-            if (array_key_exists('artist-list', $value) && 
-                is_array($value['artist-list'])
-            ) {
-                $list   = $value['artist-list'];
-                $offset = (isset($list['offset'])) ? (int)$list['offset'] : 0;
-                $count  = (isset($list['count']))  ? (int)$list['count']  : 0;
-                
-                if (isset($list['artist'])) {
-                    if ($count === 1) {
-                        $list['artist'] = array($list['artist']);
-                    } 
-                    foreach ($list['artist'] as $data) {
-                        $artists[] = $this->getArtistStrategy()->hydrate($data);
-                    }
-                }
-            }
+        if (! is_array($value)) {
+            return null;
         }
-        return new ArtistSearch($artists, $count, $offset);
+
+        if (! isset($value['artist-list']) || ! is_array($value['artist-list'])) {
+            return null;
+        }
+
+        $value['artistList'] = $value['artist-list'];
+        unset($value['artist-list']);
+
+        return $this->getHydrator()->hydrate($value, new ArtistSearch());
     }
 }

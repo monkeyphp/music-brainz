@@ -38,18 +38,33 @@ use PHPUnit_Framework_TestCase;
 class ArtistConnectorTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can search for a artist
+     * Test that we can search for an artist
      *
      * @covers \MusicBrainz\Connector\ArtistConnector::search
      */
     public function testSearch()
     {
+        $body = file_get_contents(__DIR__ . '/../../../_data/artist/search/metallica.xml');
+
+        $mockResponse = $this->getMock('\Zend\Http\Response', array('getBody', 'isSuccess'));
+        $mockResponse->expects($this->once())
+            ->method('getBody')
+            ->will($this->returnValue($body));
+        $mockResponse->expects($this->once())
+            ->method('isSuccess')->will($this->returnValue(200));
+
+        $mockClient = $this->getMock('\Zend\Http\Client');
+        $mockClient->expects($this->once())
+            ->method('dispatch')
+            ->with($this->isInstanceOf('\Zend\Http\Request'))
+            ->will($this->returnValue($mockResponse));
+
         $connector = new ArtistConnector();
+        $connector->setHttpClient($mockClient);
 
         $artistSearch = $connector->search('metallica');
 
-        foreach ($artistSearch->getArtists() as $artist) {
-            //var_dump($artist->getName());
-        }
+        $this->assertInstanceOf('\MusicBrainz\Entity\ArtistSearch', $artistSearch);
+        $this->assertEquals(1, $artistSearch->getArtistList()->getCount());
     }
 }
