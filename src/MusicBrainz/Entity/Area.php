@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Entity;
 
+use Zend\Validator\Exception\InvalidArgumentException;
+
 /**
  * Area
  *
@@ -34,31 +36,66 @@ namespace MusicBrainz\Entity;
  */
 class Area
 {
-
+    /**
+     * The mbid value of the Area
+     *
+     * 1f40c6e1-47ba-4e35-996f-fe6ee5840e62
+     *
+     * @var string|null
+     */
     protected $mbid;
 
     protected $name;
 
     protected $sortName;
 
+    /**
+     * Return the id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->mbid;
+    }
 
+    /**
+     * Set the mbid
+     *
+     * @param string $id
+     *
+     * @return Area
+     * @throws InvalidArgumentException
+     */
+    public function setId($id = null)
+    {
+        if (! is_null($id)) {
+            if (! is_string($id) || ! preg_match('#\A[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\z#', $id)) {
+                throw new InvalidArgumentException('The supplied id is invalid');
+            }
+        }
+        $this->mbid = $id;
+        return $this;
+    }
 
+    /**
+     * Return the name value of the Area
+     *
+     * @return string|null
+     */
     public function getName()
     {
         return $this->name;
     }
 
-    public function getSortName()
-    {
-        return $this->sortName;
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setName($name)
+    /**
+     * Set the name value of the Area
+     *
+     * @param string|null $name
+     *
+     * @return Area
+     */
+    public function setName($name = null)
     {
         $this->name = $name;
         return $this;
@@ -70,9 +107,9 @@ class Area
         return $this;
     }
 
-    public function setId($id)
+    public function getSortName()
     {
-        $this->id = $id;
-        return $this;
+        return $this->sortName;
     }
+
 }
