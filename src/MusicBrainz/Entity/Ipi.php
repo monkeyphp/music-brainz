@@ -1,13 +1,8 @@
 <?php
-/**
- * AliasList.php
- *
- * @category    MusicBrainz
- * @package     MusicBrainz
- * @subpackage  MusicBrainz\Entity
- * @author      David White <david@monkeyphp.com>
- *
- * Copyright (C) David White <david@monkeyphp.com>
+
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+  The string doesn't match the expected date/time format. The string to parse was: "20-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,17 +20,11 @@
 namespace MusicBrainz\Entity;
 
 /**
- * AliasList
+ * Description of Ipi
  *
- * @category    MusicBrainz
- * @package     MusicBrainz
- * @subpackage  MusicBrainz\Entity
- * @author      David White <david@monkeyphp.com>
+ * @author David White <david@monkeyphp.com>
  */
-class AliasList
+class Ipi
 {
-    public function addAlias(Alias $alias)
-    {
-        // @todo
-    }
+    //put your code here
 }

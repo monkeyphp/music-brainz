@@ -1,6 +1,6 @@
 <?php
 /**
- * LifeSpan.php
+ * IpiList.php
  *
  * @category    MusicBrainz
  * @package     MusicBrainz
@@ -25,60 +25,14 @@
 namespace MusicBrainz\Entity;
 
 /**
- * LifeSpan
+ * Description of IpiList
  *
- * @category    MusicBrainz
- * @package     MusicBrainz
- * @subpackage  MusicBrainz\Entity
- * @author      David White <david@monkeyphp.com>
+ * @author David White <david@monkeyphp.com>
  */
-class LifeSpan
+class IpiList
 {
-    protected $begin;
-
-    protected $ended;
-
-    /**
-     * @example 1981-10
-     *
-     * @return type
-     */
-    public function getBegin()
+    public function addIpi(Ipi $ipi)
     {
-        return $this->begin;
-    }
-
-    public function setBegin($begin)
-    {
-        $this->begin = $begin;
-        return $this;
-    }
-
-    /**
-     * Return the ended value
-     *
-     * @exmple false
-     *
-     * @return boolean|null
-     */
-    public function getEnded()
-    {
-        return $this->ended;
-    }
-
-    /**
-     * Set the ended value
-     * 
-     * @param null|boolean $ended
-     *
-     * @return LifeSpan
-     */
-    public function setEnded($ended = null)
-    {
-        if (! is_null($ended)) {
-            $ended = (boolean)$ended;
-        }
-        $this->ended = $ended;
         return $this;
     }
 }

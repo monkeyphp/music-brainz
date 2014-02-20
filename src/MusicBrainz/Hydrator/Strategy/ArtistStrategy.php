@@ -50,8 +50,9 @@ class ArtistStrategy implements StrategyInterface
      *
      * @return ClassMethods
      */
-    public function getHydrator()
+    protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
             $hydrator->addStrategy('area', new AreaStrategy());
@@ -63,6 +64,7 @@ class ArtistStrategy implements StrategyInterface
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

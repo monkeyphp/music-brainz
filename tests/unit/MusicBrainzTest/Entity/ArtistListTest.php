@@ -46,7 +46,7 @@ class ArtistListTest extends PHPUnit_Framework_TestCase
     public function testSetArtists()
     {
         $artists = array(
-            new Artist()
+            new Artist(),
         );
         $artistList = new ArtistList();
 
@@ -84,6 +84,7 @@ class ArtistListTest extends PHPUnit_Framework_TestCase
     /**
      * Test that we can set the count property
      *
+     * @covers \MusicBrainz\Entity\ArtistList::getCount
      * @covers \MusicBrainz\Entity\ArtistList::setCount
      */
     public function testGetSetCount()
@@ -98,7 +99,8 @@ class ArtistListTest extends PHPUnit_Framework_TestCase
     /**
      * Test that we can set the offset property
      *
-     * @covers \MusicBrain\Entity\ArtistList::setOffset
+     * @covers \MusicBrainz\Entity\ArtistList::getOffset
+     * @covers \MusicBrainz\Entity\ArtistList::setOffset
      */
     public function testGetSetOffset()
     {
@@ -121,7 +123,9 @@ class ArtistListTest extends PHPUnit_Framework_TestCase
     public function testIterator()
     {
         $artists = array(
-            new Artist(), new Artist(), new Artist()
+            new Artist(),
+            new Artist(),
+            new Artist()
         );
         $artistList = new ArtistList();
         $artistList->setArtists($artists);

@@ -24,6 +24,9 @@
  */
 namespace MusicBrainz\Entity;
 
+use Iterator;
+use Traversable;
+
 /**
  * TagList
  *
@@ -32,7 +35,113 @@ namespace MusicBrainz\Entity;
  * @subpackage  MusicBrainz\Entity
  * @author      David White <david@monkeyphp.com>
  */
-class TagList
+class TagList implements Iterator
 {
-    //put your code here
+    /**
+     * The array of Tags
+     *
+     * @var array
+     */
+    protected $tags = array();
+
+    /**
+     * The current position of the Iterator
+     *
+     * @var int
+     */
+    protected $position = 0;
+
+    /**
+     * Set the tags
+     *
+     * @param Traversable|array $tags
+     *
+     * @return TagList
+     */
+    public function setTags($tags = array())
+    {
+        if (is_array($tags) || ($tags instanceof Traversable)) {
+            foreach ($tags as $tag) {
+                if ($tag instanceof Tag) {
+                    $this->addTag($tag);
+                }
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Add a Tag instance to the tags array
+     *
+     * @param Tag $tag The Tag to add
+     *
+     * @return TagList
+     */
+    public function addTag(Tag $tag)
+    {
+        if (! in_array($tag, $this->tags, true)) {
+            $this->tags[] = $tag;
+        }
+        return $this;
+    }
+
+    /**
+     * Return the tags array
+     *
+     * @return array
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return Tag
+     */
+    public function current()
+    {
+        return $this->tags[$this->position];
+    }
+
+    /**
+     * Iterator implementation
+     * 
+     * @return int
+     */
+    public function key()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return boolean
+     */
+    public function valid()
+    {
+        return isset($this->tags[$this->position]);
+    }
 }

@@ -24,7 +24,9 @@
  */
 namespace MusicBrainz\Entity;
 
-use Zend\Validator\Exception\InvalidArgumentException;
+use InvalidArgumentException;
+
+
 
 /**
  * Area
@@ -45,8 +47,18 @@ class Area
      */
     protected $mbid;
 
+    /**
+     * The name of the Area
+     *
+     * @var string|null
+     */
     protected $name;
 
+    /**
+     * The sortName value of the Area
+     *
+     * @var string|null
+     */
     protected $sortName;
 
     /**
@@ -93,23 +105,42 @@ class Area
      *
      * @param string|null $name
      *
+     * @throws InvalidArgumentException
      * @return Area
      */
     public function setName($name = null)
     {
+        if (! is_null($name) && ! is_string($name)) {
+            throw new InvalidArgumentException('Expects a name');
+        }
         $this->name = $name;
         return $this;
     }
 
-    public function setSortName($sortName)
+    /**
+     * Set the sortName value
+     *
+     * @param string|null $sortName
+     *
+     * @throws InvalidArgumentException
+     * @return Area
+     */
+    public function setSortName($sortName = null)
     {
+        if (! is_null($sortName) && ! is_string($sortName)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
         $this->sortName = $sortName;
         return $this;
     }
 
+    /**
+     * Return the sortName value of the Area
+     *
+     * @return string|null
+     */
     public function getSortName()
     {
         return $this->sortName;
     }
-
 }

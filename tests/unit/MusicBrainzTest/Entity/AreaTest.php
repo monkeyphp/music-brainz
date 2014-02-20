@@ -24,8 +24,10 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use InvalidArgumentException;
 use MusicBrainz\Entity\Area;
 use PHPUnit_Framework_TestCase;
+use stdClass;
 
 /**
  * AreaTest
@@ -63,6 +65,66 @@ class AreaTest extends PHPUnit_Framework_TestCase
     public function testSetIdThrowsException()
     {
         $area = new Area();
-        $area->setId(new \stdClass());
+        $area->setId(new stdClass());
+    }
+
+    /**
+     * Test that we can get and set the name
+     *
+     * @covers \MusicBrainz\Entity\Area::getName
+     * @covers \MusicBrainz\Entity\Area::setName
+     */
+    public function testGetSetName()
+    {
+        $area = new Area();
+        $name = 'US';
+
+        $this->assertNull($area->getName());
+        $this->assertSame($area, $area->setName($name));
+        $this->assertEquals($name, $area->getName());
+    }
+
+    /**
+     * Test that attempting to set the name with an invalid parameter
+     * results in an exception being throw
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Area::setName
+     */
+    public function testSetNameThrowsException()
+    {
+        $area = new Area();
+
+        $area->setName(new stdClass());
+    }
+
+    /**
+     * Test that we can get and set the sortName value
+     *
+     * @covers \MusicBrainz\Entity\Area::getSortName
+     * @covers \MusicBrainz\Entity\Area::setSortName
+     */
+    public function testGetSetSortName()
+    {
+        $area = new Area();
+        $sortName = 'United States';
+
+        $this->assertNull($area->getSortName());
+        $this->assertSame($area, $area->setSortName($sortName));
+        $this->assertEquals($sortName, $area->getSortName());
+    }
+
+    /**
+     * Test that attempting to set the sortName with an invalid parameter
+     * results in an excpetion being thrown
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Area::setSortName
+     */
+    public function testSetSortNameThrowsException()
+    {
+        $area = new Area();
+
+        $area->setSortName(new stdClass());
     }
 }

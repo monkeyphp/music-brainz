@@ -232,7 +232,7 @@ class Artist
     /**
      * Return the name of the Artist
      *
-     * @return string|nul
+     * @return string|null
      */
     public function getName()
     {
@@ -272,10 +272,14 @@ class Artist
      *
      * @param string|null $sortName
      *
+     * @throws InvalidArgumentException
      * @return Artist
      */
     public function setSortName($sortName = null)
     {
+        if (! is_null($sortName) && ! is_string($sortName)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
         $this->sortName = $sortName;
         return $this;
     }
@@ -350,19 +354,38 @@ class Artist
     }
 
     /**
+     * Add an Alias to the Artist
+     *
+     * @param Alias $alias
+     *
+     * @return Artist
+     */
+    public function addAlias(Alias $alias)
+    {
+        $this->getAliasList()->addAlias($alias);
+        return $this;
+    }
+
+    /**
      * Return the AliasList
      *
-     * @return AliasList|null
+     * If the AliasList has not already been set, this method will
+     * create a new AliasList instance
+     *
+     * @return AliasList
      */
     public function getAliasList()
     {
+        if (! isset($this->aliasList)) {
+            $this->aliasList = new AliasList();
+        }
         return $this->aliasList;
     }
 
     /**
      * Set the AliasList
      *
-     * @param \MusicBrainz\Entity\AliasList $aliasList
+     * @param AliasList $aliasList
      *
      * @return Artist
      */
@@ -379,13 +402,16 @@ class Artist
      */
     public function getIpiList()
     {
+        if (! isset($this->ipiList)) {
+            $this->ipiList = new IpiList();
+        }
         return $this->ipiList;
     }
 
     /**
      * Set the IpiList
      *
-     * @param \MusicBrainz\Entity\IpiList $ipiList
+     * @param IpiList $ipiList
      *
      * @return Artist
      */
@@ -396,25 +422,54 @@ class Artist
     }
 
     /**
+     * Add an Ipi to the Artist
+     *
+     * @param \MusicBrainz\Entity\Ipi $ipi
+     *
+     * @return Artist
+     */
+    public function addIpi(Ipi $ipi)
+    {
+        $this->getIpiList()->addIpi($ipi);
+        return $this;
+    }
+
+    /**
      * Return the TagList
      *
      * @return TagList
      */
     public function getTagList()
     {
+        if (! isset($this->tagList)) {
+            $this->tagList = new TagList();
+        }
         return $this->tagList;
     }
 
     /**
      * Set the TagList
      *
-     * @param \MusicBrainz\Entity\TagList $tagList
+     * @param TagList $tagList
      *
      * @return Artist
      */
     public function setTagList(TagList $tagList = null)
     {
         $this->tagList = $tagList;
+        return $this;
+    }
+
+    /**
+     * Add a Tag to the Artist
+     *
+     * @param Tag $tag
+     *
+     * @return Artist
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->getTagList()->addTag($tag);
         return $this;
     }
 
@@ -437,6 +492,11 @@ class Artist
      */
     public function setScore($score = null)
     {
+        $score = (int)$score;
+
+        if (! ($score >= 0 && 100 <= $score)) {
+            throw new InvalidArgumentException('Expects a score between 0 and 100');
+        }
         $this->score = $score;
         return $this;
     }
@@ -456,10 +516,14 @@ class Artist
      *
      * @param string|null $gender
      *
+     * @throws InvalidArgumentException
      * @return Artist
      */
     public function setGender($gender = null)
     {
+        if (! is_null($gender) && ! is_string($gender)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
         $this->gender = $gender;
         return $this;
     }
@@ -479,10 +543,14 @@ class Artist
      *
      * @param string|null $disambiguation
      *
+     * @throws InvalidArgumentException
      * @return Artist
      */
     public function setDisambiguation($disambiguation = null)
     {
+        if (! is_null($disambiguation) && ! is_string($disambiguation)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
         $this->disambiguation = $disambiguation;
         return $this;
     }
@@ -502,10 +570,14 @@ class Artist
      *
      * @param string|null $country
      *
+     * @throws InvalidArgumentException
      * @return Artist
      */
     public function setCountry($country = null)
     {
+        if (! is_null($country) && ! is_string($country)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
         $this->country = $country;
         return $this;
     }

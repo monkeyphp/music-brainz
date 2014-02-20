@@ -25,10 +25,17 @@
 namespace MusicBrainzTest\Entity;
 
 use InvalidArgumentException;
+use MusicBrainz\Entity\Alias;
+use MusicBrainz\Entity\AliasList;
 use MusicBrainz\Entity\Area;
 use MusicBrainz\Entity\Artist;
+use MusicBrainz\Entity\Ipi;
+use MusicBrainz\Entity\IpiList;
 use MusicBrainz\Entity\LifeSpan;
+use MusicBrainz\Entity\Tag;
+use MusicBrainz\Entity\TagList;
 use PHPUnit_Framework_TestCase;
+use stdClass;
 
 /**
  * ArtistTest
@@ -91,6 +98,21 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that passing an invalid type to setType results
+     * in an exception being throw
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setType
+     */
+    public function testSetTypeThrowsException()
+    {
+        $artist = new Artist();
+        $type = new stdClass();
+
+        $artist->setType($type);
+    }
+
+    /**
      * Test that we can get and set the name
      *
      * @covers \MusicBrainz\Entity\Artist::getName
@@ -104,6 +126,21 @@ class ArtistTest extends PHPUnit_Framework_TestCase
         $this->assertNull($artist->getName());
         $this->assertSame($artist, $artist->setName($name));
         $this->assertEquals($name, $artist->getName());
+    }
+
+    /**
+     * Test that passing an invalid name to setName results in
+     * an exception
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setName
+     */
+    public function testSetNameThrowsException()
+    {
+        $artist = new Artist();
+        $name = new stdClass();
+
+        $artist->setName($name);
     }
 
     /**
@@ -170,19 +207,126 @@ class ArtistTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($lifeSpan, $artist->getLifeSpan());
     }
 
+    /**
+     * Test that we can get the default alias list
+     *
+     * @covers \MusicBrainz\Entity\Artist::getAliasList
+     */
+    public function testGetDefaultAliasList()
+    {
+        $artist = new Artist();
+
+        $aliasList = $artist->getAliasList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\AliasList', $aliasList);
+    }
+
+    /**
+     * Test that we can get and set the aliasList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getAliasList
+     * @covers \MusicBrainz\Entity\Artist::setAliasList
+     */
     public function testGetSetAliasList()
     {
+        $artist = new Artist();
+        $aliasList = new AliasList();
 
+        $this->assertSame($artist, $artist->setAliasList($aliasList));
+        $this->assertSame($aliasList, $artist->getAliasList());
     }
 
+    /**
+     * Test that we can add an Alias
+     *
+     * @covers \MusicBrainz\Entity\Artist::addAlias
+     */
+    public function testAddAlias()
+    {
+        $artist = new Artist();
+        $alias = new Alias();
+
+        $this->assertSame($artist, $artist->addAlias($alias));
+    }
+
+    /**
+     * Test that we can get and set the IpiList
+     *
+     * @covers \MusicBrainz\Entity\Artist::setIpiList
+     * @covers \MusicBrainz\Entity\Artist::setIpiList
+     */
     public function testGetSetIpiList()
     {
+        $artist = new Artist();
+        $ipiList = new IpiList();
 
+        $this->assertSame($artist, $artist->setIpiList($ipiList));
+        $this->assertSame($ipiList, $artist->getIpiList());
     }
 
+    /**
+     * Test that we can get the default instance of IpiList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getIpiList
+     */
+    public function testGetIpiListReturnsDefault()
+    {
+        $artist = new Artist();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\IpiList', $artist->getIpiList());
+    }
+
+    /**
+     * Test that we can add an Ipi to the Artist
+     *
+     * @covers \MusicBrainz\Entity\Artist::addIpi
+     */
+    public function testAddIpi()
+    {
+        $artist = new Artist();
+        $ipi = new Ipi();
+
+        $this->assertSame($artist, $artist->addIpi($ipi));
+    }
+
+    /**
+     * Test that we can get and set the TagList
+     *
+     * @covers \MusicBrainz\Entity\Artist::setTagList
+     * @covers \MusicBrainz\Entity\Artist::setTagList
+     */
     public function testGetSetTagList()
     {
+        $artist = new Artist();
+        $tagList = new TagList();
 
+        $this->assertSame($artist, $artist->setTagList($tagList));
+        $this->assertSame($tagList, $artist->getTagList());
+    }
+
+    /**
+     * Test that we can get the default TagList instance
+     *
+     * @covers \MusicBrainz\Entity\Artist::getTagList
+     */
+    public function testGetDefaultTagList()
+    {
+        $artist = new Artist();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\TagList', $artist->getTagList());
+    }
+
+    /**
+     * Test that we can add a Tag
+     *
+     * @covers \MusicBrainz\Entity\Artist::addTag
+     */
+    public function testAddTag()
+    {
+        $artist = new Artist();
+        $tag = new Tag();
+
+        $this->assertSame($artist, $artist->addTag($tag));
     }
 
     /**
