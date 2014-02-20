@@ -24,6 +24,15 @@
  */
 namespace MusicBrainzTest\Connector;
 
+use Exception;
+use InvalidArgumentException;
+use PHPUnit_Framework_TestCase;
+use RuntimeException;
+use stdClass;
+use Zend\Http\Request;
+use Zend\Http\Response;
+use Zend\Uri\Http;
+
 /**
  * AbstractConnectorTest
  *
@@ -32,7 +41,7 @@ namespace MusicBrainzTest\Connector;
  * @subpackage MusicBrainzTest\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
-class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
+class AbstractConnectorTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test that we can get the default instance of HttpClient
@@ -109,9 +118,9 @@ class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
     public function testGetRequest()
     {
         $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
-        $uri = new \Zend\Uri\Http();
+        $uri = new Http();
         $params = array('foo' => 'bar', 'eggs' => 'ham');
-        $method = \Zend\Http\Request::METHOD_GET;
+        $method = Request::METHOD_GET;
 
         $request = $connector->getRequest($uri, $params, $method);
 
@@ -119,11 +128,55 @@ class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException Exception
+     * @covers \MusicBrainz\Connector\AbstractConnector::getRequest
+     */
+    public function testGetRequestThrowsException()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $uri = new Http();
+        $params = array('foo' => 'bar', 'eggs' => 'ham');
+        $method = new stdClass();
+
+        $connector->getRequest($uri, $params, $method);
+    }
+
+    /**
      * @covers \MusicBrainz\Connector\AbstractConnector::getResponse
      */
     public function testGetResponse()
     {
-        $this->markTestIncomplete();
+        $response = new Response();
+        $response->setStatusCode(200);
+        $mockClient = $this->getMock('\Zend\Http\Client', array('dispatch'));
+        $mockClient->expects($this->once())
+            ->method('dispatch')
+            ->with($this->isInstanceOf('\Zend\Http\Request'))
+            ->will($this->returnValue($response));
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector->setHttpClient($mockClient);
+
+        $this->assertSame($response, $connector->getResponse(new Request()));
+    }
+
+    /**
+     * @expectedException RuntimeException
+     * @covers \MusicBrainz\Connector\AbstractConnector::getResponse
+     */
+    public function testGetResponseThrowsException()
+    {
+        $response = new Response();
+        $response->setStatusCode(500);
+
+        $mockClient = $this->getMock('\Zend\Http\Client', array('dispatch'));
+        $mockClient->expects($this->once())
+            ->method('dispatch')
+            ->with($this->isInstanceOf('\Zend\Http\Request'))
+            ->will($this->returnValue($response));
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector->setHttpClient($mockClient);
+
+        $connector->getResponse(new Request());
     }
 
     /**
@@ -193,7 +246,11 @@ class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSetBrowseFilter()
     {
-        $this->markTestIncomplete();
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+
+        $browseFilter = $connector->getBrowseFilter();
+
+        $this->assertInstanceOf('\MusicBrainz\InputFilter\BrowseFilter', $browseFilter);
     }
 
     /**
@@ -231,15 +288,44 @@ class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseSearchParams()
     {
-        $this->markTestIncomplete();
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $options = array(
+            'format' => 'xml',
+            'limit' => 10,
+            'offset' => 1,
+            'query' => 'name:metallica'
+        );
+
+        $params = $connector->parseSearchParams($options);
+
+        $this->assertInternalType('array', $params);
+        $this->assertArrayHasKey('fmt', $params);
+        $this->assertArrayHasKey('limit', $params);
+        $this->assertArrayHasKey('offset', $params);
+        $this->assertArrayHasKey('query', $params);
     }
 
     /**
+     * Test that we can parse the options into an array of request params
+     *
      * @covers \MusicBrainz\Connector\AbstractConnector::parseLookupParams
      */
     public function testParseLookupParams()
     {
-        $this->markTestIncomplete();
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $options = array(
+            'format' => 'json',
+            'includes' => array(
+                'artists',
+                'recordings',
+            )
+        );
+
+        $params = $connector->parseLookupParams($options);
+
+        $this->assertInternalType('array', $params);
+        $this->assertArrayHasKey('fmt', $params);
+        $this->assertArrayHasKey('inc', $params);
     }
 
     /**
@@ -344,4 +430,129 @@ class AbstractConnectorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($connector, $connector->setDefaultFormat($format));
         $this->assertEquals($format, $connector->getDefaultFormat());
     }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultFormat
+     */
+    public function testSetDefaultFormatThrowsException()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+
+        $connector->setDefaultFormat(new stdClass());
+    }
+
+    public function testGetDefaultIncludes()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testGetDefaultLimit()
+    {
+        $this->markTestIncomplete();
+    }
+
+    /**
+     * Test that we can get and set the default limit
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultLimit
+     * @covers \MusicBrainz\Connector\AbstractConnector::getDefaultLimit
+     */
+    public function testSetDefaultLimit()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $defaultLimit = 30;
+
+        $this->assertEquals(\MusicBrainz\Connector\ConnectorInterface::SEARCH_LIMIT_DEFAULT, $connector->getDefaultLimit());
+        $this->assertSame($connector, $connector->setDefaultLimit($defaultLimit));
+        $this->assertEquals($defaultLimit, $connector->getDefaultLimit());
+    }
+
+    /**
+     * Test that an exception is throw if a non scalar value is passed to
+     * setDefaultLimit
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultLimit
+     */
+    public function testSetDefaultLimitThrowsException()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+
+        $connector->setDefaultLimit(new stdClass());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultLimit
+     */
+    public function testSetDefaultLimitTooLow()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $tooLow = -1;
+
+        $connector->setDefaultLimit($tooLow);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultLimit
+     */
+    public function testSetDefaultLimitTooHigh()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $tooHigh = 101;
+
+        $connector->setDefaultLimit($tooHigh);
+    }
+
+    public function testGetDefaultOffset()
+    {
+        $this->markTestIncomplete();
+    }
+
+    /**
+     * Test that we can get and set the default offset
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getDefaultLimit
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultLimit
+     */
+    public function testGetSetDefaultOffset()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $defaultOffset = 5;
+
+        $this->assertEquals(\MusicBrainz\Connector\ConnectorInterface::SEARCH_OFFSET_DEFAULT, $connector->getDefaultOffset());
+        $this->assertSame($connector, $connector->setDefaultOffset($defaultOffset));
+        $this->assertEquals($defaultOffset, $connector->getDefaultOffset());
+    }
+
+    /**
+     * Test that we can get the statuses
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getStatuses
+     */
+    public function testGetStatuses()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+
+        $statuses = $connector->getStatuses();
+
+        $this->assertInternalType('array', $statuses);
+    }
+
+    /**
+     * Test that we can get the types
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getTypes
+     */
+    public function testGetTypes()
+    {
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+
+        $types = $connector->getTypes();
+
+        $this->assertInternalType('array', $types);
+    }
 }
+

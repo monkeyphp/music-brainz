@@ -57,16 +57,22 @@ abstract class AbstractConnector implements ConnectorInterface
     protected $serviceUri = 'http://musicbrainz.org/ws/2/';
 
     /**
+     * Instance of LookupStrategy
+     *
      * @var StrategyInterface|null
      */
     protected $lookupStrategy;
 
     /**
+     * Instance of BrowseStrategy
+     *
      * @var StrategyInterface|null
      */
     protected $browseStrategy;
 
     /**
+     * Instance of SearchStrategy
+     *
      * @var StrategyInterface|null
      */
     protected $searchStrategy;
@@ -677,15 +683,20 @@ abstract class AbstractConnector implements ConnectorInterface
      */
     public function setDefaultLimit($defaultLimit = null)
     {
-        if (! is_null($defaultLimit)) {
-            if (($defaultLimit < ConnectorInterface::SEARCH_LIMIT_MIN) ||
-                ($defaultLimit > ConnectorInterface::SEARCH_LIMIT_MAX)
-            ) {
-                throw new InvalidArgumentException('Invalid default limit');
-            }
+        if (is_null($defaultLimit) ||
+            (
+                is_scalar($defaultLimit) &&
+                (
+                    $defaultLimit >= ConnectorInterface::SEARCH_LIMIT_MIN &&
+                    $defaultLimit <= ConnectorInterface::SEARCH_LIMIT_MAX
+                )
+            )
+        ) {
+            $this->defaultLimit = $defaultLimit;
+            return $this;
         }
-        $this->defaultLimit = $defaultLimit;
-        return $this;
+
+        throw new InvalidArgumentException('Invalid default limit');
     }
 
     /**
@@ -734,30 +745,41 @@ abstract class AbstractConnector implements ConnectorInterface
         return $this->formats;
     }
 
+    /**
+     * Return the array of statuses
+     *
+     * @return array
+     */
     public function getStatuses()
     {
         return $this->statuses;
     }
 
+    /**
+     * Return the array of record types
+     *
+     * @return array
+     */
     public function getTypes()
     {
         return $this->types;
     }
 
-
-
-
-
-
-
-
-
-
+    /**
+     * Array of acceptable formats
+     *
+     * @var array
+     */
     protected $formats = array(
         ConnectorInterface::FORMAT_JSON,
         ConnectorInterface::FORMAT_XML
     );
 
+    /**
+     * Status values for releases
+     *
+     * @var array
+     */
     protected $statuses = array(
         ConnectorInterface::STATUS_BOOTLEG,
         ConnectorInterface::STATUS_OFFICIAL,
@@ -765,6 +787,11 @@ abstract class AbstractConnector implements ConnectorInterface
         ConnectorInterface::STATUS_PSEUDO_RELEASE
     );
 
+    /**
+     * Types of release
+     *
+     * @var array
+     */
     protected $types = array(
         ConnectorInterface::TYPE_ALBUM,
         ConnectorInterface::TYPE_AUDIOBOOK,
