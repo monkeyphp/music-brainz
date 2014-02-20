@@ -26,8 +26,6 @@ namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
 
-
-
 /**
  * Area
  *

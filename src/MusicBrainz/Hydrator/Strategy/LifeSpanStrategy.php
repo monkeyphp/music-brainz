@@ -38,8 +38,18 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class LifeSpanStrategy implements StrategyInterface
 {
+    /**
+     * Instance of ClassMethods hydrator
+     *
+     * @var ClassMethods
+     */
     protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods hydrator
+     *
+     * @return ClassMethods
+     */
     public function getHydrator()
     {
         if (! isset($this->hydrator)) {
@@ -49,6 +59,13 @@ class LifeSpanStrategy implements StrategyInterface
         return $this->hydrator;
     }
 
+    /**
+     * Extract the values from the supplied LifeSpan instance
+     * 
+     * @param LifeSpan $value
+     *
+     * @return null|LifeSpan
+     */
     public function extract($value)
     {
         if (! $value instanceof LifeSpan) {
@@ -57,6 +74,13 @@ class LifeSpanStrategy implements StrategyInterface
         return $this->getHydrator()->extract($value);
     }
 
+    /**
+     * Hydrate and return an instance of LifeSpan
+     *
+     * @param array $value
+     *
+     * @return null|LifeSpan
+     */
     public function hydrate($value)
     {
         if (! is_array($value)) {
