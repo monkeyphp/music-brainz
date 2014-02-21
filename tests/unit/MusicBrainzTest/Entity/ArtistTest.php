@@ -160,6 +160,17 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setSortName
+     */
+    public function testSetSortNameThrowsException()
+    {
+        $artist = new Artist();
+
+        $artist->setSortName(new stdClass());
+    }
+
+    /**
      * Test that we can get and set the Area
      *
      * @covers \MusicBrainz\Entity\Artist::getArea

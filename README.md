@@ -60,6 +60,10 @@ Create a default instance of MusicBrainz class.
 
     $ vendor/bin/codecept run unit
 
+Include output report
+
+    $ vendor/bin/codecept run unit --coverage --html
+
 
 ## License
 

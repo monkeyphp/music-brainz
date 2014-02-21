@@ -24,6 +24,9 @@
  */
 namespace MusicBrainz\Entity;
 
+use Iterator;
+use Traversable;
+
 /**
  * AliasList
  *
@@ -32,10 +35,113 @@ namespace MusicBrainz\Entity;
  * @subpackage  MusicBrainz\Entity
  * @author      David White <david@monkeyphp.com>
  */
-class AliasList
+class AliasList implements Iterator
 {
+    /**
+     * An array of Alias instances
+     *
+     * @var array
+     */
+    protected $aliases = array();
+
+    /**
+     * Iterator poistion
+     *
+     * @var int
+     */
+    protected $position = 0;
+
+    /**
+     * Set the aliases
+     *
+     * @param array|Traversable $aliases
+     *
+     * @return AliasList
+     */
+    public function setAliases($aliases = array())
+    {
+        if (is_array($aliases) || ($aliases instanceof Traversable)) {
+            foreach ($aliases as $alias) {
+                if ($alias instanceof Alias) {
+                    $this->addAlias($alias);
+                }
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Return the array of Alias instances
+     *
+     * @return array
+     */
+    public function getAliases()
+    {
+        return $this->aliases;
+    }
+
+    /**
+     * Add an Alias instance to the list
+     *
+     * @param Alias $alias The Alias instance to add
+     *
+     * @return AliasList
+     */
     public function addAlias(Alias $alias)
     {
-        // @todo
+        if (! in_array($alias, $this->aliases, true)) {
+            $this->aliases[] = $alias;
+        }
+        return $this;
+    }
+
+    /**
+     * Return the current Alias
+     * 
+     * @return Alias
+     */
+    public function current()
+    {
+        return $this->aliases[$this->position];
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return int
+     */
+    public function key()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @retun void
+     */
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return boolean
+     */
+    public function valid()
+    {
+        return isset($this->aliases[$this->position]);
     }
 }
