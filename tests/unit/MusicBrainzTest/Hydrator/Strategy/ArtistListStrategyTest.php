@@ -24,6 +24,7 @@
  */
 namespace MusicBrainzTest\Hydrator\Strategy;
 
+use MusicBrainz\Entity\Artist;
 use MusicBrainz\Hydrator\Strategy\ArtistListStrategy;
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -69,5 +70,34 @@ class ArtistListStrategyTest extends PHPUnit_Framework_TestCase
         $artistList = $strategy->hydrate($values);
 
         $this->assertInstanceOf('\MusicBrainz\Entity\ArtistList', $artistList);
+    }
+
+    /**
+     * Test that attempting to extract an non ArtistList instance returns null
+     *
+     * @covers \MusicBrainz\Hydrator\Strategy\ArtistListStrategy::extract
+     */
+    public function testExtractReturnsNull()
+    {
+        $strategy = new ArtistListStrategy();
+
+        $this->assertNull($strategy->extract(new stdClass()));
+    }
+
+    /**
+     * @covers \MusicBrainz\Hydrator\Strategy\ArtistListStrategy::extract
+     */
+    public function testExtract()
+    {
+        $artist = new Artist();
+        $artist->setId('65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab');
+        $artistList = new \MusicBrainz\Entity\ArtistList();
+        $artistList->setArtists(array($artist));
+
+        $strategy = new ArtistListStrategy();
+
+        $values = $strategy->extract($artistList);
+
+        $this->assertInternalType('array', $values);
     }
 }

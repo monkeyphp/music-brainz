@@ -53,18 +53,39 @@ class ArtistListStrategy implements StrategyInterface
      */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $this->hydrator = new ClassMethods();
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
+    /**
+     * Extract an array of values from the supplied ArtistList instance
+     *
+     * @param ArtistList $object
+     * 
+     * @return null|array
+     */
     public function extract($object)
     {
         if (! $object instanceof ArtistList) {
             return null;
         }
-        return $this->getHydrator()->extract($object);
+
+        $values = $this->getHydrator()->extract($object);
+
+        if (isset($values['artists'])) {
+            $artistStrategy = new ArtistStrategy();
+            $artists = array();
+            foreach ($values['artists'] as $index => $artist) {
+                $artists[$index] = $artistStrategy->extract($artist);
+            }
+            $values['artists'] = $artists;
+        }
+
+        return $values;
     }
 
     /**

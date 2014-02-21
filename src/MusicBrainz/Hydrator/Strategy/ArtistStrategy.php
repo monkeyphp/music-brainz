@@ -26,6 +26,8 @@ namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Artist;
 use Zend\Stdlib\Hydrator\ClassMethods;
+use Zend\Stdlib\Hydrator\Filter\FilterComposite;
+use Zend\Stdlib\Hydrator\Filter\MethodMatchFilter;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -54,13 +56,20 @@ class ArtistStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
+            $hydrator = new ClassMethods(false);
             $hydrator->addStrategy('area', new AreaStrategy());
             $hydrator->addStrategy('beginArea', new AreaStrategy());
             $hydrator->addStrategy('lifeSpan', new LifeSpanStrategy());
             $hydrator->addStrategy('aliasList', new AliasListStrategy());
             $hydrator->addStrategy('tagList', new TagListStrategy());
             $hydrator->addStrategy('ipiList', new IpiListStrategy());
+
+            $hydrator->addFilter(
+                "id",
+                new MethodMatchFilter("getId"),
+                FilterComposite::CONDITION_AND
+            );
+
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;

@@ -52,12 +52,14 @@ class ArtistSearchStrategy implements StrategyInterface
      */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
+            $hydrator = new ClassMethods(false);
             $hydrator->addStrategy('artistList', new ArtistListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
