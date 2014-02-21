@@ -54,14 +54,16 @@ class LifeSpanStrategy implements StrategyInterface
     {
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
+            $hydrator->addStrategy('ended', new BooleanStrategy());
             $this->hydrator = $hydrator;
         }
+
         return $this->hydrator;
     }
 
     /**
      * Extract the values from the supplied LifeSpan instance
-     * 
+     *
      * @param LifeSpan $value
      *
      * @return null|LifeSpan

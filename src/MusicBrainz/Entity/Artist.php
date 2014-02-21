@@ -42,7 +42,7 @@ class Artist
      * @var array
      */
     protected static $types = array (
-        'Group'
+        'Group', 'Person'
     );
 
     /**
@@ -493,8 +493,7 @@ class Artist
     public function setScore($score = null)
     {
         $score = (int)$score;
-
-        if (! ($score >= 0 && 100 <= $score)) {
+        if (! ($score >= 0 &&  $score <= 100)) {
             throw new InvalidArgumentException('Expects a score between 0 and 100');
         }
         $this->score = $score;

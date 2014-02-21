@@ -108,6 +108,14 @@ class MusicBrainz implements MusicBrainzInterface
     /**
      * Search a resource
      *
+     * The supplied resource should be one of the following:
+     * - area
+     * - artist
+     * - label
+     * - recording
+     * - release
+     * - release-group
+     *
      * @param string $resource The resource to search
      * @param string $query    The search query string
      * @param array  $options  An array of search options

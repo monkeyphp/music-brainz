@@ -65,7 +65,7 @@ class ArtistListStrategy implements StrategyInterface
      * Extract an array of values from the supplied ArtistList instance
      *
      * @param ArtistList $object
-     * 
+     *
      * @return null|array
      */
     public function extract($object)
@@ -104,12 +104,12 @@ class ArtistListStrategy implements StrategyInterface
         $artists = array();
         $artistStrategy = new ArtistStrategy();
 
-        if (is_array($values['artist'])) {
-            $artists[] = $artistStrategy->hydrate($values['artist']);
-        } else {
-            foreach ($values['artist'] as $value) {
-                $artists[] = $artistStrategy->hydrate($value);
+        foreach ($values['artist'] as $index => $key) {
+            if (! is_int($index)) {
+                $artists[] = $artistStrategy->hydrate($values['artist']);
+                break;
             }
+            $artists[] = $artistStrategy->hydrate($key);
         }
 
         $values['artists'] = $artists;

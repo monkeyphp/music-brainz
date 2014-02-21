@@ -31,6 +31,13 @@ namespace MusicBrainz\Entity;
  */
 class IpiList
 {
+    protected $ipis = array();
+
+    public function setIpis($ipis = array())
+    {
+
+    }
+
     public function addIpi(Ipi $ipi)
     {
         return $this;

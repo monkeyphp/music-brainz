@@ -452,7 +452,9 @@ abstract class AbstractConnector implements ConnectorInterface
     public function getSearchFilter()
     {
         if (! isset($this->searchFilter)) {
-            $this->searchFilter = new SearchFilter();
+            $this->searchFilter = new SearchFilter(
+                $this->getFormats()
+            );
         }
         return $this->searchFilter;
     }

@@ -24,6 +24,7 @@
  */
 namespace MusicBrainzTest\InputFilter;
 
+use MusicBrainz\Connector\ConnectorInterface;
 use MusicBrainz\InputFilter\SearchFilter;
 use PHPUnit_Framework_TestCase;
 
@@ -81,5 +82,26 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('query', $messages);
     }
 
+    /**
+     * @covers \MusicBrainz\InputFilter\SearchFilter::isValid
+     */
+    public function testValidateFormat()
+    {
+        $searchFilter = new SearchFilter(
+            array(
+                ConnectorInterface::FORMAT_JSON
+            )
+        );
+        $data = array(
+            'query' => 'Metallica',
+            'format' => ConnectorInterface::FORMAT_JSON
+        );
 
+        $searchFilter->setData($data);
+        $isValid = $searchFilter->isValid();
+        $messages = $searchFilter->getMessages();
+
+        $this->assertTrue($isValid);
+        $this->assertEmpty($messages);
+    }
 }

@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
+use MusicBrainz\Entity\Tag;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -36,6 +38,17 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class TagStrategy implements StrategyInterface
 {
+    protected $hydrator;
+
+    protected function getHydrator()
+    {
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods();
+            $this->hydrator = $hydrator;
+        }
+        return $this->hydrator;
+    }
+
     public function extract($value)
     {
 
@@ -43,6 +56,10 @@ class TagStrategy implements StrategyInterface
 
     public function hydrate($value)
     {
+        if (! is_array($value)) {
+            return null;
+        }
 
+        return $this->getHydrator()->hydrate($value, new Tag());
     }
 }
