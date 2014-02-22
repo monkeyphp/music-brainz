@@ -25,5 +25,8 @@ namespace MusicBrainz\Entity;
  */
 class RecordingList
 {
-    //put your code here
+    public function addRecording(Recording $recording)
+    {
+        // 
+    }
 }

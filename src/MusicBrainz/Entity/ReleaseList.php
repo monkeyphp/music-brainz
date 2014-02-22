@@ -25,5 +25,8 @@ namespace MusicBrainz\Entity;
  */
 class ReleaseList
 {
-    //put your code here
+    public function addRelease(Release $release)
+    {
+        // 
+    }
 }

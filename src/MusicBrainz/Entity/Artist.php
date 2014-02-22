@@ -39,6 +39,7 @@ use MusicBrainz\Entity\ReleaseList;
 use MusicBrainz\Entity\Tag;
 use MusicBrainz\Entity\TagList;
 use MusicBrainz\Entity\WorkList;
+
 /**
  * Artist
  *
@@ -167,12 +168,32 @@ class Artist
      */
     protected $isniList;
 
+    /**
+     * Instance of RecordingList
+     *
+     * @var RecordingList
+     */
     protected $recordingList;
 
+    /**
+     * Instance of ReleaseList
+     *
+     * @var ReleaseList
+     */
     protected $releaseList;
 
+    /**
+     * Instance of ReleaseGroupList
+     *
+     * @var ReleaseGroupList
+     */
     protected $releaseGroupList;
 
+    /**
+     * Instnace of WorkList
+     *
+     * @var WorkList
+     */
     protected $workList;
 
     /**
@@ -272,14 +293,13 @@ class Artist
      *
      * @param string|null $name
      *
+     * @throws InvalidArgumentException
      * @return Artist
      */
     public function setName($name = null)
     {
-        if (! is_null($name)) {
-            if (! is_string($name)) {
-                throw new InvalidArgumentException('Supplied name is invalid');
-            }
+        if (! is_null($name) && ! is_string($name)) {
+            throw new InvalidArgumentException('Supplied name is invalid');
         }
         $this->name = $name;
         return $this;
@@ -636,6 +656,19 @@ class Artist
     }
 
     /**
+     * Add an Isni instance
+     *
+     * @param Isni $isni
+     *
+     * @return Artist
+     */
+    public function addIsni(Isni $isni)
+    {
+        $this->getIsniList()->addIsni($isni);
+        return $this;
+    }
+
+    /**
      * Return an instance of RecordingList
      *
      * @return RecordingList
@@ -662,6 +695,19 @@ class Artist
     }
 
     /**
+     * Add a Recording to the Artist
+     *
+     * @param Recording $recording
+     *
+     * @return Artist
+     */
+    public function addRecording(Recording $recording)
+    {
+        $this->getRecordingList()->addRecording($recording);
+        return $this;
+    }
+
+    /**
      * Return an instance of ReleaseList
      *
      * @return ReleaseList
@@ -674,9 +720,29 @@ class Artist
         return $this->releaseList;
     }
 
+    /**
+     * Set the RecordingList instance
+     *
+     * @param ReleaseList $releaseList
+     *
+     * @return Artist
+     */
     public function setReleaseList(ReleaseList $releaseList = null)
     {
         $this->releaseList = $releaseList;
+        return $this;
+    }
+
+    /**
+     * Add a Release to the Artist
+     *
+     * @param Release $release
+     *
+     * @return Artist
+     */
+    public function addRelease(Release $release)
+    {
+        $this->getReleaseList()->addRelease($release);
         return $this;
     }
 
@@ -706,8 +772,21 @@ class Artist
     }
 
     /**
+     * Add a ReleaseGroup to the Artist
+     *
+     * @param ReleaseGroup $releaseGroup
+     *
+     * @return Artist
+     */
+    public function addReleaseGroup(ReleaseGroup $releaseGroup)
+    {
+        $this->getReleaseGroupList()->addReleaseGroup($releaseGroup);
+        return $this;
+    }
+
+    /**
      * Return the WorkList instance
-     * 
+     *
      * @return WorkList
      */
     public function getWorkList()
@@ -727,6 +806,19 @@ class Artist
     public function setWorkList(WorkList $workList = null)
     {
         $this->workList = $workList;
+        return $this;
+    }
+
+    /**
+     * Add a Work instance to the Artist
+     * 
+     * @param Work $work
+     *
+     * @return Artist
+     */
+    public function addWork(Work $work)
+    {
+        $this->getWorkList()->addWork($work);
         return $this;
     }
 }
