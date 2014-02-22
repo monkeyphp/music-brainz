@@ -24,20 +24,22 @@
  */
 namespace MusicBrainz\Entity;
 
-use InvalidArgumentException;
 use MusicBrainz\Entity\Alias;
 use MusicBrainz\Entity\AliasList;
 use MusicBrainz\Entity\Area;
 use MusicBrainz\Entity\Artist;
+use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Ipi;
 use MusicBrainz\Entity\IpiList;
 use MusicBrainz\Entity\IsniList;
 use MusicBrainz\Entity\LifeSpan;
+use MusicBrainz\Entity\Name;
 use MusicBrainz\Entity\RecordingList;
 use MusicBrainz\Entity\ReleaseGroupList;
 use MusicBrainz\Entity\ReleaseList;
 use MusicBrainz\Entity\Tag;
 use MusicBrainz\Entity\TagList;
+use MusicBrainz\Entity\Type;
 use MusicBrainz\Entity\WorkList;
 
 /**
@@ -51,41 +53,32 @@ use MusicBrainz\Entity\WorkList;
 class Artist
 {
     /**
-     * Valid types
-     *
-     * @var array
-     */
-    protected static $types = array (
-        'Group', 'Person'
-    );
-
-    /**
      * The MusicBrainz id of the Artist
      *
      * e.g 65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab
      *
-     * @var string|null (MBID)
+     * @var Mbid|null
      */
     protected $mbid;
 
     /**
      * The type of the Artist (e.g. Group)
      *
-     * @var string
+     * @var Type
      */
     protected $type;
 
     /**
      * The name of the Artist
      *
-     * @var string
+     * @var Name
      */
     protected $name;
 
     /**
      * The sortname of the Artist
      *
-     * @var string
+     * @var Name
      */
     protected $sortName;
 
@@ -134,30 +127,28 @@ class Artist
     /**
      * Score of the Artist (as used in Search)
      *
-     * ext:score
-     *
-     * @var int
+     * @var Score
      */
     protected $score;
 
     /**
      * The gender of the Artist
      *
-     * @var string|null
+     * @var Gender|null
      */
     protected $gender;
 
     /**
      * The disambiguation value of the Artist
      *
-     * @var string
+     * @var Disambiguation
      */
     protected $disambiguation;
 
     /**
      * The country of the Artist
      *
-     * @var string|null
+     * @var Country|null
      */
     protected $country;
 
@@ -199,7 +190,7 @@ class Artist
     /**
      * Return the mbid value of the Artist
      *
-     * @return string|null
+     * @return Mbid|null
      */
     public function getMbid()
     {
@@ -209,49 +200,20 @@ class Artist
     /**
      * Set the mbid value of the Artist
      *
-     * @param string|null $mbid
+     * @param Mbid|null $mbid
      *
      * @return Artist
      */
-    public function setMbid($mbid = null)
+    public function setMbid(Mbid $mbid = null)
     {
-        return $this->setId($mbid);
-    }
-
-    /**
-     * Return the mbid value of the Artist
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->getMbid();
-    }
-
-    /**
-     * Set the id value of the Artist
-     *
-     * Example: 220b8211-cc4f-44dc-8860-d40c4bdeb95a
-     *
-     * @param string|null $id
-     *
-     * @return Artist
-     */
-    public function setId($id = null)
-    {
-        if (! is_null($id)) {
-            if (! preg_match('#\A[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\z#', $id)) {
-                throw new InvalidArgumentException('The supplied id is invalid');
-            }
-        }
-        $this->mbid = $id;
+        $this->mbid = $mbid;
         return $this;
     }
 
     /**
      * Return the type of the Artist
      *
-     * @return string|null
+     * @return Type|null
      */
     public function getType()
     {
@@ -261,19 +223,12 @@ class Artist
     /**
      * Set the type of the Artist
      *
-     * @param string|null $type
+     * @param Type $type
      *
      * @return Artist
      */
-    public function setType($type = null)
+    public function setType(Type $type = null)
     {
-        if (! is_null($type)) {
-            if (! is_string($type) || ! in_array($type, static::$types)) {
-                throw new InvalidArgumentException(
-                    'Supplied type is invalid'
-                );
-            }
-        }
         $this->type = $type;
         return $this;
     }
@@ -281,7 +236,7 @@ class Artist
     /**
      * Return the name of the Artist
      *
-     * @return string|null
+     * @return Name|null
      */
     public function getName()
     {
@@ -291,16 +246,12 @@ class Artist
     /**
      * Set the name of the Artist
      *
-     * @param string|null $name
+     * @param Name|null $name
      *
-     * @throws InvalidArgumentException
      * @return Artist
      */
-    public function setName($name = null)
+    public function setName(Name $name = null)
     {
-        if (! is_null($name) && ! is_string($name)) {
-            throw new InvalidArgumentException('Supplied name is invalid');
-        }
         $this->name = $name;
         return $this;
     }
@@ -308,7 +259,7 @@ class Artist
     /**
      * Return the sortName value
      *
-     * @return string|null
+     * @return Name|null
      */
     public function getSortName()
     {
@@ -318,16 +269,12 @@ class Artist
     /**
      * Set the sortName property
      *
-     * @param string|null $sortName
+     * @param Name|null $sortName
      *
-     * @throws InvalidArgumentException
      * @return Artist
      */
-    public function setSortName($sortName = null)
+    public function setSortName(Name $sortName = null)
     {
-        if (! is_null($sortName) && ! is_string($sortName)) {
-            throw new InvalidArgumentException('Expects a string');
-        }
         $this->sortName = $sortName;
         return $this;
     }
@@ -524,7 +471,7 @@ class Artist
     /**
      * Return the score
      *
-     * @return int
+     * @return Score
      */
     public function getScore()
     {
@@ -534,16 +481,12 @@ class Artist
     /**
      * Set the score property
      *
-     * @param int|null $score
+     * @param Score|null $score
      *
      * @return Artist
      */
-    public function setScore($score = null)
+    public function setScore(Score $score = null)
     {
-        $score = (int)$score;
-        if (! ($score >= 0 &&  $score <= 100)) {
-            throw new InvalidArgumentException('Expects a score between 0 and 100');
-        }
         $this->score = $score;
         return $this;
     }
@@ -551,7 +494,7 @@ class Artist
     /**
      * Return the gender property
      *
-     * @return string|null
+     * @return Gender|null
      */
     public function getGender()
     {
@@ -561,16 +504,12 @@ class Artist
     /**
      * Set the gender property
      *
-     * @param string|null $gender
+     * @param Gender|null $gender
      *
-     * @throws InvalidArgumentException
      * @return Artist
      */
     public function setGender($gender = null)
     {
-        if (! is_null($gender) && ! is_string($gender)) {
-            throw new InvalidArgumentException('Expects a string');
-        }
         $this->gender = $gender;
         return $this;
     }
@@ -578,7 +517,7 @@ class Artist
     /**
      * Return the disambiguation
      *
-     * @return string|null
+     * @return Disambiguation|null
      */
     public function getDisambiguation()
     {
@@ -588,16 +527,12 @@ class Artist
     /**
      * Set the disambiguation
      *
-     * @param string|null $disambiguation
+     * @param Disambiguation|null $disambiguation
      *
-     * @throws InvalidArgumentException
      * @return Artist
      */
     public function setDisambiguation($disambiguation = null)
     {
-        if (! is_null($disambiguation) && ! is_string($disambiguation)) {
-            throw new InvalidArgumentException('Expects a string');
-        }
         $this->disambiguation = $disambiguation;
         return $this;
     }
@@ -605,7 +540,7 @@ class Artist
     /**
      * Return the country property
      *
-     * @return string|null
+     * @return Country|null
      */
     public function getCountry()
     {
@@ -615,16 +550,12 @@ class Artist
     /**
      * Set the country property
      *
-     * @param string|null $country
+     * @param Country|null $country The Country instance
      *
-     * @throws InvalidArgumentException
      * @return Artist
      */
-    public function setCountry($country = null)
+    public function setCountry(Country $country = null)
     {
-        if (! is_null($country) && ! is_string($country)) {
-            throw new InvalidArgumentException('Expects a string');
-        }
         $this->country = $country;
         return $this;
     }
@@ -811,7 +742,7 @@ class Artist
 
     /**
      * Add a Work instance to the Artist
-     * 
+     *
      * @param Work $work
      *
      * @return Artist

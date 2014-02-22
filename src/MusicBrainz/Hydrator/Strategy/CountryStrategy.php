@@ -17,38 +17,16 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\Alias;
-use Zend\Stdlib\Hydrator\ClassMethods;
+use Exception;
+use MusicBrainz\Entity\Country;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
 /**
- * Description of AliasStrategy
+ * Description of CountryStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class AliasStrategy implements StrategyInterface
+class CountryStrategy implements StrategyInterface
 {
-    /**
-     * Instance of ClassMethods hydrator
-     *
-     * @var ClassMethods
-     */
-    protected $hydrator;
-
-    protected function gethydrator()
-    {
-        if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
-
-            $hydrator->addStrategy('sortName', new NameStrategy());
-            $hydrator->addStrategy('locale', new LocaleStrategy());
-            $hydrator->addStrategy('primary', new PrimaryStrategy());
-
-            $this->hydrator = $hydrator;
-        }
-        return $this->hydrator;
-    }
-
     public function extract($value)
     {
 
@@ -56,15 +34,10 @@ class AliasStrategy implements StrategyInterface
 
     public function hydrate($value)
     {
-        if (! is_array($value)) {
+        try {
+            return new Country($value);
+        } catch (Exception $exception) {
             return null;
         }
-
-        if (isset($value['sort-name'])) {
-            $value['sortName'] = $value['sort-name'];
-            unset($value['sort-name']);
-        }
-
-        return $this->getHydrator()->hydrate($value, new Alias());
     }
 }

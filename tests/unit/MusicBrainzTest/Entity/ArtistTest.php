@@ -29,12 +29,18 @@ use MusicBrainz\Entity\Alias;
 use MusicBrainz\Entity\AliasList;
 use MusicBrainz\Entity\Area;
 use MusicBrainz\Entity\Artist;
+use MusicBrainz\Entity\Country;
+use MusicBrainz\Entity\Gender;
 use MusicBrainz\Entity\Ipi;
 use MusicBrainz\Entity\IpiList;
 use MusicBrainz\Entity\IsniList;
 use MusicBrainz\Entity\LifeSpan;
+use MusicBrainz\Entity\Mbid;
+use MusicBrainz\Entity\Name;
+use MusicBrainz\Entity\Score;
 use MusicBrainz\Entity\Tag;
 use MusicBrainz\Entity\TagList;
+use MusicBrainz\Entity\Type;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 
@@ -48,38 +54,20 @@ use stdClass;
  */
 class ArtistTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test that we can set the Mbid
+     *
+     * @covers \MusicBrainz\Entity\Artist::getMbid
+     * @covers \MusicBrainz\Entity\Artist::setMbid
+     */
     public function testGetSetMbid()
     {
-
-    }
-
-    /**
-     * Test that we can set the id
-     *
-     * @covers \MusicBrainz\Entity\Artist::getId
-     * @covers \MusicBrainz\Entity\Artist::setId
-     */
-    public function testGetSetId()
-    {
         $artist = new Artist();
-        $mbid = '220b8211-cc4f-44dc-8860-d40c4bdeb95a';
+        $mbid = new Mbid('220b8211-cc4f-44dc-8860-d40c4bdeb95a');
 
-        $this->assertNull($artist->getId());
-        $this->assertSame($artist, $artist->setId($mbid));
-        $this->assertEquals($mbid, $artist->getId());
-    }
-
-    /**
-     * Test that supplying an invalid mbid string results in an
-     * exception
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setId
-     */
-    public function testSetIdThrowsException()
-    {
-        $artist = new Artist();
-        $artist->setId('eggs');
+        $this->assertNull($artist->getMbid());
+        $this->assertSame($artist, $artist->setMbid($mbid));
+        $this->assertSame($mbid, $artist->getMbid());
     }
 
     /**
@@ -91,26 +79,11 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetType()
     {
         $artist = new Artist();
-        $type = 'Group';
+        $type = new Type('Group');
 
         $this->assertNull($artist->getType());
         $this->assertSame($artist, $artist->setType($type));
-        $this->assertEquals($type, $artist->getType());
-    }
-
-    /**
-     * Test that passing an invalid type to setType results
-     * in an exception being throw
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setType
-     */
-    public function testSetTypeThrowsException()
-    {
-        $artist = new Artist();
-        $type = new stdClass();
-
-        $artist->setType($type);
+        $this->assertSame($type, $artist->getType());
     }
 
     /**
@@ -122,26 +95,11 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetName()
     {
         $artist = new Artist();
-        $name = 'Metallica';
+        $name = new Name('Metallica');
 
         $this->assertNull($artist->getName());
         $this->assertSame($artist, $artist->setName($name));
-        $this->assertEquals($name, $artist->getName());
-    }
-
-    /**
-     * Test that passing an invalid name to setName results in
-     * an exception
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setName
-     */
-    public function testSetNameThrowsException()
-    {
-        $artist = new Artist();
-        $name = new stdClass();
-
-        $artist->setName($name);
+        $this->assertSame($name, $artist->getName());
     }
 
     /**
@@ -153,22 +111,11 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetSortName()
     {
         $artist = new Artist();
-        $sortName = 'Metallica';
+        $sortName = new Name('Metallica');
 
         $this->assertNull($artist->getSortName());
         $this->assertSame($artist, $artist->setSortName($sortName));
-        $this->assertEquals($sortName, $artist->getSortName());
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setSortName
-     */
-    public function testSetSortNameThrowsException()
-    {
-        $artist = new Artist();
-
-        $artist->setSortName(new stdClass());
+        $this->assertSame($sortName, $artist->getSortName());
     }
 
     /**
@@ -350,41 +297,11 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetScore()
     {
         $artist = new Artist();
-        $score = '100';
+        $score = new Score('100');
 
         $this->assertNull($artist->getScore());
         $this->assertSame($artist, $artist->setScore($score));
-        $this->assertEquals($artist->getScore(), $score);
-    }
-
-    /**
-     * Test that an exception is thrown if the supplied value is
-     * too high
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setScore
-     */
-    public function testSetScoreThrowsExceptionTooHigh()
-    {
-        $artist = new Artist();
-        $score = 101;
-
-        $artist->setScore($score);
-    }
-
-    /**
-     * Test that an exception is thrown if the supplied value is
-     * too low
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setScore
-     */
-    public function testSetScoreThrowsExceptionTooLow()
-    {
-        $artist = new Artist();
-        $score = -10;
-
-        $artist->setScore($score);
+        $this->assertSame($artist->getScore(), $score);
     }
 
     /**
@@ -396,22 +313,11 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetGender()
     {
         $artist = new Artist();
-        $gender = 'male';
+        $gender = new Gender('male');
 
         $this->assertNull($artist->getGender());
         $this->assertSame($artist, $artist->setGender($gender));
-        $this->assertEquals($gender, $artist->getGender());
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setGender
-     */
-    public function testSetGenderThrowsException()
-    {
-        $artist = new Artist();
-
-        $artist->setGender(new stdClass());
+        $this->assertSame($gender, $artist->getGender());
     }
 
     /**
@@ -423,22 +329,11 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetDisambiguation()
     {
         $artist = new Artist();
-        $disambiguation = 'This is the disambiguation';
+        $disambiguation = new \MusicBrainz\Entity\Disambiguation('This is the disambiguation');
 
         $this->assertNull($artist->getDisambiguation());
         $this->assertSame($artist, $artist->setDisambiguation($disambiguation));
-        $this->assertEquals($disambiguation, $artist->getDisambiguation());
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setDisambiguation
-     */
-    public function testSetDisambiguationThrowsExcpetion()
-    {
-        $artist = new Artist();
-
-        $artist->setDisambiguation(new stdClass());
+        $this->assertSame($disambiguation, $artist->getDisambiguation());
     }
 
     /**
@@ -450,22 +345,11 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetCountry()
     {
         $artist = new Artist();
-        $country = 'US';
+        $country = new Country('US');
 
         $this->assertNull($artist->getCountry());
         $this->assertSame($artist, $artist->setCountry($country));
-        $this->assertEquals($country, $artist->getCountry());
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Artist::setCountry
-     */
-    public function testSetCountryThrowsException()
-    {
-        $artist = new Artist();
-
-        $artist->setCountry(new stdClass);
+        $this->assertSame($country, $artist->getCountry());
     }
 
     /**

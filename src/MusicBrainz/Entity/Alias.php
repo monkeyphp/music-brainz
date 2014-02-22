@@ -24,8 +24,6 @@
  */
 namespace MusicBrainz\Entity;
 
-use InvalidArgumentException;
-
 /**
  * Alias
  *
@@ -46,21 +44,21 @@ class Alias
     /**
      * The sortname value of the Alias
      *
-     * @var string|null
+     * @var Name|null
      */
     protected $sortName;
 
     /**
      * The primary value of the Alias
      *
-     * @var string|null
+     * @var Primary|null
      */
     protected $primary;
 
     /**
      * Return the locale
      *
-     * @return string|null
+     * @return Locale|null
      */
     public function getLocale()
     {
@@ -70,18 +68,12 @@ class Alias
     /**
      * Set the locale
      *
-     * @param string|null $locale
+     * @param Locale|null $locale
      *
-     * @throws InvalidArgumentException
      * @return Alias
      */
-    public function setLocale($locale = null)
+    public function setLocale(Locale $locale = null)
     {
-        if (! is_null($locale)) {
-            if (! is_string($locale)) {
-                throw new InvalidArgumentException('Expects a string');
-            }
-        }
         $this->locale = $locale;
         return $this;
     }
@@ -89,7 +81,7 @@ class Alias
     /**
      * Set the sortName value
      *
-     * @return string|null
+     * @return Name|null
      */
     public function getSortName()
     {
@@ -99,26 +91,20 @@ class Alias
     /**
      * Set the sortName value
      *
-     * @param string|null $sortName
+     * @param Name|null $sortName
      *
-     * @throws InvalidArgumentException
      * @return Alias
      */
-    public function setSortName($sortName = null)
+    public function setSortName(Name $sortName = null)
     {
-        if (! is_null($sortName)) {
-            if (! is_string($sortName)) {
-                throw new InvalidArgumentException('Expects a string');
-            }
-        }
         $this->sortName = $sortName;
         return $this;
     }
 
     /**
      * Return the primary value of the Alias
-     * 
-     * @return string|null
+     *
+     * @return Primary|null
      */
     public function getPrimary()
     {
@@ -128,16 +114,12 @@ class Alias
     /**
      * Set the primary value of the Alias
      *
-     * @param string|null $primary
+     * @param Praimry|null $primary
      *
      * @return Alias
-     * @throws InvalidArgumentException
      */
     public function setPrimary($primary = null)
     {
-        if (! is_null($primary) && ! is_string($primary)) {
-            throw new InvalidArgumentException('Expects a string');
-        }
         $this->primary = $primary;
         return $this;
     }

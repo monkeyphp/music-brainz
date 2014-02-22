@@ -35,6 +35,16 @@ namespace MusicBrainz\Connector;
 interface ConnectorInterface
 {
     /**
+     * @var string
+     */
+    const ARTIST_TYPE_GROUP = 'Group';
+
+    /**
+     * @var string
+     */
+    const ARTIST_TYPE_PERSON = 'Person';
+
+    /**
      * Note that the number of linked entities returned is always limited to 25,
      * if you need the remaining results, you will have to perform a
      * browse request.

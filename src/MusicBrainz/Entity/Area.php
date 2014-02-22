@@ -24,8 +24,6 @@
  */
 namespace MusicBrainz\Entity;
 
-use InvalidArgumentException;
-
 /**
  * Area
  *
@@ -39,23 +37,21 @@ class Area
     /**
      * The mbid value of the Area
      *
-     * 1f40c6e1-47ba-4e35-996f-fe6ee5840e62
-     *
-     * @var string|null
+     * @var Mbid|null
      */
     protected $mbid;
 
     /**
      * The name of the Area
      *
-     * @var string|null
+     * @var Name|null
      */
     protected $name;
 
     /**
      * The sortName value of the Area
      *
-     * @var string|null
+     * @var Name|null
      */
     protected $sortName;
 
@@ -67,38 +63,32 @@ class Area
     protected $iso31661CodeList;
 
     /**
-     * Return the id
+     * Return the Mbid
      *
-     * @return string|null
+     * @return Mbid|null
      */
-    public function getId()
+    public function getMbid()
     {
         return $this->mbid;
     }
 
     /**
-     * Set the mbid
+     * Set the Mbid
      *
-     * @param string $id
+     * @param Mbid $mbid
      *
      * @return Area
-     * @throws InvalidArgumentException
      */
-    public function setId($id = null)
+    public function setMbid($mbid = null)
     {
-        if (! is_null($id)) {
-            if (! is_string($id) || ! preg_match('#\A[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\z#', $id)) {
-                throw new InvalidArgumentException('The supplied id is invalid');
-            }
-        }
-        $this->mbid = $id;
+        $this->mbid = $mbid;
         return $this;
     }
 
     /**
      * Return the name value of the Area
      *
-     * @return string|null
+     * @return Name|null
      */
     public function getName()
     {
@@ -108,16 +98,12 @@ class Area
     /**
      * Set the name value of the Area
      *
-     * @param string|null $name
+     * @param Name|null $name
      *
-     * @throws InvalidArgumentException
      * @return Area
      */
     public function setName($name = null)
     {
-        if (! is_null($name) && ! is_string($name)) {
-            throw new InvalidArgumentException('Expects a name');
-        }
         $this->name = $name;
         return $this;
     }
@@ -125,16 +111,12 @@ class Area
     /**
      * Set the sortName value
      *
-     * @param string|null $sortName
+     * @param Name|null $sortName
      *
-     * @throws InvalidArgumentException
      * @return Area
      */
     public function setSortName($sortName = null)
     {
-        if (! is_null($sortName) && ! is_string($sortName)) {
-            throw new InvalidArgumentException('Expects a string');
-        }
         $this->sortName = $sortName;
         return $this;
     }
@@ -142,7 +124,7 @@ class Area
     /**
      * Return the sortName value of the Area
      *
-     * @return string|null
+     * @return Name|null
      */
     public function getSortName()
     {

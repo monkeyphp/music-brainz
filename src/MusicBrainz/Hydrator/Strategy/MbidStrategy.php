@@ -1,6 +1,7 @@
 <?php
-/**
- * Copyright (C) David White <david@monkeyphp.com>
+
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,27 +18,30 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\Iso31661CodeList;
+use Exception;
+use MusicBrainz\Entity\Mbid;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
 /**
- * Description of Iso31661CodeListStrategy
+ * Description of MbidStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class Iso31661CodeListStrategy implements StrategyInterface
+class MbidStrategy implements StrategyInterface
 {
-
     public function extract($value)
     {
-
+        if (! $value instanceof Mbid) {
+            return null;
+        }
+        return $value->__toString();
     }
 
     public function hydrate($value)
     {
-        if (! is_array($value)) {
+        try {
+            return new Mbid($value);
+        } catch(Exception $exception) {
             return null;
         }
-        return new Iso31661CodeList();
     }
 }

@@ -26,8 +26,6 @@ namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Artist;
 use Zend\Stdlib\Hydrator\ClassMethods;
-use Zend\Stdlib\Hydrator\Filter\FilterComposite;
-use Zend\Stdlib\Hydrator\Filter\MethodMatchFilter;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -64,12 +62,14 @@ class ArtistStrategy implements StrategyInterface
             $hydrator->addStrategy('tagList', new TagListStrategy());
             $hydrator->addStrategy('ipiList', new IpiListStrategy());
             $hydrator->addStrategy('isniList', new IsniListStrategy());
-            
-            $hydrator->addFilter(
-                "id",
-                new MethodMatchFilter("getId"),
-                FilterComposite::CONDITION_AND
-            );
+            $hydrator->addStrategy('type', new TypeStrategy());
+            $hydrator->addStrategy('name', new NameStrategy());
+            $hydrator->addStrategy('sortName', new NameStrategy());
+            $hydrator->addStrategy('mbid', new MbidStrategy());
+            $hydrator->addStrategy('score', new ScoreStrategy());
+            $hydrator->addStrategy('gender', new GenderStrategy());
+            $hydrator->addStrategy('country', new CountryStrategy());
+            $hydrator->addStrategy('disambiguation', new DisambiguationStrategy());
 
             $this->hydrator = $hydrator;
         }
@@ -103,6 +103,10 @@ class ArtistStrategy implements StrategyInterface
     {
         if (! is_array($value)) {
             return null;
+        }
+        if (isset($value['id'])) {
+            $value['mbid'] = $value['id'];
+            unset($value['id']);
         }
         if (isset($value['sort-name'])) {
             $value['sortName'] = $value['sort-name'];

@@ -15,29 +15,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace MusicBrainz\Hydrator\Strategy;
-
-use MusicBrainz\Entity\Iso31661CodeList;
-use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
+namespace MusicBrainz\Entity;
 /**
- * Description of Iso31661CodeListStrategy
+ * Description of Locale
  *
  * @author David White <david@monkeyphp.com>
  */
-class Iso31661CodeListStrategy implements StrategyInterface
+class Locale
 {
+    protected $locale;
 
-    public function extract($value)
+    public function __construct($locale)
     {
-
+        if (! is_string($locale)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
+        $this->locale = $locale;
     }
 
-    public function hydrate($value)
+    public function __toString()
     {
-        if (! is_array($value)) {
-            return null;
-        }
-        return new Iso31661CodeList();
+        return $this->locale;
     }
 }

@@ -24,10 +24,11 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use InvalidArgumentException;
 use MusicBrainz\Entity\Area;
+use MusicBrainz\Entity\Iso31661CodeList;
+use MusicBrainz\Entity\Mbid;
+use MusicBrainz\Entity\Name;
 use PHPUnit_Framework_TestCase;
-use stdClass;
 
 /**
  * AreaTest
@@ -42,31 +43,19 @@ class AreaTest extends PHPUnit_Framework_TestCase
     /**
      * Test that we can get and set the id value
      *
-     * @covers \MusicBrainz\Entity\Area::getId
-     * @covers \MusicBrainz\Entity\Area::setId
+     * @covers \MusicBrainz\Entity\Area::getMbid
+     * @covers \MusicBrainz\Entity\Area::setMbid
      */
-    public function testGetSetId()
+    public function testGetSetMbid()
     {
         $area = new Area();
-        $id = '1f40c6e1-47ba-4e35-996f-fe6ee5840e62';
+        $mbid = new Mbid('1f40c6e1-47ba-4e35-996f-fe6ee5840e62');
 
-        $this->assertNull($area->getId());
-        $this->assertSame($area, $area->setId($id));
-        $this->assertEquals($id, $area->getId());
+        $this->assertNull($area->getMbid());
+        $this->assertSame($area, $area->setMbid($mbid));
+        $this->assertEquals($mbid, $area->getMbid());
     }
 
-    /**
-     * Test that attempting the set the id with an invalid parameter
-     * results in an exception
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Area::setId
-     */
-    public function testSetIdThrowsException()
-    {
-        $area = new Area();
-        $area->setId(new stdClass());
-    }
 
     /**
      * Test that we can get and set the name
@@ -77,25 +66,11 @@ class AreaTest extends PHPUnit_Framework_TestCase
     public function testGetSetName()
     {
         $area = new Area();
-        $name = 'US';
+        $name = new Name('US');
 
         $this->assertNull($area->getName());
         $this->assertSame($area, $area->setName($name));
-        $this->assertEquals($name, $area->getName());
-    }
-
-    /**
-     * Test that attempting to set the name with an invalid parameter
-     * results in an exception being throw
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Area::setName
-     */
-    public function testSetNameThrowsException()
-    {
-        $area = new Area();
-
-        $area->setName(new stdClass());
+        $this->assertSame($name, $area->getName());
     }
 
     /**
@@ -107,25 +82,11 @@ class AreaTest extends PHPUnit_Framework_TestCase
     public function testGetSetSortName()
     {
         $area = new Area();
-        $sortName = 'United States';
+        $sortName = new Name('United States');
 
         $this->assertNull($area->getSortName());
         $this->assertSame($area, $area->setSortName($sortName));
-        $this->assertEquals($sortName, $area->getSortName());
-    }
-
-    /**
-     * Test that attempting to set the sortName with an invalid parameter
-     * results in an excpetion being thrown
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Area::setSortName
-     */
-    public function testSetSortNameThrowsException()
-    {
-        $area = new Area();
-
-        $area->setSortName(new stdClass());
+        $this->assertSame($sortName, $area->getSortName());
     }
 
     /**
@@ -137,7 +98,7 @@ class AreaTest extends PHPUnit_Framework_TestCase
     public function testGetSetIso31661CodeList()
     {
         $area = new Area();
-        $iso31661CodeList = new \MusicBrainz\Entity\Iso31661CodeList();
+        $iso31661CodeList = new Iso31661CodeList();
 
         $this->assertInstanceOf('\MusicBrainz\Entity\Iso31661CodeList', $area->getIso31661CodeList());
         $this->assertSame($area, $area->setIso31661CodeList($iso31661CodeList));

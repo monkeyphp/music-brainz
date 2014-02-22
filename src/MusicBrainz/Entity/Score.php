@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) David White <david@monkeyphp.com>
+ * Copyright (C)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,29 +15,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace MusicBrainz\Hydrator\Strategy;
+namespace MusicBrainz\Entity;
 
-use MusicBrainz\Entity\Iso31661CodeList;
-use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
+use InvalidArgumentException;
 /**
- * Description of Iso31661CodeListStrategy
+ * Description of Score
  *
  * @author David White <david@monkeyphp.com>
  */
-class Iso31661CodeListStrategy implements StrategyInterface
+class Score
 {
+    protected $score;
 
-    public function extract($value)
+    public function __construct($score)
     {
-
+        $score = (int)$score;
+        if (! ($score >= 0 && $score <= 100)) {
+            throw new InvalidArgumentException('Expects a score between 0 and 100');
+        }
+        $this->score = $score;
     }
 
-    public function hydrate($value)
+    public function __toString()
     {
-        if (! is_array($value)) {
-            return null;
-        }
-        return new Iso31661CodeList();
+        return (string)$this->score;
     }
 }

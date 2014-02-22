@@ -25,6 +25,8 @@
 namespace MusicBrainzTest\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Artist;
+use MusicBrainz\Entity\ArtistList;
+use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Hydrator\Strategy\ArtistListStrategy;
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -90,8 +92,8 @@ class ArtistListStrategyTest extends PHPUnit_Framework_TestCase
     public function testExtract()
     {
         $artist = new Artist();
-        $artist->setId('65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab');
-        $artistList = new \MusicBrainz\Entity\ArtistList();
+        $artist->setMbid(new Mbid('65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab'));
+        $artistList = new ArtistList();
         $artistList->setArtists(array($artist));
 
         $strategy = new ArtistListStrategy();

@@ -104,7 +104,7 @@ class ArtistStrategyTest extends PHPUnit_Framework_TestCase
         $artist = $strategy->hydrate($values);
 
         $this->assertInstanceOf('\MusicBrainz\Entity\Artist', $artist);
-        $this->assertEquals($id, $artist->getId());
+        $this->assertEquals($id, $artist->getMbid());
         $this->assertEquals($type, $artist->getType());
         $this->assertEquals($name, $artist->getName());
         $this->assertEquals($score, $artist->getScore());

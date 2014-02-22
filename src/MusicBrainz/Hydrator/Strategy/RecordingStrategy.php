@@ -1,6 +1,8 @@
 <?php
-/**
- * Copyright (C) David White <david@monkeyphp.com>
+
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,37 +19,34 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\Alias;
+use MusicBrainz\Entity\Recording;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of AliasStrategy
+ * Description of RecordingStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class AliasStrategy implements StrategyInterface
+class RecordingStrategy implements StrategyInterface
 {
-    /**
-     * Instance of ClassMethods hydrator
-     *
-     * @var ClassMethods
-     */
     protected $hydrator;
 
-    protected function gethydrator()
+    protected function getHydrator()
     {
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
 
-            $hydrator->addStrategy('sortName', new NameStrategy());
-            $hydrator->addStrategy('locale', new LocaleStrategy());
-            $hydrator->addStrategy('primary', new PrimaryStrategy());
+            $hydrator->addStrategy('mbid', new MbidStrategy());
+            $hydrator->addStrategy('title', new TitleStrategy());
+            $hydrator->addStrategy('length', new LengthStrategy());
+            $hydrator->addStrategy('disambiguation', new DisambiguationStrategy());
 
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
     }
+
 
     public function extract($value)
     {
@@ -59,12 +58,7 @@ class AliasStrategy implements StrategyInterface
         if (! is_array($value)) {
             return null;
         }
-
-        if (isset($value['sort-name'])) {
-            $value['sortName'] = $value['sort-name'];
-            unset($value['sort-name']);
-        }
-
-        return $this->getHydrator()->hydrate($value, new Alias());
+        return $this->getHydrator()->hydrate($value, new Recording());
     }
+
 }

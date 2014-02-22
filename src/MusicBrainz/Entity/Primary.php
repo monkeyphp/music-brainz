@@ -15,29 +15,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace MusicBrainz\Hydrator\Strategy;
-
-use MusicBrainz\Entity\Iso31661CodeList;
-use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
+namespace MusicBrainz\Entity;
 /**
- * Description of Iso31661CodeListStrategy
+ * Description of Primary
  *
  * @author David White <david@monkeyphp.com>
  */
-class Iso31661CodeListStrategy implements StrategyInterface
+class Primary
 {
+    protected $primary;
 
-    public function extract($value)
+    public function __construct($primary)
     {
-
+        if (! is_string($primary)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
+        $this->primary = $primary;
     }
 
-    public function hydrate($value)
+    public function __toString()
     {
-        if (! is_array($value)) {
-            return null;
-        }
-        return new Iso31661CodeList();
+        return $this->primary;
     }
 }

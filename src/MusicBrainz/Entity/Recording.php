@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C) David White
+ * Recording.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David white <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,83 +25,131 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Recording
+ * Recording
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Recording
 {
     /**
+     * The Mbid of the Recording
      *
-     * 030b65aa-feb5-4269-ab59-5b250a478f1a
-     *
-     * @var string|null
+     * @var Mbid|null
      */
     protected $mbid;
 
     /**
+     * The Title of the Recording
+     *
      * ...and Justice for All
      *
-     * @var string|null
+     * @var Title|null
      */
     protected $title;
 
     /**
-     * The length of the recording
+     * The Length of the recording
      *
      * 180000
      *
-     * @var int|null
+     * @var Length|null
      */
     protected $length;
 
     /**
+     * The Disambiguation of the Recording
      *
      * live, 1988-10-21: Rudi-Sedlmayer-Halle. Munich, Germany
      *
-     * @var string|null
+     * @var Disambiguation|null
      */
     protected $disambiguation;
 
+    /**
+     *
+     * @return Mbid|null
+     */
     public function getMbid()
     {
         return $this->mbid;
     }
 
+    /**
+     *
+     * @return Title|null
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     *
+     * @return Length|null
+     */
     public function getLength()
     {
         return $this->length;
     }
 
+    /**
+     *
+     * @return Disambiguation|null
+     */
     public function getDisambiguation()
     {
         return $this->disambiguation;
     }
 
-    public function setMbid($mbid)
+    /**
+     * Set the Mbid value
+     *
+     * @param Mbid $mbid
+     *
+     * @return Recording
+     */
+    public function setMbid(Mbid $mbid)
     {
         $this->mbid = $mbid;
         return $this;
     }
 
-    public function setTitle($title)
+    /**
+     * Set the Title of the Recording
+     *
+     * @param Title $title
+     *
+     * @return Recording
+     */
+    public function setTitle(Title $title)
     {
         $this->title = $title;
         return $this;
     }
 
-    public function setLength($length)
+    /**
+     * Set the Length
+     *
+     * @param Length $length
+     *
+     * @return Recording
+     */
+    public function setLength(Length $length)
     {
         $this->length = $length;
         return $this;
     }
 
-    public function setDisambiguation($disambiguation)
+    /**
+     * Set the Disambiguation value
+     *
+     * @param Disambiguation $disambiguation
+     *
+     * @return Recording
+     */
+    public function setDisambiguation(Disambiguation $disambiguation)
     {
         $this->disambiguation = $disambiguation;
         return $this;

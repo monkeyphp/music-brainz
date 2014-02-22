@@ -26,6 +26,9 @@ namespace MusicBrainzTest\Entity;
 
 use InvalidArgumentException;
 use MusicBrainz\Entity\Alias;
+use MusicBrainz\Entity\Locale;
+use MusicBrainz\Entity\Name;
+use MusicBrainz\Entity\Primary;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 
@@ -48,25 +51,11 @@ class AliasTest extends PHPUnit_Framework_TestCase
     public function testGetSetLocale()
     {
         $alias = new Alias();
-        $locale = 'ko_KR';
+        $locale = new Locale('ko_KR');
 
         $this->assertNull($alias->getLocale());
         $this->assertSame($alias, $alias->setLocale($locale));
-        $this->assertEquals($locale, $alias->getLocale());
-    }
-
-    /**
-     * Test that attempting to set the locale with a non string value
-     * results in an exception
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Alias::setLocale
-     */
-    public function testSetLocaleThrowsException()
-    {
-        $alias = new Alias();
-
-        $alias->setLocale(new stdClass());
+        $this->assertSame($locale, $alias->getLocale());
     }
 
     /**
@@ -78,25 +67,11 @@ class AliasTest extends PHPUnit_Framework_TestCase
     public function testGetSetSortName()
     {
         $alias = new Alias();
-        $sortName = '메탈리카';
+        $sortName = new Name('메탈리카');
 
         $this->assertNull($alias->getSortName());
         $this->assertSame($alias, $alias->setSortName($sortName));
-        $this->assertEquals($sortName, $alias->getSortName());
-    }
-
-    /**
-     * Test that setSortName throws an exception if an invalid
-     * parameter is supplied
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Alias::setSortName
-     */
-    public function testetSortNameThrowsException()
-    {
-        $alias = new Alias();
-
-        $alias->setSortName(new stdClass());
+        $this->assertSame($sortName, $alias->getSortName());
     }
 
     /**
@@ -108,23 +83,11 @@ class AliasTest extends PHPUnit_Framework_TestCase
     public function testGetSetPrimary()
     {
         $alias = new Alias();
-        $primary = "primary";
+        $primary = new Primary("primary");
 
         $this->assertNull($alias->getPrimary());
         $this->assertSame($alias, $alias->setPrimary($primary));
-        $this->assertEquals($primary, $alias->getPrimary());
+        $this->assertSame($primary, $alias->getPrimary());
     }
 
-    /**
-     * Test that setPrimary throws an exception when an invalid
-     * paramter is supplied
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Alias::setPrimary
-     */
-    public function testSetPrimaryThrowsException()
-    {
-        $alias = new Alias();
-        $alias->setPrimary(new stdClass());
-    }
 }

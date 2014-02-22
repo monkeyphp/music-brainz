@@ -25,6 +25,8 @@
 namespace MusicBrainzTest\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Area;
+use MusicBrainz\Entity\Mbid;
+use MusicBrainz\Entity\Name;
 use MusicBrainz\Hydrator\Strategy\AreaStrategy;
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -57,7 +59,7 @@ class AreaStrategyTest extends PHPUnit_Framework_TestCase
 
         $area = $strategy->hydrate($values);
 
-        $this->assertEquals($id, $area->getId());
+        $this->assertEquals($id, $area->getMbid());
         $this->assertEquals($name, $area->getName());
         $this->assertEquals($sortName, $area->getSortName());
     }
@@ -79,10 +81,13 @@ class AreaStrategyTest extends PHPUnit_Framework_TestCase
      */
     public function testExtract()
     {
-        $id = '1f40c6e1-47ba-4e35-996f-fe6ee5840e62';
-        $name = $sortName = 'Los Angeles';
+        $mbid = new Mbid('1f40c6e1-47ba-4e35-996f-fe6ee5840e62');
+        $name = new Name('Los Angeles');
+        $sortName = new Name('Los Angeles');
         $area = new Area();
-        $area->setName($name)->setSortName($sortName)->setId($id);
+        $area->setName($name)
+            ->setSortName($sortName)
+            ->setMbid($mbid);
         $strategy = new AreaStrategy();
 
         $value = $strategy->extract($area);
@@ -90,9 +95,9 @@ class AreaStrategyTest extends PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $value);
         $this->assertArrayHasKey('name', $value);
         $this->assertArrayHasKey('sortName', $value);
-        $this->assertArrayHasKey('id', $value);
+        $this->assertArrayHasKey('mbid', $value);
 
-        $this->assertEquals($id, $value['id']);
+        $this->assertEquals($mbid, $value['mbid']);
         $this->assertEquals($name, $value['name']);
         $this->assertEquals($sortName, $value['sortName']);
     }

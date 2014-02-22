@@ -27,6 +27,7 @@ namespace MusicBrainzTest\Hydrator\Strategy;
 use MusicBrainz\Entity\Artist;
 use MusicBrainz\Entity\ArtistList;
 use MusicBrainz\Entity\ArtistSearch;
+use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Hydrator\Strategy\ArtistSearchStrategy;
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -108,14 +109,14 @@ class ArtistSearchStrategyTest extends PHPUnit_Framework_TestCase
         $strategy = new ArtistSearchStrategy();
         $id = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab';
         $artist = new Artist();
-        $artist->setId($id);
+        $artist->setMbid(new Mbid($id));
         $artistList = new ArtistList();
         $artistList->addArtist($artist);
         $artistSearch = new ArtistSearch();
         $artistSearch->setArtistList($artistList);
 
         $values = $strategy->extract($artistSearch);
-        
+
         $this->assertInternalType('array', $values);
         $this->assertArrayHasKey('artistList', $values);
         $this->assertInternalType('array', $values['artistList']);

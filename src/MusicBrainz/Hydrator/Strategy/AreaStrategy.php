@@ -55,6 +55,9 @@ class AreaStrategy implements StrategyInterface
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods(false);
             $hydrator->addStrategy('iso31661CodeList', new Iso31661CodeListStrategy());
+            $hydrator->addStrategy('mbid', new MbidStrategy());
+            $hydrator->addStrategy('sortName', new NameStrategy());
+            $hydrator->addStrategy('name', new NameStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -89,11 +92,15 @@ class AreaStrategy implements StrategyInterface
         if (! is_array($value)) {
             return null;
         }
+        if (isset($value['id'])) {
+            $value['mbid'] = $value['id'];
+            unset($value['id']);
+        }
         if (isset($value['sort-name'])) {
             $value['sortName'] = $value['sort-name'];
             unset($value['sort-name']);
         }
-        if (isset($values['iso-3166-1-code-list'])) {
+        if (isset($value['iso-3166-1-code-list'])) {
             $value['iso31661CodeList'] = $value['iso-3166-1-code-list'];
             unset($value['iso-3166-1-code-list']);
         }
