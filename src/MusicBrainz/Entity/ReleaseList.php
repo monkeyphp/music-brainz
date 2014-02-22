@@ -18,15 +18,109 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Entity;
+
+use Iterator;
+use Traversable;
+use MusicBrainz\Entity\Count;
 /**
  * Description of ReleaseList
  *
  * @author David White <david@monkeyphp.com>
  */
-class ReleaseList
+class ReleaseList implements Iterator
 {
+    /**
+     *
+     * @var Count
+     */
+    protected $count;
+
+    /**
+     *
+     * @var array
+     */
+    protected $releases = array();
+
+    /**
+     *
+     * @var int
+     */
+    protected $position;
+
+    /**
+     * Set the Releases
+     *
+     * @param Traversable $releases
+     *
+     * @return ReleaseList
+     */
+    public function setReleases($releases = array())
+    {
+        if ($releases instanceof Traversable || is_array($releases)) {
+            foreach ($releases as $release) {
+                if ($release instanceof Release) {
+                    $this->addRelease($release);
+                }
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Add a Release
+     *
+     * @param Release $release
+     *
+     * @return ReleaseList
+     */
     public function addRelease(Release $release)
     {
-        // 
+        if (! in_array($release, $this->releases, true)) {
+            $this->releases[] = $release;
+        }
+        return $this;
+    }
+
+    public function getReleases()
+    {
+        return $this->releases;
+    }
+
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    public function setCount(Count $count)
+    {
+        $this->count = $count;
+        return $this;
+    }
+
+    public function current()
+    {
+        return $this->releases[$this->position];
+    }
+
+    public function key()
+    {
+        // @codeCoverageIgnoreStart
+        return $this->position;
+        // @codeCoverageIgnoreEnd
+    }
+
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    public function valid()
+    {
+        return isset($this->releases[$this->position]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Disambiguation.php
+ * Count.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
@@ -27,45 +27,44 @@ namespace MusicBrainz\Entity;
 use InvalidArgumentException;
 
 /**
- * Disambiguation
+ * Count
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
  */
-class Disambiguation
+class Count
 {
     /**
-     * The Disambiguation value
+     * The count value
      *
-     * @var string
+     * @var int
      */
-    protected $disambiguation;
+    protected $count;
 
     /**
      * Constructor
      *
-     * @param string $disambiguation
+     * @param int $count
      *
      * @throws InvalidArgumentException
-     *
      * @return void
      */
-    public function __construct($disambiguation)
+    public function __construct($count)
     {
-        if (! is_string($disambiguation)) {
-            throw new InvalidArgumentException('Expects a string');
+        if (!ctype_digit((string)$count)) {
+            throw new InvalidArgumentException('Expects a number');
         }
-        $this->disambiguation = $disambiguation;
+        $this->count = (int)$count;
     }
 
     /**
-     * Return the string representation of the Disambiguation
-     *
+     * Return a string representation of the Count
+     * 
      * @return string
      */
     public function __toString()
     {
-        return $this->disambiguation;
+        return (string)$this->count;
     }
 }

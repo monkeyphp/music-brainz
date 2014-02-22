@@ -27,5 +27,18 @@ namespace MusicBrainz\Entity;
  */
 class Title
 {
-    //put your code here
+    protected $title;
+
+    public function __construct($title)
+    {
+        if (! is_null($title) && ! is_string($title)) {
+            throw new InvalidArgumentException('Supplied title is invalid');
+        }
+        $this->title = $title;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
 }

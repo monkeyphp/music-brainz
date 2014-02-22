@@ -508,7 +508,7 @@ class Artist
      *
      * @return Artist
      */
-    public function setGender($gender = null)
+    public function setGender(Gender $gender = null)
     {
         $this->gender = $gender;
         return $this;
@@ -531,7 +531,7 @@ class Artist
      *
      * @return Artist
      */
-    public function setDisambiguation($disambiguation = null)
+    public function setDisambiguation(Disambiguation $disambiguation = null)
     {
         $this->disambiguation = $disambiguation;
         return $this;
@@ -678,7 +678,8 @@ class Artist
     }
 
     /**
-     *
+     * Return the ReleaseGroupList
+     * 
      * @return ReleaseGroupList
      */
     public function getReleaseGroupList()

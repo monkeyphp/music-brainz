@@ -24,22 +24,115 @@
  */
 namespace MusicBrainz\Entity;
 
+use Iterator;
+use Traversable;
+
 /**
- * Description of IpiList
+ * IpiList
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
-class IpiList
+class IpiList implements Iterator
 {
+    /**
+     * An array of Ipi instances
+     *
+     * @var array
+     */
     protected $ipis = array();
 
+    /**
+     * Iterator position
+     *
+     * @var int
+     */
+    protected $position = 0;
+
+    /**
+     * Set the Ipi instances
+     *
+     * @param Traversable|array $ipis
+     *
+     * @return IpiList
+     */
     public function setIpis($ipis = array())
     {
-
+        if ($ipis instanceof Traversable || is_array($ipis)) {
+            foreach ($ipis as $ipi) {
+                if ($ipi instanceof Ipi) {
+                    $this->addIpi($ipi);
+                }
+            }
+        }
+        return $this;
     }
 
+    /**
+     * Add an Ipi instance to the list
+     *
+     * @param Ipi $ipi
+     *
+     * @return IpiList
+     */
     public function addIpi(Ipi $ipi)
     {
+        if (! in_array($ipi, $this->ipis, true)) {
+            $this->ipis[] = $ipi;
+        }
         return $this;
+    }
+
+    /**
+     * Return the current Ipi instance
+     * 
+     * @return Ipi
+     */
+    public function current()
+    {
+        return $this->ipis[$this->position];
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return int
+     */
+    public function key()
+    {
+        // @codeCoverageIgnoreStart
+        return $this->position;
+        // @codeCoverageIgnoreEnd
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return boolean
+     */
+    public function valid()
+    {
+        return isset($this->ipis[$this->position]);
     }
 }

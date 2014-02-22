@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C)
+ * Iso31661Code.php
+ *
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,11 +25,40 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Iso31661Code
+ * Iso31661Code
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
 class Iso31661Code
 {
+    /**
+     * The value of the Iso31661Code instance
+     * 
+     * @var string
+     */
     protected $iso31661Code;
+
+    /**
+     * Constructor
+     *
+     * @param string $iso31661Code
+     *
+     * @return void
+     */
+    public function __construct($iso31661Code)
+    {
+        $this->iso31661Code = $iso31661Code;
+    }
+
+    /**
+     * Return a string representation of the Iso31661Code
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->iso31661Code;
+    }
 }

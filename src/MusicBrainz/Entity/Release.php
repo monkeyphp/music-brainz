@@ -24,21 +24,144 @@ namespace MusicBrainz\Entity;
  */
 class Release
 {
+    /**
+     *
+     * @var Mbid
+     */
     protected $mbid;
 
+    /**
+     *
+     * @var Title
+     */
     protected $title;
 
+    /**
+     *
+     * @var type
+     */
     protected $status;
 
+    /**
+     *
+     * @var type
+     */
     protected $quality;
 
+    /**
+     *
+     * @var type
+     */
     protected $textRepresentation;
 
     protected $date;
 
+    /**
+     *
+     * @var Country
+     */
     protected $country;
 
     protected $releaseEventList;
 
     protected $mediumList;
+
+    public function getMbid()
+    {
+        return $this->mbid;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function getQuality()
+    {
+        return $this->quality;
+    }
+
+    public function getTextRepresentation()
+    {
+        return $this->textRepresentation;
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    public function getReleaseEventList()
+    {
+        return $this->releaseEventList;
+    }
+
+    public function getMediumList()
+    {
+        return $this->mediumList;
+    }
+
+    public function setMbid(Mbid $mbid)
+    {
+        $this->mbid = $mbid;
+        return $this;
+    }
+
+    public function setTitle(Title $title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function setQuality($quality)
+    {
+        $this->quality = $quality;
+        return $this;
+    }
+
+    public function setTextRepresentation($textRepresentation)
+    {
+        $this->textRepresentation = $textRepresentation;
+        return $this;
+    }
+
+    public function setDate($date)
+    {
+        $this->date = $date;
+        return $this;
+    }
+
+    public function setCountry(Country $country)
+    {
+        $this->country = $country;
+        return $this;
+    }
+
+    public function setReleaseEventList($releaseEventList)
+    {
+        $this->releaseEventList = $releaseEventList;
+        return $this;
+    }
+
+    public function setMediumList($mediumList)
+    {
+        $this->mediumList = $mediumList;
+        return $this;
+    }
 }

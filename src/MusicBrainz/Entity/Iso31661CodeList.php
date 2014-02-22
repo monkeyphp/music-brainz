@@ -7,7 +7,7 @@
  * @subpackage MusicBrainz\Entity
  * @author     David White <david@monkeyphp.com>
  *
- * Copyright (C) David Whie <david@monkeyphp.com>
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,10 +39,17 @@ class Iso31661CodeList implements Iterator
 {
     /**
      * An array containing instances of Iso31661Code
-     * 
+     *
      * @var array
      */
     protected $iso31661Codes = array();
+
+    /**
+     * Iterator position
+     *
+     * @var int
+     */
+    protected $position = 0;
 
     /**
      * Set the iSO31661Code array
@@ -88,29 +95,53 @@ class Iso31661CodeList implements Iterator
         return $this->iso31661Codes;
     }
 
-
+    /**
+     * Iterator implementation
+     *
+     * @return Iso31661Code
+     */
     public function current()
     {
-
+        return $this->iso31661Codes[$this->position];
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return int
+     */
     public function key()
     {
-
+        return $this->position;
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
     public function next()
     {
-
+        ++$this->position;
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
     public function rewind()
     {
-
+        $this->position = 0;
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return boolean
+     */
     public function valid()
     {
-
+        return isset($this->iso31661Codes[$this->position]);
     }
 }

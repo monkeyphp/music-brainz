@@ -1,5 +1,12 @@
 <?php
-/*
+/**
+ * Ipi.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
  * Copyright (C) David White
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,21 +25,39 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Ipi
+ * Ipi
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Ipi
 {
+    /**
+     * The value of the Ipi
+     *
+     * @var string
+     */
     protected $ipi;
 
-    public function setIpi($ipi)
+    /**
+     * Constructor
+     * 
+     * @param string $ipi
+     *
+     * @return void
+     */
+    public function __construct($ipi)
     {
         $this->ipi = $ipi;
-        return $this;
     }
 
-    public function getIpi()
+    /**
+     * Return a string representation of the Ipi
+     *
+     * @return string
+     */
+    public function __toString()
     {
         return $this->ipi;
     }
