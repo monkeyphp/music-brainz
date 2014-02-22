@@ -58,10 +58,10 @@ class TagListStrategy implements StrategyInterface
         if (! is_array($value) || ! isset($value['tag']) || ! is_array($value['tag'])) {
             return null;
         }
-        $tags = [];
+        $tags = array();
         $tagStrategy = new TagStrategy();
-        foreach ($value['tag'] as $index => $alias) {
-            $tags[] = $tagStrategy->hydrate($alias);
+        foreach ($value['tag'] as $index => $tag) {
+            $tags[$index] = $tagStrategy->hydrate($tag);
         }
         $values['tags'] = $tags;
         unset($value['tags']);

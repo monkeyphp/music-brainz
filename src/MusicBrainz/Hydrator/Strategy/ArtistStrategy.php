@@ -62,6 +62,12 @@ class ArtistStrategy implements StrategyInterface
             $hydrator->addStrategy('tagList', new TagListStrategy());
             $hydrator->addStrategy('ipiList', new IpiListStrategy());
             $hydrator->addStrategy('isniList', new IsniListStrategy());
+
+            $hydrator->addStrategy('releaseList', new ReleaseListStrategy());
+            $hydrator->addStrategy('releaseGroupList', new ReleaseGroupListStrategy());
+            $hydrator->addStrategy('recordingList', new RecordingListStrategy());
+            $hydrator->addStrategy('workList', new WorkListStrategy());
+
             $hydrator->addStrategy('type', new TypeStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
             $hydrator->addStrategy('sortName', new NameStrategy());
@@ -135,6 +141,21 @@ class ArtistStrategy implements StrategyInterface
         if (isset($value['isni-list'])) {
             $value['isniList'] = $value['isni-list'];
             unset($value['isni-list']);
+        }
+
+        if (isset($value['recording-list'])) {
+
+        }
+
+        if (isset($value['release-list'])) {
+            $value['releaseList'] = $value['release-list'];
+            unset($value['release-list']);
+        }
+        if (isset($value['release-group-list'])) {
+
+        }
+        if (isset($value['work-list'])) {
+
         }
         return $this->getHydrator()->hydrate($value, new Artist());
     }

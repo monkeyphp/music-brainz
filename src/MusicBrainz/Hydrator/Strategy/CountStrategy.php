@@ -21,15 +21,16 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use Exception;
-use MusicBrainz\Entity\Title;
+use MusicBrainz\Entity\Count;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
+
 /**
- * Description of TitleStrategy
+ * Description of CountStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class TitleStrategy implements StrategyInterface
+class CountStrategy implements StrategyInterface
 {
     public function extract($value)
     {
@@ -39,7 +40,7 @@ class TitleStrategy implements StrategyInterface
     public function hydrate($value)
     {
         try {
-            return new Title($value);
+            return new Count($value);
         } catch(Exception $exception) {
             return null;
         }

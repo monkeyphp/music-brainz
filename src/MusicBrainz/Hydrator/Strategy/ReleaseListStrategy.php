@@ -20,17 +20,31 @@
 
 namespace MusicBrainz\Hydrator\Strategy;
 
-use Exception;
-use MusicBrainz\Entity\Title;
+use MusicBrainz\Entity\ReleaseList;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of TitleStrategy
+ * Description of ReleaseListStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class TitleStrategy implements StrategyInterface
+class ReleaseListStrategy implements StrategyInterface
 {
+    protected $hydrator;
+
+    protected function getHydrator()
+    {
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods();
+
+            $hydrator->addStrategy('count', new CountStrategy());
+
+            $this->hydrator = $hydrator;
+        }
+        return $this->hydrator;
+    }
+
     public function extract($value)
     {
 
@@ -38,11 +52,18 @@ class TitleStrategy implements StrategyInterface
 
     public function hydrate($value)
     {
-        try {
-            return new Title($value);
-        } catch(Exception $exception) {
+        if (! is_array($value) || ! isset($value['release']) || ! is_array($value['release'])) {
             return null;
         }
+        $releases = array();
+        $releaseStrategy = new ReleaseStrategy();
+        foreach ($value['release'] as $index => $release) {
+            $releases[$index] = $releaseStrategy->hydrate($release);
+        }
+        $values['releases'] = $releases;
+        unset($value['releases']);
+        $values['count'] = $value['count'];
+        return $this->getHydrator()->hydrate($values, new ReleaseList());
     }
 
 }

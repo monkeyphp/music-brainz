@@ -20,16 +20,14 @@
 
 namespace MusicBrainz\Hydrator\Strategy;
 
-use Exception;
-use MusicBrainz\Entity\Title;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of TitleStrategy
+ * Description of ReleaseGroupListStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class TitleStrategy implements StrategyInterface
+class ReleaseGroupListStrategy implements StrategyInterface
 {
     public function extract($value)
     {
@@ -38,11 +36,7 @@ class TitleStrategy implements StrategyInterface
 
     public function hydrate($value)
     {
-        try {
-            return new Title($value);
-        } catch(Exception $exception) {
-            return null;
-        }
+
     }
 
 }
