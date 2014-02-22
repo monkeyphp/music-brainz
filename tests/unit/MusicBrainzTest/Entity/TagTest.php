@@ -24,10 +24,11 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Entity\Count;
+use MusicBrainz\Entity\Name;
 use MusicBrainz\Entity\Tag;
 use PHPUnit_Framework_TestCase;
-use stdClass;
-use Zend\Validator\Exception\InvalidArgumentException;
+
 
 /**
  * TagTest
@@ -48,24 +49,11 @@ class TagTest extends PHPUnit_Framework_TestCase
     public function testGetSetName()
     {
         $tag = new Tag();
-        $name = 'metal';
+        $name = new Name('metal');
 
         $this->assertNull($tag->getName());
         $this->assertSame($tag, $tag->setName($name));
-        $this->assertEquals($name, $tag->getName());
-    }
-
-    /**
-     * Test that attempting to set the name with an invalid parameter
-     * throws an exception
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Tag::setName
-     */
-    public function testSetNameThrowsException()
-    {
-        $tag = new Tag();
-        $tag->setName(new stdClass());
+        $this->assertSame($name, $tag->getName());
     }
 
     /**
@@ -77,23 +65,10 @@ class TagTest extends PHPUnit_Framework_TestCase
     public function testSetGetCount()
     {
         $tag = new Tag();
-        $count = 1;
+        $count = new Count(1);
 
         $this->assertNull($tag->getCount());
         $this->assertSame($tag, $tag->setCount($count));
-        $this->assertEquals($count, $tag->getCount());
-    }
-
-    /**
-     * Test that passing an invalid argument to setCount results in an
-     * exception being thrown
-     *
-     * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Tag::setCount
-     */
-    public function testSetCountThrowsException()
-    {
-        $tag = new Tag();
-        $tag->setCount(new stdClass());
+        $this->assertSame($count, $tag->getCount());
     }
 }

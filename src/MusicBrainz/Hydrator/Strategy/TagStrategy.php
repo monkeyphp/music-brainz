@@ -44,6 +44,8 @@ class TagStrategy implements StrategyInterface
     {
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
+            $hydrator->addStrategy('name', new NameStrategy());
+            $hydrator->addStrategy('count', new CountStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;

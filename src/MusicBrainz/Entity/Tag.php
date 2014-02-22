@@ -24,8 +24,6 @@
  */
 namespace MusicBrainz\Entity;
 
-use InvalidArgumentException;
-
 /**
  * Tag
  *
@@ -37,25 +35,25 @@ use InvalidArgumentException;
 class Tag
 {
     /**
-     * The name of the Tag
+     * The Name of the Tag
      *
      * For example: 'metal', 'thrash', 'rock'
      *
-     * @var string|null
+     * @var Name|null
      */
     protected $name;
 
     /**
      * The count of the Tag
      *
-     * @var int|null
+     * @var Count|null
      */
     protected $count;
 
     /**
      * Return the Tag name
      *
-     * @return string|null
+     * @return Name|null
      */
     public function getName()
     {
@@ -65,15 +63,12 @@ class Tag
     /**
      * Set the Tag name
      *
-     * @param string|null $name
+     * @param Name|null $name
      *
      * @return Tag
      */
-    public function setName($name = null)
+    public function setName(Name $name = null)
     {
-        if (! is_null($name) && ! is_string($name)) {
-            throw new InvalidArgumentException('Expects a string');
-        }
         $this->name = $name;
         return $this;
     }
@@ -81,7 +76,7 @@ class Tag
     /**
      * Return the count
      *
-     * @return int|null
+     * @return Count|null
      */
     public function getCount()
     {
@@ -90,18 +85,14 @@ class Tag
 
     /**
      * Set the count
-     * 
-     * @param null|scalar $count
+     *
+     * @param Count|null $count
      *
      * @return Tag
-     * @throws InvalidArgumentException
      */
-    public function setCount($count = null)
+    public function setCount(Count $count = null)
     {
-        if (! is_null($count) && ! is_numeric($count)) {
-            throw new InvalidArgumentException('Expects a numeric');;
-        }
-        $this->count = (int)$count;
+        $this->count = $count;
         return $this;
     }
 }
