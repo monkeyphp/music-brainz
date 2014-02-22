@@ -25,7 +25,20 @@
 namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
-
+use MusicBrainz\Entity\Alias;
+use MusicBrainz\Entity\AliasList;
+use MusicBrainz\Entity\Area;
+use MusicBrainz\Entity\Artist;
+use MusicBrainz\Entity\Ipi;
+use MusicBrainz\Entity\IpiList;
+use MusicBrainz\Entity\IsniList;
+use MusicBrainz\Entity\LifeSpan;
+use MusicBrainz\Entity\RecordingList;
+use MusicBrainz\Entity\ReleaseGroupList;
+use MusicBrainz\Entity\ReleaseList;
+use MusicBrainz\Entity\Tag;
+use MusicBrainz\Entity\TagList;
+use MusicBrainz\Entity\WorkList;
 /**
  * Artist
  *
@@ -597,11 +610,15 @@ class Artist
     }
 
     /**
+     * Return an instance of IsniList
      *
      * @return IsniList
      */
     public function getIsniList()
     {
+        if (! isset($this->isniList)) {
+            $this->isniList = new IsniList();
+        }
         return $this->isniList;
     }
 
@@ -618,20 +635,42 @@ class Artist
         return $this;
     }
 
+    /**
+     * Return an instance of RecordingList
+     *
+     * @return RecordingList
+     */
     public function getRecordingList()
     {
+        if (! isset($this->recordingList)) {
+            $this->recordingList = new RecordingList();
+        }
         return $this->recordingList;
     }
 
+    /**
+     * Set the instance of RecordingList
+     *
+     * @param RecordingList $recordingList
+     *
+     * @return Artist
+     */
     public function setRecordingList(RecordingList $recordingList = null)
     {
         $this->recordingList = $recordingList;
         return $this;
     }
 
-
+    /**
+     * Return an instance of ReleaseList
+     *
+     * @return ReleaseList
+     */
     public function getReleaseList()
     {
+        if (! isset($this->releaseList)) {
+            $this->releaseList = new ReleaseList();
+        }
         return $this->releaseList;
     }
 
@@ -641,22 +680,50 @@ class Artist
         return $this;
     }
 
+    /**
+     *
+     * @return ReleaseGroupList
+     */
     public function getReleaseGroupList()
     {
+        if (! isset($this->releaseGroupList)) {
+            $this->releaseGroupList = new ReleaseGroupList();
+        }
         return $this->releaseGroupList;
     }
 
+    /**
+     * Set the ReleaseGroupList instance
+     *
+     * @param ReleaseGroupList $releaseGroupList
+     *
+     * @return Artist
+     */
     public function setReleaseGroupList(ReleaseGroupList $releaseGroupList = null)
     {
         $this->releaseGroupList = $releaseGroupList;
         return $this;
     }
 
+    /**
+     * Return the WorkList instance
+     * 
+     * @return WorkList
+     */
     public function getWorkList()
     {
+        if (! isset($this->workList)) {
+            $this->workList = new WorkList();
+        }
         return $this->workList;
     }
 
+    /**
+     *
+     * @param WorkList $workList
+     *
+     * @return Artist
+     */
     public function setWorkList(WorkList $workList = null)
     {
         $this->workList = $workList;

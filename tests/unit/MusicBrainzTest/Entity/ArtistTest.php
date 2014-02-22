@@ -31,6 +31,7 @@ use MusicBrainz\Entity\Area;
 use MusicBrainz\Entity\Artist;
 use MusicBrainz\Entity\Ipi;
 use MusicBrainz\Entity\IpiList;
+use MusicBrainz\Entity\IsniList;
 use MusicBrainz\Entity\LifeSpan;
 use MusicBrainz\Entity\Tag;
 use MusicBrainz\Entity\TagList;
@@ -357,6 +358,36 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that an exception is thrown if the supplied value is
+     * too high
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setScore
+     */
+    public function testSetScoreThrowsExceptionTooHigh()
+    {
+        $artist = new Artist();
+        $score = 101;
+
+        $artist->setScore($score);
+    }
+
+    /**
+     * Test that an exception is thrown if the supplied value is
+     * too low
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setScore
+     */
+    public function testSetScoreThrowsExceptionTooLow()
+    {
+        $artist = new Artist();
+        $score = -10;
+
+        $artist->setScore($score);
+    }
+
+    /**
      * Test that we can get and set the gender
      *
      * @covers \MusicBrainz\Entity\Artist::getGender
@@ -370,6 +401,17 @@ class ArtistTest extends PHPUnit_Framework_TestCase
         $this->assertNull($artist->getGender());
         $this->assertSame($artist, $artist->setGender($gender));
         $this->assertEquals($gender, $artist->getGender());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setGender
+     */
+    public function testSetGenderThrowsException()
+    {
+        $artist = new Artist();
+
+        $artist->setGender(new stdClass());
     }
 
     /**
@@ -389,6 +431,17 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setDisambiguation
+     */
+    public function testSetDisambiguationThrowsExcpetion()
+    {
+        $artist = new Artist();
+
+        $artist->setDisambiguation(new stdClass());
+    }
+
+    /**
      * Test that we can get and set the country
      *
      * @covers \MusicBrainz\Entity\Artist::getCountry
@@ -402,5 +455,41 @@ class ArtistTest extends PHPUnit_Framework_TestCase
         $this->assertNull($artist->getCountry());
         $this->assertSame($artist, $artist->setCountry($country));
         $this->assertEquals($country, $artist->getCountry());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Artist::setCountry
+     */
+    public function testSetCountryThrowsException()
+    {
+        $artist = new Artist();
+
+        $artist->setCountry(new stdClass);
+    }
+
+    /**
+     * Test that we can retrieve a default instance of IsniList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getIsniList
+     */
+    public function testGetIsniListDefault()
+    {
+        $artist = new Artist();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\IsniList', $artist->getIsniList());
+    }
+
+    /**
+     * @covers \MusicBrainz\Entity\Artist::getIsniList
+     * @covers \MusicBrainz\Entity\Artist::setIsniList
+     */
+    public function testSetIsniList()
+    {
+        $artist = new Artist();
+        $isniList = new IsniList();
+
+        $this->assertSame($artist, $artist->setIsniList($isniList));
+        $this->assertSame($isniList, $artist->getIsniList());
     }
 }
