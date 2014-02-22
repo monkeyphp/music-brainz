@@ -43,16 +43,12 @@ class Recording
     /**
      * The Title of the Recording
      *
-     * ...and Justice for All
-     *
      * @var Title|null
      */
     protected $title;
 
     /**
      * The Length of the recording
-     *
-     * 180000
      *
      * @var Length|null
      */
@@ -61,13 +57,12 @@ class Recording
     /**
      * The Disambiguation of the Recording
      *
-     * live, 1988-10-21: Rudi-Sedlmayer-Halle. Munich, Germany
-     *
      * @var Disambiguation|null
      */
     protected $disambiguation;
 
     /**
+     * Return the Mbid value
      *
      * @return Mbid|null
      */
@@ -77,6 +72,7 @@ class Recording
     }
 
     /**
+     * Return the Title value
      *
      * @return Title|null
      */
@@ -86,6 +82,7 @@ class Recording
     }
 
     /**
+     * Return the Length value
      *
      * @return Length|null
      */
@@ -95,6 +92,7 @@ class Recording
     }
 
     /**
+     * Return the Disambiguation value
      *
      * @return Disambiguation|null
      */
