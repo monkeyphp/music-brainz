@@ -178,8 +178,6 @@ abstract class AbstractConnector implements ConnectorInterface
 
         $options = $inputFilter->getValues();
 
-        var_dump($options);
-
         $request = $this->getRequest(
             $this->getUri(array($mbid)),
             $this->parseLookupParams($options)
@@ -188,8 +186,6 @@ abstract class AbstractConnector implements ConnectorInterface
         try {
             $response = $this->getResponse($request);
             $body = $response->getBody();
-
-            var_dump($body);
 
             $reader = $this->getReader($options['format']);
             $data = $reader->fromString($body);
@@ -551,7 +547,7 @@ abstract class AbstractConnector implements ConnectorInterface
         if (isset($options['includes'])) {
             $params[self::PARAM_INCLUDES] = $this->prepareIncludes($options['includes']);
         }
-
+        var_dump($params);
         return $params;
     }
 
