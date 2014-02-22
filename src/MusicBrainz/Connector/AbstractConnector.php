@@ -152,6 +152,8 @@ abstract class AbstractConnector implements ConnectorInterface
      *
      * lookup:   /<ENTITY>/<MBID>?inc=<INC>
      *
+     * @link http://musicbrainz.org/ws/2/artist/65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab
+     *
      * @link http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2
      *
      * @param string $mbid    The MBID of the resource
@@ -169,12 +171,14 @@ abstract class AbstractConnector implements ConnectorInterface
 
         $inputFilter = $this->getLookupFilter()->setData($options);
 
-        if ($inputFilter->isValid()) {
+        if (! $inputFilter->isValid()) {
             $messages = $inputFilter->getMessages();
             throw new InvalidArgumentException(reset($messages));
         }
 
         $options = $inputFilter->getValues();
+
+        var_dump($options);
 
         $request = $this->getRequest(
             $this->getUri(array($mbid)),
@@ -184,6 +188,8 @@ abstract class AbstractConnector implements ConnectorInterface
         try {
             $response = $this->getResponse($request);
             $body = $response->getBody();
+
+            var_dump($body);
 
             $reader = $this->getReader($options['format']);
             $data = $reader->fromString($body);
@@ -545,6 +551,7 @@ abstract class AbstractConnector implements ConnectorInterface
         if (isset($options['includes'])) {
             $params[self::PARAM_INCLUDES] = $this->prepareIncludes($options['includes']);
         }
+
         return $params;
     }
 
@@ -577,7 +584,7 @@ abstract class AbstractConnector implements ConnectorInterface
             self::PARAM_INC_SEPARATOR,
             array_intersect(
                 $includes,
-                $this->getDefaultIncludes()
+                $this->getIncludes()
             )
         );
     }

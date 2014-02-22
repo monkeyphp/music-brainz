@@ -34,7 +34,12 @@ namespace MusicBrainz\Connector;
  */
 class ArtistConnector extends AbstractConnector
 {
-
+    /**
+     *
+     * @var array
+     */
+    protected $defaultIncludes = array();
+    
     /**
      * Lucene search indexed fields
      *
@@ -69,24 +74,34 @@ class ArtistConnector extends AbstractConnector
      * @var array
      */
     protected $includes = array(
-        ConnectorInterface::INC_ARTISTS,
         ConnectorInterface::INC_RECORDINGS,
         ConnectorInterface::INC_RELEASES,
         ConnectorInterface::INC_RELEASE_GROUPS,
         ConnectorInterface::INC_WORKS,
-        ConnectorInterface::INC_VARIOUS_ARTISTS,
-        ConnectorInterface::INC_ALIASES,
-        ConnectorInterface::INC_ANNOTATION,
-        ConnectorInterface::INC_TAGS,
-        ConnectorInterface::INC_RATINGS,
-        ConnectorInterface::INC_USER_TAGS,
-        ConnectorInterface::INC_USER_RATINGS,
+
+        ConnectorInterface::INC_TYPE,
+        ConnectorInterface::INC_STATUS,
+
+        ConnectorInterface::INC_RELS_ARTIST,
         ConnectorInterface::INC_RELS_LABEL,
         ConnectorInterface::INC_RELS_RECORDING,
         ConnectorInterface::INC_RELS_RELEASE,
         ConnectorInterface::INC_RELS_RELEASE_GROUPS,
         ConnectorInterface::INC_RELS_URL,
         ConnectorInterface::INC_RELS_WORK,
+
+        ConnectorInterface::INC_DISCIDS,
+        ConnectorInterface::INC_MEDIA,
+        ConnectorInterface::INC_ARTIST_CREDITS,
+        ConnectorInterface::INC_VARIOUS_ARTISTS,
+
+        ConnectorInterface::INC_ALIASES,
+        ConnectorInterface::INC_ANNOTATION,
+        ConnectorInterface::INC_TAGS,
+        ConnectorInterface::INC_RATINGS,
+
+        ConnectorInterface::INC_USER_TAGS,
+        ConnectorInterface::INC_USER_RATINGS,
     );
 
     /**

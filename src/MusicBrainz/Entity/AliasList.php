@@ -97,7 +97,7 @@ class AliasList implements Iterator
 
     /**
      * Return the current Alias
-     * 
+     *
      * @return Alias
      */
     public function current()
@@ -112,7 +112,9 @@ class AliasList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

@@ -86,6 +86,20 @@ class AliasTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that setSortName throws an exception if an invalid
+     * parameter is supplied
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Alias::setSortName
+     */
+    public function testetSortNameThrowsException()
+    {
+        $alias = new Alias();
+
+        $alias->setSortName(new stdClass());
+    }
+
+    /**
      * Test that we can get and set the primary
      *
      * @covers \MusicBrainz\Entity\Alias::getPrimary
@@ -99,5 +113,18 @@ class AliasTest extends PHPUnit_Framework_TestCase
         $this->assertNull($alias->getPrimary());
         $this->assertSame($alias, $alias->setPrimary($primary));
         $this->assertEquals($primary, $alias->getPrimary());
+    }
+
+    /**
+     * Test that setPrimary throws an exception when an invalid
+     * paramter is supplied
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Alias::setPrimary
+     */
+    public function testSetPrimaryThrowsException()
+    {
+        $alias = new Alias();
+        $alias->setPrimary(new stdClass());
     }
 }

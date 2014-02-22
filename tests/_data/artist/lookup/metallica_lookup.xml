@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata xmlns="http://musicbrainz.org/ns/mmd-2.0#">
+    <artist type="Group" id="65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab">
+        <name>Metallica</name>
+        <sort-name>Metallica</sort-name>
+        <isni-list>
+            <isni>0000000122939631</isni>
+        </isni-list>
+        <country>US</country>
+        <area id="489ce91b-6658-3307-9877-795b68554c98">
+            <name>United States</name>
+            <sort-name>United States</sort-name>
+            <iso-3166-1-code-list>
+                <iso-3166-1-code>US</iso-3166-1-code>
+            </iso-3166-1-code-list>
+        </area>
+        <begin-area id="1f40c6e1-47ba-4e35-996f-fe6ee5840e62">
+            <name>Los Angeles</name>
+            <sort-name>Los Angeles</sort-name>
+        </begin-area>
+        <life-span>
+            <begin>1981-10</begin>
+        </life-span>
+        <recording-list count="9809">
+            <recording id="030b65aa-feb5-4269-ab59-5b250a478f1a">
+                <title>...and Justice for All</title>
+                <length>180000</length>
+                <disambiguation>live, 1988-10-21: Rudi-Sedlmayer-Halle. Munich, Germany</disambiguation>
+            </recording>
+            <recording id="054cb6ff-7367-4197-a624-63aee1f8115c">
+                <title>...and Justice for All</title>
+                <length>650000</length>
+                <disambiguation>live, 1989-03-29</disambiguation>
+            </recording>
+            <recording id="11d07a53-393a-4811-9581-1b2ab25f7085">
+                <title>...and Justice for All</title>
+                <length>556300</length>
+            </recording>
+            <recording id="1adb2241-971f-4e56-8a83-39e821d3f98b">
+                <title>...and Justice for All</title>
+                <length>626893</length>
+                <disambiguation>live, 1989-02-03</disambiguation>
+            </recording>
+            <recording id="2a64bc8f-e70a-4746-ab36-2196d5fd1f06">
+                <title>...and Justice for All</title>
+                <length>746000</length>
+                <disambiguation>live, 1988-09-11: MTK Football Stadium, Budapest, Hungary</disambiguation>
+            </recording>
+            <recording id="2bb67e14-9ec5-4831-a8a5-062260e93324">
+                <title>...and Justice for All</title>
+                <length>614800</length>
+                <disambiguation>live, 1989-05-13</disambiguation>
+            </recording>
+            <recording id="2cbeb044-5328-4ca0-a3b0-04f6db34470e">
+                <title>...and Justice for All</title>
+                <length>568000</length>
+                <disambiguation>live, 1989-02-05: Reunion Arena, Dallas, TX, USA</disambiguation>
+            </recording>
+            <recording id="339ba2dc-33f3-4f51-b200-88ccc339bfe4">
+                <title>...and Justice for All</title>
+                <length>606000</length>
+                <disambiguation>live, 1989-02-03: Erwin Events Center, Austin, TX, USA</disambiguation>
+            </recording>
+            <recording id="3f861746-e69a-4b07-b23c-b139a3e68432">
+                <title>...and Justice for All</title>
+                <disambiguation>live, 1989-02-26: Charlotte Coliseum, Charlotte, NC, USA</disambiguation>
+            </recording>
+            <recording id="50c17798-c197-49ed-b5a1-867e1cddf05d">
+                <title>...and Justice for All</title>
+                <length>614000</length>
+                <disambiguation>live, 1988-10-18</disambiguation>
+            </recording>
+            <recording id="51a78bee-4ef0-4b5b-96ea-f2878f3d7993">
+                <title>...and Justice for All</title>
+                <length>585826</length>
+            </recording>
+            <recording id="5a91f0f2-d148-403e-896a-5feacf5e46b6">
+                <title>...and Justice for All</title>
+                <length>693000</length>
+                <disambiguation>live, 1989-02-03: Veteran's Memorial, Austin, TX, USA</disambiguation>
+            </recording>
+            <recording id="5c064ce0-fd97-465e-8fb4-25e32a45bbcc">
+                <title>...and Justice for All</title>
+                <length>551066</length>
+                <disambiguation>live, 1989-02-03</disambiguation>
+            </recording>
+            <recording id="5f0a1f1d-f270-4533-bd72-6ba6f332ca92">
+                <title>...and Justice for All</title>
+                <length>619000</length>
+                <disambiguation>live, 1988-09-26</disambiguation>
+            </recording>
+            <recording id="613b8a30-9392-4b8e-ad20-54e30e884aa7">
+                <title>...and Justice for All</title>
+                <length>557000</length>
+                <disambiguation>live, 1988-10-15</disambiguation>
+            </recording>
+            <recording id="7c888258-ee86-4425-8d2f-72d304b78da5">
+                <title>...and Justice for All</title>
+                <length>491000</length>
+                <disambiguation>demo, 1988</disambiguation>
+            </recording>
+            <recording id="8660f0b5-c6f5-4f1e-a711-74577ecba670">
+                <title>...and Justice for All</title>
+                <disambiguation>live, 1989-03-17</disambiguation>
+            </recording>
+            <recording id="9f02aaad-1b85-4d1d-98e8-99adf2a1a66f">
+                <title>...and Justice for All</title>
+                <length>632000</length>
+                <disambiguation>live, 1989-04-14</disambiguation>
+            </recording>
+            <recording id="bd3bd125-2681-4ebc-8c71-e41011423da0">
+                <title>...and Justice for All</title>
+                <length>605000</length>
+                <disambiguation>live</disambiguation>
+            </recording>
+            <recording id="be700221-703f-49ce-ac6e-16bea217d7aa">
+                <title>...and Justice for All</title>
+                <length>692200</length>
+                <disambiguation>live, 1989-02-03: Austin, TX, USA</disambiguation>
+            </recording>
+            <recording id="c8b68d34-49e7-485e-a2ae-d84d3442ffcf">
+                <title>...and Justice for All</title>
+                <length>358000</length>
+                <disambiguation>edit</disambiguation>
+            </recording>
+            <recording id="d12b5a3d-1c5c-40a0-97d5-a741a9b0f293">
+                <title>...and Justice for All</title>
+                <length>650000</length>
+                <disambiguation>live, 1988-09-30: Sheffield City Hall, Sheffield, UK</disambiguation>
+            </recording>
+            <recording id="e1b7df29-5759-4f40-98da-a4e5c269b7e4">
+                <title>...and Justice for All</title>
+                <length>592680</length>
+                <disambiguation>live, 1989-05-04</disambiguation>
+            </recording>
+            <recording id="ea9e2cb9-9040-4d3a-86d2-5139612df6c0">
+                <title>...and Justice for All</title>
+                <length>554000</length>
+                <disambiguation>live, 1989-02-03</disambiguation>
+            </recording>
+            <recording id="fcd3a3c3-a62b-4609-b98a-f2105966803e">
+                <title>...and Justice for All</title>
+                <disambiguation>live, 1989-04-07: Maple Leaf Gardens, Toronto, ON, Canada</disambiguation>
+            </recording>
+        </recording-list>
+        <release-list count="883">
+            <release id="0e014d5a-6266-4f13-aa63-badbd34406e4">
+                <title>Ride the Lightning</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <packaging>Cassette Case</packaging>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>075596039642</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="141ce457-8fa4-4d9d-86ed-8a020a4de61b">
+                <title>Cliff's First Show</title>
+                <quality>normal</quality>
+                <packaging>Jewel Case</packaging>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983-05-05</date>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983-05-05</date>
+                    </release-event>
+                </release-event-list>
+                <barcode />
+                <medium-list count="0" />
+            </release>
+            <release id="16259d14-2313-32cf-a8b3-289b86885632">
+                <title>Master of Puppets</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1986-06-01</date>
+                <country>CA</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1986-06-01</date>
+                        <area id="71bbafaa-e825-3e15-8ca9-017dcad1748b">
+                            <name>Canada</name>
+                            <sort-name>Canada</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>CA</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>075596043922</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="2b4002f3-1c21-4ff2-bebf-f4c98f1773c1">
+                <title>Kill 'Em All</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <packaging>Cassette Case</packaging>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>075596076647</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="36532428-d149-4ac0-b75a-374a9f4412db">
+                <title>Jump in the Fire</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="51eb10e0-2b9e-3906-a8f1-db74b346cba5">
+                <title>Ride the Lightning</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <packaging>Jewel Case</packaging>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984-11-19</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984-11-19</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>075596039628</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="589ff96d-0be8-3f82-bdd2-299592e51b40">
+                <title>Ride the Lightning</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984-07-30</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984-07-30</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="5e6aea84-181f-4235-a4c1-bff2c3e97676">
+                <title>Whiplash</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983-08-08</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983-08-08</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="7499768c-6c6b-4f4c-a93a-d41ad439d181">
+                <title>Power Metal</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1982-04-04</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1982-04-04</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="7a72dd32-2537-4cf4-a508-5c7ba8083b8d">
+                <title>Creeping Death</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984-11-23</date>
+                <country>FR</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984-11-23</date>
+                        <area id="08310658-51eb-3801-80de-5a0739207115">
+                            <name>France</name>
+                            <sort-name>France</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>FR</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="81933969-b9f5-41fa-b605-710541b1f4ae">
+                <title>No Life 'til Leather</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1982-07</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1982-07</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="834a7aa9-c7f5-3571-a812-46c6d134a98d">
+                <title>Kill 'em All</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983</date>
+                <country>NL</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983</date>
+                        <area id="ef1b7cc0-cd26-36f4-8ea0-04d9623786c7">
+                            <name>Netherlands</name>
+                            <sort-name>Netherlands</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>NL</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="864c3a67-d889-4ec1-8c0c-40a024cc6834">
+                <title>Megaforce Demo</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983-03-16</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983-03-16</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="8d15579a-2422-37b4-a29d-92ee3daeb301">
+                <title>Ride the Lightning</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984</date>
+                <country>GB</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984</date>
+                        <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                            <name>United Kingdom</name>
+                            <sort-name>United Kingdom</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>GB</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>042283814011</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="93d18f98-694e-32f9-b720-77d4f9188382">
+                <title>Kill 'em All</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983</date>
+                <country>GB</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983</date>
+                        <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                            <name>United Kingdom</name>
+                            <sort-name>United Kingdom</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>GB</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="a128215b-cd12-4a9e-a1cc-c68fc853e254">
+                <title>No Life 'til Leather</title>
+                <status>Bootleg</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1982-07</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1982-07</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="a5e6ac3a-f319-40b7-9c9c-ed7edc87613b">
+                <title>KUSF</title>
+                <status>Bootleg</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983-03</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983-03</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="a89e1d92-5381-4dab-ba51-733137d0e431">
+                <title>Kill 'em All</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983-07-25</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983-07-25</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="c06ed440-f25d-3127-aadb-ebe9c685b3d8">
+                <title>Kill 'em All</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984</date>
+                <country>DE</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984</date>
+                        <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                            <name>Germany</name>
+                            <sort-name>Germany</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>DE</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="cb100c18-fb29-4828-8d24-2fdbac6d6cff">
+                <title>Master of Puppets</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <packaging>Cardboard/Paper Sleeve</packaging>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1986-02-21</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1986-02-21</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>07559604391</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="d2891587-1be3-3b43-b80e-d6afd960ad08">
+                <title>Kill 'em All</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1984</date>
+                <country>DE</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1984</date>
+                        <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                            <name>Germany</name>
+                            <sort-name>Germany</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>DE</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="d2b4a354-7b21-38b7-bf89-0eb74cc713f8">
+                <title>Kill 'em All</title>
+                <status>Official</status>
+                <quality>high</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1983</date>
+                <country>GB</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1983</date>
+                        <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                            <name>United Kingdom</name>
+                            <sort-name>United Kingdom</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>GB</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>5016583100728</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="d67273c7-3691-394b-9c40-e684d813779e">
+                <title>Master of Puppets</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1986</date>
+                <country>FR</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1986</date>
+                        <area id="08310658-51eb-3801-80de-5a0739207115">
+                            <name>France</name>
+                            <sort-name>France</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>FR</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>3229260002921</barcode>
+                <medium-list count="0" />
+            </release>
+            <release id="e6a77b3e-1e17-35d3-b7a9-e20d69716476">
+                <title>Master of Puppets</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1986</date>
+                <country>XE</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1986</date>
+                        <area id="89a675c2-3e37-3518-b83c-418bad59a85a">
+                            <name>Europe</name>
+                            <sort-name>Europe</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>XE</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <medium-list count="0" />
+            </release>
+            <release id="fed37cfc-2a6d-4569-9ac0-501a7c7598eb">
+                <title>Master of Puppets</title>
+                <status>Official</status>
+                <quality>normal</quality>
+                <packaging>Jewel Case</packaging>
+                <text-representation>
+                    <language>eng</language>
+                    <script>Latn</script>
+                </text-representation>
+                <date>1986-03-03</date>
+                <country>US</country>
+                <release-event-list count="1">
+                    <release-event>
+                        <date>1986-03-03</date>
+                        <area id="489ce91b-6658-3307-9877-795b68554c98">
+                            <name>United States</name>
+                            <sort-name>United States</sort-name>
+                            <iso-3166-1-code-list>
+                                <iso-3166-1-code>US</iso-3166-1-code>
+                            </iso-3166-1-code-list>
+                        </area>
+                    </release-event>
+                </release-event-list>
+                <barcode>075596043922</barcode>
+                <medium-list count="0" />
+            </release>
+        </release-list>
+        <release-group-list count="581">
+            <release-group type="Album" id="0da580f2-6768-498f-af9d-2becaddf15e0">
+                <title>Ride the Lightning</title>
+                <first-release-date>1984-07-30</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Compilation" id="18c52517-edbd-3bcd-813d-cffebb4ecd12">
+                <title>Garage Days Revisited</title>
+                <first-release-date>1986</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Album" id="2ad9a54b-7d22-4ec6-924f-7b4c0d3d2ce9">
+                <title>The $9.98 C.D. Garage Days Re-Revisited + B Side &amp; Demos</title>
+                <first-release-date>1987</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Album" id="38d1077e-c270-49a8-92ca-87e7eb8d9fe4">
+                <title>Lulu</title>
+                <first-release-date>2011-10-31</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Album" id="3d00fb45-f8ab-3436-a8e1-b4bfc4d66913">
+                <title>Master of Puppets</title>
+                <first-release-date>1986-02-21</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Compilation" id="4c05fe77-d5bd-40f8-aa91-0514aa333b25">
+                <title>Garage Days Re-Revisited</title>
+                <first-release-date>1987</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Compilation" id="54812b5c-65d7-3ff7-b331-06a17865d008">
+                <title>Garage Days Far Behind</title>
+                <first-release-date>1997</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Album" id="5c8a25bf-4764-3cce-8f37-30af79d3b101">
+                <title>Death Magnetic</title>
+                <first-release-date>2008-09-06</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Album" id="67553e23-8dad-3792-b6f2-8fedd5650ff3">
+                <title>…and Justice for All</title>
+                <first-release-date>1988-08-25</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Compilation" id="6c638c52-4dc2-3df9-9927-9352320219c5">
+                <title>Load Your B-Sides</title>
+                <first-release-date>1997</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Compilation" id="88032b2b-dd3b-36a8-9fe0-de720fb451fd">
+                <title>Ultra Rare Trax</title>
+                <first-release-date>1995</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Album" id="8f1cc89b-7e80-3e1c-b571-8cf2b98db347">
+                <title>St. Anger</title>
+                <first-release-date>2003-06-04</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Album" id="8fd32554-02a7-3788-a761-7012e0e75e55">
+                <title>Reload</title>
+                <first-release-date>1997-11-15</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Compilation" id="9c7f657f-c21b-352c-bf7c-665120ba42a1">
+                <title>The $5.98 E.P.: Garage Days Re-Revisited ...and More</title>
+                <first-release-date>1995</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Compilation" id="b9ebd6d5-3256-38fe-a455-222ca403472a">
+                <title>The Other Side Of...</title>
+                <first-release-date>1993</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Compilation" id="c68f2af8-cf49-357e-bcce-5da72fae4756">
+                <title>Covering 'em</title>
+                <first-release-date>1994</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Compilation" id="d2cbcb28-b8bc-313a-8e01-9392c6af44c6">
+                <title>Secret Demos</title>
+                <first-release-date>1994</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Compilation" id="e160fae5-075f-3917-b991-39ffc952f380">
+                <title>Tales From the Cliff</title>
+                <first-release-date>1995</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Album" id="e389b7df-862d-3d91-a612-acca150f6e71">
+                <title>Load</title>
+                <first-release-date>1996-06-01</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Album" id="e683880a-b1d7-3599-9f70-680ac56d8667">
+                <title>Garage Inc.</title>
+                <first-release-date>1998-11-24</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Album" id="e8f70201-8899-3f0c-9e07-5d6495bc8046">
+                <title>Metallica</title>
+                <disambiguation>“The Black Album”</disambiguation>
+                <first-release-date>1991-08-12</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Compilation" id="ea0612d0-f425-3d20-b124-66c0a4862643">
+                <title>New Skulls for the Old Ceremony</title>
+                <first-release-date>1992</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Compilation" id="f3c9e4be-1248-3c19-97db-a3f9d5507ca7">
+                <title>The Complete Garage Days...</title>
+                <first-release-date>1997</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <release-group type="Album" id="f44f4f73-a714-31a1-a4b8-bfcaaf311f50">
+                <title>Kill 'em All</title>
+                <first-release-date>1983-07-25</first-release-date>
+                <primary-type>Album</primary-type>
+            </release-group>
+            <release-group type="Compilation" id="f9922478-a12c-3745-97e9-1fd37fe45e7b">
+                <title>Garage Days, Part II</title>
+                <first-release-date>1996</first-release-date>
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+        </release-group-list>
+        <work-list count="195">
+            <work id="0cc09df8-ffa7-3a9e-90eb-0248c3709f38">
+                <title>All Day and All of the Night</title>
+            </work>
+            <work id="180d7770-e55f-3c33-b7c5-bc500dd1c792">
+                <title>A National Acrobat</title>
+            </work>
+            <work id="205726fd-1670-4529-b934-5d1c01eff517">
+                <title>American Bad Ass</title>
+            </work>
+            <work id="29a80608-9d3c-38c6-af9b-2fd037d2ead3">
+                <title>(Anesthesia)-Pulling Teeth</title>
+                <iswc>T-070.005.830-5</iswc>
+                <iswc-list>
+                    <iswc>T-070.005.830-5</iswc>
+                </iswc-list>
+            </work>
+            <work id="406535de-1d2e-3f0f-891b-5474a7c36f70">
+                <title>Better Than You</title>
+                <iswc>T-070.258.373-0</iswc>
+                <iswc-list>
+                    <iswc>T-070.258.373-0</iswc>
+                </iswc-list>
+            </work>
+            <work id="5ccad98a-9e2d-369c-b60c-48ee186d93ab">
+                <title>−Human</title>
+                <iswc>T-070.899.612-6</iswc>
+                <iswc-list>
+                    <iswc>T-070.899.612-6</iswc>
+                </iswc-list>
+                <disambiguation>S&amp;M version</disambiguation>
+            </work>
+            <work id="625b862f-54fe-3808-91fc-4dbbb9a1b5ef">
+                <title>Ain't My Bitch</title>
+                <iswc>T-070.007.420-9</iswc>
+                <iswc-list>
+                    <iswc>T-070.007.420-9</iswc>
+                </iswc-list>
+            </work>
+            <work id="6a8e406a-d029-30ed-b600-cf61017baac3">
+                <title>Attitude</title>
+                <iswc>T-070.256.916-1</iswc>
+                <iswc-list>
+                    <iswc>T-070.256.916-1</iswc>
+                </iswc-list>
+            </work>
+            <work id="6c62e871-00d3-3bfa-9c77-a7a9b1a5d76d">
+                <title>Black Night</title>
+                <iswc>T-010.052.868-4</iswc>
+                <iswc-list>
+                    <iswc>T-010.052.868-4</iswc>
+                </iswc-list>
+            </work>
+            <work id="72ee2329-bdb0-392e-9c5b-bfdf6f9b82c4">
+                <title>Astronomy</title>
+                <iswc>T-070.003.991-3</iswc>
+                <iswc-list>
+                    <iswc>T-070.003.991-3</iswc>
+                </iswc-list>
+            </work>
+            <work id="7f9909f6-7397-3461-83c1-8a13b729b886">
+                <title>53rd &amp; 3rd</title>
+            </work>
+            <work id="8296b491-e5f9-34a3-b5ae-61bac094450a">
+                <title>Battery</title>
+                <disambiguation>S&amp;M version</disambiguation>
+            </work>
+            <work id="82b272fe-6234-3419-ae49-5abb72351e39">
+                <title>At the Sound of the Demon Bell</title>
+            </work>
+            <work id="862ee289-a222-3d77-8b10-cccb1cc81f16">
+                <title>Blackened</title>
+                <iswc>T-070.017.431-7</iswc>
+                <iswc-list>
+                    <iswc>T-070.017.431-7</iswc>
+                </iswc-list>
+            </work>
+            <work id="894a029e-aa45-340f-bf05-4c5198ca6123">
+                <title>A Corpse Without Soul</title>
+            </work>
+            <work id="970ed604-e53e-3756-9561-1a58711067d3">
+                <title>Bleeding Me</title>
+                <disambiguation>S&amp;M version</disambiguation>
+            </work>
+            <work id="a13a4029-ecd5-3930-b673-96ae651ea519">
+                <title>Battery</title>
+                <iswc>T-070.017.067-7</iswc>
+                <iswc-list>
+                    <iswc>T-070.017.067-7</iswc>
+                </iswc-list>
+            </work>
+            <work id="a33534b7-6e2c-393e-a8ba-6e65513aaa03">
+                <title>All Nightmare Long</title>
+                <iswc>T-906.257.012-1</iswc>
+                <iswc-list>
+                    <iswc>T-906.257.012-1</iswc>
+                </iswc-list>
+            </work>
+            <work id="bf889520-b0fe-3d9b-94dd-95de8c3ddecd">
+                <title>Am I Evil?</title>
+                <iswc>T-900.206.444-0</iswc>
+                <iswc-list>
+                    <iswc>T-900.206.444-0</iswc>
+                    <iswc>T-902.126.567-8</iswc>
+                </iswc-list>
+            </work>
+            <work id="bfa792eb-1e97-3ea4-bb61-9b0035e758f4">
+                <title>2 X 4</title>
+                <iswc>T-070.189.815-8</iswc>
+                <iswc-list>
+                    <iswc>T-070.189.815-8</iswc>
+                </iswc-list>
+            </work>
+            <work id="c0b8e0cb-e536-38df-be62-7536978b55a5">
+                <title>Bad Seed</title>
+                <iswc>T-070.258.375-2</iswc>
+                <iswc-list>
+                    <iswc>T-070.258.375-2</iswc>
+                </iswc-list>
+            </work>
+            <work id="d0fddc75-37f6-3401-889d-0466d21326da">
+                <title>All Within My Hands</title>
+                <iswc>T-072.131.249-7</iswc>
+                <iswc-list>
+                    <iswc>T-072.131.249-7</iswc>
+                </iswc-list>
+            </work>
+            <work id="eb99ff61-e196-3990-9884-76fbd60ed0bf">
+                <title>Bleeding Me</title>
+            </work>
+            <work id="eba38e94-0bc1-3234-9b34-1689e797c2b9">
+                <title>…and Justice for All</title>
+                <iswc>T-070.005.637-6</iswc>
+                <iswc-list>
+                    <iswc>T-070.005.637-6</iswc>
+                </iswc-list>
+            </work>
+            <work id="f7d2422a-03cb-3bc0-915f-7411c46d928f">
+                <title>Are You Gonna Go My Way</title>
+            </work>
+        </work-list>
+    </artist>
+</metadata>

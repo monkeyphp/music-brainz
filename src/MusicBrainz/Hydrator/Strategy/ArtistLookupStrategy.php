@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
+use MusicBrainz\Entity\ArtistLookup;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -36,26 +38,45 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class ArtistLookupStrategy implements StrategyInterface
 {
-    protected $artistStrategy;
+    /**
+     * Instance of ClassMethods
+     *
+     * @var ClassMethods
+     */
+    protected $hydrator;
 
-    protected function getArtistStrategy()
+    /**
+     * Return an instance of ClassMethods hydrator
+     *
+     * @return ClassMethods
+     */
+    protected function getHydrator()
     {
-        if (! isset($this->artistStrategy)) {
-            $this->artistStrategy = new ArtistStrategy();
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods();
+            $hydrator->addStrategy('artist', new ArtistStrategy());
+            $this->hydrator = $hydrator;
         }
-        return $this->artistStrategy;
+        return $this->hydrator;
     }
+
 
     public function extract($value)
     {
 
     }
 
+    /**
+     *
+     * @param array $value
+     *
+     * @return null|ArtistLookup
+     */
     public function hydrate($value)
     {
-        if (array_key_exists('artist', $value) && is_array($value['artist'])) {
-            return $this->getArtistStrategy()->hydrate($value['artist']);
+        if (! is_array($value)) {// || ! isset($value['artist']) || ! is_array($value['artist'])) {
+            return null;
         }
-        return null;
+        return $this->getHydrator()->hydrate($value, new ArtistLookup());
     }
 }

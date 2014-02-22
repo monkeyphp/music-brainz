@@ -63,7 +63,8 @@ class ArtistStrategy implements StrategyInterface
             $hydrator->addStrategy('aliasList', new AliasListStrategy());
             $hydrator->addStrategy('tagList', new TagListStrategy());
             $hydrator->addStrategy('ipiList', new IpiListStrategy());
-
+            $hydrator->addStrategy('isniList', new IsniListStrategy());
+            
             $hydrator->addFilter(
                 "id",
                 new MethodMatchFilter("getId"),
@@ -126,6 +127,10 @@ class ArtistStrategy implements StrategyInterface
         if (isset($value['ipi-list'])) {
             $value['ipiList'] = $value['ipi-list'];
             unset($value['ipi-list']);
+        }
+        if (isset($value['isni-list'])) {
+            $value['isniList'] = $value['isni-list'];
+            unset($value['isni-list']);
         }
         return $this->getHydrator()->hydrate($value, new Artist());
     }

@@ -127,4 +127,20 @@ class AreaTest extends PHPUnit_Framework_TestCase
 
         $area->setSortName(new stdClass());
     }
+
+    /**
+     * Test that we can get and set the Iso31661CodeList
+     *
+     * @covers \MusicBrainz\Entity\Area::getIso31661CodeList
+     * @covers \MusicBrainz\Entity\Area::setIso31661CodeList
+     */
+    public function testGetSetIso31661CodeList()
+    {
+        $area = new Area();
+        $iso31661CodeList = new \MusicBrainz\Entity\Iso31661CodeList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\Iso31661CodeList', $area->getIso31661CodeList());
+        $this->assertSame($area, $area->setIso31661CodeList($iso31661CodeList));
+        $this->assertSame($iso31661CodeList, $area->getIso31661CodeList());
+    }
 }

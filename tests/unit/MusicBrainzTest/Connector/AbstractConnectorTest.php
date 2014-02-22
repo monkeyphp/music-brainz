@@ -342,14 +342,14 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
             false,
             false,
             false,
-            array('getDefaultIncludes')
+            array('getIncludes')
         );
         $defaultIncludes = array(
             'artists',
             'recordings',
         );
         $connector->expects($this->any())
-            ->method('getDefaultIncludes')
+            ->method('getIncludes')
             ->will($this->returnValue($defaultIncludes));
 
         $includes = array('artists', 'recordings', 'foo');

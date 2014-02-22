@@ -97,7 +97,7 @@ class Artist
     protected $lifeSpan;
 
     /**
-     * The list of Alias(es)
+     * An instance of AliasList
      *
      * @var AliasList
      */
@@ -146,6 +146,21 @@ class Artist
      * @var string|null
      */
     protected $country;
+
+    /**
+     * Instance of IsniList
+     *
+     * @var IsniList
+     */
+    protected $isniList;
+
+    protected $recordingList;
+
+    protected $releaseList;
+
+    protected $releaseGroupList;
+
+    protected $workList;
 
     /**
      * Return the mbid value of the Artist
@@ -424,7 +439,7 @@ class Artist
     /**
      * Add an Ipi to the Artist
      *
-     * @param \MusicBrainz\Entity\Ipi $ipi
+     * @param Ipi $ipi
      *
      * @return Artist
      */
@@ -578,6 +593,73 @@ class Artist
             throw new InvalidArgumentException('Expects a string');
         }
         $this->country = $country;
+        return $this;
+    }
+
+    /**
+     *
+     * @return IsniList
+     */
+    public function getIsniList()
+    {
+        return $this->isniList;
+    }
+
+    /**
+     * Set the IsniList instance
+     *
+     * @param IsniList $isniList
+     *
+     * @return Artist
+     */
+    public function setIsniList(IsniList $isniList = null)
+    {
+        $this->isniList = $isniList;
+        return $this;
+    }
+
+    public function getRecordingList()
+    {
+        return $this->recordingList;
+    }
+
+    public function setRecordingList(RecordingList $recordingList = null)
+    {
+        $this->recordingList = $recordingList;
+        return $this;
+    }
+
+
+    public function getReleaseList()
+    {
+        return $this->releaseList;
+    }
+
+    public function setReleaseList(ReleaseList $releaseList = null)
+    {
+        $this->releaseList = $releaseList;
+        return $this;
+    }
+
+    public function getReleaseGroupList()
+    {
+        return $this->releaseGroupList;
+    }
+
+    public function setReleaseGroupList(ReleaseGroupList $releaseGroupList = null)
+    {
+        $this->releaseGroupList = $releaseGroupList;
+        return $this;
+    }
+
+    public function getWorkList()
+    {
+        return $this->workList;
+    }
+
+    public function setWorkList(WorkList $workList = null)
+    {
+        $this->workList = $workList;
         return $this;
     }
 }

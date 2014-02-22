@@ -39,7 +39,7 @@ class AreaStrategy implements StrategyInterface
 {
     /**
      * Instance of ClassMethods hydrator
-     * 
+     *
      * @var ClassMethods
      */
     protected $hydrator;
@@ -54,6 +54,7 @@ class AreaStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods(false);
+            $hydrator->addStrategy('iso31661CodeList', new Iso31661CodeListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -91,6 +92,10 @@ class AreaStrategy implements StrategyInterface
         if (isset($value['sort-name'])) {
             $value['sortName'] = $value['sort-name'];
             unset($value['sort-name']);
+        }
+        if (isset($values['iso-3166-1-code-list'])) {
+            $value['iso31661CodeList'] = $value['iso-3166-1-code-list'];
+            unset($value['iso-3166-1-code-list']);
         }
         return $this->getHydrator()->hydrate($value, new Area());
     }

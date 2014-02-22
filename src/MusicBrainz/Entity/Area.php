@@ -60,6 +60,13 @@ class Area
     protected $sortName;
 
     /**
+     * An instance of Iso31661CodeList
+     *
+     * @var Iso31661CodeList
+     */
+    protected $iso31661CodeList;
+
+    /**
      * Return the id
      *
      * @return string|null
@@ -140,5 +147,34 @@ class Area
     public function getSortName()
     {
         return $this->sortName;
+    }
+
+    /**
+     * Return the instance of Iso31661CodeList
+     *
+     * If the iso31661CodeList has not already been set, this method will
+     * create a new instance and set this instance property
+     *
+     * @return Iso31661CodeList
+     */
+    public function getIso31661CodeList()
+    {
+        if (! isset($this->iso31661CodeList)) {
+            $this->iso31661CodeList = new Iso31661CodeList();
+        }
+        return $this->iso31661CodeList;
+    }
+
+    /**
+     * Set the Iso31661CodeList instance
+     *
+     * @param Iso31661CodeList $iso31661CodeList
+     *
+     * @return Area
+     */
+    public function setIso31661CodeList(Iso31661CodeList $iso31661CodeList = null)
+    {
+        $this->iso31661CodeList = $iso31661CodeList;
+        return $this;
     }
 }

@@ -157,7 +157,7 @@ class ArtistList implements Iterator
 
     /**
      * Iterator
-     * 
+     *
      * @return Artist
      */
     public function current()
@@ -172,7 +172,9 @@ class ArtistList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
