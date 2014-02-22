@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * RecordingList.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David white <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,15 +23,124 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Entity;
+
+use Iterator;
+use Traversable;
+
 /**
- * Description of RecordingList
+ * RecordingList
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
-class RecordingList
+class RecordingList implements Iterator
 {
+    /**
+     * An array of Recording instances
+     *
+     * @var array
+     */
+    protected $recordings = array();
+
+    /**
+     * Iterator position
+     *
+     * @var int
+     */
+    protected $position = 0;
+
+    /**
+     * Set the Recordings
+     *
+     * @param Traversable $recordings
+     *
+     * @return RecordingList
+     */
+    public function setRecordings($recordings = array())
+    {
+        if (is_array($recordings) || $recordings instanceof Traversable) {
+            foreach ($recordings as $recording) {
+                if ($recording instanceof Recording) {
+                    $this->addRecording($recording);
+                }
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Return the Recordings array
+     *
+     * @return array
+     */
+    public function getRecordings()
+    {
+        return $this->recordings;
+    }
+
+    /**
+     * Add a Recording to the list
+     *
+     * @param Recording $recording
+     *
+     * @return RecordingList
+     */
     public function addRecording(Recording $recording)
     {
-        // 
+        if (! in_array($recording, $this->recordings, true)) {
+            $this->recordings[] = $recording;
+        }
+        return $this;
+    }
+
+    /**
+     * Return the current Recording
+     * 
+     * @return Recording
+     */
+    public function current()
+    {
+        return $this->recordings[$this->position];
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return int
+     */
+    public function key()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return boolean
+     */
+    public function valid()
+    {
+        return isset($this->recordings[$this->position]);
     }
 }

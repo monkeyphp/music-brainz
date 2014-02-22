@@ -1,5 +1,12 @@
 <?php
 /**
+ * Primary.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David white <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,15 +23,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Entity;
+
+use InvalidArgumentException;
+
 /**
- * Description of Primary
+ * Primary
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Primary
 {
+    /**
+     * The value of the Primary
+     *
+     * @var string
+     */
     protected $primary;
 
+    /**
+     * Constructor
+     *
+     * @param string $primary
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($primary)
     {
         if (! is_string($primary)) {
@@ -33,6 +58,11 @@ class Primary
         $this->primary = $primary;
     }
 
+    /**
+     * Return a string representation of the Primary
+     * 
+     * @return string
+     */
     public function __toString()
     {
         return $this->primary;

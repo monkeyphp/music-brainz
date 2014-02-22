@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "21-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * TextRepresentation.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David white <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,13 +25,71 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of TextRepresentation
+ * TextRepresentation
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class TextRepresentation
 {
+    /**
+     * Instance of Language
+     *
+     * @var Language|null
+     */
     protected $language;
 
+    /**
+     * Instance of Script
+     *
+     * @var Script|null
+     */
     protected $script;
+
+    /**
+     * Return the Language instance
+     *
+     * @return Language|null
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * Return the Script instance
+     *
+     * @return Script|null
+     */
+    public function getScript()
+    {
+        return $this->script;
+    }
+
+    /**
+     * Set the Language instance
+     *
+     * @param Language $language
+     *
+     * @return TextRepresentation
+     */
+    public function setLanguage(Language $language)
+    {
+        $this->language = $language;
+        return $this;
+    }
+
+    /**
+     * Set the Script instance
+     *
+     * @param Script $script
+     *
+     * @return TextRepresentation
+     */
+    public function setScript(Script $script)
+    {
+        $this->script = $script;
+        return $this;
+    }
 }

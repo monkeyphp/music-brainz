@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C)
+ * Release.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,148 +25,284 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Release
+ * Release
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Release
 {
     /**
+     * Mbid instance
      *
      * @var Mbid
      */
     protected $mbid;
 
     /**
+     * Title instance
      *
      * @var Title
      */
     protected $title;
 
     /**
+     * Status instance
      *
-     * @var type
+     * @var Status
      */
     protected $status;
 
     /**
+     * Instance of Quality
      *
-     * @var type
+     * @var Quality
      */
     protected $quality;
 
     /**
+     * Instance of TextRepresentation
      *
-     * @var type
+     * @var TextRepresentation
      */
     protected $textRepresentation;
 
+    /**
+     * ??
+     *
+     * @var string
+     */
     protected $date;
 
     /**
+     * Instance of Country
      *
      * @var Country
      */
     protected $country;
 
+    /**
+     * Instance of ReleaseEventList
+     *
+     * @var ReleaseEventList
+     */
     protected $releaseEventList;
 
+    /**
+     * Instance of MediumList
+     *
+     * @var MediumList
+     */
     protected $mediumList;
 
+    /**
+     * Return the Mbid instance
+     *
+     * @return Mbid|null
+     */
     public function getMbid()
     {
         return $this->mbid;
     }
 
+    /**
+     * Return the Title instance
+     *
+     * @return Title|null
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * Return the Status
+     *
+     * @return Status|null
+     */
     public function getStatus()
     {
         return $this->status;
     }
 
+    /**
+     * Return the Quality instance
+     *
+     * @return Quality|null
+     */
     public function getQuality()
     {
         return $this->quality;
     }
 
+    /**
+     * Return the instance of TextRepresentation
+     *
+     * @return TextRepresentation|null
+     */
     public function getTextRepresentation()
     {
         return $this->textRepresentation;
     }
 
+    /**
+     *
+     * @return string|null
+     */
     public function getDate()
     {
         return $this->date;
     }
 
+    /**
+     * Return the Country instance
+     *
+     * @return Country|null
+     */
     public function getCountry()
     {
         return $this->country;
     }
 
+    /**
+     * Return the ReleaseEventList instance
+     *
+     * @return ReleaseEventList
+     */
     public function getReleaseEventList()
     {
+        if (! isset($this->releaseEventList)) {
+            $this->releaseEventList = new ReleaseEventList();
+        }
         return $this->releaseEventList;
     }
 
+    /**
+     * Return the MediumList instance
+     *
+     * @return MediumList
+     */
     public function getMediumList()
     {
+        if (! isset($this->mediumList)) {
+            $this->mediumList = new MediumList();
+        }
         return $this->mediumList;
     }
 
+    /**
+     * Set the Mbid instance
+     *
+     * @param Mbid $mbid
+     *
+     * @return Release
+     */
     public function setMbid(Mbid $mbid)
     {
         $this->mbid = $mbid;
         return $this;
     }
 
+    /**
+     * Set the Title instance
+     *
+     * @param Title $title
+     *
+     * @return Release
+     */
     public function setTitle(Title $title)
     {
         $this->title = $title;
         return $this;
     }
 
-    public function setStatus($status)
+    /**
+     * Set the Status instance
+     *
+     * @param Status $status
+     *
+     * @return Release
+     */
+    public function setStatus(Status $status)
     {
         $this->status = $status;
         return $this;
     }
 
-    public function setQuality($quality)
+    /**
+     * Set the Quality instance
+     *
+     * @param Quality $quality
+     *
+     * @return Release
+     */
+    public function setQuality(Quality $quality)
     {
         $this->quality = $quality;
         return $this;
     }
 
-    public function setTextRepresentation($textRepresentation)
+    /**
+     * Set the TextRepresentation instance
+     *
+     * @param TextRepresentation $textRepresentation
+     *
+     * @return Release
+     */
+    public function setTextRepresentation(TextRepresentation $textRepresentation)
     {
         $this->textRepresentation = $textRepresentation;
         return $this;
     }
 
+    /**
+     * Set the date
+     *
+     * @param string $date
+     *
+     * @return Release
+     */
     public function setDate($date)
     {
         $this->date = $date;
         return $this;
     }
 
+    /**
+     * Set the Country instance
+     *
+     * @param Country $country
+     *
+     * @return Release
+     */
     public function setCountry(Country $country)
     {
         $this->country = $country;
         return $this;
     }
 
-    public function setReleaseEventList($releaseEventList)
+    /**
+     * Set the ReleaseEventList
+     *
+     * @param ReleaseEventList $releaseEventList
+     *
+     * @return Release
+     */
+    public function setReleaseEventList(ReleaseEventList $releaseEventList)
     {
         $this->releaseEventList = $releaseEventList;
         return $this;
     }
 
-    public function setMediumList($mediumList)
+    /**
+     * Set the MediumList instance
+     *
+     * @param MediumList $mediumList
+     *
+     * @return Release
+     */
+    public function setMediumList(MediumList $mediumList)
     {
         $this->mediumList = $mediumList;
         return $this;

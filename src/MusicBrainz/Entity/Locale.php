@@ -1,5 +1,12 @@
 <?php
 /**
+ * Locale.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David white <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,15 +23,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Entity;
+
+use InvalidArgumentException;
+
 /**
- * Description of Locale
+ * Locale
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Locale
 {
+    /**
+     * The value of the Locale
+     *
+     * @var string
+     */
     protected $locale;
 
+    /**
+     * Constructor
+     *
+     * @param string $locale
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($locale)
     {
         if (! is_string($locale)) {
@@ -33,6 +58,11 @@ class Locale
         $this->locale = $locale;
     }
 
+    /**
+     * Return a string representation of the Locale
+     * 
+     * @return string
+     */
     public function __toString()
     {
         return $this->locale;
