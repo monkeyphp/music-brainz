@@ -35,6 +35,7 @@ use MusicBrainz\Connector\ReleaseConnector;
 use MusicBrainz\Connector\ReleaseGroupConnector;
 use MusicBrainz\Connector\UrlConnector;
 use MusicBrainz\Connector\WorkConnector;
+use MusicBrainz\Identity\Identity;
 
 /**
  * ConnectorFactory
@@ -84,7 +85,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     /**
      * Instance of ReleaseGroupConnector
      *
-     * @var RelaseGroupConnector
+     * @var ReleaseGroupConnector
      */
     protected $releaseGroupConnector;
 
@@ -101,6 +102,25 @@ class ConnectorFactory implements ConnectorFactoryInterface
      * @var WorkConnector
      */
     protected $workConnector;
+
+    /**
+     * Instance of Identity
+     *
+     * @var Identity
+     */
+    protected $identity;
+
+    /**
+     * Constructor
+     *
+     * @param Identity $identity
+     *
+     * @return void
+     */
+    public function __construct(Identity $identity)
+    {
+        $this->identity = $identity;
+    }
 
     /**
      * Return the Connector appropriate for the supplied resource
@@ -155,7 +175,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getArtistConnector()
     {
         if (! isset($this->artistConnector)) {
-            $this->artistConnector = new ArtistConnector();
+            $this->artistConnector = new ArtistConnector($this->identity);
         }
         return $this->artistConnector;
     }

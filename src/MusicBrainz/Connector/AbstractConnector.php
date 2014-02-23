@@ -26,6 +26,7 @@ namespace MusicBrainz\Connector;
 
 use Exception;
 use InvalidArgumentException;
+use MusicBrainz\Identity\Identity;
 use MusicBrainz\InputFilter\BrowseFilter;
 use MusicBrainz\InputFilter\LookupFilter;
 use MusicBrainz\InputFilter\SearchFilter;
@@ -148,6 +149,35 @@ abstract class AbstractConnector implements ConnectorInterface
     protected $searchFilter;
 
     /**
+     * Instance of Identity
+     *
+     * @var Identity
+     */
+    protected $identity;
+
+    /**
+     * Constructor
+     *
+     * @param Identity $identity
+     *
+     * @return void
+     */
+    public function __construct(Identity $identity)
+    {
+        $this->setIdentity($identity);
+    }
+
+    protected function getIdentity()
+    {
+        return $this->identity;
+    }
+
+    public function setIdentity(Identity $identity)
+    {
+        $this->identity = $identity;
+    }
+
+    /**
      * Lookup a resource by supplying an mbid
      *
      * lookup:   /<ENTITY>/<MBID>?inc=<INC>
@@ -163,6 +193,7 @@ abstract class AbstractConnector implements ConnectorInterface
      */
     public function lookup($mbid, $options = array())
     {
+
         $options = array_merge(
             $this->getDefaultOptions(),
             array('mbid' => $mbid),
@@ -180,6 +211,7 @@ abstract class AbstractConnector implements ConnectorInterface
 
         $request = $this->getRequest(
             $this->getUri(array($mbid)),
+            $this->getIdentity(),
             $this->parseLookupParams($options)
         );
 
@@ -243,6 +275,7 @@ abstract class AbstractConnector implements ConnectorInterface
 
         $request = $this->getRequest(
             $this->getUri(),
+            $this->getIdentity(),
             $this->parseSearchParams($options)
         );
 
@@ -326,20 +359,22 @@ abstract class AbstractConnector implements ConnectorInterface
     /**
      * Return the Request instance
      *
-     * @param Http   $uri    uri instance
-     * @param array  $params Additional request params
-     * @param string $method Http method
+     * @param Http     $uri      Uri instance
+     * @param Identity $identity Identity instance
+     * @param array    $params   Additional request params
+     * @param string   $method   Http method (GET|POST)
      *
      * @return Request
      * @throws Exception
      */
-    public function getRequest(Http $uri, array $params = array(), $method = Request::METHOD_GET)
+    public function getRequest(Http $uri, Identity $identity, array $params = array(), $method = Request::METHOD_GET)
     {
         try {
             $request = new Request();
             $request->setUri($uri);
             $request->getQuery()->fromArray($params);
             $request->setMethod($method);
+            $request->getHeaders()->addHeaderLine('User-Agent', $identity);
             return $request;
         } catch (Exception $exception) {
             throw new Exception('Could not create Request instance', null, $exception);

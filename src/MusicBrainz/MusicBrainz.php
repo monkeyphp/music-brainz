@@ -23,8 +23,12 @@
  */
 namespace MusicBrainz;
 
+use Exception;
+use InvalidArgumentException;
 use MusicBrainz\Connector\Factory\ConnectorFactory;
 use MusicBrainz\Connector\Factory\ConnectorFactoryInterface;
+use MusicBrainz\Identity\Identity;
+use Traversable;
 
 /**
  * MusicBrainz
@@ -45,13 +49,85 @@ class MusicBrainz implements MusicBrainzInterface
     protected $connectorFactory;
 
     /**
+     * Instance of Identity used to identity the application to the
+     * MusicBrainz web service
+     *
+     * @var Identity
+     */
+    protected $identity;
+
+    /**
      * Constructor
+     *
+     * @param array|Identity $identity An instance of Identity or an array
+     * @param array          $options  An array of options
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($identity, $options = array())
     {
+        $this->setIdentity($identity);
+    }
 
+    /**
+     * Set the MusicBrainz options
+     *
+     * @param array|Traversable $options An array of options
+     *
+     * @return MusicBrainz
+     */
+    public function setOptions($options = array())
+    {
+        if (is_array($options) || $options instanceof Traversable) {
+            foreach ($options as $key => $value) {
+                $key = strtolower($key);
+                switch ($key) {
+                    case 'identity':
+                        $this->setIdentity($value);
+                        break;
+                }
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Set the Identity instance
+     * @link http://musicbrainz.org/doc/XML_Web_Service/Rate_Limiting
+     *
+     * @param string|array|Identity $identity
+     *
+     * @throws InvalidArgumentException
+     * @return MusicBrainz
+     */
+    public function setIdentity($identity)
+    {
+        if ($identity instanceof Identity) {
+            $this->identity = $identity;
+            return $this;
+        }
+
+        $name = $version = $contact = null;
+
+        if (is_string($identity)) {
+            $name = $identity;
+        }
+        if (is_array($identity)) {
+            $name    = (isset($identity['name'])) ? $identity['name'] : null;
+            $version = (isset($identity['version'])) ? $identity['version'] : null;
+            $contact = (isset($identity['contact'])) ? $identity['contact'] : null;
+        }
+        try {
+            $identity = new Identity($name, $version, $contact);
+            $this->identity = $identity;
+            return $this;
+        } catch (\Exception $exception) {
+            throw new InvalidArgumentException(
+                'An instance of Identity could not be constructed from the supplied paramters',
+                null,
+                $exception
+            );
+        }
     }
 
     /**
@@ -62,7 +138,7 @@ class MusicBrainz implements MusicBrainzInterface
     public function getConnectorFactory()
     {
         if (! isset($this->connectorFactory)) {
-            $this->connectorFactory = new ConnectorFactory();
+            $this->connectorFactory = new ConnectorFactory($this->identity);
         }
         return $this->connectorFactory;
     }
@@ -81,7 +157,7 @@ class MusicBrainz implements MusicBrainzInterface
         try {
             $connector = $this->getConnectorFactory()->getConnector($resource);
             return $connector->browse($mbid, $options);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw $exception;
         }
     }
@@ -100,7 +176,7 @@ class MusicBrainz implements MusicBrainzInterface
         try {
             $connector = $this->getConnectorFactory()->getConnector($resource);
             return $connector->lookup($mbid, $options);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw $exception;
         }
     }
@@ -127,7 +203,7 @@ class MusicBrainz implements MusicBrainzInterface
         try {
             $connector = $this->getConnectorFactory()->getConnector($resource);
             return $connector->search($query, $options);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw $exception;
         }
     }
