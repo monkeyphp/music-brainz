@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Type.php
+ *
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,20 +26,41 @@ namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
+
 /**
- * Description of Type
+ * Type
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
 class Type
 {
+    /**
+     * An array of value types
+     * 
+     * @var array
+     */
     public static $artistTypes = array (
         ConnectorInterface::ARTIST_TYPE_GROUP,
         ConnectorInterface::ARTIST_TYPE_PERSON,
     );
 
+    /**
+     * The value of the Type
+     *
+     * @var string
+     */
     protected $type;
 
+    /**
+     * Constructor
+     *
+     * @param string $type
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($type)
     {
         if (! is_string($type) || ! in_array($type, static::$artistTypes)) {
@@ -43,6 +69,11 @@ class Type
         $this->type = $type;
     }
 
+    /**
+     * Return a string representation of the Type
+     *
+     * @return string
+     */
     public function __toString()
     {
         return $this->type;

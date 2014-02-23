@@ -1,8 +1,6 @@
 <?php
 /**
- * Script.php
- *
- * Copyright (C) David White <david@monkeyphp.com>
+ * Copyright (C) David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +16,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace MusicBrainz\Entity;
+namespace MusicBrainz\Hydrator\Strategy;
+
+use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of Script
+ * Description of PackagingStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class Script
+class PackagingStrategy implements StrategyInterface
 {
-    //put your code here
+    public function extract($value)
+    {
+
+    }
+
+    public function hydrate($value)
+    {
+        try {
+            return new \MusicBrainz\Entity\Packaging($value);
+        } catch (\Exception $exception) {
+            return null;
+        }
+    }
 }

@@ -1,8 +1,8 @@
 <?php
-/**
- * Script.php
- *
- * Copyright (C) David White <david@monkeyphp.com>
+
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +17,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+namespace MusicBrainz\Hydrator\Strategy;
 
-namespace MusicBrainz\Entity;
-
+use Exception;
+use MusicBrainz\Entity\Quality;
+use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 /**
- * Description of Script
+ * Description of QulaityStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class Script
+class QualityStrategy implements StrategyInterface
 {
-    //put your code here
+    public function extract($value)
+    {
+
+    }
+
+    public function hydrate($value)
+    {
+        try {
+            return new Quality($value);
+        } catch (Exception $exception) {
+            return null;
+        }
+    }
+
 }

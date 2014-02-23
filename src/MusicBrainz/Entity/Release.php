@@ -55,6 +55,20 @@ class Release
     protected $status;
 
     /**
+     * Instance of Packing
+     *
+     * @var Packaging
+     */
+    protected $packaging;
+
+    /**
+     * Instance of Barcode
+     *
+     * @var Barcode
+     */
+    protected $barcode;
+
+    /**
      * Instance of Quality
      *
      * @var Quality
@@ -307,4 +321,52 @@ class Release
         $this->mediumList = $mediumList;
         return $this;
     }
+
+    /**
+     * Return the Packaging instance
+     *
+     * @return Packaging|null
+     */
+    public function getPackaging()
+    {
+        return $this->packaging;
+    }
+
+    /**
+     * Set the Packaging instance
+     *
+     * @param Packaging $packaging
+     *
+     * @return Release
+     */
+    public function setPackaging(Packaging $packaging = null)
+    {
+        $this->packaging = $packaging;
+        return $this;
+    }
+
+    /**
+     * Return the Barcode instance
+     *
+     * @return Barcode|null
+     */
+    public function getBarcode()
+    {
+        return $this->barcode;
+    }
+
+    /**
+     * Set the Barcode instance
+     *
+     * @param Barcode $barcode
+     *
+     * @return Release
+     */
+    public function setBarcode(Barcode $barcode = null)
+    {
+        $this->barcode = $barcode;
+        return $this;
+    }
+
+
 }

@@ -1,7 +1,5 @@
 <?php
 /**
- * Script.php
- *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,15 +15,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+namespace MusicBrainz\Hydrator\Strategy;
 
-namespace MusicBrainz\Entity;
+use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of Script
+ * Description of ReleaseEventListStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class Script
+class ReleaseEventListStrategy implements StrategyInterface
 {
-    //put your code here
+
+    public function extract($value)
+    {
+
+    }
+
+    public function hydrate($value)
+    {
+
+    }
+
 }

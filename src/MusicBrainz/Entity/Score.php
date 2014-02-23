@@ -1,5 +1,12 @@
 <?php
 /**
+ * Score.php
+ *
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
+ *
  * Copyright (C)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,15 +25,31 @@
 namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
+
 /**
- * Description of Score
+ * Score
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
 class Score
 {
+    /**
+     * The value of the Score
+     *
+     * @var int
+     */
     protected $score;
 
+    /**
+     * Constructor
+     * 
+     * @param int $score
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($score)
     {
         $score = (int)$score;
@@ -36,6 +59,11 @@ class Score
         $this->score = $score;
     }
 
+    /**
+     * Return a string representation of the Score
+     *
+     * @return string
+     */
     public function __toString()
     {
         return (string)$this->score;

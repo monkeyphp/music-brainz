@@ -1,8 +1,8 @@
 <?php
-/**
- * Script.php
- *
- * Copyright (C) David White <david@monkeyphp.com>
+
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+  The string doesn't match the expected date/time format. The string to parse was: "23-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,11 +21,11 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Script
+ * Description of Packaging
  *
  * @author David White <david@monkeyphp.com>
  */
-class Script
+class Packaging
 {
     //put your code here
 }

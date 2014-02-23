@@ -1,8 +1,7 @@
 <?php
-/**
- * Script.php
- *
- * Copyright (C) David White <david@monkeyphp.com>
+
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +16,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+namespace MusicBrainz\Hydrator\Strategy;
 
-namespace MusicBrainz\Entity;
-
+use Exception;
+use MusicBrainz\Entity\Status;
+use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 /**
- * Description of Script
+ * Description of StatusStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class Script
+class StatusStrategy implements StrategyInterface
 {
-    //put your code here
+    public function extract($value)
+    {
+
+    }
+
+    public function hydrate($value)
+    {
+        try {
+            return new Status($value);
+        } catch (Exception $exception) {
+            return null;
+        }
+    }
+
 }

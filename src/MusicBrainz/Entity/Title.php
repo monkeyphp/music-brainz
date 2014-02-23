@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Title.php
+ *
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,26 +22,47 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+
 /**
- * Description of Title
+ * Title
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
 class Title
 {
+    /**
+     * The value of the Title
+     *
+     * @var string
+     */
     protected $title;
 
+    /**
+     * Constructor
+     *
+     * @param string $title
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($title)
     {
-        if (! is_null($title) && ! is_string($title)) {
+        if (! is_string($title)) {
             throw new InvalidArgumentException('Supplied title is invalid');
         }
         $this->title = $title;
     }
 
+    /**
+     * Return a string representation of the Title
+     *
+     * @return string
+     */
     public function __toString()
     {
         return $this->title;

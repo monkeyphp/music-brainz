@@ -1,11 +1,11 @@
 <?php
 /**
- * ReleaseStrategy.php
+ * WorkStrategy.php
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
  *
  * Copyright (C) David White <david@monkeyphp.com>
  *
@@ -24,24 +24,21 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\Release;
-use MusicBrainz\Hydrator\Strategy\CountryStrategy;
-use MusicBrainz\Hydrator\Strategy\MbidStrategy;
-use MusicBrainz\Hydrator\Strategy\TitleStrategy;
+use MusicBrainz\Entity\Work;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * ReleaseStrategy
+ * WorkStrategy
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
-class ReleaseStrategy implements StrategyInterface
+class WorkStrategy implements StrategyInterface
 {
     /**
-     * Instance of ClassMethods hydrator
+     * Instance of ClassMethods
      *
      * @var ClassMethods
      */
@@ -49,60 +46,58 @@ class ReleaseStrategy implements StrategyInterface
 
     /**
      * Return an instance of ClassMethods
-     *
+     * 
      * @return ClassMethods
      */
     protected function getHydrator()
     {
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
+
             $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('title', new TitleStrategy());
-            $hydrator->addStrategy('status', new StatusStrategy());
-            $hydrator->addStrategy('quality', new QualityStrategy());
-            $hydrator->addStrategy('packaging', new PackagingStrategy());
-            $hydrator->addStrategy('textRepresentation', new TextRepresentationStrategy());
-            // date
-            $hydrator->addStrategy('country', new CountryStrategy());
-            $hydrator->addStrategy('releaseEventList', new ReleaseEventListStrategy());
-            $hydrator->addStrategy('barcode', new BarcodeStrategy());
-            //$hydrator->addStrategy('mediumList', new MediumListStrategy());
+            $hydrator->addStrategy('iswc', new IswcStrategy());
+            $hydrator->addStrategy('iswcList', new IswcListStrategy());
+            $hydrator->addStrategy('disambiguation', new DisambiguationStrategy());
+
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
     }
 
     /**
-     * Extract the values from the supplied Release instance
+     * Extract the values from the supplied Work instance
      *
-     * @param Release $object
+     * @param Work $object
      *
-     * @return array|null
+     * @return null|array
      */
     public function extract($object)
     {
-        if (! $object instanceof Release) {
+        if (! $object instanceof Work) {
             return null;
         }
         return $this->getHydrator()->extract($object);
     }
 
     /**
-     * Hydrate and return an instance of Release
+     * Hydrate and return an instance of Work
      *
      * @param array $value
      *
-     * @return null|Release
+     * @return null|Work
      */
     public function hydrate($value)
     {
         if (! is_array($value)) {
             return null;
         }
-        if (isset($value['id'])) {
-            $value['mbid'] = $value['id'];
-            unset($value['id']);
+
+        if (isset($value['iswc-list'])) {
+            $value['iswcList'] = $value['iswc-list'];
+            unset($value['iswc-list']);
         }
-        return $this->getHydrator()->hydrate($value, new Release());
+
+        return $this->getHydrator()->hydrate($value, new Work());
     }
 }
