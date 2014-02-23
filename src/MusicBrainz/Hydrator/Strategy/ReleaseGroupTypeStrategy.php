@@ -1,7 +1,8 @@
 <?php
 
-/**
- * Copyright (C) David White
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+  The string doesn't match the expected date/time format. The string to parse was: "23-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,34 +17,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace MusicBrainz\Entity;
 
-use MusicBrainz\Connector\ConnectorInterface;
+namespace MusicBrainz\Hydrator\Strategy;
+
+use Exception;
+use MusicBrainz\Entity\ReleaseGroupType;
+use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of ReleaseGroupType
+ * Description of ReleaseGroupTypeStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class ReleaseGroupType
+class ReleaseGroupTypeStrategy implements StrategyInterface
 {
-    public static $types = array(
-        ConnectorInterface::RELEASE_GROUP_TYPE_ALBUM,
-        ConnectorInterface::RELEASE_GROUP_TYPE_COMPILATION
-    );
-
-    protected $type;
-
-    public function __construct($type)
+    public function extract($value)
     {
-        if (! in_array($type, static::$types)) {
-            throw new InvalidArgumentException('Invalid type supplied');
-        }
-        $this->type = $type;
+
     }
 
-    public function __toString()
+    public function hydrate($value)
     {
-        return $this->type;
+        try {
+            return new ReleaseGroupType($value);
+        } catch (Exception $exception) {
+            return null;
+        }
     }
 }

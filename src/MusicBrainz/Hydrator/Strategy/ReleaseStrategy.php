@@ -103,6 +103,10 @@ class ReleaseStrategy implements StrategyInterface
             $value['mbid'] = $value['id'];
             unset($value['id']);
         }
+        if (isset($value['text-representation'])) {
+            $value['textRepresentation'] = $value['text-representation'];
+            unset($value['text-representation']);
+        }
         return $this->getHydrator()->hydrate($value, new Release());
     }
 }

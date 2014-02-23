@@ -63,7 +63,7 @@ class AliasListStrategy implements StrategyInterface
         $aliases = [];
         $aliasStrategy = new AliasStrategy();
         foreach ($value['alias'] as $index => $alias) {
-            $aliases[] = $aliasStrategy->hydrate($alias);
+            $aliases[$index] = $aliasStrategy->hydrate($alias);
         }
         $values['aliases'] = $aliases;
         unset($value['alias']);

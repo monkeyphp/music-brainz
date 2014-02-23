@@ -614,6 +614,9 @@ interface ConnectorInterface
      */
     const MAX_REQUESTS_PER_SECOND = 1;
 
+    const RELEASE_GROUP_TYPE_ALBUM = 'Album';
+    const RELEASE_GROUP_TYPE_COMPILATION = 'Compilation';
+
     /**
      * Browse a resource by supplying an mbid
      *

@@ -62,12 +62,10 @@ class ArtistStrategy implements StrategyInterface
             $hydrator->addStrategy('tagList', new TagListStrategy());
             $hydrator->addStrategy('ipiList', new IpiListStrategy());
             $hydrator->addStrategy('isniList', new IsniListStrategy());
-
             $hydrator->addStrategy('releaseList', new ReleaseListStrategy());
             $hydrator->addStrategy('releaseGroupList', new ReleaseGroupListStrategy());
             $hydrator->addStrategy('recordingList', new RecordingListStrategy());
             $hydrator->addStrategy('workList', new WorkListStrategy());
-
             $hydrator->addStrategy('type', new TypeStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
             $hydrator->addStrategy('sortName', new NameStrategy());
@@ -76,7 +74,6 @@ class ArtistStrategy implements StrategyInterface
             $hydrator->addStrategy('gender', new GenderStrategy());
             $hydrator->addStrategy('country', new CountryStrategy());
             $hydrator->addStrategy('disambiguation', new DisambiguationStrategy());
-
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -142,20 +139,21 @@ class ArtistStrategy implements StrategyInterface
             $value['isniList'] = $value['isni-list'];
             unset($value['isni-list']);
         }
-
         if (isset($value['recording-list'])) {
-
+            $value['recordingList'] = $value['recording-list'];
+            unset($value['recording-list']);
         }
-
         if (isset($value['release-list'])) {
             $value['releaseList'] = $value['release-list'];
             unset($value['release-list']);
         }
         if (isset($value['release-group-list'])) {
-
+            $value['releaseGroupList'] = $value['release-group-list'];
+            unset($value['release-group-list']);
         }
         if (isset($value['work-list'])) {
-
+            $value['workList'] = $value['work-list'];
+            unset($value['work-list']);
         }
         return $this->getHydrator()->hydrate($value, new Artist());
     }

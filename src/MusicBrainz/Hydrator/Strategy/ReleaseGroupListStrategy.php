@@ -1,8 +1,8 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * ReleaseGroupListStrategy.php
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,9 @@
 
 namespace MusicBrainz\Hydrator\Strategy;
 
+use MusicBrainz\Entity\ReleaseGroup;
+use MusicBrainz\Entity\ReleaseGroupList;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -29,14 +32,54 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class ReleaseGroupListStrategy implements StrategyInterface
 {
+    /**
+     * Instance of ClassMethods hydrator
+     *
+     * @var ClassMethods
+     */
+    protected $hydrator;
+
+    /**
+     * Return an instance of ClassMethods hydrator
+     *
+     * @return ClassMethods
+     */
+    protected function getHydrator()
+    {
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods();
+            $hydrator->addStrategy('count', new CountStrategy());
+            $this->hydrator = $hydrator;
+        }
+        return $this->hydrator;
+    }
+
     public function extract($value)
     {
 
     }
 
+    /**
+     * Hydrate and return an instance of ReleaseGroupList
+     *
+     * @param array $value
+     *
+     * @return null|ReleaseGroupList
+     */
     public function hydrate($value)
     {
+        if (! is_array($value) || ! is_array($value['release-group'])) {
+            return null;
+        }
+        $releaseGroups = array();
+        $releaseGroupStrategy = new ReleaseGroupStrategy();
 
+        foreach ($value['release-group'] as $index => $releaseGroup) {
+            $releaseGroups[$index] = $releaseGroupStrategy->hydrate($releaseGroup, new ReleaseGroup());
+        }
+        $value['releaseGroups'] = $releaseGroups;
+        unset($value['release-group']);
+
+        return $this->getHydrator()->hydrate($value, new ReleaseGroupList());
     }
-
 }

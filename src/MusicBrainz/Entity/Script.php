@@ -27,5 +27,15 @@ namespace MusicBrainz\Entity;
  */
 class Script
 {
-    //put your code here
+    protected $script;
+
+    public function __construct($script)
+    {
+        $this->script = $script;
+    }
+
+    public function __toString()
+    {
+        return $this->script;
+    }
 }
