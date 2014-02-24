@@ -450,9 +450,59 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
         $this->markTestIncomplete();
     }
 
+    /**
+     * Test that we can get the default limit
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getDefaultLimit
+     */
     public function testGetDefaultLimit()
     {
-        $this->markTestIncomplete();
+        $connector = $this->getMockForAbstractClass(
+            '\MusicBrainz\Connector\AbstractConnector',
+            array(
+                new Identity('test')
+            )
+        );
+        $defaultLimit = $connector->getDefaultLimit();
+
+        $this->assertInternalType('int', $defaultLimit);
+    }
+
+    /**
+     * Test that we can get the default offset
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getDefaultOffset
+     */
+    public function testGetDefaultOffset()
+    {
+        $connector = $this->getMockForAbstractClass(
+            '\MusicBrainz\Connector\AbstractConnector',
+            array(
+                new Identity('test')
+            )
+        );
+        $defaultOffset = $connector->getDefaultOffset();
+
+        $this->assertInternalType('int', $defaultOffset);
+    }
+
+    /**
+     * Test that we can set the default offset
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::setDefaultOffset
+     */
+    public function testSetDefaultOffset()
+    {
+        $connector = $this->getMockForAbstractClass(
+            '\MusicBrainz\Connector\AbstractConnector',
+            array(
+                new Identity('test')
+            )
+        );
+        $offset = 5;
+
+        $this->assertSame($connector, $connector->setDefaultOffset($offset));
+        $this->assertEquals($offset, $connector->getDefaultOffset());
     }
 
     /**
@@ -509,11 +559,6 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
         $connector->setDefaultLimit($tooHigh);
     }
 
-    public function testGetDefaultOffset()
-    {
-        $this->markTestIncomplete();
-    }
-
     /**
      * Test that we can get and set the default offset
      *
@@ -556,6 +601,61 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
         $types = $connector->getTypes();
 
         $this->assertInternalType('array', $types);
+    }
+
+    /**
+     * Test that we can get the formats
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getFormats
+     */
+    public function testGetFormats()
+    {
+        $connector = $this->getMockForAbstractClass(
+            '\MusicBrainz\Connector\AbstractConnector',
+            array(
+                new Identity('test')
+            )
+        );
+
+        $types = $connector->getFormats();
+
+        $this->assertInternalType('array', $types);
+    }
+
+    /**
+     * @covers \MusicBrainz\Connector\AbstractConnector::getDefaultOptions
+     */
+    public function testGetDefaultOptions()
+    {
+        $connector = $this->getMockForAbstractClass(
+            '\MusicBrainz\Connector\AbstractConnector',
+            array(
+                new Identity('test')
+            )
+        );
+
+        $defaultOptions = $connector->getDefaultOptions();
+
+        $this->assertInternalType('array', $defaultOptions);
+    }
+
+    /**
+     * Test that can get the includes values
+     *
+     * @covers \MusicBrainz\Connector\AbstractConnector::getIncludes
+     */
+    public function testGetIncludes()
+    {
+        $connector = $this->getMockForAbstractClass(
+            '\MusicBrainz\Connector\AbstractConnector',
+            array(
+                new Identity('test')
+            )
+        );
+
+        $includes = $connector->getIncludes();
+
+        $this->assertInternalType('array', $includes);
     }
 }
 

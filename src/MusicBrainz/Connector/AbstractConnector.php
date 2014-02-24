@@ -792,16 +792,9 @@ abstract class AbstractConnector implements ConnectorInterface
      * Return the array of formats
      *
      * @return array
-     * @throws RuntimeException
      */
     public function getFormats()
     {
-        if (! isset($this->formats)) {
-            $this->formats = array();
-        }
-        if (! is_array($this->formats)) {
-            throw new RuntimeException('Formats should be an array');
-        }
         return $this->formats;
     }
 
