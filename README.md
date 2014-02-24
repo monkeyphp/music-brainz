@@ -8,49 +8,119 @@ Client library for accessing the MusicBrainz Api.
 
 http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2
 
-## Learn
+## Get the MusicBrainz Library
+
+The easiest way to get the library is to use [Composer](https://getcomposer.org/) 
+and [Packagist](http://packagist.org/).
+
+If you do not already have Composer in your application, you can install it as
+follows.
+    
+    $ curl -sS https://getcomposer.org/installer | php
+
+Create the ```composer.json``` file.
+
+    $ touch composer.json
+    
+Add the following to the ```composer.json``` file
+
+    {
+        "require": {
+            "monkeyphp/music-brainz" "*"
+        }
+    }
+
+Finally run Composer install
+
+    $ php composer.phar install
+
+You should now have the library installed into your ```vendors``` directory.
 
 
-### Resources
+## Autoloading the MusicBrainz Library
 
-MusicBrainz provides the following resources
+The easiest way to start using MusicBrainz is to use the Composer autoloader.
 
-- Artist
-- Label
-- Recording
-- Release
-- Release Group
-- Work
-- Area
-- Url
-
-
-### Autoloading the MusicBrainz library
-
-The easiest way to start using the MusicBrainz library is to use the 
-Composer autoloader.
+Include the Composer autoloader into your script
 
     require_once "vendor/autoload.php";
 
-### Create an instance of MusicBrainz
+## Create an instance of MusicBrainz
 
-Create a default instance of MusicBrainz class.
+### Identity
 
-    $musicBrainz = new MusicBrainz\MusicBrainz();
+The MusicBrainz.org api expects that client applications should identity
+themselves using the ```User-Agent``` header.
 
-### Browse a resource
+To support this requirement, this MusicBrainz library utilises a simeple Identity class.
+The class requires a single constructor parameter; the name that your application will
+use to identity itself to the MusicBrainz.org api.
 
-    $artist = $musicBrainz->browse('artist', $mbid);
+    $identity = new Indentity('my_application');
 
+You may also, optionally supply a version number for your application, and a contact
+detail so that the MusicBrainz.org administrators may contact you should they need to.
 
-### Lookup a resource
+    $identity = new Identity('my_application', 1.1, 'contact@example.com');
 
-    $artist = $musicBrainz->lookup('artist', $mbid);
+To create an instance of MusicBrainz, you must supply either; an instance of 
+Identity, a single string or an associative array of values.
 
+### Examples
+
+Create a MusicBrainz instance supplying an Identity instance
+
+    $identity = new Identity('my_application', 1.0, 'contact@example.com');
+    $musicBrainz = new MusicBrainz($identity);
+
+Create a MusicBrainz instance by supplying a string
+
+    $musicBrainz = new MusicBrainz('my_application');
+
+Create a MusicBrainz instance by supplygin an array of Identity values
+
+    $musicBrainz = new MusicBrainz(array('my_application', 1.0, 'contact@example.com')
+
+Once you have your MusicBrainz instance you may now start querying the MusicBrainz.org
+api.
+
+## Resources
+
+MusicBrainz provides the following resources
+
+- Artist ```artist```
+- Label ```label```
+- Recording ```recording```
+- Release ```release```
+- Release Group ```release-group```
+- Work ```work```
+- Area ```area```
+- Url ```url```
+
+For each of these resources, you can perform three actions;
+
+- Search
+- Lookup
+- Browse
 
 ### Search a resource
 
-    $artist = $musicBrainz->search('artist', 'Metallica');
+Searching for a resource requires two parameters and accepts a thrird optional parameter;
+
+- (required) the resource name
+- (required) the search string
+- (optional) an array of additional options
+
+Searching for a resource will return an instance of a resource specific Search entity
+
+
+    $artistSearch = $musicBrainz->search('artist', 'metallica');
+    
+    $labelSearch = $musicBrainz->search('label', 'parlaphone');
+    
+
+
+
 
 ## Generate Unit tests with Codeception
 
