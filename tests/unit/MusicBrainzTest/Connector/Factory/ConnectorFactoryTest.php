@@ -24,8 +24,10 @@
  */
 namespace MusicBrainzTest\Connector\Factory;
 
+use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
 use MusicBrainz\Connector\Factory\ConnectorFactory;
+use MusicBrainz\Identity\Identity;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -45,7 +47,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetAreaConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getAreaConnector();
 
@@ -59,7 +61,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetArtistConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getArtistConnector();
 
@@ -73,7 +75,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetLabelConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getLabelConnector();
 
@@ -87,7 +89,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetRecordingConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getRecordingConnector();
 
@@ -101,7 +103,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetReleaseConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getReleaseConnector();
 
@@ -115,7 +117,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetReleaseGroupConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getReleaseGroupConnector();
 
@@ -129,7 +131,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetUrlConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getUrlConnector();
 
@@ -143,7 +145,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetWorkConnector()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getWorkConnector();
 
@@ -158,7 +160,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorArtist()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_ARTIST);
 
@@ -173,7 +175,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorArea()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_AREA);
 
@@ -188,7 +190,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorLabel()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_LABEL);
 
@@ -203,7 +205,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorRecording()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_RECORDING);
 
@@ -217,7 +219,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorUrl()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_URL);
 
@@ -232,7 +234,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorWork()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_WORK);
 
@@ -247,7 +249,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorRelease()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_RELEASE);
 
@@ -262,7 +264,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorReleaseGroup()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connector = $connectorFactory->getConnector(ConnectorInterface::RESOURCE_RELEASE_GROUP);
 
@@ -278,7 +280,7 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testGetConnectorThrowsException()
     {
-        $connectorFactory = new ConnectorFactory();
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connectorFactory->getConnector('foobar');
     }

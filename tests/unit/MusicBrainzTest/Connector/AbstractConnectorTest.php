@@ -26,6 +26,8 @@ namespace MusicBrainzTest\Connector;
 
 use Exception;
 use InvalidArgumentException;
+use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Identity\Identity;
 use PHPUnit_Framework_TestCase;
 use RuntimeException;
 use stdClass;
@@ -50,7 +52,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHttpClient()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $httpClient = $connector->getHttpClient();
 
@@ -65,7 +67,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testSetHttpClient()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $mockClient = $this->getMock('\Zend\Http\Client');
 
         $this->assertNotSame($mockClient, $connector->getHttpClient());
@@ -82,7 +84,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
     {
         $connector = $this->getMockForAbstractClass(
             '\MusicBrainz\Connector\AbstractConnector',
-            array(),
+            array(new Identity('test')),
             'MockConnector',
             false,
             false,
@@ -105,7 +107,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetServiceUri()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $this->assertInternalType('string', $connector->getServiceUri());
     }
@@ -117,12 +119,13 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetRequest()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $identity = new Identity('test');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array($identity));
         $uri = new Http();
         $params = array('foo' => 'bar', 'eggs' => 'ham');
         $method = Request::METHOD_GET;
 
-        $request = $connector->getRequest($uri, $params, $method);
+        $request = $connector->getRequest($uri, $identity, $params, $method);
 
         $this->assertInstanceOf('\Zend\Http\Request', $request);
     }
@@ -133,7 +136,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetRequestThrowsException()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $uri = new Http();
         $params = array('foo' => 'bar', 'eggs' => 'ham');
         $method = new stdClass();
@@ -153,7 +156,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
             ->method('dispatch')
             ->with($this->isInstanceOf('\Zend\Http\Request'))
             ->will($this->returnValue($response));
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $connector->setHttpClient($mockClient);
 
         $this->assertSame($response, $connector->getResponse(new Request()));
@@ -173,7 +176,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
             ->method('dispatch')
             ->with($this->isInstanceOf('\Zend\Http\Request'))
             ->will($this->returnValue($response));
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $connector->setHttpClient($mockClient);
 
         $connector->getResponse(new Request());
@@ -218,7 +221,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetLookupFilter()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $lookupFilter = $connector->getLookupFilter();
 
@@ -232,7 +235,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSearchFilter()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $searchFilter = $connector->getSearchFilter();
 
@@ -246,7 +249,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetBrowseFilter()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $browseFilter = $connector->getBrowseFilter();
 
@@ -260,7 +263,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testParseBrowseParams()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $options = array(
             'format' => 'xml',
             'limit' => 10,
@@ -288,7 +291,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testParseSearchParams()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $options = array(
             'format' => 'xml',
             'limit' => 10,
@@ -312,7 +315,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testParseLookupParams()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $options = array(
             'format' => 'json',
             'includes' => array(
@@ -337,7 +340,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
     {
         $connector = $this->getMockForAbstractClass(
             '\MusicBrainz\Connector\AbstractConnector',
-            array(),
+            array(new Identity('test')),
             'mock_connector',
             false,
             false,
@@ -367,7 +370,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetReaderXml()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $reader = $connector->getReader('xml');
 
@@ -381,7 +384,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetReaderJson()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $reader = $connector->getReader('json');
 
@@ -397,7 +400,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetReaderThrowsException()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $connector->getReader('eggs');
     }
@@ -409,7 +412,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetDefaultFormat()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $format = $connector->getDefaultFormat();
 
@@ -424,7 +427,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testSetDefaultFormat()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $format = 'json';
 
         $this->assertSame($connector, $connector->setDefaultFormat($format));
@@ -437,7 +440,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testSetDefaultFormatThrowsException()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $connector->setDefaultFormat(new stdClass());
     }
@@ -460,10 +463,10 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testSetDefaultLimit()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $defaultLimit = 30;
 
-        $this->assertEquals(\MusicBrainz\Connector\ConnectorInterface::SEARCH_LIMIT_DEFAULT, $connector->getDefaultLimit());
+        $this->assertEquals(ConnectorInterface::SEARCH_LIMIT_DEFAULT, $connector->getDefaultLimit());
         $this->assertSame($connector, $connector->setDefaultLimit($defaultLimit));
         $this->assertEquals($defaultLimit, $connector->getDefaultLimit());
     }
@@ -477,7 +480,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testSetDefaultLimitThrowsException()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $connector->setDefaultLimit(new stdClass());
     }
@@ -488,7 +491,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testSetDefaultLimitTooLow()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $tooLow = -1;
 
         $connector->setDefaultLimit($tooLow);
@@ -500,7 +503,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testSetDefaultLimitTooHigh()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $tooHigh = 101;
 
         $connector->setDefaultLimit($tooHigh);
@@ -519,10 +522,10 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetDefaultOffset()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
         $defaultOffset = 5;
 
-        $this->assertEquals(\MusicBrainz\Connector\ConnectorInterface::SEARCH_OFFSET_DEFAULT, $connector->getDefaultOffset());
+        $this->assertEquals(ConnectorInterface::SEARCH_OFFSET_DEFAULT, $connector->getDefaultOffset());
         $this->assertSame($connector, $connector->setDefaultOffset($defaultOffset));
         $this->assertEquals($defaultOffset, $connector->getDefaultOffset());
     }
@@ -534,7 +537,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetStatuses()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $statuses = $connector->getStatuses();
 
@@ -548,7 +551,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
      */
     public function testGetTypes()
     {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector');
+        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
 
         $types = $connector->getTypes();
 

@@ -167,14 +167,27 @@ abstract class AbstractConnector implements ConnectorInterface
         $this->setIdentity($identity);
     }
 
+    /**
+     * Return the Identity instance
+     *
+     * @return Identity
+     */
     protected function getIdentity()
     {
         return $this->identity;
     }
 
+    /**
+     * Set the Identity instance
+     *
+     * @param Identity $identity
+     *
+     * @return AbstractConnector
+     */
     public function setIdentity(Identity $identity)
     {
         $this->identity = $identity;
+        return $this;
     }
 
     /**
@@ -193,7 +206,6 @@ abstract class AbstractConnector implements ConnectorInterface
      */
     public function lookup($mbid, $options = array())
     {
-
         $options = array_merge(
             $this->getDefaultOptions(),
             array('mbid' => $mbid),
@@ -359,6 +371,10 @@ abstract class AbstractConnector implements ConnectorInterface
     /**
      * Return the Request instance
      *
+     * The Request instance is configured using the supplied Uri and the
+     * User-Agent header is configured with values from the supplied Identity
+     * instance.
+     *
      * @param Http     $uri      Uri instance
      * @param Identity $identity Identity instance
      * @param array    $params   Additional request params
@@ -410,9 +426,8 @@ abstract class AbstractConnector implements ConnectorInterface
      * Return the string representation of the resource that this Connector
      * handles
      *
-     * @return string
-     *
      * @throws RuntimeException
+     * @return string
      */
     public function getResource()
     {
@@ -423,10 +438,10 @@ abstract class AbstractConnector implements ConnectorInterface
     }
 
     /**
-     *
-     * @return StrategyInterface
+     * Return the instance of LookupStrategy
      *
      * @throws \RuntimeException
+     * @return StrategyInterface
      */
     public function getLookupStrategy()
     {
@@ -442,14 +457,18 @@ abstract class AbstractConnector implements ConnectorInterface
         return $this->lookupStrategy;
     }
 
+    /**
+     * Return the instance of BrowseStrategy
+     */
     public function getBrowseStrategy()
     {
 
     }
 
     /**
+     * Return an instance of SearchStrategy
      *
-     *
+     * @throws RuntimeException
      * @return StrategyInterface
      */
     public function getSearchStrategy()
@@ -510,9 +529,10 @@ abstract class AbstractConnector implements ConnectorInterface
     }
 
     /**
-     * Parse the supplied options into an array of request params
+     * Parse the supplied options into an array of request params that are suitable
+     * for performing browse requests with
      *
-     * @param array $options
+     * @param array $options The array of options supplied from the client
      *
      * @return array
      */
@@ -535,18 +555,21 @@ abstract class AbstractConnector implements ConnectorInterface
     }
 
     /**
+     * Parse the supplied options into an array of paramters suitable for
+     * performing search requests
      *
-     * query
-     * Lucene search query, this is mandatory
-     * limit
-     * An integer value defining how many entries should be returned.
-     * Only values between 1 and 100 (both inclusive) are allowed.
-     * If not given, this defaults to 25.
-     * offset
-     * Return search results starting at a given offset.
-     * Used for paging through more than one page of results.
+     * query - Lucene search query, this is mandatory
      *
-     * @return type
+     * limit - An integer value defining how many entries should be returned.
+     * Only values between 1 and 100 (both inclusive) are allowed. If not given,
+     * this defaults to 25.
+     *
+     * offset - Return search results starting at a given offset. Used for
+     * paging through more than one page of results.
+     *
+     * @param array $options The array of options supplied by the client
+     *
+     * @return array
      */
     public function parseSearchParams($options = array())
     {
@@ -582,7 +605,6 @@ abstract class AbstractConnector implements ConnectorInterface
         if (isset($options['includes'])) {
             $params[self::PARAM_INCLUDES] = $this->prepareIncludes($options['includes']);
         }
-        var_dump($params);
         return $params;
     }
 
@@ -625,8 +647,8 @@ abstract class AbstractConnector implements ConnectorInterface
      *
      * @param string $mode
      *
-     * @return Xml|Json
      * @throws \InvalidArgumentException
+     * @return Xml|Json
      */
     public function getReader($mode)
     {
@@ -673,15 +695,13 @@ abstract class AbstractConnector implements ConnectorInterface
      *
      * @param string|null $defaultFormat
      *
-     * @return AbstractConnector
      * @throws InvalidArgumentException
+     * @return AbstractConnector
      */
     public function setDefaultFormat($defaultFormat = null)
     {
-        if (! is_null($defaultFormat)) {
-            if (! in_array($defaultFormat, $this->getFormats())) {
-                throw new InvalidArgumentException('Invalid format');
-            }
+        if (! is_null($defaultFormat) && ! in_array($defaultFormat, $this->getFormats())) {
+            throw new InvalidArgumentException('Invalid format');
         }
         $this->defaultFormat = $defaultFormat;
         return $this;

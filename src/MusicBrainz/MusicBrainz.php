@@ -93,6 +93,7 @@ class MusicBrainz implements MusicBrainzInterface
 
     /**
      * Set the Identity instance
+     *
      * @link http://musicbrainz.org/doc/XML_Web_Service/Rate_Limiting
      *
      * @param string|array|Identity $identity
@@ -100,7 +101,7 @@ class MusicBrainz implements MusicBrainzInterface
      * @throws InvalidArgumentException
      * @return MusicBrainz
      */
-    public function setIdentity($identity)
+    protected function setIdentity($identity)
     {
         if ($identity instanceof Identity) {
             $this->identity = $identity;
@@ -128,6 +129,17 @@ class MusicBrainz implements MusicBrainzInterface
                 $exception
             );
         }
+        return $this;
+    }
+
+    /**
+     * Return the Identity instance
+     *
+     * @return Identity
+     */
+    protected function getIdentity()
+    {
+        return $this->identity;
     }
 
     /**
@@ -138,7 +150,7 @@ class MusicBrainz implements MusicBrainzInterface
     public function getConnectorFactory()
     {
         if (! isset($this->connectorFactory)) {
-            $this->connectorFactory = new ConnectorFactory($this->identity);
+            $this->connectorFactory = new ConnectorFactory($this->getIdentity());
         }
         return $this->connectorFactory;
     }

@@ -42,7 +42,7 @@ class MusicBrainzTest extends PHPUnit_Framework_TestCase
      */
     public function test__construct()
     {
-        $musicBrainz = new MusicBrainz();
+        $musicBrainz = new MusicBrainz(new \MusicBrainz\Identity\Identity('test'));
 
         $this->assertInstanceOf('\MusicBrainz\MusicBrainzInterface', $musicBrainz);
     }
@@ -54,7 +54,7 @@ class MusicBrainzTest extends PHPUnit_Framework_TestCase
      */
     public function testGetDefaultConnectorFactory()
     {
-        $musicBrainz = new MusicBrainz();
+        $musicBrainz = new MusicBrainz(new \MusicBrainz\Identity\Identity('test'));
 
         $this->assertInstanceOf('\MusicBrainz\Connector\Factory\ConnectorFactoryInterface', $musicBrainz->getConnectorFactory());
     }

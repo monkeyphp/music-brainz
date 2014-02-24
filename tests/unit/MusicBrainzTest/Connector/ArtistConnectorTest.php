@@ -25,6 +25,7 @@
 namespace MusicBrainzTest\Connector;
 
 use MusicBrainz\Connector\ArtistConnector;
+use MusicBrainz\Identity\Identity;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -59,7 +60,7 @@ class ArtistConnectorTest extends PHPUnit_Framework_TestCase
             ->with($this->isInstanceOf('\Zend\Http\Request'))
             ->will($this->returnValue($mockResponse));
 
-        $connector = new ArtistConnector();
+        $connector = new ArtistConnector(new Identity('test'));
         $connector->setHttpClient($mockClient);
 
         $artistSearch = $connector->search('metallica');
