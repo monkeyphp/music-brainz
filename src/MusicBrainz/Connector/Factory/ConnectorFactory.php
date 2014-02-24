@@ -40,6 +40,9 @@ use MusicBrainz\Identity\Identity;
 /**
  * ConnectorFactory
  *
+ * ConnectorFactory is responisble for returning configured instances of
+ * ConnectorInterface
+ *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Connector\Factory
@@ -119,11 +122,43 @@ class ConnectorFactory implements ConnectorFactoryInterface
      */
     public function __construct(Identity $identity)
     {
+        $this->setIdentity($identity);
+    }
+
+    /**
+     * Return the instance of Identity
+     *
+     * @return Identity
+     */
+    public function getIdentity()
+    {
+        // @codeCoverageIgnoreStart
+        return $this->identity;
+        // @codeCoverageIgnoreEnd
+    }
+
+    /**
+     * Set the Identity instance
+     *
+     * @param Identity $identity
+     *
+     * @return ConnectorFactory
+     */
+    protected function setIdentity(Identity $identity)
+    {
+        // @codeCoverageIgnoreStart
         $this->identity = $identity;
+        return $this;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
      * Return the Connector appropriate for the supplied resource
+     *
+     * A helper method that accepts the resource string and attempts to return
+     * the appropriate ConnectorInterface instance.
+     * If an invalid resource string is supplied, this method will throw
+     * an InvalidArgumentException.
      *
      * @param string $resource
      *
@@ -162,7 +197,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getAreaConnector()
     {
         if (! isset($this->areaConnector)) {
-            $this->areaConnector = new AreaConnector($this->identity);
+            $this->areaConnector = new AreaConnector($this->getIdentity());
         }
         return $this->areaConnector;
     }
@@ -175,7 +210,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getArtistConnector()
     {
         if (! isset($this->artistConnector)) {
-            $this->artistConnector = new ArtistConnector($this->identity);
+            $this->artistConnector = new ArtistConnector($this->getIdentity());
         }
         return $this->artistConnector;
     }
@@ -188,7 +223,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getLabelConnector()
     {
         if (! isset($this->labelConnector)) {
-            $this->labelConnector = new LabelConnector($this->identity);
+            $this->labelConnector = new LabelConnector($this->getIdentity());
         }
         return $this->labelConnector;
     }
@@ -201,7 +236,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getRecordingConnector()
     {
         if (! isset($this->recordingConnector)) {
-            $this->recordingConnector = new RecordingConnector($this->identity);
+            $this->recordingConnector = new RecordingConnector($this->getIdentity());
         }
         return $this->recordingConnector;
     }
@@ -214,7 +249,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getReleaseConnector()
     {
         if (! isset($this->releaseConnector)) {
-            $this->releaseConnector = new ReleaseConnector($this->identity);
+            $this->releaseConnector = new ReleaseConnector($this->getIdentity());
         }
         return $this->releaseConnector;
     }
@@ -227,7 +262,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getReleaseGroupConnector()
     {
         if (! isset($this->releaseGroupConnector)) {
-            $this->releaseGroupConnector = new ReleaseGroupConnector($this->identity);
+            $this->releaseGroupConnector = new ReleaseGroupConnector($this->getIdentity());
         }
         return $this->releaseGroupConnector;
     }
@@ -240,7 +275,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getUrlConnector()
     {
         if (! isset($this->urlConnector)) {
-            $this->urlConnector = new UrlConnector($this->identity);
+            $this->urlConnector = new UrlConnector($this->getIdentity());
         }
         return $this->urlConnector;
     }
@@ -253,7 +288,7 @@ class ConnectorFactory implements ConnectorFactoryInterface
     public function getWorkConnector()
     {
         if (! isset($this->workConnector)) {
-            $this->workConnector = new WorkConnector($this->identity);
+            $this->workConnector = new WorkConnector($this->getIdentity());
         }
         return $this->workConnector;
     }

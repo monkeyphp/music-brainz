@@ -41,6 +41,19 @@ use PHPUnit_Framework_TestCase;
 class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * Test that we can construct an instance of ConnectorFactory
+     *
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::__construct
+     */
+    public function test__construct()
+    {
+        $identity = new Identity('tests');
+        $connectorFactory = new ConnectorFactory($identity);
+
+        $this->assertInstanceOf('\MusicBrainz\Connector\Factory\ConnectorFactory', $connectorFactory);
+    }
+
+    /**
      * Test that we can get the AreaConnector
      *
      * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getAreaConnector
@@ -283,5 +296,15 @@ class ConnectorFactoryTest extends PHPUnit_Framework_TestCase
         $connectorFactory = new ConnectorFactory(new Identity('test'));
 
         $connectorFactory->getConnector('foobar');
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Connector\Factory\ConnectorFactory::getConnector
+     */
+    public function testGetConnectorThrowsExceptionNonString()
+    {
+        $connectorFactory = new ConnectorFactory(new Identity('test'));
+        $connectorFactory->getConnector(new \stdClass());
     }
 }
