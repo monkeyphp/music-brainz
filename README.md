@@ -52,11 +52,11 @@ Include the Composer autoloader into your script
 The MusicBrainz.org api expects that client applications should identity
 themselves using the ```User-Agent``` header.
 
-To support this requirement, this MusicBrainz library utilises a simeple Identity class.
+To support this requirement, this MusicBrainz library utilizes a simple Identity class.
 The class requires a single constructor parameter; the name that your application will
 use to identity itself to the MusicBrainz.org api.
 
-    $identity = new Indentity('my_application');
+    $identity = new Identity('my_application');
 
 You may also, optionally supply a version number for your application, and a contact
 detail so that the MusicBrainz.org administrators may contact you should they need to.
@@ -77,7 +77,7 @@ Create a MusicBrainz instance by supplying a string
 
     $musicBrainz = new MusicBrainz('my_application');
 
-Create a MusicBrainz instance by supplygin an array of Identity values
+Create a MusicBrainz instance by supplying an array of Identity values
 
     $musicBrainz = new MusicBrainz(array('my_application', 1.0, 'contact@example.com')
 
@@ -105,7 +105,7 @@ For each of these resources, you can perform three actions;
 
 ### Search a resource
 
-Searching for a resource requires two parameters and accepts a thrird optional parameter;
+Searching for a resource requires two parameters and accepts a third optional parameter;
 
 - (required) the resource name
 - (required) the search string
@@ -113,10 +113,14 @@ Searching for a resource requires two parameters and accepts a thrird optional p
 
 Searching for a resource will return an instance of a resource specific Search entity
 
-
+    // returns an instance of ArtistSearch
     $artistSearch = $musicBrainz->search('artist', 'metallica');
     
+    // returns an instance of LabelSearch
     $labelSearch = $musicBrainz->search('label', 'parlaphone');
+    
+    // returns an instance of AreaSearch
+    $areaSearch = $musicBrainz->search('area', 'Los Angeles');
     
 
 
