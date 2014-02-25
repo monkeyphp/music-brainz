@@ -102,29 +102,78 @@ For each of these resources, you can perform three actions;
 - Search
 - Lookup
 - Browse
-
-### Search a resource
+- 
+### Search a Resource
 
 Searching for a resource requires two parameters and accepts a third optional parameter;
 
-- (required) the resource name
-- (required) the search string
-- (optional) an array of additional options
+- The resource type __(required)__
+  + Accepted values may be one of the following:
+    - ```artist``` or ```ConnectorInterface::RESOURCE_ARTIST```
+    - ```label``` or ```ConnectorInterface::RESOURCE_LABEL```
+    - ```recording``` or ```ConnectorInterface::RESOURCE_RECORDING```
+    - ```release``` or ```ConnectorInterface::RESOURCE_RELEASE```
+    - ```release-group``` or ```ConnectorInterface::RESOURCE_RELEASE_GROUP```
+    - ```work``` or ```ConnectorInterface::RESOURCE_WORK```
+    - ```area``` or ```ConnectorInterface::RESOURCE_AREA```
+    - ```url``` or ```ConnectorInterface::RESOURCE_URL```
+- A [Lucene](http://lucene.apache.org/core/2_9_4/queryparsersyntax.html) compatible query string __(required)__
+- An array of additional options __(optional)__
+    + The accepted keys and values are as follows:
+      - ```format```  - a value of ```xml```, ```json```, ```ConnectorInterface::FORMAT_XML``` or ```ConnectorInterface::FORMAT_JSON```
+      - ```limit``` - an integer value between ```1``` and ```100```
+      - ```offset``` - an integer of ```0``` or above 
 
 Searching for a resource will return an instance of a resource specific Search entity
 
     // returns an instance of ArtistSearch
     $artistSearch = $musicBrainz->search('artist', 'metallica');
+    // or
+    $artistSearch = $musicBrainz->search(
+        ConnectorInterface::RESOURCE_ARTIST, 
+        'pixies', 
+        array(
+            'format' => ConnectorInterface::FORMAT_XML
+            'offset' => 0,
+            'limit' => 10,
+        )
+    );
     
     // returns an instance of LabelSearch
     $labelSearch = $musicBrainz->search('label', 'parlaphone');
+    // or
+    $labelSearch = $musicBrainz->search(ConnectorInterface::RESOURCE_LABEL, 'decca');
     
     // returns an instance of AreaSearch
     $areaSearch = $musicBrainz->search('area', 'Los Angeles');
+    // or
+    $areaSearch = $musicBrainz->seearch(ConnectorInterface::RESOURCE_AREA, 'New York, US');
     
+### Lookup a Resource
 
+Lookup queries are a way of retrieving additional information about a resource.
+Performing a lookup of a resource is very similar to performing a search, but with a very crucial difference.
+When you lookup a resource, you already know the __Mbid__ of the resource and supply that in the lookup query.
 
+Performaing a lookup for a resource requires the resource type that you are looking up, the __Mbid__ of that resource and an optional array of options.
 
+- The resource type __(required)__
+  + Accepted values may be one of the following:
+    - ```artist``` or ```ConnectorInterface::RESOURCE_ARTIST```
+    - ```label``` or ```ConnectorInterface::RESOURCE_LABEL```
+    - ```recording``` or ```ConnectorInterface::RESOURCE_RECORDING```
+    - ```release``` or ```ConnectorInterface::RESOURCE_RELEASE```
+    - ```release-group``` or ```ConnectorInterface::RESOURCE_RELEASE_GROUP```
+    - ```work``` or ```ConnectorInterface::RESOURCE_WORK```
+    - ```area``` or ```ConnectorInterface::RESOURCE_AREA```
+    - ```url``` or ```ConnectorInterface::RESOURCE_URL```
+- The Mbid of the resource __(required)__
+- An array of additional options __(optional)__
+
+Lookups will return a resource specific Lookup entity
+
+    // returns an instance of ArtistLookup
+    $artistLookup = $musicBrainz->lookup('artist', '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab');
 
 ## Generate Unit tests with Codeception
 
