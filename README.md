@@ -102,7 +102,8 @@ For each of these resources, you can perform three actions;
 - Search
 - Lookup
 - Browse
-- 
+
+
 ### Search a Resource
 
 Searching for a resource requires two parameters and accepts a third optional parameter;
