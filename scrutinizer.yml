@@ -14,7 +14,7 @@ tools:
         enabled:              false
 
     php_code_coverage:
-        enabled:              false
+        enabled:              true
         test_command: phpunit tests/unit/MusicBrainzTest
 
     # Code Sniffer
