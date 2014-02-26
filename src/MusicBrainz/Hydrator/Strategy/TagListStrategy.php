@@ -1,6 +1,6 @@
 <?php
 /**
- * TagListStrategyr.php
+ * TagListStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
