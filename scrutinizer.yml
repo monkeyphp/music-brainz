@@ -4,3 +4,78 @@ imports:
     - php
 filter:
     excluded_paths: [vendor/*, tools/*, examples/*, tests/*, composer.*]
+tools:
+    # Code Coverage
+    external_code_coverage:
+        enabled:              false
+
+    php_code_coverage:
+        enabled:              false
+
+    # Code Sniffer
+    php_code_sniffer:
+        enabled:              true
+        command:              phpcs
+        config:
+            standard:         PSR2
+        filter:
+            excluded_paths:
+                - 'vendor/*'
+                - 'tools/*'
+                - 'examples/*'
+                - 'tests/*'
+                - 'composer.*'
+
+    # Copy/Paste Detector
+    php_cpd:
+        enabled:              true
+        command:              phpcpd
+        excluded_dirs:
+            - 'vendor/*'
+            - 'tools/*'
+            - 'examples/*'
+            - 'tests/*'
+            - 'composer.*'
+
+    # Analyzes the size and structure of a PHP project.
+    php_loc:
+        enabled:              true
+        command:              phploc
+        excluded_dirs:
+            - 'vendor/*'
+            - 'tools/*'
+            - 'examples/*'
+            - 'tests/*'
+            - 'composer.*'
+    # PHP Mess Detector (http://phpmd.org).
+    php_mess_detector:
+        enabled:              true
+        command:              phpmd
+        filter:
+            excluded_paths:
+                - 'vendor/*'
+                - 'tools/*'
+                - 'examples/*'
+                - 'tests/*'
+                - 'composer.*'
+
+    # Analyzes the size and structure of a PHP project.
+    php_pdepend:
+        enabled:              true
+        command:              pdepend
+        excluded_dirs:
+            - 'vendor/*'
+            - 'tools/*'
+            - 'examples/*'
+            - 'tests/*'
+            - 'composer.*'
+    # Runs Scrutinizer's PHP Analyzer Tool
+    php_analyzer:
+        enabled:              true
+        filter:
+            excluded_paths:
+                - 'vendor/*'
+                - 'tools/*'
+                - 'examples/*'
+                - 'tests/*'
+                - 'composer.*'
