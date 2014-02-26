@@ -19,6 +19,8 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
+use Exception;
+use MusicBrainz\Entity\Ipi;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 /**
  * Description of IpiStrategy
@@ -34,9 +36,11 @@ class IpiStrategy implements StrategyInterface
 
     public function hydrate($value)
     {
-        $ipi = new \MusicBrainz\Entity\Ipi();
-        $ipi->setIpi($value);
-        return $ipi;
+        try {
+            return new Ipi($value);
+        } catch (Exception $exception) {
+            return null;
+        }
     }
 
 }
