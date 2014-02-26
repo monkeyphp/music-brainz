@@ -1,0 +1,6 @@
+## YAML Template.
+---
+imports:
+    - php
+filter:
+    excluded_paths: [vendor/*, tools/*, examples/*, tests/*, composer.*]
