@@ -1,6 +1,6 @@
 <?php
 /**
- * ReleaseListTest.php
+ * Iso31661CodeListTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -24,32 +24,31 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\Release;
-use MusicBrainz\Entity\ReleaseList;
+use MusicBrainz\Entity\Iso31661Code;
+use MusicBrainz\Entity\Iso31661CodeList;
 use PHPUnit_Framework_TestCase;
 
 /**
- * ReleaseListTest
+ * Iso31661CodeListTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
+ *
  */
-class ReleaseListTest extends PHPUnit_Framework_TestCase
+class Iso31661CodeListTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can set the Releases
+     * Test that we can add an Iso31661Code
      *
-     * @covers \MusicBrainz\Entity\ReleaseList::setReleases
+     * @covers \MusicBrainz\Entity\Iso31661CodeList::addIso31661Code
      */
-    public function testSetReleases()
+    public function testAddIso31661Code()
     {
-        $releases = array(
-            new Release(),
-            new Release(),
-        );
-        $releaseList = new ReleaseList();
+        $code = 'US';
+        $iso31661Code = new Iso31661Code($code);
+        $iso31661CodeList = new Iso31661CodeList();
 
-        $this->assertSame($releaseList, $releaseList->setReleases($releases));
+        $this->assertSame($iso31661CodeList, $iso31661CodeList->addIso31661Code($iso31661Code));
     }
 }

@@ -28,6 +28,7 @@ use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Quality;
 use MusicBrainz\Entity\Release;
 use MusicBrainz\Entity\Status;
+use MusicBrainz\Entity\TextRepresentation;
 use MusicBrainz\Entity\Title;
 use PHPUnit_Framework_TestCase;
 
@@ -65,7 +66,7 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
     public function testGetSetTitle()
     {
         $release = new Release();
-        $title = new Title('Grage Inc');
+        $title = new Title('Garage Inc');
 
         $this->assertNull($release->getTitle());
         $this->assertSame($release, $release->setTitle($title));
@@ -102,5 +103,21 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->assertNull($release->getQuality());
         $this->assertSame($release, $release->setQuality($quality));
         $this->assertSame($quality, $release->getQuality());
+    }
+
+    /**
+     * Test that we can get and set the TextRepresentation
+     *
+     * @covers \MusicBrainz\Entity\Release::getTextRepresentation
+     * @covers \MusicBrainz\Entity\Release::setTextRepresentation
+     */
+    public function testGetSetTextRepresentation()
+    {
+        $release = new Release();
+        $textRepresentation = new TextRepresentation();
+
+        $this->assertNull($release->getTextRepresentation());
+        $this->assertSame($release, $release->setTextRepresentation($textRepresentation));
+        $this->assertSame($textRepresentation, $release->getTextRepresentation());
     }
 }

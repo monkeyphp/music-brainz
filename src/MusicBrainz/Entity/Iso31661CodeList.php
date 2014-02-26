@@ -33,7 +33,6 @@ use Traversable;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
- * @author     David White <david@monkeyphp.com>
  */
 class Iso31661CodeList implements Iterator
 {
@@ -112,7 +111,9 @@ class Iso31661CodeList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

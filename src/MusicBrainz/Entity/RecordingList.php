@@ -96,7 +96,7 @@ class RecordingList implements Iterator
 
     /**
      * Return the current Recording
-     * 
+     *
      * @return Recording
      */
     public function current()
@@ -111,7 +111,9 @@ class RecordingList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

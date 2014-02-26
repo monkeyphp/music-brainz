@@ -1,6 +1,6 @@
 <?php
 /**
- * ReleaseListTest.php
+ * RecordingListTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -24,32 +24,36 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\Release;
-use MusicBrainz\Entity\ReleaseList;
+use MusicBrainz\Entity\Recording;
+use MusicBrainz\Entity\RecordingList;
 use PHPUnit_Framework_TestCase;
 
 /**
- * ReleaseListTest
+ * RecordingListTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
+ *
  */
-class ReleaseListTest extends PHPUnit_Framework_TestCase
+class RecordingListTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can set the Releases
+     * Test that we can set the Recordings
      *
-     * @covers \MusicBrainz\Entity\ReleaseList::setReleases
+     * @covers \MusicBrainz\Entity\RecordingList::getRecordings
+     * @covers \MusicBrainz\Entity\RecordingList::setRecordings
      */
-    public function testSetReleases()
+    public function testGetSetRecordings()
     {
-        $releases = array(
-            new Release(),
-            new Release(),
+        $recordingList = new RecordingList();
+        $recordings = array(
+            new Recording(),
         );
-        $releaseList = new ReleaseList();
 
-        $this->assertSame($releaseList, $releaseList->setReleases($releases));
+        $this->assertEmpty($recordingList->getRecordings());
+        $this->assertSame($recordingList, $recordingList->setRecordings($recordings));
+        $this->assertCount(count($recordings), $recordingList->getRecordings());
+
     }
 }
