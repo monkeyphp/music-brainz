@@ -52,7 +52,7 @@ class Count
      */
     public function __construct($count)
     {
-        if (!ctype_digit((string)$count)) {
+        if (! is_scalar($count) || ! ctype_digit((string)$count)) {
             throw new InvalidArgumentException('Expects a number');
         }
         $this->count = (int)$count;
@@ -60,7 +60,7 @@ class Count
 
     /**
      * Return a string representation of the Count
-     * 
+     *
      * @return string
      */
     public function __toString()

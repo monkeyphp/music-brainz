@@ -45,17 +45,16 @@ use MusicBrainz\Entity\WorkList;
 /**
  * Artist
  *
+ * A representation of the MusicBrainz.org artist resource
+ *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class Artist
 {
     /**
      * The MusicBrainz id of the Artist
-     *
-     * e.g 65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab
      *
      * @var Mbid|null
      */
@@ -679,7 +678,7 @@ class Artist
 
     /**
      * Return the ReleaseGroupList
-     * 
+     *
      * @return ReleaseGroupList
      */
     public function getReleaseGroupList()

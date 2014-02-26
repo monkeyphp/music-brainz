@@ -24,25 +24,32 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use InvalidArgumentException;
 use MusicBrainz\Entity\Alias;
 use MusicBrainz\Entity\AliasList;
 use MusicBrainz\Entity\Area;
 use MusicBrainz\Entity\Artist;
 use MusicBrainz\Entity\Country;
+use MusicBrainz\Entity\Disambiguation;
 use MusicBrainz\Entity\Gender;
-use MusicBrainz\Entity\Ipi;
 use MusicBrainz\Entity\IpiList;
+use MusicBrainz\Entity\Isni;
 use MusicBrainz\Entity\IsniList;
 use MusicBrainz\Entity\LifeSpan;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Name;
+use MusicBrainz\Entity\Recording;
+use MusicBrainz\Entity\RecordingList;
+use MusicBrainz\Entity\Release;
+use MusicBrainz\Entity\ReleaseGroup;
+use MusicBrainz\Entity\ReleaseGroupList;
+use MusicBrainz\Entity\ReleaseList;
 use MusicBrainz\Entity\Score;
 use MusicBrainz\Entity\Tag;
 use MusicBrainz\Entity\TagList;
 use MusicBrainz\Entity\Type;
+use MusicBrainz\Entity\Work;
+use MusicBrainz\Entity\WorkList;
 use PHPUnit_Framework_TestCase;
-use stdClass;
 
 /**
  * ArtistTest
@@ -240,20 +247,19 @@ class ArtistTest extends PHPUnit_Framework_TestCase
      *
      * @covers \MusicBrainz\Entity\Artist::addIpi
      */
-    public function testAddIpi()
-    {
-        $this->markTestIncomplete();
-        $artist = new Artist();
-        //$ipi = new Ipi();
-
-        $this->assertSame($artist, $artist->addIpi($ipi));
-    }
+//    public function testAddIpi()
+//    {
+//        $artist = new Artist();
+//        $ipi = new Ipi();
+//
+//        $this->assertSame($artist, $artist->addIpi($ipi));
+//    }
 
     /**
      * Test that we can get and set the TagList
      *
      * @covers \MusicBrainz\Entity\Artist::setTagList
-     * @covers \MusicBrainz\Entity\Artist::setTagList
+     * @covers \MusicBrainz\Entity\Artist::getTagList
      */
     public function testGetSetTagList()
     {
@@ -330,7 +336,7 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetDisambiguation()
     {
         $artist = new Artist();
-        $disambiguation = new \MusicBrainz\Entity\Disambiguation('This is the disambiguation');
+        $disambiguation = new Disambiguation('This is the disambiguation');
 
         $this->assertNull($artist->getDisambiguation());
         $this->assertSame($artist, $artist->setDisambiguation($disambiguation));
@@ -366,6 +372,19 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can add an Isni to the Artist
+     *
+     * @covers \MusicBrainz\Entity\Artist::addIsni
+     */
+    public function testAddIsni()
+    {
+        $artist = new Artist();
+        $isni = new Isni();
+
+        $this->assertSame($artist, $artist->addIsni($isni));
+    }
+
+    /**
      * @covers \MusicBrainz\Entity\Artist::getIsniList
      * @covers \MusicBrainz\Entity\Artist::setIsniList
      */
@@ -376,5 +395,165 @@ class ArtistTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame($artist, $artist->setIsniList($isniList));
         $this->assertSame($isniList, $artist->getIsniList());
+    }
+
+    /**
+     * Test that we can get the default instance of WorkList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getWorkList
+     */
+    public function testGetDefaultWorkList()
+    {
+        $artist = new Artist();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\WorkList', $artist->getWorkList());
+    }
+
+    /**
+     * Test that we can get and set the WorkList property
+     *
+     * @covers \MusicBrainz\Entity\Artist::getWorkList
+     * @covers \MusicBrainz\Entity\Artist::setWorkList
+     */
+    public function testGetSetWorkList()
+    {
+        $artist = new Artist();
+        $workList = new WorkList();
+
+        $this->assertSame($artist, $artist->setWorkList($workList));
+        $this->assertSame($workList, $artist->getWorkList());
+    }
+
+    /**
+     * Test that we can add a Work instance to the Artist
+     *
+     * @cover \MusicBrainz\Entity\Artist::addWork
+     */
+    public function testAddWork()
+    {
+        $artist = new Artist();
+        $work = new Work();
+
+        $this->assertSame($artist, $artist->addWork($work));
+    }
+
+    /**
+     * Test that we can get a default instance of ReleaseGroupList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getReleaseGroupList
+     */
+    public function testGetDefaultReleaseGroupList()
+    {
+        $artist = new Artist();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseGroupList', $artist->getReleaseGroupList());
+    }
+
+    /**
+     * Test that we can get and set the ReleaseGroupList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getReleaseGroupList
+     * @covers \MusicBrainz\Entity\Artist::setReleaseGroupList
+     */
+    public function testGetSetReleaseGroupList()
+    {
+        $artist = new Artist();
+        $releaseGroupList = new ReleaseGroupList();
+
+        $this->assertSame($artist, $artist->setReleaseGroupList($releaseGroupList));
+        $this->assertSame($releaseGroupList, $artist->getReleaseGroupList());
+    }
+
+    /**
+     * Test that we can add a ReleaseGroup to the Artist
+     *
+     * @covers \MusicBrainz\Entity\Artist::addReleaseGroup
+     */
+    public function testAddReleaseGroup()
+    {
+        $artist = new Artist();
+        $releaseGroup = new ReleaseGroup();
+
+        $this->assertSame($artist, $artist->addReleaseGroup($releaseGroup));
+    }
+
+    /**
+     * Test that we can add a Release
+     *
+     * @covers \MusicBrainz\Entity\Artist::addRelease
+     */
+    public function testAddRelease()
+    {
+        $artist = new Artist();
+        $release = new Release();
+
+        $this->assertSame($artist, $artist->addRelease($release));
+    }
+
+    /**
+     * Test that we can get the default ReleaseList instance
+     *
+     * @covers \MusicBrainz\Entity\Artist::getReleaseList
+     */
+    public function testGetDefaultReleaseList()
+    {
+        $artist = new Artist();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseList', $artist->getReleaseList());
+    }
+
+    /**
+     * Test that we can get and set the ReleaseList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getReleaseList
+     * @covers \MusicBrainz\Entity\Artist::setReleaseList
+     */
+    public function testGetSetReleaseList()
+    {
+        $artist = new Artist();
+        $releaseList = new ReleaseList();
+
+        $this->assertSame($artist, $artist->setReleaseList($releaseList));
+        $this->assertSame($releaseList, $artist->getReleaseList());
+    }
+
+    /**
+     * Test that we can add a Recording to the Artist
+     *
+     * @covers \MusicBrainz\Entity\Artist::addRecording
+     */
+    public function testAddRecording()
+    {
+        $artist = new Artist();
+        $recording = new Recording();
+
+        $this->assertSame($artist, $artist->addRecording($recording));
+    }
+
+    /**
+     * Test that we can get the default RecordingList instance
+     *
+     * @covers \MusicBrainz\Entity\Artist::getRecordingList
+     */
+    public function testGetDefaultRecordingList()
+    {
+        $artist = new Artist();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\RecordingList', $artist->getRecordingList());
+    }
+
+    /**
+     * Test that we can get and set the RecordingList
+     *
+     * @covers \MusicBrainz\Entity\Artist::getRecordingList
+     * @covers \MusicBrainz\Entity\Artist::setRecordingList
+     */
+    public function testGetSetRecordingList()
+    {
+        $artist = new Artist();
+        $recordingList = new RecordingList();
+
+        $this->assertSame($artist, $artist->setRecordingList($recordingList));
+        $this->assertSame($recordingList, $artist->getRecordingList());
     }
 }

@@ -60,7 +60,7 @@ class AliasListStrategy implements StrategyInterface
         if (! is_array($value) || ! isset($value['alias']) || ! is_array($value['alias'])) {
             return null;
         }
-        $aliases = [];
+        $aliases = array();
         $aliasStrategy = new AliasStrategy();
         foreach ($value['alias'] as $index => $alias) {
             $aliases[$index] = $aliasStrategy->hydrate($alias);

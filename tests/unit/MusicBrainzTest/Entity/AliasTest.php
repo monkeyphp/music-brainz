@@ -24,13 +24,11 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use InvalidArgumentException;
 use MusicBrainz\Entity\Alias;
 use MusicBrainz\Entity\Locale;
 use MusicBrainz\Entity\Name;
 use MusicBrainz\Entity\Primary;
 use PHPUnit_Framework_TestCase;
-use stdClass;
 
 /**
  * AliasList

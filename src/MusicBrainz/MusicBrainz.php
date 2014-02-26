@@ -25,10 +25,11 @@ namespace MusicBrainz;
 
 use Exception;
 use InvalidArgumentException;
+use MusicBrainz\Connector\ConnectorInterface;
 use MusicBrainz\Connector\Factory\ConnectorFactory;
 use MusicBrainz\Connector\Factory\ConnectorFactoryInterface;
+use MusicBrainz\Entity\ArtistSearch;
 use MusicBrainz\Identity\Identity;
-use Traversable;
 
 /**
  * MusicBrainz
@@ -64,31 +65,9 @@ class MusicBrainz implements MusicBrainzInterface
      *
      * @return void
      */
-    public function __construct($identity, $options = array())
+    public function __construct($identity)
     {
         $this->setIdentity($identity);
-    }
-
-    /**
-     * Set the MusicBrainz options
-     *
-     * @param array|Traversable $options An array of options
-     *
-     * @return MusicBrainz
-     */
-    public function setOptions($options = array())
-    {
-        if (is_array($options) || $options instanceof Traversable) {
-            foreach ($options as $key => $value) {
-                $key = strtolower($key);
-                switch ($key) {
-                    case 'identity':
-                        $this->setIdentity($value);
-                        break;
-                }
-            }
-        }
-        return $this;
     }
 
     /**
@@ -219,4 +198,128 @@ class MusicBrainz implements MusicBrainzInterface
             throw $exception;
         }
     }
+
+    /**
+     * Search for an Artist
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return ArtistSearch
+     */
+    public function searchArtist($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_ARTIST, $query, $options);
+    }
+
+    /**
+     * Search for an Area
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return AreaSearch
+     */
+    public function searchArea($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_AREA, $query, $options);
+    }
+
+    /**
+     * Search for a Label
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return LabelSearch
+     */
+    public function searchLabel($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_LABEL, $query, $options);
+    }
+
+    /**
+     * Search for a Recording
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return RecordingSearch
+     */
+    public function searchRecording($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_RECORDING, $query, $options);
+    }
+
+    /**
+     * Search for a Url
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return UrlSearch
+     */
+    public function searchUrl($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_URL, $query, $options);
+    }
+
+    /**
+     * Search for a Work
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return WorkSearch
+     */
+    public function searchWork($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_WORK, $query, $options);
+    }
+
+    /**
+     * Search for a Release
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return ReleaseSearch
+     */
+    public function searchRelease($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_RELEASE, $query, $options);
+    }
+
+    /**
+     * Search for a ReleaseGroup
+     *
+     * @param string $query   The Lucene query string
+     * @param array  $options An optional array of options
+     *
+     * @return ReleaseGroupSearch
+     */
+    public function searchReleaseGroup($query, $options = array())
+    {
+        return $this->search(ConnectorInterface::RESOURCE_RELEASE_GROUP, $query, $options);
+    }
+
+
+//    public function lookupArtist($mbid, $options = array()) {}
+//    public function lookupArea($mbid, $options = array()) {}
+//    public function lookupLabel($mbid, $options = array()) {}
+//    public function lookupRecording($mbid, $options = array()) {}
+//    public function lookupUrl($mbid, $options = array()) {}
+//    public function lookupWork($mbid, $options = array()) {}
+//    public function lookupRelease($mbid, $options = array()) {}
+//    public function lookupReleaseGroup($mbid, $options = array()) {}
+//
+//    public function browseArtist($mbid, $options = array()) {}
+//    public function browseArea($mbid, $options = array()) {}
+//    public function browseLabel($mbid, $options = array()) {}
+//    public function browseRecording($mbid, $options = array()) {}
+//    public function browseUrl($mbid, $options = array()) {}
+//    public function browseWork($mbid, $options = array()) {}
+//    public function browseRelease($mbid, $options = array()) {}
+//    public function browseReleaseGroup($mbid, $options = array()) {}
+
 }
