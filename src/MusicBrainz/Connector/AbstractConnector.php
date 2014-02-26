@@ -65,6 +65,24 @@ abstract class AbstractConnector implements ConnectorInterface
     protected $lookupStrategy;
 
     /**
+     * The name of the lookup strategy class
+     *
+     * The property should be implemented in child classes
+     *
+     * @var string|null
+     */
+    protected $lookupStrategyClassname;
+
+    /**
+     * The name of the browse strategy class
+     *
+     * The property should be implemented in child classes
+     *
+     * @var string|null
+     */
+    protected $browseStrategyClassname;
+
+    /**
      * Instance of BrowseStrategy
      *
      * @var StrategyInterface|null
@@ -77,6 +95,15 @@ abstract class AbstractConnector implements ConnectorInterface
      * @var StrategyInterface|null
      */
     protected $searchStrategy;
+
+    /**
+     * The name of the search strategy class
+     * 
+     * The property should be implemented in child classes
+     *
+     * @var string|null
+     */
+    protected $searchStrategyClassname;
 
     /**
      * Array of includes
