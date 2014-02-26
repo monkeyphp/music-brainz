@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * ReleaseList.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,28 +25,36 @@
 namespace MusicBrainz\Entity;
 
 use Iterator;
-use Traversable;
 use MusicBrainz\Entity\Count;
+use MusicBrainz\Entity\Release;
+use MusicBrainz\Entity\ReleaseList;
+use Traversable;
+
 /**
- * Description of ReleaseList
+ * ReleaseList
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class ReleaseList implements Iterator
 {
     /**
+     * Instance of Count
      *
      * @var Count
      */
     protected $count;
 
     /**
+     * Array of instances of Release
      *
      * @var array
      */
     protected $releases = array();
 
     /**
+     * Iterator position
      *
      * @var int
      */
@@ -50,7 +63,7 @@ class ReleaseList implements Iterator
     /**
      * Set the Releases
      *
-     * @param Traversable $releases
+     * @param Traversable|array $releases
      *
      * @return ReleaseList
      */

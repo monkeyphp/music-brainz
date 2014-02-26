@@ -367,6 +367,4 @@ class Release
         $this->barcode = $barcode;
         return $this;
     }
-
-
 }

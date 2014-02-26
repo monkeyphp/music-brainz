@@ -107,12 +107,14 @@ class TagList implements Iterator
 
     /**
      * Iterator implementation
-     * 
+     *
      * @return int
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

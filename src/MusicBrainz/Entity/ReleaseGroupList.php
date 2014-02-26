@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+ * ReleaseGroupList.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,9 +31,11 @@ use MusicBrainz\Entity\ReleaseGroupList;
 use Traversable;
 
 /**
- * Description of ReleaseGroupList
+ * ReleaseGroupList
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class ReleaseGroupList implements Iterator
 {
@@ -95,38 +104,76 @@ class ReleaseGroupList implements Iterator
         return $this->releaseGroups;
     }
 
+    /**
+     * Return the count of the total available ReleaseGroup instance
+     *
+     * @return Count|null
+     */
     public function getCount()
     {
         return $this->count;
     }
 
+    /**
+     * Set the Count instance
+     *
+     * @param Count $count
+     *
+     * @return ReleaseGroupList
+     */
     public function setCount(Count $count)
     {
         $this->count = $count;
         return $this;
     }
 
-    
+    /**
+     * Return the current ReleaseGroup instance
+     * 
+     * @return ReleaseGroup
+     */
     public function current()
     {
         return $this->releaseGroups[$this->position];
     }
 
+    /**
+     * Return the current iterator position
+     *
+     * @return int
+     */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
     public function next()
     {
         ++$this->position;
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
     public function rewind()
     {
         $this->position = 0;
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return boolean
+     */
     public function valid()
     {
         return isset($this->releaseGroups[$this->position]);
