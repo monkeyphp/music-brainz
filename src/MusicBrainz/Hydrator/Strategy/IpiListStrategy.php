@@ -48,6 +48,7 @@ class IpiListStrategy implements StrategyInterface
         if (! is_array($value) || ! isset($value['ipi']) || ! is_array($value['ipi'])) {
             return null;
         }
+        $values = array();
         $ipis = array();
         $ipiStrategy = new IpiStrategy();
         foreach ($value['ipi'] as $index => $alias) {

@@ -55,6 +55,7 @@ class ReleaseListStrategy implements StrategyInterface
         if (! is_array($value) || ! isset($value['release']) || ! is_array($value['release'])) {
             return null;
         }
+        $values = array();
         $releases = array();
         $releaseStrategy = new ReleaseStrategy();
         foreach ($value['release'] as $index => $release) {
