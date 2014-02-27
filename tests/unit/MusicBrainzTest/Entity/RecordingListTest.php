@@ -54,6 +54,20 @@ class RecordingListTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($recordingList->getRecordings());
         $this->assertSame($recordingList, $recordingList->setRecordings($recordings));
         $this->assertCount(count($recordings), $recordingList->getRecordings());
+    }
 
+    /**
+     * Test that we can add a Recording
+     *
+     * @covers \MusicBrainz\Entity\RecordingList::addRecording
+     */
+    public function testAddRecording()
+    {
+        $recordingList = new RecordingList();
+        $recording = new Recording();
+
+        $this->assertEmpty($recordingList->getRecordings());
+        $this->assertSame($recordingList, $recordingList->addRecording($recording));
+        $this->assertNotEmpty($recordingList->getRecordings());
     }
 }

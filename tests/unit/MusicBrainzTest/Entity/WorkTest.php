@@ -24,6 +24,7 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Entity\Disambiguation;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Title;
 use MusicBrainz\Entity\Work;
@@ -68,5 +69,21 @@ class WorkTest extends PHPUnit_Framework_TestCase
         $this->assertNull($work->getTitle());
         $this->assertSame($work, $work->setTitle($title));
         $this->assertSame($title, $work->getTitle());
+    }
+
+    /**
+     * Test that we can get and set the Disambiguation
+     *
+     * @covers \MusicBrainz\Entity\Work::getDisambiguation
+     * @covers \MusicBrainz\Entity\Work::setDisambiguation
+     */
+    public function testGetSetDisambiguation()
+    {
+        $work = new Work();
+        $disambiguation = new Disambiguation('this is a disambiguation');
+
+        $this->assertNull($work->getDisambiguation());
+        $this->assertSame($work, $work->setDisambiguation($disambiguation));
+        $this->assertSame($disambiguation, $work->getDisambiguation());
     }
 }
