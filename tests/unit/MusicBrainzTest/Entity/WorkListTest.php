@@ -55,4 +55,46 @@ class WorkListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($workList, $workList->setWorks($works));
         $this->assertCount(count($works), $workList->getWorks());
     }
+
+    /**
+     * Test that we can add a Work to the list
+     *
+     * @covers \MusicBrainz\Entity\WorkList::addWork
+     */
+    public function testAddWork()
+    {
+        $workList = new WorkList();
+        $work = new Work();
+
+        $this->assertEmpty($workList->getWorks());
+        $this->assertSame($workList, $workList->addWork($work));
+        $this->assertCount(1, $workList->getWorks());
+    }
+
+    /**
+     * Test the Iterator
+     *
+     * @covers \MusicBrainz\Entity\WorkList::current
+     * @covers \MusicBrainz\Entity\WorkList::key
+     * @covers \MusicBrainz\Entity\WorkList::next
+     * @covers \MusicBrainz\Entity\WorkList::rewind
+     * @covers \MusicBrainz\Entity\WorkList::valid
+     */
+    public function testIterator()
+    {
+        $workList = new WorkList();
+        $works = array(
+            new Work(),
+            new Work()
+        );
+
+        $workList->setWorks($works);
+
+        $i = 0;
+        foreach ($workList as $work) {
+            $this->assertInstanceOf('\MusicBrainz\Entity\Work', $work);
+            $i++;
+        }
+        $this->assertSame($i, count($works));
+    }
 }

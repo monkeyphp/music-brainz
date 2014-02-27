@@ -116,7 +116,7 @@ class ReleaseList implements Iterator
 
     /**
      * Set the Count
-     * 
+     *
      * @param Count $count
      *
      * @return ReleaseList
@@ -127,11 +127,21 @@ class ReleaseList implements Iterator
         return $this;
     }
 
+    /**
+     * Return the current Release
+     * 
+     * @return Release
+     */
     public function current()
     {
         return $this->releases[$this->position];
     }
 
+    /**
+     * Return the iterator position
+     *
+     * @return int
+     */
     public function key()
     {
         // @codeCoverageIgnoreStart
@@ -139,16 +149,31 @@ class ReleaseList implements Iterator
         // @codeCoverageIgnoreEnd
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
     public function next()
     {
         ++$this->position;
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return void
+     */
     public function rewind()
     {
         $this->position = 0;
     }
 
+    /**
+     * Iterator implementation
+     *
+     * @return boolean
+     */
     public function valid()
     {
         return isset($this->releases[$this->position]);
