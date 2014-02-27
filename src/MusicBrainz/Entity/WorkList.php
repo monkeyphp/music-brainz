@@ -110,7 +110,9 @@ class WorkList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
