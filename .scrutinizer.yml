@@ -15,7 +15,7 @@ tools:
 
     php_code_coverage:
         enabled:              true
-        test_command: phpunit tests/unit/MusicBrainzTest
+        test_command: vendor/bin/phpunit --coverage-clover '/tmp/php-code-coveragen1LB89' tests/unit/MusicBrainzTest
 
     # Code Sniffer
     php_code_sniffer:
