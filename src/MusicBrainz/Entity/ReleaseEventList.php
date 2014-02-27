@@ -119,7 +119,9 @@ class ReleaseEventList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

@@ -24,6 +24,7 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Quality;
 use MusicBrainz\Entity\Release;
@@ -119,5 +120,21 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->assertNull($release->getTextRepresentation());
         $this->assertSame($release, $release->setTextRepresentation($textRepresentation));
         $this->assertSame($textRepresentation, $release->getTextRepresentation());
+    }
+
+    /**
+     * Test that we can get and set the Country
+     *
+     * @covers \MusicBrainz\Entity\Release::getCountry
+     * @covers \MusicBrainz\Entity\Release::setCountry
+     */
+    public function testGetSetCountry()
+    {
+        $release = new Release();
+        $country = new Country('US');
+
+        $this->assertNull($release->getCountry());
+        $this->assertSame($release, $release->setCountry($country));
+        $this->assertSame($country, $release->getCountry());
     }
 }

@@ -25,6 +25,7 @@
 namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Entity\Count;
+use MusicBrainz\Entity\ReleaseGroup;
 use MusicBrainz\Entity\ReleaseGroupList;
 use PHPUnit_Framework_TestCase;
 
@@ -37,6 +38,21 @@ use PHPUnit_Framework_TestCase;
  */
 class ReleaseGroupListTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test that we can add a ReleaseGroup
+     *
+     * @covers \MusicBrainz\Entity\ReleaseGroupList::addReleaseGroup
+     */
+    public function testAddReleaseGroup()
+    {
+        $releaseGroupList = new ReleaseGroupList();
+        $releaseGroup = new ReleaseGroup();
+
+        $this->assertEmpty($releaseGroupList->getReleaseGroups());
+        $this->assertSame($releaseGroupList, $releaseGroupList->addReleaseGroup($releaseGroup));
+        $this->assertCount(1, $releaseGroupList->getReleaseGroups());
+    }
+
     /**
      * Test that we can get and set the Count
      *

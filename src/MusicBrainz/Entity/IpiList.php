@@ -85,8 +85,18 @@ class IpiList implements Iterator
     }
 
     /**
-     * Return the current Ipi instance
+     * Return the array of Ipis
      * 
+     * @return array
+     */
+    public function getIpis()
+    {
+        return $this->ipis;
+    }
+
+    /**
+     * Return the current Ipi instance
+     *
      * @return Ipi
      */
     public function current()

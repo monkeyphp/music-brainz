@@ -111,6 +111,11 @@ class Work
         return $this->iswcList;
     }
 
+    /**
+     * Return the Disambiguation instance
+     * 
+     * @return Disambiguation|null
+     */
     public function getDisambiguation()
     {
         return $this->disambiguation;

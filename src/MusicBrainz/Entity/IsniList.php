@@ -85,6 +85,16 @@ class IsniList implements Iterator
     }
 
     /**
+     * Return the array of Isnis
+     * 
+     * @return array
+     */
+    public function getIsnis()
+    {
+        return $this->isnis;
+    }
+
+    /**
      * Return the current Isni instance
      *
      * @return Isni
