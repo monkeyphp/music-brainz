@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "23-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * ReleaseGroupStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,17 +22,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\ReleaseGroup;
+use MusicBrainz\Hydrator\Strategy\MbidStrategy;
+use MusicBrainz\Hydrator\Strategy\ReleaseGroupStrategy;
+use MusicBrainz\Hydrator\Strategy\ReleaseGroupTypeStrategy;
+use MusicBrainz\Hydrator\Strategy\TitleStrategy;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of ReleaseGroupStrategy
+ * ReleaseGroupStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class ReleaseGroupStrategy implements StrategyInterface
 {
@@ -38,6 +48,11 @@ class ReleaseGroupStrategy implements StrategyInterface
      */
     protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods hydrator
+     *
+     * @return ClassMethods
+     */
     protected function getHydrator()
     {
         if (! isset($this->hydrator)) {
@@ -53,17 +68,33 @@ class ReleaseGroupStrategy implements StrategyInterface
         return $this->hydrator;
     }
 
-    public function extract($value)
+    /**
+     * Extract the values from the supplied instance of ReleaseGroup
+     *
+     * @param ReleaseGroup $object
+     *
+     * @return void|array
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof ReleaseGroup) {
+            return null;
+        }
+        return $this->getHydrator()->extract($object);
     }
 
+    /**
+     * Hydrate and return an instance of ReleaseGroup
+     *
+     * @param array $value
+     *
+     * @return null|ReleaseGroup
+     */
     public function hydrate($value)
     {
         if (! is_array($value)) {
             return null;
         }
-
         if (isset($value['id'])) {
             $value['mbid'] = $value['id'];
             unset($value['id']);
@@ -79,9 +110,7 @@ class ReleaseGroupStrategy implements StrategyInterface
         if (isset($value['secondary-type-list'])) {
             unset($value['secondary-type-list']);
             //$value['secondaryTypeList'] = $value['secondary-type-list'];
-
         }
         return $this->getHydrator()->hydrate($value, new ReleaseGroup());
     }
-
 }
