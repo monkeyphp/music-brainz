@@ -31,6 +31,7 @@ use MusicBrainz\Entity\Artist;
 use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Disambiguation;
 use MusicBrainz\Entity\Gender;
+use MusicBrainz\Entity\Ipi;
 use MusicBrainz\Entity\IpiList;
 use MusicBrainz\Entity\Isni;
 use MusicBrainz\Entity\IsniList;
@@ -247,13 +248,13 @@ class ArtistTest extends PHPUnit_Framework_TestCase
      *
      * @covers \MusicBrainz\Entity\Artist::addIpi
      */
-//    public function testAddIpi()
-//    {
-//        $artist = new Artist();
-//        $ipi = new Ipi();
-//
-//        $this->assertSame($artist, $artist->addIpi($ipi));
-//    }
+    public function testAddIpi()
+    {
+        $artist = new Artist();
+        $ipi = new Ipi('myipi');
+
+        $this->assertSame($artist, $artist->addIpi($ipi));
+    }
 
     /**
      * Test that we can get and set the TagList

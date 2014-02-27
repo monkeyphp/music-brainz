@@ -26,6 +26,7 @@ namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Mbid;
+use MusicBrainz\Entity\MediumList;
 use MusicBrainz\Entity\Quality;
 use MusicBrainz\Entity\Release;
 use MusicBrainz\Entity\ReleaseEventList;
@@ -153,5 +154,21 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseEventList', $release->getReleaseEventList());
         $this->assertSame($release, $release->setReleaseEventList($releaseEventList));
         $this->assertSame($releaseEventList, $release->getReleaseEventList());
+    }
+
+    /**
+     * Test that we can get and set the MediumList
+     *
+     * @covers \MusicBrainz\Entity\Release::getMediumList
+     * @covers \MusicBrainz\Entity\Release::setMediumList
+     */
+    public function testGetSetMediumList()
+    {
+        $release = new Release();
+        $mediumList = new MediumList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\MediumList', $release->getMediumList());
+        $this->assertSame($release, $release->setMediumList($mediumList));
+        $this->assertSame($mediumList, $release->getMediumList());
     }
 }
