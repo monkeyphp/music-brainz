@@ -72,4 +72,46 @@ class ReleaseListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($releaseList, $releaseList->setCount($count));
         $this->assertSame($count, $releaseList->getCount());
     }
+
+    /**
+     * Test that we can add a Release
+     *
+     * @covers \MusicBrainz\Entity\ReleaseList::addRelease
+     */
+    public function testAddRelease()
+    {
+        $releaseList = new ReleaseList();
+        $release = new Release();
+
+        $this->assertEmpty($releaseList->getReleases());
+        $this->assertSame($releaseList, $releaseList->addRelease($release));
+        $this->assertNotEmpty($releaseList->getReleases());
+    }
+
+    /**
+     * Test the Iterator
+     *
+     * @covers \MusicBrainz\Entity\ReleaseList::current
+     * @covers \MusicBrainz\Entity\ReleaseList::key
+     * @covers \MusicBrainz\Entity\ReleaseList::next
+     * @covers \MusicBrainz\Entity\ReleaseList::rewind
+     * @covers \MusicBrainz\Entity\ReleaseList::valid
+     */
+    public function testIterator()
+    {
+        $releaseList = new ReleaseList();
+        $releases = array(
+            new Release(), new Release()
+        );
+
+        $releaseList->setReleases($releases);
+
+        $i = 0;
+
+        foreach ($releaseList as $release) {
+            $this->assertInstanceOf('\MusicBrainz\Entity\Release', $release);
+            $i++;
+        }
+        $this->assertEquals(count($releases), $i);
+    }
 }
