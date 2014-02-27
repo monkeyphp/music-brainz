@@ -1,6 +1,6 @@
 <?php
 /**
- * WorkTest.php
+ * WorkListTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -24,49 +24,35 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\Mbid;
-use MusicBrainz\Entity\Title;
 use MusicBrainz\Entity\Work;
+use MusicBrainz\Entity\WorkList;
 use PHPUnit_Framework_TestCase;
 
 /**
- * WorkTest
+ * WorkListTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class WorkTest extends PHPUnit_Framework_TestCase
+class WorkListTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can get and set the Mbid
+     * Test that we can get and set the Works
      *
-     * @covers \MusicBrainz\Entity\Work::getMbid
-     * @covers \MusicBrainz\Entity\Work::setMbid
+     * @cover MusicBrainz\Entity\WorkList::getWorks
+     * @cover MusicBrainz\Entity\WorkList::setWorks
      */
-    public function testGetSetMbid()
+    public function testGetSetWorks()
     {
-        $work = new Work();
-        $mbid = new Mbid('72ee2329-bdb0-392e-9c5b-bfdf6f9b82c4');
+        $workList = new WorkList();
+        $works = array(
+            new Work(),
+            new Work(),
+        );
 
-        $this->assertNull($work->getMbid());
-        $this->assertSame($work, $work->setMbid($mbid));
-        $this->assertSame($mbid, $work->getMbid());
-    }
-
-    /**
-     * Test that we can get and set the Title
-     *
-     * @covers \MusicBrainz\Entity\Work::getTitle
-     * @covers \MusicBrainz\Entity\Work::setTitle
-     */
-    public function testGetSetTitle()
-    {
-        $work = new Work();
-        $title = new Title('Bad Brainz');
-
-        $this->assertNull($work->getTitle());
-        $this->assertSame($work, $work->setTitle($title));
-        $this->assertSame($title, $work->getTitle());
+        $this->assertEmpty($workList->getWorks());
+        $this->assertSame($workList, $workList->setWorks($works));
+        $this->assertCount(count($works), $workList->getWorks());
     }
 }

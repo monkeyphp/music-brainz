@@ -59,9 +59,11 @@ class WorkList implements Iterator
      */
     public function setWorks($works = array())
     {
-        if (is_array($works || $works instanceof Traversable)) {
+        if (is_array($works) || $works instanceof Traversable) {
             foreach ($works as $work) {
-                return $this->addWork($work);
+                if ($work instanceof Work) {
+                    $this->addWork($work);
+                }
             }
         }
         return $this;
@@ -103,7 +105,7 @@ class WorkList implements Iterator
 
     /**
      * Iterator implementation
-     * 
+     *
      * @return int
      */
     public function key()

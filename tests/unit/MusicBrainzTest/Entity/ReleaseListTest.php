@@ -24,6 +24,7 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Entity\Count;
 use MusicBrainz\Entity\Release;
 use MusicBrainz\Entity\ReleaseList;
 use PHPUnit_Framework_TestCase;
@@ -40,9 +41,10 @@ class ReleaseListTest extends PHPUnit_Framework_TestCase
     /**
      * Test that we can set the Releases
      *
+     * @covers \MusicBrainz\Entity\ReleaseList::getReleases
      * @covers \MusicBrainz\Entity\ReleaseList::setReleases
      */
-    public function testSetReleases()
+    public function testGetSetReleases()
     {
         $releases = array(
             new Release(),
@@ -50,6 +52,24 @@ class ReleaseListTest extends PHPUnit_Framework_TestCase
         );
         $releaseList = new ReleaseList();
 
+        $this->assertEmpty($releaseList->getReleases());
         $this->assertSame($releaseList, $releaseList->setReleases($releases));
+        $this->assertCount(count($releases), $releaseList->getReleases());
+    }
+
+    /**
+     * Test that we can get and set the Count
+     *
+     * @covers \MusicBrainz\Entity\ReleaseList::getCount
+     * @covers \MusicBrainz\Entity\ReleaseList::setCount
+     */
+    public function testGetSetCount()
+    {
+        $releaseList = new ReleaseList();
+        $count = new Count(100);
+
+        $this->assertNull($releaseList->getCount());
+        $this->assertSame($releaseList, $releaseList->setCount($count));
+        $this->assertSame($count, $releaseList->getCount());
     }
 }

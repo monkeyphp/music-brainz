@@ -108,7 +108,6 @@ class MusicBrainz implements MusicBrainzInterface
                 $exception
             );
         }
-        return $this;
     }
 
     /**

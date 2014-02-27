@@ -94,16 +94,33 @@ class ReleaseList implements Iterator
         return $this;
     }
 
+    /**
+     * Return the array of Releases
+     *
+     * @return array
+     */
     public function getReleases()
     {
         return $this->releases;
     }
 
+    /**
+     * Return the Count
+     *
+     * @return Count
+     */
     public function getCount()
     {
         return $this->count;
     }
 
+    /**
+     * Set the Count
+     * 
+     * @param Count $count
+     *
+     * @return ReleaseList
+     */
     public function setCount(Count $count)
     {
         $this->count = $count;

@@ -4,6 +4,7 @@ Client library for accessing the MusicBrainz Api.
 
 [![Build Status](https://travis-ci.org/monkeyphp/music-brainz.png?branch=develop)](https://travis-ci.org/monkeyphp/music-brainz)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/monkeyphp/music-brainz/badges/quality-score.png?s=8a4ff46a0fecab68f9d763a2e50e31bd83500fc0)](https://scrutinizer-ci.com/g/monkeyphp/music-brainz/)
+[![Code Coverage](https://scrutinizer-ci.com/g/monkeyphp/music-brainz/badges/coverage.png?s=b7f7ac160b32f36d2d9dc661984c01c4e0bcf3c3)](https://scrutinizer-ci.com/g/monkeyphp/music-brainz/)
 [![Latest Stable Version](https://poser.pugx.org/monkeyphp/music-brainz/v/stable.png)](https://packagist.org/packages/monkeyphp/music-brainz) 
 [![Total Downloads](https://poser.pugx.org/monkeyphp/music-brainz/downloads.png)](https://packagist.org/packages/monkeyphp/music-brainz) 
 [![Latest Unstable Version](https://poser.pugx.org/monkeyphp/music-brainz/v/unstable.png)](https://packagist.org/packages/monkeyphp/music-brainz) 
