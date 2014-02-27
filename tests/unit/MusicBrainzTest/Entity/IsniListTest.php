@@ -51,4 +51,23 @@ class IsniListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($isniList, $isniList->addIsni($isni));
         $this->assertCount(1, $isniList->getIsnis());
     }
+
+    /**
+     * Test that we can get and set the Isnis
+     *
+     * @covers \MusicBrainz\Entity\IsniList::getIsnis
+     * @covers \MusicBrainz\Entity\IsniList::setIsnis
+     */
+    public function testGetSetIsnis()
+    {
+        $isniList = new IsniList();
+        $isnis = array(
+            new Isni(),
+            new Isni(),
+        );
+
+        $this->assertEmpty($isniList->getIsnis());
+        $this->assertSame($isniList, $isniList->setIsnis($isnis));
+        $this->assertCount(count($isnis), $isniList->getIsnis());
+    }
 }

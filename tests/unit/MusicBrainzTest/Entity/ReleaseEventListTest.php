@@ -52,4 +52,23 @@ class ReleaseEventListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($releaseEventList, $releaseEventList->addReleaseEvent($releaseEvent));
         $this->assertCount(1, $releaseEventList->getReleaseEvents());
     }
+
+    /**
+     * Test that we can get and set the ReleaseEvents
+     *
+     * @covers \MusicBrainz\Entity\ReleaseEventList::getReleaseEvents
+     * @covers \MusicBrainz\Entity\ReleaseEventList::setReleaseEvents
+     */
+    public function testGetSetReleaseEvents()
+    {
+        $releaseEventList = new ReleaseEventList();
+        $releaseEvents = array(
+            new ReleaseEvent(),
+            new ReleaseEvent(),
+        );
+
+        $this->assertEmpty($releaseEventList->getReleaseEvents());
+        $this->assertSame($releaseEventList, $releaseEventList->setReleaseEvents($releaseEvents));
+        $this->assertCount(count($releaseEvents), $releaseEventList->getReleaseEvents());
+    }
 }

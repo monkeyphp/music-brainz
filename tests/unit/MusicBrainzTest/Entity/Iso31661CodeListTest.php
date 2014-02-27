@@ -51,4 +51,22 @@ class Iso31661CodeListTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame($iso31661CodeList, $iso31661CodeList->addIso31661Code($iso31661Code));
     }
+
+    /**
+     * Test that we can get and set the Iso31661Codes
+     *
+     * @covers \MusicBrainz\Entity\Iso31661CodeList::setIso31661Codes
+     * @covers \MusicBrainz\Entity\Iso31661CodeList::getIso31661Codes
+     */
+    public function testGetSetIso31661Codes()
+    {
+        $iso31661CodeList = new Iso31661CodeList();
+        $iso31661Codes = array(
+            new Iso31661Code('US'),
+        );
+
+        $this->assertEmpty($iso31661CodeList->getIso31661Codes());
+        $this->assertSame($iso31661CodeList, $iso31661CodeList->setIso31661Codes($iso31661Codes));
+        $this->assertCount(count($iso31661Codes), $iso31661CodeList->getIso31661Codes());
+    }
 }

@@ -51,4 +51,22 @@ class IpiListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($ipiList, $ipiList->addIpi($ipi));
         $this->assertCount(1, $ipiList->getIpis());
     }
+
+    /**
+     * Test that we can get and set the Ipis
+     *
+     * @covers \MusicBrainz\Entity\IpiList::getIpis
+     * @covers \MusicBrainz\Entity\IpiList::setIpis
+     */
+    public function testGetSetIpis()
+    {
+        $ipiList = new IpiList();
+        $ipis = array(
+            new Ipi('ipi1')
+        );
+
+        $this->assertEmpty($ipiList->getIpis());
+        $this->assertSame($ipiList, $ipiList->setIpis($ipis));
+        $this->assertCount(count($ipis), $ipiList->getIpis());
+    }
 }

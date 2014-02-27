@@ -28,6 +28,7 @@ use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Quality;
 use MusicBrainz\Entity\Release;
+use MusicBrainz\Entity\ReleaseEventList;
 use MusicBrainz\Entity\Status;
 use MusicBrainz\Entity\TextRepresentation;
 use MusicBrainz\Entity\Title;
@@ -136,5 +137,21 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->assertNull($release->getCountry());
         $this->assertSame($release, $release->setCountry($country));
         $this->assertSame($country, $release->getCountry());
+    }
+
+    /**
+     * Test that we can get and set the ReleaseEventList
+     *
+     * @covers \MusicBrainz\Entity\Release::getReleaseEventList
+     * @covers \MusicBrainz\Entity\Release::setReleaseEventList
+     */
+    public function testGetSetReleaseEventList()
+    {
+        $release = new Release();
+        $releaseEventList = new ReleaseEventList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseEventList', $release->getReleaseEventList());
+        $this->assertSame($release, $release->setReleaseEventList($releaseEventList));
+        $this->assertSame($releaseEventList, $release->getReleaseEventList());
     }
 }
