@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * ReleaseListStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +22,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\ReleaseList;
@@ -25,14 +29,26 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of ReleaseListStrategy
+ * ReleaseListStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class ReleaseListStrategy implements StrategyInterface
 {
+    /**
+     * Instance of ClassMethods
+     *
+     * @var ClassMethods
+     */
     protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods
+     *
+     * @return ClassMethods
+     */
     protected function getHydrator()
     {
         if (! isset($this->hydrator)) {
@@ -45,11 +61,25 @@ class ReleaseListStrategy implements StrategyInterface
         return $this->hydrator;
     }
 
-    public function extract($value)
+    /**
+     * Extract and return an array of values from the ReleaseList instance
+     *
+     * @param ReleaseList $object
+     *
+     * @return array|null
+     */
+    public function extract($object)
     {
 
     }
 
+    /**
+     * Hydrate and return an instance of ReleaseList
+     *
+     * @param array $value
+     *
+     * @return null|ReleaseList
+     */
     public function hydrate($value)
     {
         if (! is_array($value) || ! isset($value['release']) || ! is_array($value['release'])) {
@@ -66,5 +96,4 @@ class ReleaseListStrategy implements StrategyInterface
         $values['count'] = $value['count'];
         return $this->getHydrator()->hydrate($values, new ReleaseList());
     }
-
 }

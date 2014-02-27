@@ -55,6 +55,7 @@ class ReleaseGroupStrategy implements StrategyInterface
      */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
             $hydrator->addStrategy('mbid', new MbidStrategy());
@@ -66,6 +67,7 @@ class ReleaseGroupStrategy implements StrategyInterface
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
