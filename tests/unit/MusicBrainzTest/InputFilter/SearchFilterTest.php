@@ -27,6 +27,8 @@ namespace MusicBrainzTest\InputFilter;
 use MusicBrainz\Connector\ConnectorInterface;
 use MusicBrainz\InputFilter\SearchFilter;
 use PHPUnit_Framework_TestCase;
+use stdClass;
+use Zend\Validator\Exception\InvalidArgumentException;
 
 /**
  * SearchFilterTest
@@ -48,6 +50,102 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
         $searchFilter = new SearchFilter();
 
         $this->assertInstanceOf('\MusicBrainz\InputFilter\SearchFilter', $searchFilter);
+    }
+
+    /**
+     * Test that we can set the limit min value
+     *
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMin
+     */
+    public function testSetLimitMin()
+    {
+        $searchFilter = new SearchFilter();
+        $limitMin = 10;
+
+        $this->assertSame($searchFilter, $searchFilter->setLimitMin($limitMin));
+        $this->assertEquals($limitMin, $searchFilter->getLimitMin());
+    }
+
+    /**
+     * Test that supplying a none digit throws an exception
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMin
+     */
+    public function testSetLimitMinNotScalarThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setLimitMin(new stdClass);
+    }
+
+    /**
+     * Test that supplying a none digit value throws an exception
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMin
+     */
+    public function testSetLimitNotDigitThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setLimitMin('foobar');
+    }
+
+    /**
+     * Test that supplying a too low value throws an exception
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMin
+     */
+    public function testSetLimitMinTooLowThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setLimitMin(-1000);
+    }
+
+    /**
+     * Test that supplying a too high value throws an exception
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMin
+     */
+    public function testSetLimitMinTooHightThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setLimitMin(1000);
+    }
+
+    /**
+     * Test that we can set the limitMax
+     *
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMax
+     */
+    public function testSetLimitMax()
+    {
+        $searchFilter = new SearchFilter();
+        $limitMax = 10;
+
+        $this->assertSame($searchFilter, $searchFilter->setLimitMax($limitMax));
+        $this->assertEquals($limitMax, $searchFilter->getLimitMax());
+    }
+
+    /**
+     * Test that we can set and get the formats
+     *
+     * @covers \MusicBrainz\InputFilter\SearchFilter::getFormats
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setFormats
+     */
+    public function testSetFormats()
+    {
+        $formats = array('xml', 'json');
+        $searchFilter = new SearchFilter();
+
+        $this->assertEmpty($searchFilter->getFormats());
+        $this->assertSame($searchFilter, $searchFilter->setFormats($formats));
+        $this->assertCount(count($formats), $searchFilter->getFormats());
     }
 
     /**

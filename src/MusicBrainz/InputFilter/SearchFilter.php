@@ -125,12 +125,16 @@ class SearchFilter extends InputFilter
     public function setLimitMin($min = null)
     {
         if (! is_null($min) &&
-            (! ctype_digit((string)$min) ||
-            ! (ConnectorInterface::SEARCH_LIMIT_MIN >= $min && $min <= ConnectorInterface::SEARCH_LIMIT_MAX))
+            (
+                ! is_scalar($min) ||
+                ! ctype_digit((string)$min) ||
+                $min < ConnectorInterface::SEARCH_LIMIT_MIN ||
+                $min > ConnectorInterface::SEARCH_LIMIT_MAX
+            )
         ) {
-            throw new \InvalidArgumentException('Invalid search limit max value supplied');
+            $min = is_object($min) ? get_class($min) : $min;
+            throw new \InvalidArgumentException('Invalid search limit min (' . $min . ') value supplied');
         }
-
         $this->limitMin = is_null($min) ? null : (int)$min;
         return $this;
     }
@@ -147,12 +151,16 @@ class SearchFilter extends InputFilter
     {
 
         if (! is_null($max) &&
-            (! ctype_digit((string)$max) ||
-            ! (ConnectorInterface::SEARCH_LIMIT_MIN >= $max && $max <= ConnectorInterface::SEARCH_LIMIT_MAX))
+            (
+                ! is_scalar($max) ||
+                ! ctype_digit((string)$max) ||
+                $max < ConnectorInterface::SEARCH_LIMIT_MIN||
+                $max > ConnectorInterface::SEARCH_LIMIT_MAX
+            )
         ) {
-            throw new \InvalidArgumentException('Invalid search limit max value supplied');
+            $max = is_object($max) ? get_class($max) : $max;
+            throw new \InvalidArgumentException('Invalid search limit max (' . $max . ') value supplied');
         }
-
         $this->limitMax = is_null($max) ? null : (int)$max;
         return $this;
     }
