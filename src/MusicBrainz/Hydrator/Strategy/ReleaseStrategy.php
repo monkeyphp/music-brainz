@@ -54,6 +54,7 @@ class ReleaseStrategy implements StrategyInterface
      */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
             $hydrator->addStrategy('mbid', new MbidStrategy());
@@ -62,14 +63,15 @@ class ReleaseStrategy implements StrategyInterface
             $hydrator->addStrategy('quality', new QualityStrategy());
             $hydrator->addStrategy('packaging', new PackagingStrategy());
             $hydrator->addStrategy('textRepresentation', new TextRepresentationStrategy());
-            // date
             $hydrator->addStrategy('country', new CountryStrategy());
             $hydrator->addStrategy('releaseEventList', new ReleaseEventListStrategy());
             $hydrator->addStrategy('barcode', new BarcodeStrategy());
-            //$hydrator->addStrategy('mediumList', new MediumListStrategy());
+            $hydrator->addStrategy('mediumList', new MediumListStrategy());
+            // date
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -102,6 +104,10 @@ class ReleaseStrategy implements StrategyInterface
         if (isset($value['id'])) {
             $value['mbid'] = $value['id'];
             unset($value['id']);
+        }
+        if (isset($value['release-event-list'])) {
+            $value['releaseEventList'] = $value['release-event-list'];
+            unset($value['release-event-list']);
         }
         if (isset($value['text-representation'])) {
             $value['textRepresentation'] = $value['text-representation'];
