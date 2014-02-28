@@ -51,6 +51,8 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can validate a valid query
+     *
      * @covers \MusicBrainz\InputFilter\SearchFilter::isValid
      */
     public function testValidateQuery()
@@ -67,6 +69,8 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can validate an invalid query
+     *
      * @covers \MusicBrainz\InputFilter\SearchFilter::isValid
      */
     public function testValidateQueryFalse()
@@ -83,6 +87,8 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can validate a valid format
+     *
      * @covers \MusicBrainz\InputFilter\SearchFilter::isValid
      */
     public function testValidateFormat()
@@ -95,6 +101,49 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
         $data = array(
             'query' => 'Metallica',
             'format' => ConnectorInterface::FORMAT_JSON
+        );
+
+        $searchFilter->setData($data);
+        $isValid = $searchFilter->isValid();
+        $messages = $searchFilter->getMessages();
+
+        $this->assertTrue($isValid);
+        $this->assertEmpty($messages);
+    }
+
+    /**
+     * @covers \MusicBrainz\InputFilter\SearchFilter::isValid
+     */
+    public function testValidateFormatFalse()
+    {
+        $searchFilter = new SearchFilter(
+            array(
+                ConnectorInterface::FORMAT_JSON
+            )
+        );
+        $data = array(
+            'query' => 'Metallica',
+            'format' => ConnectorInterface::FORMAT_XML
+        );
+
+        $searchFilter->setData($data);
+        $isValid = $searchFilter->isValid();
+        $messages = $searchFilter->getMessages();
+
+        $this->assertFalse($isValid);
+        $this->assertNotEmpty($messages);
+        $this->assertArrayHasKey('format', $messages);
+    }
+
+    /**
+     * @covers \MusicBrainz\InputFilter\SearchFilter::isValid
+     */
+    public function testValidateLimit()
+    {
+        $searchFilter = new SearchFilter();
+        $data = array(
+            'query' => 'Metallica',
+            'limit' => 10
         );
 
         $searchFilter->setData($data);

@@ -1,5 +1,12 @@
 <?php
 /**
+ * Identity.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Identity
+ * @author     David White <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,26 +23,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Identity;
+
 /**
- * Description of Identity
+ * Identity
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Identity
  */
 class Identity
 {
     /**
+     * The Identity name
      *
      * @var string
      */
     protected $name;
 
     /**
+     * The application version
      *
      * @var string|null
      */
     protected $version;
 
     /**
+     * The application contact detail
      *
      * @var string|null
      */
@@ -66,7 +79,11 @@ class Identity
     }
 
     /**
+     * Return a string representation of the Identity
+     *
      * Application name/<version> ( contact-url )
+     *
+     * @return string
      */
     public function __toString()
     {
