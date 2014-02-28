@@ -51,14 +51,14 @@ class ReleaseListStrategy implements StrategyInterface
      */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
-
             $hydrator->addStrategy('count', new CountStrategy());
-
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -70,7 +70,10 @@ class ReleaseListStrategy implements StrategyInterface
      */
     public function extract($object)
     {
-
+        if (! $object instanceof ReleaseList) {
+            return null;
+        }
+        return $this->getHydrator()->extract($object);
     }
 
     /**
