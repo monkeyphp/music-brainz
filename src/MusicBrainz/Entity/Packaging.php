@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "23-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Packaging.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +22,56 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+use MusicBrainz\Connector\ConnectorInterface;
+
 /**
- * Description of Packaging
+ * Packaging
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Packaging
 {
-    //put your code here
+    public static $packagingTypes = array(
+        ConnectorInterface::RELEASE_PACKAGING_CASSETTE_CASE,
+        ConnectorInterface::RELEASE_PACKAGING_JEWEL_CASE,
+        ConnectorInterface::RELEASE_PACKAGING_CARDBOAD_PAPER_SLEEVE,
+    );
+
+    /**
+     * The value of the Packaging
+     *
+     * @var string
+     */
+    protected $packaging;
+
+    /**
+     * Constructor
+     *
+     * @param string $packaging
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public function __construct($packaging)
+    {
+        if (! is_string($packaging) || ! in_array($packaging, static::$packagingTypes)) {
+            throw new InvalidArgumentException('Invalid value supplied');
+        }
+        $this->packaging = $packaging;
+    }
+
+    /**
+     * Return a string representation of the Packaging
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->packaging;
+    }
 }

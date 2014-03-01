@@ -45,6 +45,24 @@ interface ConnectorInterface
     const ARTIST_TYPE_PERSON = 'Person';
 
     /**
+     * @var string
+     */
+    const RELEASE_QUALITY_HIGH = 'high';
+
+    /**
+     * @var string
+     */
+    const RELEASE_QUALITY_NORMAL = 'normal';
+
+    const RELEASE_PACKAGING_CASSETTE_CASE = 'Cassette Case';
+
+    const RELEASE_PACKAGING_JEWEL_CASE = 'Jewel Case';
+
+    const RELEASE_PACKAGING_CARDBOARD_PAPER_SLEEVE = 'Cardboard/Paper Sleeve';
+
+
+
+    /**
      * Note that the number of linked entities returned is always limited to 25,
      * if you need the remaining results, you will have to perform a
      * browse request.

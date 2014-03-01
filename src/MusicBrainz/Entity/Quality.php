@@ -24,6 +24,9 @@
  */
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+use MusicBrainz\Connector\ConnectorInterface;
+
 /**
  * Quality
  *
@@ -33,6 +36,15 @@ namespace MusicBrainz\Entity;
  */
 class Quality
 {
+    /**
+     * An array of quality types
+     * @var array
+     */
+    public static $qualityTypes = array(
+        ConnectorInterface::RELEASE_QUALITY_HIGH,
+        ConnectorInterface::RELEASE_QUALITY_NORMAL,
+    );
+
     /**
      * The value of the Quality
      *
@@ -44,9 +56,15 @@ class Quality
      * Constructor
      *
      * @param string $quality
+     *
+     * @throws InvalidArgumentException
+     * @return void
      */
     public function __construct($quality)
     {
+        if (! is_string($quality) || ! in_array($quality, static::$qualityTypes)) {
+            throw new InvalidArgumentException('Supplied value is invalid');
+        }
         $this->quality = $quality;
     }
 
@@ -59,5 +77,4 @@ class Quality
     {
         return $this->quality;
     }
-
 }

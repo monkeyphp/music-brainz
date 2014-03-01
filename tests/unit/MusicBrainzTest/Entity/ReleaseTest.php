@@ -101,7 +101,7 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
     public function testGetSetQuality()
     {
         $release = new Release();
-        $quality = new Quality();
+        $quality = new Quality('high');
 
         $this->assertNull($release->getQuality());
         $this->assertSame($release, $release->setQuality($quality));
