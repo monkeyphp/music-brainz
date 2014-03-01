@@ -7,7 +7,7 @@
  * @subpackage MusicBrainz\Hydrator\Strategy
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,14 +34,24 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class TagStrategy implements StrategyInterface
 {
+    /**
+     * Instance of ClassMethods hydrator
+     *
+     * @var ClassMethods
+     */
     protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods hydrator
+     *
+     * @return ClassMethods
+     */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
             $hydrator->addStrategy('name', new NameStrategy());
@@ -49,23 +59,36 @@ class TagStrategy implements StrategyInterface
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
+    /**
+     * Extract and return the values from the supplied Tag instance
+     *
+     * @param Tag $object
+     *
+     * @return null|array
+     */
     public function extract($object)
     {
         if (! $object instanceof Tag) {
             return null;
         }
-        
         return $this->getHydrator()->extract($object);
     }
 
+    /**
+     * Hydrate and return an instance of Tag
+     *
+     * @param array $value The array of values
+     *
+     * @return null|Tag
+     */
     public function hydrate($value)
     {
         if (! is_array($value)) {
             return null;
         }
-
         return $this->getHydrator()->hydrate($value, new Tag());
     }
 }
