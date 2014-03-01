@@ -75,7 +75,7 @@ class ReleaseGroupListStrategy implements StrategyInterface
         $releaseGroupStrategy = new ReleaseGroupStrategy();
 
         foreach ($value['release-group'] as $index => $releaseGroup) {
-            $releaseGroups[$index] = $releaseGroupStrategy->hydrate($releaseGroup, new ReleaseGroup());
+            $releaseGroups[$index] = $releaseGroupStrategy->hydrate($releaseGroup);
         }
         $value['releaseGroups'] = $releaseGroups;
         unset($value['release-group']);
