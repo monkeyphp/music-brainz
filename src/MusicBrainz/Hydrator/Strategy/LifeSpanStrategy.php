@@ -54,7 +54,7 @@ class LifeSpanStrategy implements StrategyInterface
     {
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
-            $hydrator->addStrategy('ended', new BooleanStrategy());
+            $hydrator->addStrategy('ended', new EndedStrategy());
             $this->hydrator = $hydrator;
         }
 

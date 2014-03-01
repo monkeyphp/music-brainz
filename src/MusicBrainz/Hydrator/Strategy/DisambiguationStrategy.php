@@ -1,6 +1,12 @@
 <?php
-
-/*
+/**
+ * DisambiguationStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,18 +27,38 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Exception;
 use MusicBrainz\Entity\Disambiguation;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of DisambiguationStrategy
+ * DisambiguationStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class DisambiguationStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract the value from the supplied Disambiguation instance
+     * 
+     * @param Disambiguation $object
+     *
+     * @return null|string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof Disambiguation) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Return an instance of Disambiguation
+     *
+     * @param string $value
+     *
+     * @return Disambiguation|null
+     */
     public function hydrate($value)
     {
         try {
