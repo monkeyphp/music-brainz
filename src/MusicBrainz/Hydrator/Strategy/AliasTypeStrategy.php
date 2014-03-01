@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+ * Copyright (C)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,27 +16,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace MusicBrainz\Entity;
 
-use InvalidArgumentException;
+namespace MusicBrainz\Hydrator\Strategy;
+
+use Exception;
+use MusicBrainz\Entity\AliasType;
+use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of AliasType
+ * Description of AreaTypeStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class AliasType
+class AliasTypeStrategy implements StrategyInterface
 {
-    protected $aliasTypes;
-
-    public static $aliasTypes = array(
-        'Area Name'
-    );
-
-    public function __construct($type)
+    public function extract($value)
     {
-        if (! is_string($type) || !in_array($type, static::$aliasTypes)) {
-            throw new InvalidArgumentException('Invalid type supplied');
+
+    }
+
+    public function hydrate($value)
+    {
+        try {
+            return new AliasType($value);
+        } catch (Exception $exception) {
+            return null;
         }
-        $this->aliasType = $type;
     }
 }

@@ -57,6 +57,7 @@ class AliasStrategy implements StrategyInterface
             $hydrator->addStrategy('sortName', new NameStrategy());
             $hydrator->addStrategy('locale', new LocaleStrategy());
             $hydrator->addStrategy('primary', new PrimaryStrategy());
+            $hydrator->addStrategy('type', new AliasTypeStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;

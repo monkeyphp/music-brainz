@@ -56,7 +56,7 @@ class Alias
 
     /**
      * Instance of AliasType
-     * 
+     *
      * @var AliasType
      */
     protected $type;
@@ -120,13 +120,36 @@ class Alias
     /**
      * Set the primary value of the Alias
      *
-     * @param Praimry|null $primary
+     * @param Primmry|null $primary
      *
      * @return Alias
      */
     public function setPrimary($primary = null)
     {
         $this->primary = $primary;
+        return $this;
+    }
+
+    /**
+     * Return the AliasType
+     *
+     * @return AliasType|null
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the AliasType
+     *
+     * @param AliasType $type
+     *
+     * @return Alias
+     */
+    public function setType(AliasType $type)
+    {
+        $this->type = $type;
         return $this;
     }
 }
