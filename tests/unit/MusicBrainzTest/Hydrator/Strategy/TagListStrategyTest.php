@@ -24,6 +24,10 @@
  */
 namespace MusicBrainzTest\Hydrator\Strategy;
 
+use MusicBrainz\Entity\Count;
+use MusicBrainz\Entity\Name;
+use MusicBrainz\Entity\Tag;
+use MusicBrainz\Entity\TagList;
 use MusicBrainz\Hydrator\Strategy\TagListStrategy;
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -78,5 +82,32 @@ class TagListStrategyTest extends PHPUnit_Framework_TestCase
         $tagListStrategy = new TagListStrategy();
 
         $this->assertNull($tagListStrategy->hydrate(new stdClass()));
+    }
+
+    /**
+     * @covers \MusicBrainz\Hydrator\Strategy\TagListStrategy::extract
+     */
+    public function testExtract()
+    {
+        $tagListStrategy = new TagListStrategy();
+        $tagList = new TagList();
+        $name = 'Metal';
+        $count = 2;
+        $tag = new Tag();
+        $tag->setName(new Name($name))->setCount(new Count($count));
+        $tagList->addTag($tag);
+        $values = $tagListStrategy->extract($tagList);
+
+        $this->assertInternalType('array', $values);
+    }
+
+    /**
+     * @covers \MusicBrainz\Hydrator\Strategy\TagListStrategy::extract
+     */
+    public function testExtractReturnsNull()
+    {
+        $tagListStrategy = new TagListStrategy();
+
+        $this->assertNull($tagListStrategy->extract(new stdClass()));
     }
 }

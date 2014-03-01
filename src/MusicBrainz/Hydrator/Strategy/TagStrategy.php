@@ -51,9 +51,13 @@ class TagStrategy implements StrategyInterface
         return $this->hydrator;
     }
 
-    public function extract($value)
+    public function extract($object)
     {
-
+        if (! $object instanceof Tag) {
+            return null;
+        }
+        
+        return $this->getHydrator()->extract($object);
     }
 
     public function hydrate($value)

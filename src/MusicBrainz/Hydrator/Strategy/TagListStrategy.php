@@ -71,7 +71,14 @@ class TagListStrategy implements StrategyInterface
         if (! $object instanceof TagList) {
             return null;
         }
-        return $this->getHydrator()->extract($object);
+        $values = $this->getHydrator()->extract($object);
+
+        $tagStrategy = new TagStrategy();
+        $values['tags'] = array_map(function($tag) use ($tagStrategy) {
+            return $tagStrategy->extract($tag);
+        }, $values['tags']);
+
+        return $values;
     }
 
     /**
