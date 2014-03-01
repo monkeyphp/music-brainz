@@ -24,6 +24,7 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Connector\ConnectorInterface;
 use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\MediumList;
@@ -85,7 +86,7 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
     public function testGetSetStatus()
     {
         $release = new Release();
-        $status = new Status();
+        $status = new Status(ConnectorInterface::RELEASE_STATUS_OFFICIAL);
 
         $this->assertNull($release->getStatus());
         $this->assertSame($release, $release->setStatus($status));
