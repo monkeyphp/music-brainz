@@ -34,7 +34,6 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class TagListStrategy implements StrategyInterface
 {

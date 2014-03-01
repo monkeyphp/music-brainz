@@ -42,11 +42,6 @@ use stdClass;
  */
 class AliasStrategyTest extends PHPUnit_Framework_TestCase
 {
-
-    /**<alias sort-name="メタリカ">メタリカ</alias>
-    <alias locale="ko_KR" sort-name="메탈리카" primary="primary">메탈리카</alias>
-    <alias sort-name="Metalica">Metalica</alias> **/
-
     /**
      * Test that we can hydrate an Alias instance
      *

@@ -55,7 +55,7 @@ class CountStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of Count
      *
-     * @param array $value
+     * @param string|int $value
      *
      * @return Count|null
      */

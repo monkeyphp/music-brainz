@@ -24,7 +24,9 @@
  */
 namespace MusicBrainzTest\Hydrator\Strategy;
 
+use MusicBrainz\Hydrator\Strategy\TagListStrategy;
 use PHPUnit_Framework_TestCase;
+use stdClass;
 
 /**
  * TagListStrategyTest
@@ -35,5 +37,46 @@ use PHPUnit_Framework_TestCase;
  */
 class TagListStrategyTest extends PHPUnit_Framework_TestCase
 {
-    
+    /**
+     * Test that we can hydrate an instance of TagList
+     *
+     * @covers \MusicBrainz\Hydrator\Strategy\TagListStrategy::hydrate
+     */
+    public function testHydrate()
+    {
+        $tagListStrategy = new TagListStrategy();
+        $values = array(
+            'tag' => array(
+                array(
+                    'count' => '2',
+                    'name' => 'speed metal'
+                ),
+                array(
+                    'count' => '3',
+                    'name' => 'rock'
+                ),
+            )
+        );
+
+        $tagList = $tagListStrategy->hydrate($values);
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\TagList', $tagList);
+        $this->assertNotEmpty($tagList->getTags());
+        foreach ($tagList as $tag) {
+            $this->assertInstanceOf('MusicBrainz\Entity\Tag', $tag);
+        }
+    }
+
+    /**
+     * Test that attempting to hydrate with a non array parameter results in
+     * null being returned
+     *
+     * @covers \MusicBrainz\Hydrator\Strategy\TagListStrategy::hydrate
+     */
+    public function testHydrateReturnsNull()
+    {
+        $tagListStrategy = new TagListStrategy();
+
+        $this->assertNull($tagListStrategy->hydrate(new stdClass()));
+    }
 }
