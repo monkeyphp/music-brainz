@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "01-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Ended.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,22 +26,41 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Ended
+ * Ended
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Ended
 {
+    /**
+     * The value of the Ended
+     *
+     * @var booleab
+     */
     protected $ended;
 
+    /**
+     * Constructor
+     *
+     * @param mixed $ended
+     *
+     * @return void
+     */
     public function __construct($ended)
     {
-        if (! is_bool($ended)) {
-            throw new InvalidArgumentException('Invalid parameter');
+        if (is_string($ended) && (in_array(strtolower($ended), array('true', 'false')))) {
+            $ended = ($ended === 'true') ? true : false;
         }
-        $this->ended = $ended;
+        $this->ended = (bool)$ended;
     }
 
+    /**
+     * Return a string representation of the Ended
+     * 
+     * @return string
+     */
     public function __toString()
     {
         return ($this->ended) ? 'true' : 'false';
