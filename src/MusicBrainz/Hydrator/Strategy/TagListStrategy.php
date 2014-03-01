@@ -74,7 +74,7 @@ class TagListStrategy implements StrategyInterface
         $values = $this->getHydrator()->extract($object);
 
         $tagStrategy = new TagStrategy();
-        $values['tags'] = array_map(function($tag) use ($tagStrategy) {
+        $values['tags'] = array_map(function ($tag) use ($tagStrategy) {
             return $tagStrategy->extract($tag);
         }, $values['tags']);
 
