@@ -428,7 +428,7 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     /**
      * Test that we can add a Work instance to the Artist
      *
-     * @cover \MusicBrainz\Entity\Artist::addWork
+     * @covers \MusicBrainz\Entity\Artist::addWork
      */
     public function testAddWork()
     {
