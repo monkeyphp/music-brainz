@@ -60,6 +60,9 @@ interface ConnectorInterface
 
     const RELEASE_PACKAGING_CARDBOARD_PAPER_SLEEVE = 'Cardboard/Paper Sleeve';
 
+    const RELEASE_STATUS_OFFICIAL = 'Official';
+
+    const RELEASE_STATUS_BOOTLEG = 'Bootleg';
 
 
     /**
