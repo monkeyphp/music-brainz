@@ -85,7 +85,7 @@ class Area
 
     /**
      * Instance of AliasList
-     * 
+     *
      * @var AliasList
      */
     protected $aliasList;
@@ -185,6 +185,101 @@ class Area
     public function setIso31661CodeList(Iso31661CodeList $iso31661CodeList = null)
     {
         $this->iso31661CodeList = $iso31661CodeList;
+        return $this;
+    }
+
+    /**
+     * Return the AreaType
+     * 
+     * @return AreaType|null
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Return the Score
+     *
+     * @return Score|null
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * Return the LifeSpan
+     *
+     * @return LifeSpan|null
+     */
+    public function getLifeSpan()
+    {
+        return $this->lifeSpan;
+    }
+
+    /**
+     * Return the AliasList
+     *
+     * @return AliasList
+     */
+    public function getAliasList()
+    {
+        if (! isset($this->aliasList)) {
+            $this->aliasList = new AliasList();
+        }
+        return $this->aliasList;
+    }
+
+    /**
+     * Set the AreaType
+     *
+     * @param AreaType $type
+     *
+     * @return Area
+     */
+    public function setType(AreaType $type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * Set the Score
+     *
+     * @param Score $score
+     *
+     * @return Area
+     */
+    public function setScore(Score $score = null)
+    {
+        $this->score = $score;
+        return $this;
+    }
+
+    /**
+     * Set the LifeSpan
+     *
+     * @param LifeSpan $lifeSpan
+     *
+     * @return Area
+     */
+    public function setLifeSpan(LifeSpan $lifeSpan = null)
+    {
+        $this->lifeSpan = $lifeSpan;
+        return $this;
+    }
+
+    /**
+     * Set the AliasList
+     *
+     * @param AliasList $aliasList
+     *
+     * @return Area
+     */
+    public function setAliasList(AliasList $aliasList = null)
+    {
+        $this->aliasList = $aliasList;
         return $this;
     }
 }

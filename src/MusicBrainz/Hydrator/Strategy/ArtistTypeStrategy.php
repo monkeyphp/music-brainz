@@ -26,7 +26,7 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  *
  * @author David White <david@monkeyphp.com>
  */
-class TypeStrategy implements StrategyInterface
+class ArtistTypeStrategy implements StrategyInterface
 {
 
 

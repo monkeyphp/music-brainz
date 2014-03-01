@@ -58,6 +58,10 @@ class AreaStrategy implements StrategyInterface
             $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('sortName', new NameStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
+            $hydrator->addStrategy('type', new AreaTypeStrategy());
+            $hydrator->addStrategy('score', new ScoreStrategy());
+            $hydrator->addStrategy('lifeSpan', new LifeSpanStrategy());
+            $hydrator->addStrategy('aliasList', new AliasListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -103,6 +107,14 @@ class AreaStrategy implements StrategyInterface
         if (isset($value['iso-3166-1-code-list'])) {
             $value['iso31661CodeList'] = $value['iso-3166-1-code-list'];
             unset($value['iso-3166-1-code-list']);
+        }
+        if (isset($value['alias-list'])) {
+            $value['aliasList'] = $value['alias-list'];
+            unset($value['alias-list']);
+        }
+        if (isset($value['life-span'])) {
+            $value['lifeSpan'] = $value['life-span'];
+            unset($value['life-span']);
         }
         return $this->getHydrator()->hydrate($value, new Area());
     }

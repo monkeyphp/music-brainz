@@ -66,7 +66,7 @@ class ArtistStrategy implements StrategyInterface
             $hydrator->addStrategy('releaseGroupList', new ReleaseGroupListStrategy());
             $hydrator->addStrategy('recordingList', new RecordingListStrategy());
             $hydrator->addStrategy('workList', new WorkListStrategy());
-            $hydrator->addStrategy('type', new TypeStrategy());
+            $hydrator->addStrategy('type', new ArtistTypeStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
             $hydrator->addStrategy('sortName', new NameStrategy());
             $hydrator->addStrategy('mbid', new MbidStrategy());
