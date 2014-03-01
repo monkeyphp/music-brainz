@@ -1,8 +1,7 @@
 <?php
 
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Copyright (C)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +16,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace MusicBrainz\Hydrator\Strategy;
+namespace MusicBrainz\Entity;
 
-use MusicBrainz\Entity\ArtistType;
-use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 /**
- * Description of TypeStrategy
+ * Description of AreaType
  *
  * @author David White <david@monkeyphp.com>
  */
-class TypeStrategy implements StrategyInterface
+class AreaType
 {
+    public static $areaTypes = array(
+        'Country',
+        'Subdivision',
+        'Municipality',
+    );
 
+    protected $areaType;
 
-    public function extract($value)
+    public function __construct($areaType)
     {
-
+        if (! is_string($areaType) || !in_array($areaType, static::$areaTypes)) {
+            throw new InvalidArgumentException('Invalid area type');
+        }
+        $this->areaType = $areaType;
     }
 
-    public function hydrate($value)
+    public function __sleep()
     {
-        if (! is_string($value) || ! in_array($value, ArtistType::$artistTypes)) {
-            return null;
-        }
-        return new ArtistType($value);
+        return $this->areaType;
     }
 
 }

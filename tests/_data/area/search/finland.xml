@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="yes"?><metadata created="2014-03-01T19:56:41.993Z" xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ext="http://musicbrainz.org/ns/ext#-2.0">
+    <area-list count="4" offset="0">
+        <area id="6a264f94-6ff1-30b1-9a81-41f7bfabd616" type="Country" ext:score="100">
+            <name>Finland</name>
+            <sort-name>Finland</sort-name>
+            <iso-3166-1-code-list>
+                <iso-3166-1-code>FI</iso-3166-1-code>
+            </iso-3166-1-code-list>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias locale="ja" sort-name="フィンランド" primary="primary">フィンランド</alias>
+                <alias locale="no" sort-name="Finland" primary="primary">Finland</alias>
+                <alias locale="nl" sort-name="Finland" primary="primary">Finland</alias>
+                <alias locale="en" sort-name="Finland" primary="primary">Finland</alias>
+                <alias locale="fr" sort-name="Finlande" primary="primary">Finlande</alias>
+                <alias locale="it" sort-name="Finlandia" primary="primary">Finlandia</alias>
+                <alias locale="es" sort-name="Finlandia" primary="primary">Finlandia</alias>
+                <alias locale="de" sort-name="Finnland" primary="primary">Finnland</alias>
+                <alias locale="et" sort-name="Soome" primary="primary">Soome</alias>
+                <alias locale="fi" sort-name="Suomi" primary="primary">Suomi</alias>
+                <alias locale="el" sort-name="Φινλανδία" primary="primary">Φινλανδία</alias>
+            </alias-list>
+        </area>
+        <area id="fd7766ed-e5fa-4d98-8a20-18db2a908cef" type="Subdivision" ext:score="16">
+            <name>Varsinais-Suomi</name>
+            <sort-name>Varsinais-Suomi</sort-name>
+            <iso-3166-2-code-list>
+                <iso-3166-2-code>FI-19</iso-3166-2-code>
+            </iso-3166-2-code-list>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias locale="sv" sort-name="Egentliga Finland" type="Area name" primary="primary">Egentliga Finland</alias>
+                <alias locale="en" sort-name="Finland Proper" type="Area name" primary="primary">Finland Proper</alias>
+                <alias locale="fi" sort-name="Varsinais-Suomi" type="Area name" primary="primary">Varsinais-Suomi</alias>
+                <alias locale="se" sort-name="Varsinais-Suopma" type="Area name" primary="primary">Varsinais-Suopma</alias>
+            </alias-list>
+        </area>
+        <area id="32b7fbf8-32f6-495d-be8a-d0e20715cc94" type="Municipality" ext:score="16">
+            <name>Isojoki</name>
+            <sort-name>Isojoki</sort-name>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias locale="fi" sort-name="Isojoki" type="Area name" primary="primary">Isojoki</alias>
+                <alias locale="en" sort-name="Isojoki" type="Area name" primary="primary">Isojoki</alias>
+                <alias locale="se" sort-name="Isojoki" type="Area name" primary="primary">Isojoki</alias>
+                <alias locale="sv" sort-name="Storå, Finland" type="Area name" primary="primary">Storå, Finland</alias>
+            </alias-list>
+        </area>
+        <area id="9d5cbce0-6637-4564-abfd-6e1a6e7c7331" type="Subdivision" ext:score="13">
+            <name>Keski-Suomi</name>
+            <sort-name>Keski-Suomi</sort-name>
+            <iso-3166-2-code-list>
+                <iso-3166-2-code>FI-08</iso-3166-2-code>
+            </iso-3166-2-code-list>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias locale="en" sort-name="Central Finland" type="Area name" primary="primary">Central Finland</alias>
+                <alias locale="fi" sort-name="Keski-Suomen maakunta" type="Area name" primary="primary">Keski-Suomen maakunta</alias>
+                <alias locale="sv" sort-name="Mellersta Finland" type="Area name" primary="primary">Mellersta Finland</alias>
+                <alias locale="de" sort-name="Mittelfinnland" type="Area name" primary="primary">Mittelfinnland</alias>
+                <alias locale="ja" sort-name="中央スオミ県" type="Area name" primary="primary">中央スオミ県</alias>
+            </alias-list>
+        </area>
+    </area-list>
+</metadata>

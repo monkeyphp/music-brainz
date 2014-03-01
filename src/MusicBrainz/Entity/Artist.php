@@ -39,7 +39,7 @@ use MusicBrainz\Entity\ReleaseGroupList;
 use MusicBrainz\Entity\ReleaseList;
 use MusicBrainz\Entity\Tag;
 use MusicBrainz\Entity\TagList;
-use MusicBrainz\Entity\Type;
+use MusicBrainz\Entity\ArtistType;
 use MusicBrainz\Entity\WorkList;
 
 /**
@@ -63,7 +63,9 @@ class Artist
     /**
      * The type of the Artist (e.g. Group)
      *
-     * @var Type
+     * @todo rename Type to ArtistType
+     *
+     * @var ArtistType
      */
     protected $type;
 
@@ -212,7 +214,7 @@ class Artist
     /**
      * Return the type of the Artist
      *
-     * @return Type|null
+     * @return ArtistType|null
      */
     public function getType()
     {
@@ -222,11 +224,11 @@ class Artist
     /**
      * Set the type of the Artist
      *
-     * @param Type $type
+     * @param ArtistType $type
      *
      * @return Artist
      */
-    public function setType(Type $type = null)
+    public function setType(ArtistType $type = null)
     {
         $this->type = $type;
         return $this;

@@ -1,13 +1,13 @@
 <?php
 /**
- * ArtistSearch.php
+ * AreaSearch.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,53 +20,49 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Entity;
 
 /**
- * ArtistSearch
+ * AreaSearch
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
  */
-class ArtistSearch
+class AreaSearch
 {
     /**
-     * Instance of ArtistList
+     * Instance of AreaList
      *
-     * @var ArtistList
+     * @var AreaList
      */
-    protected $artistList;
+    protected $areaList;
 
     /**
-     * Set the ArtistList instance
+     * Return the instance of AreaList
      *
-     * @param ArtistList|null $artistList
-     *
-     * @return ArtistSearch
+     * @return AreaList
      */
-    public function setArtistList(ArtistList $artistList = null)
+    public function getAreaList()
     {
-        $this->artistList = $artistList;
-        return $this;
+        if (! isset($this->areaList)) {
+            $this->areaList = new AreaList();
+        }
+        return $this->areaList;
     }
 
     /**
-     * Return the instance of ArtistList
+     * Set the AreaList instance
      *
-     * This method will return the instance of ArtistList. If the ArtistList has
-     * not already been set, this method will create an instance of ArtistList
-     * and set the artistList property.
+     * @param \MusicBrainz\Entity\AreaList $areaList
      *
-     * @return ArtistList
+     * @return AreaSearch
      */
-    public function getArtistList()
+    public function setAreaList(AreaList $areaList)
     {
-        if (! isset($this->artistList)) {
-            $this->artistList = new ArtistList();
-        }
-        return $this->artistList;
+        $this->areaList = $areaList;
+        return $this;
     }
 }

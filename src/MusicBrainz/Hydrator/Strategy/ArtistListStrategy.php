@@ -55,7 +55,10 @@ class ArtistListStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $this->hydrator = new ClassMethods();
+            $hydrator = new ClassMethods();
+            $hydrator->addStrategy('count', new CountStrategy());
+            $hydrator->addStrategy('offset', new CountStrategy());
+            $this->hydrator = $hydrator;
         }
         return $this->hydrator;
         // @codeCoverageIgnoreEnd

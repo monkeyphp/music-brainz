@@ -34,7 +34,7 @@ use MusicBrainz\Connector\ConnectorInterface;
  * @package     MusicBrainz
  * @subpackage  MusicBrainz\Entity
  */
-class Type
+class ArtistType
 {
     /**
      * An array of value types

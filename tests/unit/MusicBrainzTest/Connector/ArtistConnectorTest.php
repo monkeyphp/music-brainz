@@ -66,7 +66,7 @@ class ArtistConnectorTest extends PHPUnit_Framework_TestCase
         $artistSearch = $connector->search('metallica');
 
         $this->assertInstanceOf('\MusicBrainz\Entity\ArtistSearch', $artistSearch);
-        $this->assertEquals(1, $artistSearch->getArtistList()->getCount());
+        $this->assertEquals(1, $artistSearch->getArtistList()->getCount()->__toString());
     }
 
 

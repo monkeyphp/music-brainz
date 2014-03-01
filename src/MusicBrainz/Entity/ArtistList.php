@@ -33,7 +33,6 @@ use Traversable;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class ArtistList implements Iterator
 {
@@ -48,14 +47,14 @@ class ArtistList implements Iterator
     /**
      * Current count
      *
-     * @var int
+     * @var Count
      */
     protected $count;
 
     /**
      * Current offset
      *
-     * @var int
+     * @var Count
      */
     protected $offset;
 
@@ -113,11 +112,11 @@ class ArtistList implements Iterator
     /**
      * Set the count for the total number of matched records
      *
-     * @param int $count
+     * @param Count $count
      *
      * @return ArtistSearch
      */
-    public function setCount($count = 0)
+    public function setCount(Count $count)
     {
         $this->count = $count;
         return $this;
@@ -126,10 +125,11 @@ class ArtistList implements Iterator
     /**
      * Set the current offset (for paging)
      *
-     * @param int $offset
+     * @param Count $offset
+     *
      * @return ArtistSearch
      */
-    public function setOffset($offset = 0)
+    public function setOffset(Count $offset)
     {
         $this->offset = $offset;
         return $this;
@@ -138,7 +138,7 @@ class ArtistList implements Iterator
     /**
      * Return the current count
      *
-     * @return int
+     * @return Count
      */
     public function getCount()
     {
@@ -148,7 +148,7 @@ class ArtistList implements Iterator
     /**
      * Return the curent offset
      *
-     * @return int
+     * @return Count
      */
     public function getOffset()
     {

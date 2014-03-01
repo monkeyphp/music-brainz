@@ -42,6 +42,20 @@ class Area
     protected $mbid;
 
     /**
+     * Instance of AreaType
+     *
+     * @var AreaType|null
+     */
+    protected $type;
+
+    /**
+     * Instance of Score
+     *
+     * @var Score|null
+     */
+    protected $score;
+
+    /**
      * The name of the Area
      *
      * @var Name|null
@@ -61,6 +75,20 @@ class Area
      * @var Iso31661CodeList
      */
     protected $iso31661CodeList;
+
+    /**
+     * Instance of LifeSpan
+     *
+     * @var LifeSpan
+     */
+    protected $lifeSpan;
+
+    /**
+     * Instance of AliasList
+     * 
+     * @var AliasList
+     */
+    protected $aliasList;
 
     /**
      * Return the Mbid

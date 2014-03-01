@@ -26,6 +26,7 @@ namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Entity\Artist;
 use MusicBrainz\Entity\ArtistList;
+use MusicBrainz\Entity\Count;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -90,7 +91,7 @@ class ArtistListTest extends PHPUnit_Framework_TestCase
     public function testGetSetCount()
     {
         $artistList = new ArtistList();
-        $count = 10;
+        $count = new Count(10);
 
         $this->assertSame($artistList, $artistList->setCount($count));
         $this->assertEquals($count, $artistList->getCount());
@@ -105,10 +106,10 @@ class ArtistListTest extends PHPUnit_Framework_TestCase
     public function testGetSetOffset()
     {
         $artistList = new ArtistList();
-        $offset = 4;
+        $offset = new Count(4);
 
         $this->assertSame($artistList, $artistList->setOffset($offset));
-        $this->assertEquals($offset, $artistList->getOffset());
+        $this->assertSame($offset, $artistList->getOffset());
     }
 
     /**

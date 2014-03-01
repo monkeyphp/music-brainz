@@ -55,6 +55,13 @@ class Alias
     protected $primary;
 
     /**
+     * Instance of AliasType
+     * 
+     * @var AliasType
+     */
+    protected $type;
+
+    /**
      * Return the locale
      *
      * @return Locale|null

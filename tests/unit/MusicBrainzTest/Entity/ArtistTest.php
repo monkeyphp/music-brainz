@@ -47,7 +47,7 @@ use MusicBrainz\Entity\ReleaseList;
 use MusicBrainz\Entity\Score;
 use MusicBrainz\Entity\Tag;
 use MusicBrainz\Entity\TagList;
-use MusicBrainz\Entity\Type;
+use MusicBrainz\Entity\ArtistType;
 use MusicBrainz\Entity\Work;
 use MusicBrainz\Entity\WorkList;
 use PHPUnit_Framework_TestCase;
@@ -87,7 +87,7 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testGetSetType()
     {
         $artist = new Artist();
-        $type = new Type('Group');
+        $type = new ArtistType('Group');
 
         $this->assertNull($artist->getType());
         $this->assertSame($artist, $artist->setType($type));
