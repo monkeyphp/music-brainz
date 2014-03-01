@@ -27,5 +27,10 @@ namespace MusicBrainz\Entity;
  */
 class Status
 {
-    //put your code here
+    protected $status;
+    
+    public function __construct($status)
+    {
+        $this->status = $status;
+    }
 }
