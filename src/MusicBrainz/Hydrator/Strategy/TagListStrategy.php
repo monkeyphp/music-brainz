@@ -38,21 +38,50 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class TagListStrategy implements StrategyInterface
 {
+    /**
+     * Instance of ClassMethods hydrator
+     *
+     * @var ClassMethods
+     */
     protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods
+     *
+     * @return ClassMethods
+     */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $this->hydrator = new ClassMethods();
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
-    public function extract($value)
+    /**
+     * Extract the values from the supplied TagList instance
+     *
+     * @param TagList $object The object to extract values from
+     *
+     * @return null|array
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof TagList) {
+            return null;
+        }
+        return $this->getHydrator()->extract($object);
     }
 
+    /**
+     * Hydrate and return an instance of TagList
+     *
+     * @param array $value The array of values
+     *
+     * @return null|TagList
+     */
     public function hydrate($value)
     {
         if (! is_array($value) || ! isset($value['tag']) || ! is_array($value['tag'])) {
