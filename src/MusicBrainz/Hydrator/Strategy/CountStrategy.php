@@ -1,6 +1,6 @@
 <?php
 /**
- * CountStrategy
+ * CountStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz

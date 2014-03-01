@@ -1,5 +1,12 @@
 <?php
 /**
+ * CountryStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,18 +27,38 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Exception;
 use MusicBrainz\Entity\Country;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of CountryStrategy
+ * CountryStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class CountryStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract and return the value from the supplied Country instance
+     *
+     * @param string|null $value
+     *
+     * @return string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof Country) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Hydrate and return an instance of Country
+     *
+     * @param string $value
+     *
+     * @return Country|null
+     */
     public function hydrate($value)
     {
         try {
