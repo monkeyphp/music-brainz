@@ -1,5 +1,12 @@
 <?php
 /**
+ * AliasStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,9 +29,11 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of AliasStrategy
+ * AliasStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class AliasStrategy implements StrategyInterface
 {
@@ -35,36 +44,56 @@ class AliasStrategy implements StrategyInterface
      */
     protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods
+     *
+     * @return ClassMethods
+     */
     protected function gethydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
-
+            $hydrator = new ClassMethods(false);
             $hydrator->addStrategy('sortName', new NameStrategy());
             $hydrator->addStrategy('locale', new LocaleStrategy());
             $hydrator->addStrategy('primary', new PrimaryStrategy());
-
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
-    public function extract($value)
+    /**
+     * Extract the values from the supplied Alias instance
+     *
+     * @param Alias $object
+     *
+     * @return null|array
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof Alias) {
+            return null;
+        }
+        return $this->gethydrator()->extract($object);
     }
 
+    /**
+     * Hydrate and return an instance of Alias
+     *
+     * @param array $value The array of values
+     *
+     * @return null|Alias
+     */
     public function hydrate($value)
     {
         if (! is_array($value)) {
             return null;
         }
-
         if (isset($value['sort-name'])) {
             $value['sortName'] = $value['sort-name'];
             unset($value['sort-name']);
         }
-
         return $this->getHydrator()->hydrate($value, new Alias());
     }
 }

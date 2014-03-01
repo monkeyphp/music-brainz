@@ -29,9 +29,12 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class PrimaryStrategy implements StrategyInterface
 {
-    public function extract($value)
+    public function extract($object)
     {
-
+        if (! $object instanceof Primary) {
+            return null;
+        }
+        return $object->__toString();
     }
 
     public function hydrate($value)

@@ -27,9 +27,12 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class LocaleStrategy implements StrategyInterface
 {
-    public function extract($value)
+    public function extract($object)
     {
-
+        if (! $object instanceof Locale) {
+            return null;
+        }
+        return $object->__toString();
     }
 
     public function hydrate($value)

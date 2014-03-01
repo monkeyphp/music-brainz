@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * WorkListStratey.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,23 +25,69 @@
 
 namespace MusicBrainz\Hydrator\Strategy;
 
+use MusicBrainz\Entity\WorkList;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of WorkListStrategy
+ * WorkListStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class WorkListStrategy implements StrategyInterface
 {
-    public function extract($value)
-    {
+    /**
+     * Instance of ClassMethods hydrator
+     *
+     * @var ClassMethods
+     */
+    protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods
+     *
+     * @return ClassMethods
+     */
+    protected function getHydrator()
+    {
+        // @codeCoverageIgnoreStart
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods();
+            $this->hydrator = $hydrator;
+        }
+        return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
+    /**
+     * Extract the values from the supplied WorkList
+     *
+     * @param WorkList $object
+     *
+     * @return null|array
+     */
+    public function extract($object)
+    {
+        if (! $object instanceof WorkList) {
+            return null;
+        }
+        return $this->getHydrator()->extract($object);
+    }
+
+    /**
+     * Hydrate and return an instance of WorkList
+     *
+     * @param array $value
+     *
+     * @return null|WorkList
+     */
     public function hydrate($value)
     {
-
+        if (! is_array($value)) {
+            return null;
+        }
+        return $this->getHydrator()->hydrate($value, new WorkList());
     }
-
 }
