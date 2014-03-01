@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Quality.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +22,42 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Quality
+ * Quality
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Quality
 {
-    //put your code here
+    /**
+     * The value of the Quality
+     *
+     * @var string
+     */
+    protected $quality;
+
+    /**
+     * Constructor
+     *
+     * @param string $quality
+     */
+    public function __construct($quality)
+    {
+        $this->quality = $quality;
+    }
+
+    /**
+     * Return a string representation of the Quality
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->quality;
+    }
+
 }
