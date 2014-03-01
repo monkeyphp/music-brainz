@@ -7,7 +7,7 @@
  * @subpackage  MusicBrainz\Entity
  * @author      David White <david@monkeyphp.com>
  *
- * Copyright (C)
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ class Score
 
     /**
      * Constructor
-     * 
+     *
      * @param int $score
      *
      * @throws InvalidArgumentException

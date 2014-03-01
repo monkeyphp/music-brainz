@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C)
+ * ScoreStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,18 +27,38 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Exception;
 use MusicBrainz\Entity\Score;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of ScoreStrategy
+ * ScoreStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class ScoreStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract the value from the supplied Score instance
+     *
+     * @param Score $object
+     *
+     * @return string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof Score) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Hydrate and return an instance of Score
+     *
+     * @param string|int $value
+     *
+     * @return Score|null
+     */
     public function hydrate($value)
     {
         try {

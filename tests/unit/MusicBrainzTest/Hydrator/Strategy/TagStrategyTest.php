@@ -90,14 +90,15 @@ class TagStrategyTest extends PHPUnit_Framework_TestCase
 
         $values = $tagStrategy->extract($tag);
 
-        //var_dump($values); die();
-
         $this->assertInternalType('array', $values);
         $this->assertEquals($values['name'], $name);
         $this->assertEquals($values['count'], $count);
     }
 
     /**
+     * Test that attempting to extract the values from a none Tag instance
+     * returns null
+     *
      * @covers \MusicBrainz\Hydrator\Strategy\TagStrategy::extract
      */
     public function testExtractReturnsNull()
