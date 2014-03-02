@@ -1,7 +1,13 @@
 <?php
-
 /**
- * Copyright (C)
+ * AreaType.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,31 +28,55 @@ use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
 
 /**
- * Description of AreaType
+ * AreaType
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class AreaType
 {
+    /**
+     * The value of the AreaType
+     *
+     * @var string
+     */
+    protected $areaType;
+
+    /**
+     * An array of valid area types
+     *
+     * @var array
+     */
     public static $areaTypes = array(
         ConnectorInterface::AREA_TYPE_COUNTRY,
         ConnectorInterface::AREA_TYPE_SUBDIVISION,
         ConnectorInterface::AREA_TYPE_MUNICIPALITY,
     );
 
-    protected $areaType;
-
+    /**
+     * Constructor
+     *
+     * @param string $areaType
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($areaType)
     {
-        if (! is_string($areaType) || !in_array($areaType, static::$areaTypes)) {
+        if (! is_string($areaType) || ! in_array($areaType, static::$areaTypes)) {
             throw new InvalidArgumentException('Invalid area type');
         }
         $this->areaType = $areaType;
     }
 
-    public function __sleep()
+    /**
+     * Return a string representation of the AreaType
+     *
+     * @return string
+     */
+    public function __toString()
     {
         return $this->areaType;
     }
-
 }
