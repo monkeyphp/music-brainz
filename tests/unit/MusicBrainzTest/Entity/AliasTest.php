@@ -24,7 +24,9 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Connector\ConnectorInterface;
 use MusicBrainz\Entity\Alias;
+use MusicBrainz\Entity\AliasType;
 use MusicBrainz\Entity\Locale;
 use MusicBrainz\Entity\Name;
 use MusicBrainz\Entity\Primary;
@@ -88,4 +90,51 @@ class AliasTest extends PHPUnit_Framework_TestCase
         $this->assertSame($primary, $alias->getPrimary());
     }
 
+    /**
+     * Test that we can get and set the AliasType
+     *
+     * @covers \MusicBrainz\Entity\Alias::getType
+     * @covers \MusicBrainz\Entity\Alias::setType
+     */
+    public function testGetSetType()
+    {
+        $alias = new Alias();
+        $type = new AliasType(ConnectorInterface::ALIAS_TYPE_AREA_NAME);
+
+        $this->assertNull($alias->getType());
+        $this->assertSame($alias, $alias->setType($type));
+        $this->assertSame($type, $alias->getType());
+    }
+
+    /**
+     * Test that we can get and set the beginDate
+     *
+     * @covers \MusicBrainz\Entity\Alias::getBeginDate
+     * @covers \MusicBrainz\Entity\Alias::setBeginDate
+     */
+    public function testGetSetBeginDate()
+    {
+        $alias = new Alias();
+        $date = '1981';
+
+        $this->assertNull($alias->getBeginDate());
+        $this->assertSame($alias, $alias->setBeginDate($date));
+        $this->assertEquals($date, $alias->getBeginDate());
+    }
+
+    /**
+     * Test that we can get and set the endDate
+     *
+     * @covers \MusicBrainz\Entity\Alias::getEndDate
+     * @covers \MusicBrainz\Entity\Alias::setEndDate
+     */
+    public function testGetSetEndDate()
+    {
+        $alias = new Alias();
+        $date = '1989';
+
+        $this->assertNull($alias->getEndDate());
+        $this->assertSame($alias, $alias->setEndDate($date));
+        $this->assertEquals($date, $alias->getEndDate());
+    }
 }

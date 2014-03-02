@@ -19,6 +19,7 @@
 namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
+use MusicBrainz\Connector\ConnectorInterface;
 /**
  * Description of AliasType
  *
@@ -26,10 +27,10 @@ use InvalidArgumentException;
  */
 class AliasType
 {
-    protected $aliasTypes;
+    protected $aliasType;
 
     public static $aliasTypes = array(
-        'Area Name'
+        ConnectorInterface::ALIAS_TYPE_AREA_NAME
     );
 
     public function __construct($type)

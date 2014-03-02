@@ -36,7 +36,7 @@ class Alias
     /**
      * The locale of the Alias
      *
-     * @var string|null
+     * @var Locale|null
      */
     protected $locale;
 
@@ -61,8 +61,18 @@ class Alias
      */
     protected $type;
 
+    /**
+     * The begin date of the Alias
+     *
+     * @var string|null
+     */
     protected $beginDate;
 
+    /**
+     * The end date of the Alias
+     *
+     * @var string|null
+     */
     protected $endDate;
 
     /**
@@ -124,7 +134,7 @@ class Alias
     /**
      * Set the primary value of the Alias
      *
-     * @param Primmry|null $primary
+     * @param Primary|null $primary
      *
      * @return Alias
      */
@@ -154,6 +164,52 @@ class Alias
     public function setType(AliasType $type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * Return the begin date of the Alias
+     *
+     * @return string|null
+     */
+    public function getBeginDate()
+    {
+        return $this->beginDate;
+    }
+
+    /**
+     * Return the end date of the Alias
+     *
+     * @return string|null
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * Set the begin date of the Alias
+     *
+     * @param string|null $beginDate
+     *
+     * @return Alias
+     */
+    public function setBeginDate($beginDate = null)
+    {
+        $this->beginDate = $beginDate;
+        return $this;
+    }
+
+    /**
+     * Set the end date of the Alias
+     *
+     * @param string|null $endDate
+     *
+     * @return Alias
+     */
+    public function setEndDate($endDate = null)
+    {
+        $this->endDate = $endDate;
         return $this;
     }
 }
