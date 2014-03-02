@@ -36,6 +36,9 @@ use PHPUnit_Framework_TestCase;
  */
 class QualityStrategyTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @covers \MusicBrainz\Hydrator\Strategy\QualityStrategy::hydrate
+     */
     public function testHydrate()
     {
         $qualityStrategy = new QualityStrategy();
