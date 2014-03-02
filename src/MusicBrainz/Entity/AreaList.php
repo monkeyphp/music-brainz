@@ -110,7 +110,7 @@ class AreaList implements Iterator
 
     /**
      * Iterator implementation
-     * 
+     *
      * @return Area
      */
     public function current()
@@ -125,7 +125,9 @@ class AreaList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
