@@ -30,7 +30,6 @@ namespace MusicBrainz\Entity;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class Area
 {
@@ -190,7 +189,7 @@ class Area
 
     /**
      * Return the AreaType
-     * 
+     *
      * @return AreaType|null
      */
     public function getType()

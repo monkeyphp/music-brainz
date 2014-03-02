@@ -24,10 +24,15 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Entity\AliasList;
 use MusicBrainz\Entity\Area;
+use MusicBrainz\Entity\AreaType;
 use MusicBrainz\Entity\Iso31661CodeList;
+use MusicBrainz\Entity\LifeSpan;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Name;
+use MusicBrainz\Entity\Score;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -36,7 +41,6 @@ use PHPUnit_Framework_TestCase;
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class AreaTest extends PHPUnit_Framework_TestCase
 {
@@ -103,5 +107,65 @@ class AreaTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MusicBrainz\Entity\Iso31661CodeList', $area->getIso31661CodeList());
         $this->assertSame($area, $area->setIso31661CodeList($iso31661CodeList));
         $this->assertSame($iso31661CodeList, $area->getIso31661CodeList());
+    }
+
+    /**
+     * Test that we can get and set the type
+     *
+     * @covers \MusicBrainz\Entity\Area::getType
+     * @covers \MusicBrainz\Entity\Area::setType
+     */
+    public function testGetSetType()
+    {
+        $area = new Area();
+        $type = new AreaType(ConnectorInterface::AREA_TYPE_COUNTRY);
+
+        $this->assertNull($area->getType());
+        $this->assertSame($area, $area->setType($type));
+        $this->assertSame($type, $area->getType());
+    }
+
+    /**
+     * Test that we can get and set the Score
+     *
+     * @covers \MusicBrainz\Entity\Area::getScore
+     * @covers \MusicBrainz\Entity\Area::setScore
+     */
+    public function testGetSetScore()
+    {
+        $area = new Area();
+        $score = new Score(100);
+
+        $this->assertNull($area->getScore());
+        $this->assertSame($area, $area->setScore($score));
+        $this->assertSame($score, $area->getScore());
+    }
+
+    /**
+     * @covers \MusicBrainz\Entity\Area::getLifeSpan
+     * @covers \MusicBrainz\Entity\Area::setLifeSpan
+     */
+    public function testGetSetLifeSpan()
+    {
+        $area = new Area();
+        $lifeSpan = new LifeSpan();
+
+        $this->assertNull($area->getLifeSpan());
+        $this->assertSame($area, $area->setLifeSpan($lifeSpan));
+        $this->assertSame($lifeSpan, $area->getLifeSpan());
+    }
+
+    /**
+     * @covers \MusicBrainz\Entity\Area::getAliasList
+     * @covers \MusicBrainz\Entity\Area::setAliasList
+     */
+    public function testGetSetLifeAliasList()
+    {
+        $area = new Area();
+        $aliasList = new AliasList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\AliasList', $area->getAliasList());
+        $this->assertSame($area, $area->setAliasList($aliasList));
+        $this->assertSame($aliasList, $area->getAliasList());
     }
 }
