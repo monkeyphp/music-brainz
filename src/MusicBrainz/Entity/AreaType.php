@@ -18,6 +18,9 @@
  */
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+use MusicBrainz\Connector\ConnectorInterface;
+
 /**
  * Description of AreaType
  *
@@ -26,9 +29,9 @@ namespace MusicBrainz\Entity;
 class AreaType
 {
     public static $areaTypes = array(
-        'Country',
-        'Subdivision',
-        'Municipality',
+        ConnectorInterface::AREA_TYPE_COUNTRY,
+        ConnectorInterface::AREA_TYPE_SUBDIVISION,
+        ConnectorInterface::AREA_TYPE_MUNICIPALITY,
     );
 
     protected $areaType;

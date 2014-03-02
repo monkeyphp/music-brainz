@@ -1,0 +1,204 @@
+<?xml version="1.0" standalone="yes"?>
+<metadata created="2014-03-01T19:56:27.497Z" xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ext="http://musicbrainz.org/ns/ext#-2.0">
+    <label-list count="12" offset="0">
+        <label id="f18f3b31-8263-4de3-966a-fda317492d3d" type="Original Production" ext:score="100">
+            <name>Decca Records</name>
+            <sort-name>Decca Records</sort-name>
+            <label-code>171</label-code>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <life-span>
+                <begin>1929</begin>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="Decca">Decca</alias>
+                <alias sort-name="DECCA">DECCA</alias>
+                <alias sort-name="Decca Eloquence">Decca Eloquence</alias>
+                <alias sort-name="Decca Music Group Limited">Decca Music Group Limited</alias>
+                <alias sort-name="Decca Music Group Ltd">Decca Music Group Ltd</alias>
+                <alias sort-name="Decca Records">Decca Records</alias>
+            </alias-list>
+            <tag-list>
+                <tag count="1">
+                    <name>classical</name>
+                </tag>
+                <tag count="1">
+                    <name>jazz</name>
+                </tag>
+                <tag count="1">
+                    <name>decca 193.486-x</name>
+                </tag>
+                <tag count="1">
+                    <name>schumann</name>
+                </tag>
+            </tag-list>
+        </label>
+        <label id="ac63cf66-1a4e-4168-bf64-1f6668c049ae" ext:score="70">
+            <name>The Decca Record Company Ltd.</name>
+            <sort-name>Decca Record Company Ltd., The</sort-name>
+            <country>GB</country>
+            <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                <name>United Kingdom</name>
+                <sort-name>United Kingdom</sort-name>
+            </area>
+            <life-span>
+                <begin>1929</begin>
+                <end>1980</end>
+                <ended>true</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="The Decca Record Company Limited">The Decca Record Company Limited</alias>
+            </alias-list>
+        </label>
+        <label id="6b397115-c56c-4b4c-9388-d4b93b954ecf" type="Reissue Production" ext:score="62">
+            <name>Decca Broadway</name>
+            <sort-name>Decca Broadway</sort-name>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="045b1f19-efd3-4675-88f8-d167e2677db9" type="Original Production" ext:score="62">
+            <name>Decca Eclipse</name>
+            <sort-name>Decca Eclipse</sort-name>
+            <country>GB</country>
+            <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                <name>United Kingdom</name>
+                <sort-name>United Kingdom</sort-name>
+            </area>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="89a9993d-1dad-4445-a3d7-1d8df04f7e7b" type="Original Production" ext:score="62">
+            <name>Decca Classics</name>
+            <sort-name>Decca Classics</sort-name>
+            <country>GB</country>
+            <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                <name>United Kingdom</name>
+                <sort-name>United Kingdom</sort-name>
+            </area>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="11a1e733-d7ef-4a54-a417-72956947dfec" ext:score="62">
+            <name>Decca Nova</name>
+            <sort-name>Decca Nova</sort-name>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="fa5570b5-675e-4e2b-8cd4-157a3064ae13" ext:score="62">
+            <name>Decca International</name>
+            <sort-name>Decca International</sort-name>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="27d83bc8-eb7d-4219-ac58-efa07cd8d183" ext:score="50">
+            <name>Decca Label Group</name>
+            <sort-name>Decca Label Group</sort-name>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="89ac0375-c74c-4d94-9096-ae6087b63213" type="Original Production" ext:score="37">
+            <name>福茂唱片</name>
+            <sort-name>Linfair Records</sort-name>
+            <disambiguation>Linfair Records / Decca Records Taiwan</disambiguation>
+            <country>TW</country>
+            <area id="41637cec-9a4f-389c-86d2-fc6abf3357b5">
+                <name>Taiwan</name>
+                <sort-name>Taiwan</sort-name>
+            </area>
+            <life-span>
+                <begin>1961</begin>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="Decca Records Taiwan">Decca Records Taiwan</alias>
+                <alias sort-name="Linfair Records">Linfair Records</alias>
+                <alias sort-name="Linfair Records Limited/DECCA">Linfair Records Limited/DECCA</alias>
+                <alias sort-name="福茂">福茂</alias>
+            </alias-list>
+        </label>
+        <label id="281fc110-18d2-4469-83cb-623617812aed" type="Original Production" ext:score="32">
+            <name>TELDEC</name>
+            <sort-name>TELDEC</sort-name>
+            <label-code>3706</label-code>
+            <country>DE</country>
+            <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                <name>Germany</name>
+                <sort-name>Germany</sort-name>
+            </area>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="Telefunken-Decca">Telefunken-Decca</alias>
+            </alias-list>
+            <tag-list>
+                <tag count="1">
+                    <name>opera</name>
+                </tag>
+            </tag-list>
+        </label>
+        <label id="60a0dd34-2333-4679-9050-38c21f7bc616" type="Original Production" ext:score="26">
+            <name>London Records</name>
+            <sort-name>London Records</sort-name>
+            <label-code>253</label-code>
+            <disambiguation>used by British Decca for releases in the US between 1947-1998</disambiguation>
+            <country>GB</country>
+            <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                <name>United Kingdom</name>
+                <sort-name>United Kingdom</sort-name>
+            </area>
+            <life-span>
+                <begin>1947</begin>
+                <end>1998</end>
+                <ended>true</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="London">London</alias>
+                <alias sort-name="London Decca">London Decca</alias>
+                <alias sort-name="London Recordings">London Recordings</alias>
+                <alias sort-name="London Records">London Records</alias>
+                <alias sort-name="London Records, Ltd">London Records, Ltd</alias>
+                <alias sort-name="London Records US">London Records US</alias>
+                <alias sort-name="London/Victory">London/Victory</alias>
+            </alias-list>
+        </label>
+        <label id="287d3864-d8bf-46c4-978e-02dd54ecfbd2" type="Original Production" ext:score="26">
+            <name>TELDEC Schallplatten GmbH</name>
+            <sort-name>TELDEC Schallplatten GmbH</sort-name>
+            <disambiguation>joint venture between Telefunken AG and Decca Record Co. Ltd.</disambiguation>
+            <country>DE</country>
+            <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                <name>Germany</name>
+                <sort-name>Germany</sort-name>
+            </area>
+            <life-span>
+                <begin>1950</begin>
+                <end>1988</end>
+                <ended>true</ended>
+            </life-span>
+            <alias-list>
+                <alias locale="de" 
+                       sort-name="TELDEC Schallplatten GmbH" 
+                       type="Label name" 
+                       begin-date="1983" 
+                       end-date="1988">TELDEC Schallplatten GmbH</alias>
+                <alias locale="de" sort-name="TELDEC »Telefunken-Decca« Schallplatten GmbH" type="Label name" begin-date="1950" end-date="1983">TELDEC »Telefunken-Decca« Schallplatten GmbH</alias>
+            </alias-list>
+        </label>
+    </label-list>
+</metadata>

@@ -36,6 +36,8 @@ class LifeSpan
 {
     protected $begin;
 
+    protected $end;
+
     protected $ended;
 
     /**
@@ -68,7 +70,7 @@ class LifeSpan
 
     /**
      * Set the ended value
-     * 
+     *
      * @param null|boolean $ended
      *
      * @return LifeSpan

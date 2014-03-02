@@ -4,7 +4,7 @@
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
- * @subpackage MusicBrainz
+ * @subpackage MusicBrainz\Connector
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
  * Copyright (C) 2014  David White
@@ -29,11 +29,16 @@ namespace MusicBrainz\Connector;
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
- * @subpackage MusicBrainz
- * @author     David White [monkeyphp] <david@monkeyphp.com>
+ * @subpackage MusicBrainz\Connector
  */
 interface ConnectorInterface
 {
+
+    const RELEASE_GROUP_TYPE_ALBUM = 'Album';
+    const RELEASE_GROUP_TYPE_COMPILATION = 'Compilation';
+    const RELEASE_GROUP_TYPE_EP = 'EP';
+    const RELEASE_GROUP_TYPE_LIVE = 'Live';
+
     /**
      * @var string
      */
@@ -54,6 +59,16 @@ interface ConnectorInterface
      */
     const RELEASE_QUALITY_NORMAL = 'normal';
 
+    const LABEL_TYPE_PRODUCTION = 'Production';
+
+    const LABEL_TYPE_PUBLISHER = 'Publisher';
+
+    const LABEL_TYPE_HOLDING = 'Holding';
+
+    const LABEL_TYPE_ORIGINAL_PRODUCTION = 'Original Production';
+
+    const LABEL_TYPE_REISSUE_PRODUCTION = 'Reissue Production';
+
     const RELEASE_PACKAGING_CASSETTE_CASE = 'Cassette Case';
 
     const RELEASE_PACKAGING_JEWEL_CASE = 'Jewel Case';
@@ -64,6 +79,15 @@ interface ConnectorInterface
 
     const RELEASE_STATUS_BOOTLEG = 'Bootleg';
 
+    const ALIAS_TYPE_AREA_NAME = 'Area name';
+
+    const ALIAS_TYPE_LABEL_NAME = 'Label name';
+
+    const AREA_TYPE_MUNICIPALITY = 'Municipality';
+
+    const AREA_TYPE_COUNTRY = 'Country';
+
+    const AREA_TYPE_SUBDIVISION = 'Subdivision';
 
     /**
      * Note that the number of linked entities returned is always limited to 25,
@@ -634,9 +658,6 @@ interface ConnectorInterface
      * @var int
      */
     const MAX_REQUESTS_PER_SECOND = 1;
-
-    const RELEASE_GROUP_TYPE_ALBUM = 'Album';
-    const RELEASE_GROUP_TYPE_COMPILATION = 'Compilation';
 
     /**
      * Browse a resource by supplying an mbid

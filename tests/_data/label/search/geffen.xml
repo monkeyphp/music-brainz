@@ -1,0 +1,134 @@
+<?xml version="1.0" standalone="yes"?>
+<metadata created="2014-03-01T19:56:27.497Z" xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ext="http://musicbrainz.org/ns/ext#-2.0">
+    <label-list count="6" offset="0">
+        <label id="0fadc2ce-f7de-4e27-bbe6-612b317e716b" type="Production" ext:score="100">
+            <name>Geffen Records</name>
+            <sort-name>Geffen Records</sort-name>
+            <label-code>7266</label-code>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="Geffen">Geffen</alias>
+            </alias-list>
+            <tag-list>
+                <tag count="1">
+                    <name>alternative rock</name>
+                </tag>
+                <tag count="1">
+                    <name>american</name>
+                </tag>
+                <tag count="1">
+                    <name>grunge</name>
+                </tag>
+                <tag count="1">
+                    <name>usa</name>
+                </tag>
+                <tag count="1">
+                    <name>alternative</name>
+                </tag>
+                <tag count="1">
+                    <name>américain</name>
+                </tag>
+                <tag count="1">
+                    <name>california</name>
+                </tag>
+                <tag count="1">
+                    <name>us</name>
+                </tag>
+                <tag count="1">
+                    <name>santa monica</name>
+                </tag>
+            </tag-list>
+        </label>
+        <label id="db2dde9b-fe54-40ec-99f9-8de13f50a6b7" type="Publisher" ext:score="54">
+            <name>Geffen Music</name>
+            <sort-name>Geffen Music</sort-name>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <life-span>
+                <begin>1980</begin>
+                <end>2003</end>
+                <ended>true</ended>
+            </life-span>
+        </label>
+        <label id="1dfb80fa-491f-492a-bd4f-3288b5fe8bc0" type="Publisher" ext:score="43">
+            <name>Universal Geffen Music</name>
+            <sort-name>Universal Geffen Music</sort-name>
+            <ipi-list>
+                <ipi>00344473363</ipi>
+            </ipi-list>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <life-span>
+                <begin>2003</begin>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="88470907-edbb-4506-b324-18a30ed1d6ed" type="Holding" ext:score="43">
+            <name>Interscope Geffen A&amp;M</name>
+            <sort-name>Interscope Geffen A&amp;M</sort-name>
+            <disambiguation>this is a label group; file no releases here</disambiguation>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <life-span>
+                <begin>1999-01-01</begin>
+                <ended>false</ended>
+            </life-span>
+        </label>
+        <label id="68803e28-86fe-4a95-985f-8e493795ab31" type="Original Production" ext:score="22">
+            <name>DGC Records</name>
+            <sort-name>DGC Records</sort-name>
+            <label-code>6406</label-code>
+            <country>US</country>
+            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                <name>United States</name>
+                <sort-name>United States</sort-name>
+            </area>
+            <life-span>
+                <begin>1990</begin>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="David Geffen Company">David Geffen Company</alias>
+                <alias sort-name="DCG Records">DCG Records</alias>
+                <alias sort-name="DGC">DGC</alias>
+            </alias-list>
+        </label>
+        <label id="bb146c4f-6621-4ed8-8b23-f80539dc2348" ext:score="22">
+            <name>MCA Victor, Inc.</name>
+            <sort-name>MCA Victor, Inc.</sort-name>
+            <country>JP</country>
+            <area id="2db42837-c832-3c27-b4a3-08198f75693c">
+                <name>Japan</name>
+                <sort-name>Japan</sort-name>
+            </area>
+            <life-span>
+                <ended>false</ended>
+            </life-span>
+            <alias-list>
+                <alias sort-name="David Geffen Company / MCA Victor">David Geffen Company / MCA Victor</alias>
+                <alias sort-name="MCAビクター">MCAビクター</alias>
+            </alias-list>
+            <tag-list>
+                <tag count="1">
+                    <name>clean up</name>
+                </tag>
+            </tag-list>
+        </label>
+    </label-list>
+</metadata>

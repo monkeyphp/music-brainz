@@ -2,7 +2,7 @@
 
 /*
  * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+  The string doesn't match the expected date/time format. The string to parse was: "02-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,23 +21,11 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of MediumList
+ * Description of LabelSearch
  *
  * @author David White <david@monkeyphp.com>
  */
-class MediumList
+class LabelSearch
 {
     //put your code here
-
-    /**
-     *
-     * @var Count
-     */
-    protected $trackCount;
-
-    /**
-     *
-     * @var Medium
-     */
-    protected $medium;
 }

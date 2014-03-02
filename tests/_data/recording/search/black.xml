@@ -1,0 +1,1391 @@
+<?xml version="1.0" standalone="yes"?>
+<metadata created="2014-03-01T16:12:18.169Z" xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ext="http://musicbrainz.org/ns/ext#-2.0">
+    <recording-list count="44715" offset="0">
+        <recording id="020c9b80-7dd0-4374-a6a3-eac8c0300564" ext:score="100">
+            <title>BLACK</title>
+            <length>244721</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="b58ac34f-e412-4316-8ad3-a721ce598ac3">
+                        <name>SIAM SHADE</name>
+                        <sort-name>SIAM SHADE</sort-name>
+                        <alias-list>
+                            <alias sort-name="シャムシェイド">シャムシェイド</alias>
+                            <alias sort-name="シャム・シェイド">シャム・シェイド</alias>
+                            <alias sort-name="hide - SIAM SHADE">hide - SIAM SHADE</alias>
+                            <alias sort-name="SIMA SHADE">SIMA SHADE</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="509c8621-16ba-4ca1-a466-9e48af8c21c4">
+                    <title>SIAM SHADE VI</title>
+                    <status>Official</status>
+                    <release-group id="29541070-57aa-3ad5-bf6c-67969f4adbe5" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2000-07-26</date>
+                    <country>JP</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2000-07-26</date>
+                            <area id="2db42837-c832-3c27-b4a3-08198f75693c">
+                                <name>Japan</name>
+                                <sort-name>Japan</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>JP</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>16</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="8" offset="5">
+                                <track id="5ab2dc0a-6a67-3542-b1bf-f93579af6796">
+                                    <number>6</number>
+                                    <title>BLACK</title>
+                                    <length>244721</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="930246f5-a2c8-4499-971c-5b6d84d5d0df" ext:score="100">
+            <title>Black</title>
+            <length>205000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="0e17b44f-e0f1-4b3a-8cd6-d68510d3e379">
+                        <name>Junior Kelly</name>
+                        <sort-name>Kelly, Junior</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jr.Kelly">Jr.Kelly</alias>
+                            <alias sort-name="Jr. Kelly">Jr. Kelly</alias>
+                            <alias sort-name="Junor Kelly">Junor Kelly</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="65866254-eb76-4d8d-9f0f-f01a505e424b">
+                    <title>Best Of</title>
+                    <status>Official</status>
+                    <release-group id="6e2dc205-2336-3528-83a9-988b27b81658" type="Compilation">
+                        <primary-type>Album</primary-type>
+                        <secondary-type-list>
+                            <secondary-type>Compilation</secondary-type>
+                        </secondary-type-list>
+                    </release-group>
+                    <date>2005</date>
+                    <release-event-list>
+                        <release-event>
+                            <date>2005</date>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>20</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="20" offset="10">
+                                <track id="5433d298-8083-3553-89ea-3f6fa02fafe6">
+                                    <number>11</number>
+                                    <title>Black</title>
+                                    <length>205000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="4d073e38-706a-4655-979d-bd08427f5621" ext:score="100">
+            <title>Black</title>
+            <length>291000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="675c8568-1f02-4a29-a5d2-ae237d58b526">
+                        <name>DJ SS</name>
+                        <sort-name>SS, DJ</sort-name>
+                        <disambiguation>drum &amp; bass producer Leroy Small</disambiguation>
+                        <alias-list>
+                            <alias sort-name="DJ-SS">DJ-SS</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="7fdf3df4-6c09-46d5-b3a8-7adeff6f6cf1">
+                    <title>Innovation: The Album</title>
+                    <status>Official</status>
+                    <artist-credit>
+                        <name-credit>
+                            <artist id="ee459bd7-9768-4cc2-9452-a09700c4aeaa">
+                                <name>Shy FX</name>
+                                <sort-name>Shy FX</sort-name>
+                            </artist>
+                        </name-credit>
+                    </artist-credit>
+                    <release-group id="15055f4f-9b63-376b-a2f4-fa87bde0ca08" type="Compilation">
+                        <primary-type>Album</primary-type>
+                        <secondary-type-list>
+                            <secondary-type>Compilation</secondary-type>
+                        </secondary-type-list>
+                    </release-group>
+                    <date>2008-06-30</date>
+                    <country>GB</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2008-06-30</date>
+                            <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                                <name>United Kingdom</name>
+                                <sort-name>United Kingdom</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>GB</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>60</track-count>
+                        <medium>
+                            <position>3</position>
+                            <format>CD</format>
+                            <track-list count="20" offset="18">
+                                <track id="41100bc6-1452-3839-8f94-4b0caca8fbb9">
+                                    <number>19</number>
+                                    <title>Black</title>
+                                    <length>291000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="f0ce852f-30db-4797-a83a-268134acae81" ext:score="100">
+            <title>Black</title>
+            <length>198000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="4823aa54-aeeb-4191-b98f-38a724e57aad">
+                        <name>Minimum Chips</name>
+                        <sort-name>Minimum Chips</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="7de826aa-d5ad-4618-94b4-47e0b0ad39c9">
+                    <title>Sound Asleep</title>
+                    <status>Official</status>
+                    <release-group id="0e89221b-acbc-3efc-92ee-ce632b170c33" type="EP">
+                        <primary-type>EP</primary-type>
+                    </release-group>
+                    <date>2004</date>
+                    <country>AU</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2004</date>
+                            <area id="106e0bec-b638-3b37-b731-f53d507dc00e">
+                                <name>Australia</name>
+                                <sort-name>Australia</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>AU</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>7</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="7" offset="1">
+                                <track id="9b535a01-4aad-3167-a69b-c2f6d05138cf">
+                                    <number>2</number>
+                                    <title>Black</title>
+                                    <length>198000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="b11659fb-c906-473c-9fbc-4d772f2adf8f" ext:score="100">
+            <title>Black</title>
+            <length>501000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="20be036d-2c86-4d36-9733-0bbbd3b92504">
+                        <name>James Sudakow</name>
+                        <sort-name>Sudakow, James</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="edb8bd6d-35b9-4521-84e7-7936726c3754">
+                    <title>Green</title>
+                    <status>Official</status>
+                    <release-group id="7672ef5d-9e37-3679-9dcb-63df7d08d286" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2007</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2007</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>6</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="6" offset="0">
+                                <track id="bb23dcf7-d443-3b25-950f-0fdc1d3ab399">
+                                    <number>1</number>
+                                    <title>Black</title>
+                                    <length>501000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="87cd3373-837c-451e-9ee4-0f7bf54741e6" ext:score="100">
+            <title>Black</title>
+            <length>326000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="127c8c86-e168-45fd-b378-b39cdb8d5055">
+                        <name>Bronson Arroyo</name>
+                        <sort-name>Arroyo, Bronson</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="5f7d4bf5-84ed-41d8-b39d-7b23159a55e2">
+                    <title>Covering The Bases (Deluxe Edition)</title>
+                    <status>Official</status>
+                    <release-group id="14915aed-8abb-3dc0-9fec-07433a8275dc" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <medium-list>
+                        <track-count>16</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="16" offset="4">
+                                <track id="0beade21-4d64-3f34-98e9-0940b045a225">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>326000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="28bb2c4f-b06c-4f86-aca9-bcffb5dc2e7a" ext:score="100">
+            <title>Black</title>
+            <length>191000</length>
+            <artist-credit>
+                <name-credit>
+                    <name>Dam-Funk</name>
+                    <artist id="6d6d607e-679a-4cdc-a7a0-35e2abe06619">
+                        <name>DâM-FunK</name>
+                        <sort-name>DâM-FunK</sort-name>
+                        <alias-list>
+                            <alias sort-name="Dam-Funk">Dam-Funk</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="b099c5c4-3009-4fa7-937e-5c9209508675">
+                    <title>Rhythm Trax, Volume IV</title>
+                    <status>Official</status>
+                    <release-group id="dfd65ee1-a291-3c8b-9f73-d1b0c5484136" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2008</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2008</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>8</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>12" Vinyl</format>
+                            <track-list count="8" offset="1">
+                                <track id="eda677e6-25d4-3f16-985f-ab229088eb6c">
+                                    <number>2</number>
+                                    <title>Black</title>
+                                    <length>191000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="82aa00b6-a50b-48e0-9c26-9d7912b009cc" ext:score="100">
+            <title>Black</title>
+            <length>281000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="9fa07bb4-8312-4cd7-a19a-4fdbc5797148">
+                        <name>Okkervil River</name>
+                        <sort-name>Okkervil River</sort-name>
+                        <alias-list>
+                            <alias sort-name="Okervil River">Okervil River</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="1e83e860-2f46-4d71-b226-e0468d9c5a98">
+                    <title>An Okkervil River Primer</title>
+                    <status>Promotion</status>
+                    <release-group id="caab22bc-b307-34b2-b5e5-d82656d60b26" type="Compilation">
+                        <primary-type>Album</primary-type>
+                        <secondary-type-list>
+                            <secondary-type>Compilation</secondary-type>
+                        </secondary-type-list>
+                    </release-group>
+                    <date>2006</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2006</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>7</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="7" offset="4">
+                                <track id="1474b793-ed92-325f-86af-84d4795ee5b0">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>281000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="f736c46d-6388-4ca2-9b44-98192e741e11" ext:score="100">
+            <title>Black</title>
+            <artist-credit>
+                <name-credit>
+                    <artist id="ef376f0e-d8b8-44b3-bdc9-9102b6486ec5">
+                        <name>Busta Flex</name>
+                        <sort-name>Busta Flex</sort-name>
+                        <alias-list>
+                            <alias sort-name="Bustaflex">Bustaflex</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="feae4ed9-4348-439a-b1c4-e26e132066a5">
+                    <title>Niroshima - Chef d'orchestre</title>
+                    <status>Official</status>
+                    <artist-credit>
+                        <name-credit>
+                            <artist id="89ad4ac3-39f7-470e-963a-56509c546377">
+                                <name>Various Artists</name>
+                                <sort-name>Various Artists</sort-name>
+                            </artist>
+                        </name-credit>
+                    </artist-credit>
+                    <release-group id="ec3aed46-6f67-3db3-88cd-15f30543a12a" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2000</date>
+                    <country>FR</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2000</date>
+                            <area id="08310658-51eb-3801-80de-5a0739207115">
+                                <name>France</name>
+                                <sort-name>France</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>FR</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>16</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="16" offset="9">
+                                <track id="2bdd383c-ce39-35b3-8696-30a2f01c298d">
+                                    <number>10</number>
+                                    <title>Black</title>
+                                    <length>0</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="3f2aa9b7-2eb7-4464-84c9-f3a147c5dc6b" ext:score="100">
+            <title>Black</title>
+            <length>355000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5006d144-3095-4274-a45f-692860999765">
+                        <name>Chris Bulman</name>
+                        <sort-name>Chris Bulman</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="67489602-715f-4484-b6ef-4561ad99b057">
+                    <title>Colour of Nite EP</title>
+                    <status>Official</status>
+                    <release-group id="2ff2efde-8ca6-319f-a1e2-4f44ee3cd8b9" type="EP">
+                        <primary-type>EP</primary-type>
+                    </release-group>
+                    <date>2008-09-25</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2008-09-25</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>5</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>Digital Media</format>
+                            <track-list count="5" offset="1">
+                                <track id="6ca75048-2513-3024-8b85-f42d4473021e">
+                                    <number>2</number>
+                                    <title>Black</title>
+                                    <length>355000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="542bc7d6-79a3-4037-bbd6-b4ecc86c4277" ext:score="100">
+            <title>Black</title>
+            <length>292000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="8e23d452-16e8-416e-bd32-faa6574cdf82">
+                        <name>Caspar Houser</name>
+                        <sort-name>Caspar Houser</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="cb714980-d70e-4fd4-81bc-ee3769cc65f3">
+                    <title>Trance Sylvania 4</title>
+                    <status>Official</status>
+                    <artist-credit>
+                        <name-credit>
+                            <artist id="89ad4ac3-39f7-470e-963a-56509c546377">
+                                <name>Various Artists</name>
+                                <sort-name>Various Artists</sort-name>
+                            </artist>
+                        </name-credit>
+                    </artist-credit>
+                    <release-group id="094a62e4-ae89-3989-99af-679e3c3751bf" type="Compilation">
+                        <primary-type>Album</primary-type>
+                        <secondary-type-list>
+                            <secondary-type>Compilation</secondary-type>
+                        </secondary-type-list>
+                    </release-group>
+                    <date>1994</date>
+                    <country>DE</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>1994</date>
+                            <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                                <name>Germany</name>
+                                <sort-name>Germany</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>DE</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>32</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="10" offset="6">
+                                <track id="dd239314-08c9-39ac-97dc-590e154bbc25">
+                                    <number>7</number>
+                                    <title>Black</title>
+                                    <length>292000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="9be825cf-5d55-48df-bc3c-de7d3b6667e5" ext:score="100">
+            <title>Black</title>
+            <length>220000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="f3b2a27e-af3b-45c9-9a52-7e5a2f78a4ed">
+                        <name>Naked Truth</name>
+                        <sort-name>Naked Truth</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="80b36156-d955-4028-8964-67be99d6b703">
+                    <title>Metalopolis, Volume 1</title>
+                    <status>Official</status>
+                    <artist-credit>
+                        <name-credit>
+                            <artist id="89ad4ac3-39f7-470e-963a-56509c546377">
+                                <name>Various Artists</name>
+                                <sort-name>Various Artists</sort-name>
+                            </artist>
+                        </name-credit>
+                    </artist-credit>
+                    <release-group id="253809a6-b175-3bdd-a2d2-2e632a11af5f" type="Compilation">
+                        <primary-type>Album</primary-type>
+                        <secondary-type-list>
+                            <secondary-type>Compilation</secondary-type>
+                        </secondary-type-list>
+                    </release-group>
+                    <date>1994</date>
+                    <country>BE</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>1994</date>
+                            <area id="5b8a5ee5-0bb3-34cf-9a75-c27c44e341fc">
+                                <name>Belgium</name>
+                                <sort-name>Belgium</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>BE</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>17</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="17" offset="16">
+                                <track id="dd4cd60a-4c0d-3758-b560-515c757c258b">
+                                    <number>17</number>
+                                    <title>Black</title>
+                                    <length>220000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="42297f1b-7508-436d-af15-a0a7d4cc5631" ext:score="100">
+            <title>Black</title>
+            <length>183000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="de23595f-0886-4c73-a62c-3590208161a8">
+                        <name>Sissies</name>
+                        <sort-name>Sissies</sort-name>
+                        <disambiguation>German heavy rock band</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="517e7fd1-ed87-4d15-8175-74fbd4c1e328">
+                    <title>The Juice</title>
+                    <status>Official</status>
+                    <release-group id="cbd207ef-0727-38b2-b44b-da955ea5349e" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2003-09-01</date>
+                    <country>DE</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2003-09-01</date>
+                            <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                                <name>Germany</name>
+                                <sort-name>Germany</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>DE</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>12</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="12" offset="8">
+                                <track id="4efd1f26-c56b-33ee-827b-62b4be01776f">
+                                    <number>9</number>
+                                    <title>Black</title>
+                                    <length>183000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="bb632f60-5810-4f34-808a-15c48b1712f4" ext:score="100">
+            <title>Black</title>
+            <artist-credit>
+                <name-credit>
+                    <artist id="83b9cbe7-9857-49e2-ab8e-b57b01038103">
+                        <name>Pearl Jam</name>
+                        <sort-name>Pearl Jam</sort-name>
+                        <alias-list>
+                            <alias sort-name="Mookie Blaylock">Mookie Blaylock</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="7468623e-c70f-45cc-b216-83ead8ae7dd5">
+                    <title>2008-10-28: Santa Barbara County Bowl, CA, USA</title>
+                    <status>Bootleg</status>
+                    <release-group id="feb738fd-14a7-3207-859f-b0bab2f83a96" type="Live">
+                        <primary-type>Album</primary-type>
+                        <secondary-type-list>
+                            <secondary-type>Live</secondary-type>
+                        </secondary-type-list>
+                    </release-group>
+                    <medium-list>
+                        <track-count>26</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="14" offset="12">
+                                <track id="47b6c564-7157-3db4-a1c2-cb5ec1a83a42">
+                                    <number>13</number>
+                                    <title>Black</title>
+                                    <length>0</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="6e262777-b08d-4597-a30f-22a6461ced2b" ext:score="100">
+            <title>Black</title>
+            <length>338760</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="83b9cbe7-9857-49e2-ab8e-b57b01038103">
+                        <name>Pearl Jam</name>
+                        <sort-name>Pearl Jam</sort-name>
+                        <alias-list>
+                            <alias sort-name="Mookie Blaylock">Mookie Blaylock</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="06fc304e-d70a-4846-93e5-544d6aa618d6">
+                    <title>Ten</title>
+                    <status>Official</status>
+                    <release-group id="cea5d18a-1924-3cda-bebc-38933834b25d" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2009-03-23</date>
+                    <country>GB</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2009-03-23</date>
+                            <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                                <name>United Kingdom</name>
+                                <sort-name>United Kingdom</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>GB</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>28</track-count>
+                        <medium>
+                            <position>2</position>
+                            <format>CD</format>
+                            <track-list count="17" offset="4">
+                                <track id="db7a8ead-4a8e-30a3-964e-951c0e09c102">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>338760</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+                <release id="ecd14b89-defc-302b-923c-00937ca24bb8">
+                    <title>Ten</title>
+                    <status>Official</status>
+                    <release-group id="cea5d18a-1924-3cda-bebc-38933834b25d" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2009-03-24</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2009-03-24</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>28</track-count>
+                        <medium>
+                            <position>2</position>
+                            <format>CD</format>
+                            <track-list count="17" offset="4">
+                                <track id="c4b4f487-cab0-3907-95cb-9dab25b5850c">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>338760</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+                <release id="97a2952b-51f6-3e84-a6fe-f6c90a45f09f">
+                    <title>Ten</title>
+                    <status>Official</status>
+                    <release-group id="cea5d18a-1924-3cda-bebc-38933834b25d" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2009-03-20</date>
+                    <country>DE</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2009-03-20</date>
+                            <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                                <name>Germany</name>
+                                <sort-name>Germany</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>DE</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>35</track-count>
+                        <medium>
+                            <position>2</position>
+                            <format>CD</format>
+                            <track-list count="17" offset="4">
+                                <track id="4264f58a-a41c-38b6-b277-be81e26afbcd">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>338760</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+                <release id="1989eada-2c3c-454f-b6fe-16b1ac05cc45">
+                    <title>Ten</title>
+                    <status>Official</status>
+                    <release-group id="cea5d18a-1924-3cda-bebc-38933834b25d" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2013</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2013</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>17</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>Digital Media</format>
+                            <track-list count="17" offset="4">
+                                <track id="315b6b41-5858-4dd9-b782-249e64a17313">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>338760</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>grunge</name>
+                </tag>
+                <tag count="1">
+                    <name>hard rock</name>
+                </tag>
+                <tag count="1">
+                    <name>pop/rock</name>
+                </tag>
+                <tag count="1">
+                    <name>alternative/indie rock</name>
+                </tag>
+                <tag count="2">
+                    <name>alternative pop/rock</name>
+                </tag>
+            </tag-list>
+        </recording>
+        <recording id="c2315888-7d4b-496b-b6f4-bc769bc9e527" ext:score="100">
+            <title>Black+7</title>
+            <length>257000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="eba901e3-ac96-4503-9b40-b499326f929c">
+                        <name>Kristo Numpuby</name>
+                        <sort-name>Numpuby, Kristo</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="0cf7652f-6326-4bdd-a1d5-7a3f17bf7a91">
+                    <title>An Sol Mè</title>
+                    <status>Official</status>
+                    <release-group id="6f5854fc-7489-38b6-ad11-e8960e35b553" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2001-02-19</date>
+                    <country>FR</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2001-02-19</date>
+                            <area id="08310658-51eb-3801-80de-5a0739207115">
+                                <name>France</name>
+                                <sort-name>France</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>FR</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>12</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="12" offset="8">
+                                <track id="8374c043-8b94-3dd7-b557-39bb144092af">
+                                    <number>9</number>
+                                    <title>Black+7</title>
+                                    <length>257000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="f7bc98c6-fe97-4fde-9949-8e913ebf7871" ext:score="100">
+            <title>Black</title>
+            <length>237000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="24cf1eac-69b5-4cdf-9ad3-792b495106b4">
+                        <name>Rabbit Junk</name>
+                        <sort-name>Rabbit Junk</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="9ead549d-f1f6-49d9-9a9c-85edfa70284a">
+                    <title>This Life Is Where You Get F__ked</title>
+                    <status>Official</status>
+                    <release-group id="1b0acdcd-77a8-3a4d-ae16-b6ffc5e98054" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2008-02-11</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2008-02-11</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>12</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="12" offset="5">
+                                <track id="1bdb602d-8d96-3fe3-9361-b0b282ab8411">
+                                    <number>6</number>
+                                    <title>Black</title>
+                                    <length>237000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="422af18d-fc2f-479f-83f0-f42a99d928bf" ext:score="100">
+            <title>Black</title>
+            <length>275120</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="8577c385-d06a-4a64-b4e7-6ebf25f2cb20">
+                        <name>The Dream Syndicate</name>
+                        <sort-name>Dream Syndicate, The</sort-name>
+                        <alias-list>
+                            <alias sort-name="Dream Syndicate">Dream Syndicate</alias>
+                            <alias sort-name="The Days Of Wine And Roses">The Days Of Wine And Roses</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="4526e313-c9df-4a7a-bc2e-c1f427380052">
+                    <title>Ghost Stories</title>
+                    <status>Official</status>
+                    <release-group id="5133894e-98c5-3a38-8644-e20bddfc844d" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2004</date>
+                    <country>GB</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2004</date>
+                            <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                                <name>United Kingdom</name>
+                                <sort-name>United Kingdom</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>GB</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>18</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="18" offset="8">
+                                <track id="e0dfaf4b-f67a-3020-9022-187aff0af819">
+                                    <number>9</number>
+                                    <title>Black</title>
+                                    <length>275120</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="2f2a892d-789c-4267-ad78-01c082e50612" ext:score="100">
+            <title>Black</title>
+            <artist-credit>
+                <name-credit>
+                    <artist id="f95381db-c4ae-45d0-a053-64752f639290">
+                        <name>Trees</name>
+                        <sort-name>Trees</sort-name>
+                        <disambiguation>Extreme Drone/Doom Metal from the US</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="7df28a20-e2d4-432e-9894-338e310202a4">
+                    <title>Light's Bane</title>
+                    <status>Official</status>
+                    <release-group id="d3b55fb2-2741-32db-9d28-81e5adf9e647" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2008-05-06</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2008-05-06</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>2</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="2" offset="1">
+                                <track id="2ba45a92-a252-3d51-9eb9-886ea6f9dc73">
+                                    <number>2</number>
+                                    <title>Black</title>
+                                    <length>744186</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+                <release id="d26a0e03-cf2f-3a1c-ba90-3db16cb605ca">
+                    <title>Light's Bane</title>
+                    <status>Official</status>
+                    <release-group id="d3b55fb2-2741-32db-9d28-81e5adf9e647" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2008-05-06</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2008-05-06</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>2</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>Vinyl</format>
+                            <track-list count="2" offset="1">
+                                <track id="1ce45783-00ec-3567-9d78-b4be0107a576">
+                                    <number>2</number>
+                                    <title>Black</title>
+                                    <length>744186</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="cbab6698-7175-4e44-83c7-f9d3299ec764" ext:score="100">
+            <title>Black</title>
+            <length>67493</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="767e4492-183d-4d16-b0ea-b27995e7264c">
+                        <name>GridLink</name>
+                        <sort-name>GridLink</sort-name>
+                        <alias-list>
+                            <alias sort-name="Grindlink">Grindlink</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="d3c660b3-a504-4231-bfd9-23a4998ccecb">
+                    <title>Amber Gray</title>
+                    <status>Official</status>
+                    <release-group id="a93ebec3-f466-3151-80b7-ad7393acd388" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2008-06-17</date>
+                    <country>US</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2008-06-17</date>
+                            <area id="489ce91b-6658-3307-9877-795b68554c98">
+                                <name>United States</name>
+                                <sort-name>United States</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>US</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>11</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>CD</format>
+                            <track-list count="11" offset="4">
+                                <track id="207c9acd-891c-3c5c-9c44-6ebd71655115">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>67493</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="cd9cd22f-387b-4cfe-bd7a-8a2d5edbade7" ext:score="100">
+            <title>Black</title>
+            <length>204213</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="93afd327-66ed-4975-a918-2a9e0cecf3f1">
+                        <name>IG Culture</name>
+                        <sort-name>IG Culture</sort-name>
+                        <alias-list>
+                            <alias sort-name="I.G. Culture">I.G. Culture</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="440a3482-9322-4288-899b-ea564ace22ce">
+                    <title>Zen Badizm</title>
+                    <status>Official</status>
+                    <release-group id="cf6d5d35-008e-38c1-a0dc-a341caa81561" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <medium-list>
+                        <track-count>13</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="13" offset="0">
+                                <track id="f000c881-6595-33ae-a96e-e5c15ed9782e">
+                                    <number>1</number>
+                                    <title>Black</title>
+                                    <length>204213</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="251acde0-1d86-4b0d-a84d-670ded13cbb9" ext:score="100">
+            <title>Black</title>
+            <length>227000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="6cf94d46-b677-488e-965d-700eea9ed8cc">
+                        <name>The Tenth Stage</name>
+                        <sort-name>Tenth Stage, The</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="53fc7efb-3a0a-4339-9a93-c7b67085f415">
+                    <title>Grand Guignol</title>
+                    <status>Official</status>
+                    <release-group id="ad987277-2729-3fde-ab8a-e0cc4cb2bece" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <medium-list>
+                        <track-count>15</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="15" offset="7">
+                                <track id="f0765a48-897b-3487-9596-a47ecd8aa02c">
+                                    <number>8</number>
+                                    <title>Black</title>
+                                    <length>227000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="d0a62d2b-001a-4128-9446-94280f407b3d" ext:score="100">
+            <title>Black</title>
+            <length>274000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="b9faa84e-2b8e-46ea-be10-12b3d54dd363">
+                        <name>Minimal List</name>
+                        <sort-name>Minimal List</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="9aef5a43-70db-47d0-9069-869aca0b11ba">
+                    <title>No Return</title>
+                    <status>Official</status>
+                    <release-group id="88468313-2129-3f10-ac62-59a985bbf7b2" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2009-02-13</date>
+                    <country>XW</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2009-02-13</date>
+                            <area id="525d4e18-3d00-31b9-a58b-a146a916de8f">
+                                <name>[Worldwide]</name>
+                                <sort-name>[Worldwide]</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>XW</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>11</track-count>
+                        <medium>
+                            <position>1</position>
+                            <format>Digital Media</format>
+                            <track-list count="11" offset="5">
+                                <track id="2b8bf14e-88eb-310d-b1a0-f0bc292fc368">
+                                    <number>6</number>
+                                    <title>Black</title>
+                                    <length>274000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="d392d6a9-2fa1-4fa4-9fee-a80d3db85994" ext:score="100">
+            <title>Black</title>
+            <length>234000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="d63e2820-70e3-4b7e-88f3-79fe24bcd7e0">
+                        <name>MaB</name>
+                        <sort-name>MaB</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="f15da86d-af7c-4889-90bb-6880f38acd5b">
+                    <title>Decay</title>
+                    <status>Official</status>
+                    <release-group id="08a95869-953e-3024-8702-d041ae7531fc" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <date>2007</date>
+                    <country>IT</country>
+                    <release-event-list>
+                        <release-event>
+                            <date>2007</date>
+                            <area id="c6500277-9a3d-349b-bf30-41afdbf42add">
+                                <name>Italy</name>
+                                <sort-name>Italy</sort-name>
+                                <iso-3166-1-code-list>
+                                    <iso-3166-1-code>IT</iso-3166-1-code>
+                                </iso-3166-1-code-list>
+                            </area>
+                        </release-event>
+                    </release-event-list>
+                    <medium-list>
+                        <track-count>10</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="10" offset="4">
+                                <track id="e1acbaaf-84eb-3316-bb0c-1c139258df12">
+                                    <number>5</number>title>Black</title>
+                                <length>234000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+        <recording id="fc51461d-a8c8-4f59-8cd9-fac47de9c2d5" ext:score="100">
+            <title>Black</title>
+            <length>341000</length>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5dcd5f7d-ae13-4948-ad9e-459ef21ba4be">
+                        <name>Illuminatus</name>
+                        <sort-name>Illuminatus</sort-name>
+                        <disambiguation>Nottingham Pink Metal</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list>
+                <release id="98f0a1fe-5bbf-4d70-83c5-e9e42888be33">
+                    <title>The Wrath of the Lambs</title>
+                    <status>Official</status>
+                    <release-group id="c464ef5d-d37a-3880-8af8-6acb94868c3d" type="Album">
+                        <primary-type>Album</primary-type>
+                    </release-group>
+                    <medium-list>
+                        <track-count>9</track-count>
+                        <medium>
+                            <position>1</position>
+                            <track-list count="9" offset="4">
+                                <track id="cf88fe14-167f-39cd-b107-90b5763e7bf3">
+                                    <number>5</number>
+                                    <title>Black</title>
+                                    <length>341000</length>
+                                </track>
+                            </track-list>
+                        </medium>
+                    </medium-list>
+                </release>
+            </release-list>
+        </recording>
+    </recording-list>
+</metadata>

@@ -61,6 +61,10 @@ class Alias
      */
     protected $type;
 
+    protected $beginDate;
+
+    protected $endDate;
+
     /**
      * Return the locale
      *
