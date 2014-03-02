@@ -25,6 +25,7 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Artist;
+use Zend\Filter\Word\DashToCamelCase;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -102,59 +103,24 @@ class ArtistStrategy implements StrategyInterface
      *
      * @return Artist|null
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        if (isset($value['id'])) {
-            $value['mbid'] = $value['id'];
-            unset($value['id']);
+
+        $filter = new DashToCamelCase();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+        
+        if (isset($filtered['id'])) {
+            $filtered['mbid'] = $filtered['id'];
+            unset($filtered['id']);
         }
-        if (isset($value['sort-name'])) {
-            $value['sortName'] = $value['sort-name'];
-            unset($value['sort-name']);
-        }
-        if (isset($value['begin-area'])) {
-            $value['beginArea'] = $value['begin-area'];
-            unset($value['begin-area']);
-        }
-        if (isset($value['life-span'])) {
-            $value['lifeSpan'] = $value['life-span'];
-            unset($value['life-span']);
-        }
-        if (isset($value['alias-list'])) {
-            $value['aliasList'] = $value['alias-list'];
-            unset($value['alias-list']);
-        }
-        if (isset($value['tag-list'])) {
-            $value['tagList'] = $value['tag-list'];
-            unset($value['tag-list']);
-        }
-        if (isset($value['ipi-list'])) {
-            $value['ipiList'] = $value['ipi-list'];
-            unset($value['ipi-list']);
-        }
-        if (isset($value['isni-list'])) {
-            $value['isniList'] = $value['isni-list'];
-            unset($value['isni-list']);
-        }
-        if (isset($value['recording-list'])) {
-            $value['recordingList'] = $value['recording-list'];
-            unset($value['recording-list']);
-        }
-        if (isset($value['release-list'])) {
-            $value['releaseList'] = $value['release-list'];
-            unset($value['release-list']);
-        }
-        if (isset($value['release-group-list'])) {
-            $value['releaseGroupList'] = $value['release-group-list'];
-            unset($value['release-group-list']);
-        }
-        if (isset($value['work-list'])) {
-            $value['workList'] = $value['work-list'];
-            unset($value['work-list']);
-        }
-        return $this->getHydrator()->hydrate($value, new Artist());
+        return $this->getHydrator()->hydrate($filtered, new Artist());
     }
 }
