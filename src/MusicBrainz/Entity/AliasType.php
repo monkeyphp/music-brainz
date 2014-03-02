@@ -1,7 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+/**
+ * AliasType.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,24 +26,56 @@ namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
+
 /**
- * Description of AliasType
+ * AliasType
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class AliasType
 {
+    /**
+     * The value of the AliasType
+     *
+     * @var string
+     */
     protected $aliasType;
 
+    /**
+     * An array of valid alias types
+     *
+     * @var array
+     */
     public static $aliasTypes = array(
-        ConnectorInterface::ALIAS_TYPE_AREA_NAME
+        ConnectorInterface::ALIAS_TYPE_AREA_NAME,
+        ConnectorInterface::ALIAS_TYPE_LABEL_NAME
     );
 
+    /**
+     * Constructor
+     *
+     * @param string $type
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($type)
     {
         if (! is_string($type) || !in_array($type, static::$aliasTypes)) {
             throw new InvalidArgumentException('Invalid type supplied');
         }
         $this->aliasType = $type;
+    }
+
+    /**
+     * Return a string representation of the AliasType
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->aliasType;
     }
 }
