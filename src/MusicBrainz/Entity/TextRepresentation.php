@@ -74,7 +74,7 @@ class TextRepresentation
      *
      * @return TextRepresentation
      */
-    public function setLanguage(Language $language)
+    public function setLanguage(Language $language = null)
     {
         $this->language = $language;
         return $this;
@@ -87,7 +87,7 @@ class TextRepresentation
      *
      * @return TextRepresentation
      */
-    public function setScript(Script $script)
+    public function setScript(Script $script = null)
     {
         $this->script = $script;
         return $this;
