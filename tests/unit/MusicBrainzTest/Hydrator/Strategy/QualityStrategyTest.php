@@ -24,6 +24,7 @@
  */
 namespace MusicBrainzTest\Hydrator\Strategy;
 
+use MusicBrainz\Hydrator\Strategy\QualityStrategy;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -35,5 +36,12 @@ use PHPUnit_Framework_TestCase;
  */
 class QualityStrategyTest extends PHPUnit_Framework_TestCase
 {
-    
+    public function testHydrate()
+    {
+        $qualityStrategy = new QualityStrategy();
+
+        $quality = $qualityStrategy->hydrate('high');
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\Quality', $quality);
+    }
 }
