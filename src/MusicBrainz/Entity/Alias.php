@@ -161,7 +161,7 @@ class Alias
      *
      * @return Alias
      */
-    public function setType(AliasType $type)
+    public function setType(AliasType $type = null)
     {
         $this->type = $type;
         return $this;
