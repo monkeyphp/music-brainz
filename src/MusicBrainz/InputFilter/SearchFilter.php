@@ -199,7 +199,7 @@ class SearchFilter extends InputFilter
      * @throws InvalidArgumentException
      * @return SearchFilter
      */
-    public function setFormats(array $formats = array())
+    public function setFormats($formats = array())
     {
         if (! is_array($formats)) {
             throw new InvalidArgumentException('Expects an array');
@@ -220,9 +220,6 @@ class SearchFilter extends InputFilter
      */
     public function getFormats()
     {
-        if (! isset($this->formats)) {
-            $this->formats = array();
-        }
         return $this->formats;
     }
 

@@ -133,6 +133,48 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers \MusicBrainz\InputFilter\SearchFilter::getLimitMin
+     */
+    public function testGetLimitMin()
+    {
+        $searchFilter = new SearchFilter();
+
+        $this->assertInternalType('int', $searchFilter->getLimitMin());
+    }
+
+    /**
+     * @covers \MusicBrainz\InputFilter\SearchFilter::getLimitMax
+     */
+    public function testGetLimitMax()
+    {
+        $searchFilter = new SearchFilter();
+
+        $this->assertInternalType('int', $searchFilter->getLimitMax());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMax
+     */
+    public function testSetLimitMaxTooLowThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setLimitMax(-100);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setLimitMax
+     */
+    public function testSetLimitMaxTooHighThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setLimitMax(1000);
+    }
+
+    /**
      * Test that we can set and get the formats
      *
      * @covers \MusicBrainz\InputFilter\SearchFilter::getFormats
@@ -146,6 +188,40 @@ class SearchFilterTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($searchFilter->getFormats());
         $this->assertSame($searchFilter, $searchFilter->setFormats($formats));
         $this->assertCount(count($formats), $searchFilter->getFormats());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setFormats
+     */
+    public function testSetFormatsNotArrayThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setFormats(new stdClass());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\InputFilter\SearchFilter::setFormats
+     */
+    public function testSetFormatsNotStringThrowsException()
+    {
+        $searchFilter = new SearchFilter();
+
+        $searchFilter->setFormats(array(new stdClass()));
+    }
+
+    /**
+     * Test that we can get the empty formats array
+     *
+     * @covers \MusicBrainz\InputFilter\SearchFilter::getFormats
+     */
+    public function testGetFormats()
+    {
+        $searchFilter = new SearchFilter();
+
+        $this->assertInternalType('array', $searchFilter->getFormats());
     }
 
     /**
