@@ -26,6 +26,7 @@ namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Entity\Title;
 use PHPUnit_Framework_TestCase;
+use stdClass;
 
 /**
  * TitleTest
@@ -47,5 +48,25 @@ class TitleTest extends PHPUnit_Framework_TestCase
         $title = new Title($string);
 
         $this->assertInstanceOf('\MusicBrainz\Entity\Title', $title);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Title::__construct
+     */
+    public function test__constructThrowsException()
+    {
+        $title = new Title(new stdClass());
+    }
+
+    /**
+     * @covers \MusicBrainz\Entity\Title::__toString
+     */
+    public function test__toString()
+    {
+        $string = 'Americana';
+        $title = new Title($string);
+
+        $this->assertEquals($string, $title);
     }
 }
