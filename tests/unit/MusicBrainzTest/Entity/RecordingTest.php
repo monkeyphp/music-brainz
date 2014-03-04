@@ -24,6 +24,13 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Entity\ArtistCredit;
+use MusicBrainz\Entity\Disambiguation;
+use MusicBrainz\Entity\Length;
+use MusicBrainz\Entity\Mbid;
+use MusicBrainz\Entity\Recording;
+use MusicBrainz\Entity\ReleaseList;
+use MusicBrainz\Entity\Title;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -43,12 +50,92 @@ class RecordingTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetMbid()
     {
-        $recording = new \MusicBrainz\Entity\Recording();
+        $recording = new Recording();
         $string = '930246f5-a2c8-4499-971c-5b6d84d5d0df';
-        $mbid = new \MusicBrainz\Entity\Mbid($string);
+        $mbid = new Mbid($string);
 
         $this->assertNull($recording->getMbid());
         $this->assertSame($recording, $recording->setMbid($mbid));
         $this->assertSame($mbid, $recording->getMbid());
+    }
+
+    /**
+     * Test that we can get and set the Title
+     *
+     * @covers \MusicBrainz\Entity\Recording::getTitle
+     * @covers \MusicBrainz\Entity\Recording::setTitle
+     */
+    public function testGetSetTitle()
+    {
+        $recording = new Recording();
+        $title = new Title('Black');
+
+        $this->assertNull($recording->getTitle());
+        $this->assertSame($recording, $recording->setTitle($title));
+        $this->assertSame($title, $recording->getTitle());
+    }
+
+    /**
+     * Test that we can get and set the Length
+     *
+     * @covers \MusicBrainz\Entity\Recording::getLength
+     * @covers \MusicBrainz\Entity\Recording::setLength
+     */
+    public function testGetSetLength()
+    {
+        $recording = new Recording();
+        $length = new Length(205000);
+
+        $this->assertNull($recording->getLength());
+        $this->assertSame($recording, $recording->setLength($length));
+        $this->assertSame($length, $recording->getLength());
+    }
+
+    /**
+     * Test that we can get and set the Disambiguation
+     *
+     * @covers \MusicBrainz\Entity\Recording::getDisambiguation
+     * @covers \MusicBrainz\Entity\Recording::setDisambiguation
+     */
+    public function testGetSetDisambiguation()
+    {
+        $recording = new Recording();
+        $disambiguation = new Disambiguation('a disambiguation');
+
+        $this->assertNull($recording->getDisambiguation());
+        $this->assertSame($recording, $recording->setDisambiguation($disambiguation));
+        $this->assertSame($disambiguation, $recording->getDisambiguation());
+    }
+
+    /**
+     * Test that we can get and set the ArtistCredit
+     *
+     * @covers \MusicBrainz\Entity\Recording::getArtistCredit
+     * @covers \MusicBrainz\Entity\Recording::setArtistCredit
+     */
+    public function testGetSetArtistCredit()
+    {
+        $recording = new Recording();
+        $artistCredit = new ArtistCredit();
+
+        $this->assertNull($recording->getArtistCredit());
+        $this->assertSame($recording, $recording->setArtistCredit($artistCredit));
+        $this->assertSame($artistCredit, $recording->getArtistCredit());
+    }
+
+    /**
+     * Test that we can get and set the ReleaseList
+     *
+     * @covers \MusicBrainz\Entity\Recording::getReleaseList
+     * @covers \MusicBrainz\Entity\Recording::setReleaseList
+     */
+    public function testGetSetReleaseList()
+    {
+        $recording = new Recording();
+        $releaseList = new ReleaseList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseList', $recording->getReleaseList());
+        $this->assertSame($recording, $recording->setReleaseList($releaseList));
+        $this->assertSame($releaseList, $recording->getReleaseList());
     }
 }

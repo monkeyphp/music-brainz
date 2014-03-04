@@ -122,7 +122,7 @@ class Recording
      *
      * @return Recording
      */
-    public function setMbid(Mbid $mbid)
+    public function setMbid(Mbid $mbid = null)
     {
         $this->mbid = $mbid;
         return $this;
@@ -135,7 +135,7 @@ class Recording
      *
      * @return Recording
      */
-    public function setTitle(Title $title)
+    public function setTitle(Title $title = null)
     {
         $this->title = $title;
         return $this;
@@ -148,7 +148,7 @@ class Recording
      *
      * @return Recording
      */
-    public function setLength(Length $length)
+    public function setLength(Length $length = null)
     {
         $this->length = $length;
         return $this;
@@ -161,7 +161,7 @@ class Recording
      *
      * @return Recording
      */
-    public function setDisambiguation(Disambiguation $disambiguation)
+    public function setDisambiguation(Disambiguation $disambiguation = null)
     {
         $this->disambiguation = $disambiguation;
         return $this;
@@ -179,11 +179,14 @@ class Recording
 
     /**
      * Return the ReleaseList
-     * 
+     *
      * @return ReleaseList
      */
     public function getReleaseList()
     {
+        if (! isset($this->releaseList)) {
+            $this->releaseList = new ReleaseList();
+        }
         return $this->releaseList;
     }
 
@@ -209,9 +212,6 @@ class Recording
      */
     public function setReleaseList(ReleaseList $releaseList = null)
     {
-        if (! isset($this->releaseList)) {
-            $this->releaseList = new ReleaseList();
-        }
         $this->releaseList = $releaseList;
         return $this;
     }
