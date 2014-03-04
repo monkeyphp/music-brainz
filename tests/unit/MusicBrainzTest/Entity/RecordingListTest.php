@@ -70,4 +70,34 @@ class RecordingListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($recordingList, $recordingList->addRecording($recording));
         $this->assertNotEmpty($recordingList->getRecordings());
     }
+
+    /**
+     * Test the iterator implementation
+     *
+     * @covers \MusicBrainz\Entity\RecordingList::current
+     * @covers \MusicBrainz\Entity\RecordingList::rewind
+     * @covers \MusicBrainz\Entity\RecordingList::next
+     * @covers \MusicBrainz\Entity\RecordingList::valid
+     * @covers \MusicBrainz\Entity\RecordingList::key
+     */
+    public function testIterator()
+    {
+        $recordingList = new RecordingList();
+        $recordings = array(
+            new Recording(),
+            new Recording(),
+            new Recording()
+        );
+
+        $this->assertEmpty($recordingList->getRecordings());
+        $this->assertSame($recordingList, $recordingList->setRecordings($recordings));
+
+        $count = 0;
+        foreach ($recordingList as $recording) {
+            $this->assertInstanceOf('\MusicBrainz\Entity\Recording', $recording);
+            $count++;
+        }
+
+        $this->assertCount($count, $recordings);
+    }
 }
