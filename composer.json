@@ -12,16 +12,16 @@
         }
     ],
     "require": {
-        "zendframework/zend-stdlib"         : "2.2.*",
-        "zendframework/zend-uri"            : "2.2.*",
-        "zendframework/zend-validator"      : "2.2.*",
-        "zendframework/zend-escaper"        : "2.2.*",
-        "zendframework/zend-inputfilter"    : "2.2.*",
-        "zendframework/zend-loader"         : "2.2.*",
-        "zendframework/zend-http"           : "2.2.*",
-        "zendframework/zend-config"         : "2.2.*",
-        "zendframework/zend-servicemanager" : "2.2.*",
-        "zendframework/zend-eventmanager"   : "2.2.*"
+        "zendframework/zend-stdlib"         : "2.3.*",
+        "zendframework/zend-uri"            : "2.3.*",
+        "zendframework/zend-validator"      : "2.3.*",
+        "zendframework/zend-escaper"        : "2.3.*",
+        "zendframework/zend-inputfilter"    : "2.3.*",
+        "zendframework/zend-loader"         : "2.3.*",
+        "zendframework/zend-http"           : "2.3.*",
+        "zendframework/zend-config"         : "2.3.*",
+        "zendframework/zend-servicemanager" : "2.3.*",
+        "zendframework/zend-eventmanager"   : "2.3.*"
     },
     "require-dev": {
         "phpunit/phpunit"           : "3.7.31",

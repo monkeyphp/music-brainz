@@ -35,7 +35,6 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class ArtistStrategy implements StrategyInterface
 {
@@ -116,7 +115,7 @@ class ArtistStrategy implements StrategyInterface
             $_ = lcfirst($filter->filter($key));
             $filtered[$_] = $value;
         });
-        
+
         if (isset($filtered['id'])) {
             $filtered['mbid'] = $filtered['id'];
             unset($filtered['id']);
