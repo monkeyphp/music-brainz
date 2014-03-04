@@ -1,6 +1,6 @@
 <?php
 /**
- * NameCreditTest.php
+ * RecordingTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -24,32 +24,31 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\Artist;
-use MusicBrainz\Entity\NameCredit;
 use PHPUnit_Framework_TestCase;
 
 /**
- * NameCreditTest
+ * RecordingTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class NameCreditTest extends PHPUnit_Framework_TestCase
+class RecordingTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can get and set the Artist
+     * Test that we can get and set the Mbid
      *
-     * @covers \MusicBrainz\Entity\NameCredit::getArtist
-     * @covers \MusicBrainz\Entity\NameCredit::setArtist
+     * @covers \MusicBrainz\Entity\Recording::getMbid
+     * @covers \MusicBrainz\Entity\Recording::setMbid
      */
-    public function testGetSetArtist()
+    public function testGetSetMbid()
     {
-        $nameCredit = new NameCredit();
-        $artist = new Artist();
+        $recording = new \MusicBrainz\Entity\Recording();
+        $string = '930246f5-a2c8-4499-971c-5b6d84d5d0df';
+        $mbid = new \MusicBrainz\Entity\Mbid($string);
 
-        $this->assertNull($nameCredit->getArtist());
-        $this->assertSame($nameCredit, $nameCredit->setArtist($artist));
-        $this->assertSame($artist, $nameCredit->getArtist());
+        $this->assertNull($recording->getMbid());
+        $this->assertSame($recording, $recording->setMbid($mbid));
+        $this->assertSame($mbid, $recording->getMbid());
     }
 }

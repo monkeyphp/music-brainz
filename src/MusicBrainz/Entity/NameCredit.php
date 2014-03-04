@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "02-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * NameCredit.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,16 +23,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Entity;
+
 /**
- * Description of NameCredit
+ * NameCredit
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class NameCredit
 {
     /**
+     * Instance of Artist
      *
      * @var Artist
      */
     protected $artist;
+
+    /**
+     * Return the Artist instance
+     *
+     * @return Artist|null
+     */
+    public function getArtist()
+    {
+        return $this->artist;
+    }
+
+    /**
+     * Set the Artist instance
+     *
+     * @param Artist|null $artist
+     *
+     * @return NameCredit
+     */
+    public function setArtist(Artist $artist = null)
+    {
+        $this->artist = $artist;
+        return $this;
+    }
 }

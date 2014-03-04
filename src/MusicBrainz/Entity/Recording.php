@@ -62,6 +62,20 @@ class Recording
     protected $disambiguation;
 
     /**
+     * Instance of ArtistCredit
+     *
+     * @var ArtistCredit|null
+     */
+    protected $artistCredit;
+
+    /**
+     * Instance of ReleaseList
+     *
+     * @var ReleaseList
+     */
+    protected $releaseList;
+
+    /**
      * Return the Mbid value
      *
      * @return Mbid|null
@@ -150,6 +164,55 @@ class Recording
     public function setDisambiguation(Disambiguation $disambiguation)
     {
         $this->disambiguation = $disambiguation;
+        return $this;
+    }
+
+    /**
+     * Return the ArtistCredit
+     *
+     * @return ArtistCredit|null
+     */
+    public function getArtistCredit()
+    {
+        return $this->artistCredit;
+    }
+
+    /**
+     * Return the ReleaseList
+     * 
+     * @return ReleaseList
+     */
+    public function getReleaseList()
+    {
+        return $this->releaseList;
+    }
+
+    /**
+     * Set the ArtistCredit
+     *
+     * @param ArtistCredit|null $artistCredit
+     *
+     * @return Recording
+     */
+    public function setArtistCredit(ArtistCredit $artistCredit = null)
+    {
+        $this->artistCredit = $artistCredit;
+        return $this;
+    }
+
+    /**
+     * Set the ReleaseList
+     *
+     * @param ReleaseList|null $releaseList
+     *
+     * @return Recording
+     */
+    public function setReleaseList(ReleaseList $releaseList = null)
+    {
+        if (! isset($this->releaseList)) {
+            $this->releaseList = new ReleaseList();
+        }
+        $this->releaseList = $releaseList;
         return $this;
     }
 }
