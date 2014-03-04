@@ -64,7 +64,7 @@ class Release
     /**
      * Instance of Barcode
      *
-     * @var Barcode
+     * @var \MusicBrainz\Entity\Barcode
      */
     protected $barcode;
 
@@ -95,6 +95,13 @@ class Release
      * @var Country
      */
     protected $country;
+
+    /**
+     * Instance of ReleaseGroup
+     *
+     * @var ReleaseGroup
+     */
+    protected $releaseGroup;
 
     /**
      * Instance of ReleaseEventList
@@ -365,6 +372,32 @@ class Release
     public function setBarcode(Barcode $barcode = null)
     {
         $this->barcode = $barcode;
+        return $this;
+    }
+
+    /**
+     * Return the ReleaseGroup instance
+     *
+     * @return ReleaseGroup
+     */
+    public function getReleaseGroup()
+    {
+        if (! isset($this->releaseGroup)) {
+            $this->releaseGroup = new ReleaseGroup();
+        }
+        return $this->releaseGroup;
+    }
+
+    /**
+     * Set the ReleaseGroup
+     *
+     * @param ReleaseGroup $releaseGroup
+     *
+     * @return Release
+     */
+    public function setReleaseGroup(ReleaseGroup $releaseGroup = null)
+    {
+        $this->releaseGroup = $releaseGroup;
         return $this;
     }
 }

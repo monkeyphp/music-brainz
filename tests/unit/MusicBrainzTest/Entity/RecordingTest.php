@@ -30,6 +30,8 @@ use MusicBrainz\Entity\Length;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Recording;
 use MusicBrainz\Entity\ReleaseList;
+use MusicBrainz\Entity\Score;
+use MusicBrainz\Entity\TagList;
 use MusicBrainz\Entity\Title;
 use PHPUnit_Framework_TestCase;
 
@@ -137,5 +139,37 @@ class RecordingTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseList', $recording->getReleaseList());
         $this->assertSame($recording, $recording->setReleaseList($releaseList));
         $this->assertSame($releaseList, $recording->getReleaseList());
+    }
+
+    /**
+     * Test that we can get and set the Score
+     *
+     * @covers \MusicBrainz\Entity\Recording::getScore
+     * @covers \MusicBrainz\Entity\Recording::setScore
+     */
+    public function testGetSetScore()
+    {
+        $recording = new Recording();
+        $score = new Score(100);
+
+        $this->assertNull($recording->getScore());
+        $this->assertSame($recording, $recording->setScore($score));
+        $this->assertSame($score, $recording->getScore());
+    }
+
+    /**
+     * Test that we can get and set the TagList
+     *
+     * @covers \MusicBrainz\Entity\Recording::getTagList
+     * @covers \MusicBrainz\Entity\Recording::setTagList
+     */
+    public function testGetSetTagList()
+    {
+        $recording = new Recording();
+        $tagList = new TagList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\TagList', $recording->getTagList());
+        $this->assertSame($recording, $recording->setTagList($tagList));
+        $this->assertSame($tagList, $recording->getTagList());
     }
 }

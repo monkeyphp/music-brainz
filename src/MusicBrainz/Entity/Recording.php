@@ -76,6 +76,20 @@ class Recording
     protected $releaseList;
 
     /**
+     * Instance of Score
+     *
+     * @var Score
+     */
+    protected $score;
+
+    /**
+     * Instance of TagList
+     *
+     * @var TagList
+     */
+    protected $tagList;
+
+    /**
      * Return the Mbid value
      *
      * @return Mbid|null
@@ -213,6 +227,55 @@ class Recording
     public function setReleaseList(ReleaseList $releaseList = null)
     {
         $this->releaseList = $releaseList;
+        return $this;
+    }
+
+    /**
+     * Return the Score
+     *
+     * @return Score|null
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * Set the Score
+     *
+     * @param Score $score
+     *
+     * @return Recording
+     */
+    public function setScore(Score $score = null)
+    {
+        $this->score = $score;
+        return $this;
+    }
+
+    /**
+     * Return the TagList
+     * 
+     * @return TagList
+     */
+    public function getTagList()
+    {
+        if (! isset($this->tagList)) {
+            $this->tagList = new TagList();
+        }
+        return $this->tagList;
+    }
+
+    /**
+     * Set the TagList
+     *
+     * @param TagList $tagList
+     *
+     * @return Recording
+     */
+    public function setTagList(TagList $tagList = null)
+    {
+        $this->tagList = $tagList;
         return $this;
     }
 }
