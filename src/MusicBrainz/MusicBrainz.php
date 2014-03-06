@@ -125,12 +125,14 @@ class MusicBrainz implements MusicBrainzInterface
      *
      * @return ConnectorFactoryInterface
      */
-    public function getConnectorFactory()
+    protected function getConnectorFactory()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->connectorFactory)) {
             $this->connectorFactory = new ConnectorFactory($this->getIdentity());
         }
         return $this->connectorFactory;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

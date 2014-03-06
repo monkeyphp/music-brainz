@@ -49,18 +49,6 @@ class MusicBrainzTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that we can get the default instance of ConnectorFactoryInterface
-     *
-     * @covers \MusicBrainz\MusicBrainz::getConnectorFactory
-     */
-    public function testGetDefaultConnectorFactory()
-    {
-        $musicBrainz = new MusicBrainz(new \MusicBrainz\Identity\Identity('test'));
-
-        $this->assertInstanceOf('\MusicBrainz\Connector\Factory\ConnectorFactoryInterface', $musicBrainz->getConnectorFactory());
-    }
-
-    /**
      * Test that we can set the Identity instance using an Identity instance
      *
      * @covers \MusicBrainz\MusicBrainz::__construct
