@@ -1,8 +1,14 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "22-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * TitleStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
+ *
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,17 +31,36 @@ use MusicBrainz\Entity\Title;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of TitleStrategy
+ * TitleStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class TitleStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract the value from the supplied Title instance
+     * 
+     * @param Title $object
+     *
+     * @return null|string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof Title) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Hydrate and return sn instance of Title
+     *
+     * @param string $value
+     *
+     * @return Title|null
+     */
     public function hydrate($value)
     {
         try {
@@ -44,5 +69,4 @@ class TitleStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

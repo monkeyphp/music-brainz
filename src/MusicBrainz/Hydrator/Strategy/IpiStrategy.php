@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "21-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * IpiStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,18 +27,38 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Exception;
 use MusicBrainz\Entity\Ipi;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of IpiStrategy
+ * IpiStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class IpiStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract the value from the supplied Ipi instance
+     *
+     * @param Ipi $object
+     *
+     * @return null|string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof Ipi) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Hydrate and return an instance of Ipi
+     *
+     * @param string $value
+     *
+     * @return Ipi|null
+     */
     public function hydrate($value)
     {
         try {
@@ -42,5 +67,4 @@ class IpiStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

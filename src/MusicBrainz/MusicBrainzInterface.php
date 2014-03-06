@@ -28,7 +28,6 @@ namespace MusicBrainz;
  *
  * @category MusicBrainz
  * @package  MusicBrainz
- * @author   David White [monkeyphp] <david@monkeyphp.com>
  */
 interface MusicBrainzInterface
 {

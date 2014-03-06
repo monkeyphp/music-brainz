@@ -198,12 +198,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/Component_ZendHttp.git",
-                "reference": "11e76029f169ace92a6b23f03344ad1bd77515d9"
+                "reference": "57a34a1b189546d15870e3a1532bfae7a32f667c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendHttp/zipball/11e76029f169ace92a6b23f03344ad1bd77515d9",
-                "reference": "11e76029f169ace92a6b23f03344ad1bd77515d9",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendHttp/zipball/57a34a1b189546d15870e3a1532bfae7a32f667c",
+                "reference": "57a34a1b189546d15870e3a1532bfae7a32f667c",
                 "shasum": ""
             },
             "require": {
@@ -234,7 +234,7 @@
                 "http",
                 "zf2"
             ],
-            "time": "2014-03-04 17:00:21"
+            "time": "2014-03-05 21:00:09"
         },
         {
             "name": "zendframework/zend-inputfilter",

@@ -35,6 +35,7 @@ use MusicBrainz\Identity\Identity;
  * MusicBrainz
  *
  * @link http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2/Search
+ * @link http://musicbrainz.org/doc/XML_Web_Service/Rate_Limiting
  *
  * @category MusicBrainz
  * @package  MusicBrainz
@@ -72,8 +73,6 @@ class MusicBrainz implements MusicBrainzInterface
 
     /**
      * Set the Identity instance
-     *
-     * @link http://musicbrainz.org/doc/XML_Web_Service/Rate_Limiting
      *
      * @param string|array|Identity $identity
      *
