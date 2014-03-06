@@ -62,7 +62,6 @@ class MusicBrainz implements MusicBrainzInterface
      * Constructor
      *
      * @param array|Identity $identity An instance of Identity or an array
-     * @param array          $options  An array of options
      *
      * @return void
      */
@@ -102,7 +101,7 @@ class MusicBrainz implements MusicBrainzInterface
             return $this;
         } catch (\Exception $exception) {
             throw new InvalidArgumentException(
-                'An instance of Identity could not be constructed from the supplied paramters',
+                'An instance of Identity could not be constructed from the supplied parameters',
                 null,
                 $exception
             );
@@ -116,7 +115,9 @@ class MusicBrainz implements MusicBrainzInterface
      */
     protected function getIdentity()
     {
+        // @codeCoverageIgnoreStart
         return $this->identity;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

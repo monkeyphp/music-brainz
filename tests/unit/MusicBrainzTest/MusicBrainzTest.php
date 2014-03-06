@@ -23,6 +23,7 @@
  */
 namespace MusicBrainzTest;
 
+use MusicBrainz\Identity\Identity;
 use MusicBrainz\MusicBrainz;
 use PHPUnit_Framework_TestCase;
 
@@ -57,5 +58,70 @@ class MusicBrainzTest extends PHPUnit_Framework_TestCase
         $musicBrainz = new MusicBrainz(new \MusicBrainz\Identity\Identity('test'));
 
         $this->assertInstanceOf('\MusicBrainz\Connector\Factory\ConnectorFactoryInterface', $musicBrainz->getConnectorFactory());
+    }
+
+    /**
+     * Test that we can set the Identity instance using an Identity instance
+     *
+     * @covers \MusicBrainz\MusicBrainz::__construct
+     * @covers \MusicBrainz\MusicBrainz::setIdentity
+     */
+    public function testSetIdentityWithIdentityInstance()
+    {
+        $musicBrainz = new MusicBrainz(new \MusicBrainz\Identity\Identity('test'));
+
+        $this->assertInstanceOf('\MusicBrainz\MusicBrainzInterface', $musicBrainz);
+    }
+
+    /**
+     * @covers \MusicBrainz\MusicBrainz::__construct
+     * @covers \MusicBrainz\MusicBrainz::setIdentity
+     */
+    public function testSetIdentityWithString()
+    {
+        $musicBrainz = new MusicBrainz('my-application');
+
+        $this->assertInstanceOf('\MusicBrainz\MusicBrainzInterface', $musicBrainz);
+    }
+
+    /**
+     * @covers \MusicBrainz\MusicBrainz::__construct
+     * @covers \MusicBrainz\MusicBrainz::setIdentity
+     */
+    public function testSetIdentityWithValidArray()
+    {
+        $musicBrainz = new MusicBrainz(array('name' => 'my-application'));
+
+        $this->assertInstanceOf('\MusicBrainz\MusicBrainzInterface', $musicBrainz);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\MusicBrainz::__construct
+     * @covers \MusicBrainz\MusicBrainz::setIdentity
+     */
+    public function testInvalidParameterThrowsException()
+    {
+        $musicBrainz = new MusicBrainz(new \stdClass());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\MusicBrainz::__construct
+     * @covers \MusicBrainz\MusicBrainz::setIdentity
+     */
+    public function testEmptyArrayThrowsException()
+    {
+        $musicBrainz = new MusicBrainz(array());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\MusicBrainz::__construct
+     * @covers \MusicBrainz\MusicBrainz::setIdentity
+     */
+    public function testMissingNameThrowsException()
+    {
+        $musicBrainz = new MusicBrainz(array('version' => 1, 'contact' => 'contact@example.com'));
     }
 }
