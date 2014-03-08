@@ -1,5 +1,12 @@
 <?php
 /**
+ * LocaleStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,10 +27,13 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Exception;
 use MusicBrainz\Entity\Locale;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of LocaleStrategy
+ * LocaleStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class LocaleStrategy implements StrategyInterface
 {

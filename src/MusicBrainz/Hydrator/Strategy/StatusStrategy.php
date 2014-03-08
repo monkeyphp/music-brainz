@@ -1,7 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+/**
+ * StatusStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,10 +27,13 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Exception;
 use MusicBrainz\Entity\Status;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of StatusStrategy
+ * StatusStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class StatusStrategy implements StrategyInterface
 {
@@ -41,5 +50,4 @@ class StatusStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

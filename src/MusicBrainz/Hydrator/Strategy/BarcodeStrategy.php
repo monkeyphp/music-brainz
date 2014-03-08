@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C)
+ * BarcodeStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,10 +27,13 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Exception;
 use MusicBrainz\Entity\Barcode;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of BarcodeStrategy
+ * BarcodeStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class BarcodeStrategy implements StrategyInterface
 {
@@ -40,5 +50,4 @@ class BarcodeStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

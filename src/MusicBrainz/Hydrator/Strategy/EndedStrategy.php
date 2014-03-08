@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "01-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * EndedStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,10 +26,13 @@ namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Ended;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of EndedStrategy
+ * EndedStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class EndedStrategy implements StrategyInterface
 {
