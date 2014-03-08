@@ -57,6 +57,28 @@ class LabelList implements Iterator
      */
     protected $labels = array();
 
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    public function setCount(Count $count = null)
+    {
+        $this->count = $count;
+        return $this;
+    }
+
+    public function getOffset()
+    {
+        return $this->offset;
+    }
+
+    public function setOffset(Count $offset = null)
+    {
+        $this->offset = $offset;
+        return $this;
+    }
+
     /**
      * Add an array of Labels to the LabelList
      *

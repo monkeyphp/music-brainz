@@ -63,18 +63,36 @@ class LabelListStrategy implements StrategyInterface
     }
 
     /**
+     * Extract the values from the supplied LabelList instance
      *
-     * @param type $object
+     * @param LabelList $object The LabelList instance
+     *
+     * @return null|array
      */
     public function extract($object)
     {
+        if (! $object instanceof LabelList) {
+            return null;
+        }
 
+        $values = $this->getHydrator()->extract($object);
+
+        if (isset($values['labels'])) {
+            $labelStrategy = new LabelStrategy();
+            $labels = array();
+            foreach ($values['labels'] as $index => $label) {
+                $labels[$index] = $labelStrategy->extract($label);
+            }
+            $values['label'] = $labels;
+            unset($values['labels']);
+        }
+        return $values;
     }
 
     /**
      * Hydrate and return an instance of LabelList
      *
-     * @param array $values
+     * @param array $values The values to hydrate the LabelList instance with
      *
      * @return null|LabelList
      */

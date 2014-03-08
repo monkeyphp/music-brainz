@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "07-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * LabelType.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,15 +26,28 @@ namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
+
 /**
- * Description of LabelType
+ * LabelType
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class LabelType
 {
+    /**
+     * The value of the LabelType
+     *
+     * @var string
+     */
     protected $labelType;
 
+    /**
+     * An array of valid LabelType values
+     * 
+     * @var array
+     */
     public static $labelTypes = array(
         ConnectorInterface::LABEL_TYPE_HOLDING,
         ConnectorInterface::LABEL_TYPE_ORIGINAL_PRODUCTION,
@@ -38,6 +56,14 @@ class LabelType
         ConnectorInterface::LABEL_TYPE_REISSUE_PRODUCTION
     );
 
+    /**
+     * Constructor
+     *
+     * @param string $labelType
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($labelType)
     {
         if (! is_string($labelType) || ! in_array($labelType, static::$labelTypes)) {
@@ -46,6 +72,11 @@ class LabelType
         $this->labelType = $labelType;
     }
 
+    /**
+     * Return a string representation of the LabelType
+     *
+     * @return string
+     */
     public function __toString()
     {
         return $this->labelType;

@@ -25,7 +25,8 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Label;
-use Zend\Filter\Word\DashToCamelCase;
+use Zend\Filter\Word\DashToUnderscore;
+use Zend\Filter\Word\UnderscoreToDash;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -54,25 +55,45 @@ class LabelStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
+            $hydrator = new ClassMethods(true);
+            $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
-            $hydrator->addStrategy('sortName', new NameStrategy());
-            $hydrator->addStrategy('labelCode', new LabelCodeStrategy());
+            $hydrator->addStrategy('sort_name', new NameStrategy());
+            $hydrator->addStrategy('label_code', new LabelCodeStrategy());
+            //$hydrator->addStrategy('type', new LabelTypeStrategy());
             $hydrator->addStrategy('country', new CountryStrategy());
             $hydrator->addStrategy('area', new AreaStrategy());
-            $hydrator->addStrategy('lifeSpan', new LifeSpanStrategy());
-            $hydrator->addStrategy('aliasList', new AliasListStrategy());
-            $hydrator->addStrategy('tagList', new TagListStrategy());
-            $hydrator->addStrategy('ipiList', new IpiListStrategy());
+            $hydrator->addStrategy('life_span', new LifeSpanStrategy());
+            $hydrator->addStrategy('alias_list', new AliasListStrategy());
+            $hydrator->addStrategy('tag_list', new TagListStrategy());
+            $hydrator->addStrategy('ipi_list', new IpiListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
         // @codeCoverageIgnoreEnd
     }
 
-    public function extract($value)
+    public function extract($object)
     {
+        if (! $object instanceof Label) {
+            return null;
+        }
 
+        $values = $this->getHydrator()->extract($object);
+        $filter = new UnderscoreToDash();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = $filter->filter($key);
+            $filtered[$_] = $value;
+        });
+
+        if ($filtered['mbid']) {
+            $filtered['id'] = $filtered['mbid'];
+        }
+        unset($filtered['mbid']);
+
+        return $filtered;
     }
 
     /**
@@ -88,11 +109,11 @@ class LabelStrategy implements StrategyInterface
             return null;
         }
 
-        $filter = new DashToCamelCase();
+        $filter = new DashToUnderscore();
         $filtered = array();
 
         array_walk($values, function ($value, $key) use ($filter, &$filtered) {
-            $_ = lcfirst($filter->filter($key));
+            $_ = strtolower($filter->filter($key));
             $filtered[$_] = $value;
         });
 
