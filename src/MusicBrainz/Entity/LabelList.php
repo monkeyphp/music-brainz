@@ -25,7 +25,6 @@
 namespace MusicBrainz\Entity;
 
 use Iterator;
-use Label;
 use Traversable;
 
 /**
@@ -94,7 +93,7 @@ class LabelList implements Iterator
 
     /**
      * Return the array of Labels
-     * 
+     *
      * @return array
      */
     public function getLabels()
