@@ -25,6 +25,10 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Work;
+use MusicBrainz\Hydrator\Strategy\DisambiguationStrategy;
+use MusicBrainz\Hydrator\Strategy\MbidStrategy;
+use MusicBrainz\Hydrator\Strategy\TitleStrategy;
+use Zend\Filter\Word\DashToUnderscore;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -46,23 +50,24 @@ class WorkStrategy implements StrategyInterface
 
     /**
      * Return an instance of ClassMethods
-     * 
+     *
      * @return ClassMethods
      */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
-
+            $hydrator = new ClassMethods(true);
             $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('title', new TitleStrategy());
             $hydrator->addStrategy('iswc', new IswcStrategy());
-            $hydrator->addStrategy('iswcList', new IswcListStrategy());
+            $hydrator->addStrategy('iswc_list', new IswcListStrategy());
             $hydrator->addStrategy('disambiguation', new DisambiguationStrategy());
 
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -83,21 +88,27 @@ class WorkStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of Work
      *
-     * @param array $value
+     * @param array $values
      *
      * @return null|Work
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
+        $filter = new DashToUnderscore();
+        $filtered = array();
 
-        if (isset($value['iswc-list'])) {
-            $value['iswcList'] = $value['iswc-list'];
-            unset($value['iswc-list']);
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
+        if (isset($filtered['id'])) {
+            $filtered['mbid'] = $filtered['id'];
+            unset($filtered['id']);
         }
-
-        return $this->getHydrator()->hydrate($value, new Work());
+        return $this->getHydrator()->hydrate($values, new Work());
     }
 }

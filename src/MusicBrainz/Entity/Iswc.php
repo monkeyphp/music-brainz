@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "23-Feb-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Iswc.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) 2014  David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +22,51 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+
 /**
- * Description of Iswc
+ * Iswc
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class Iswc
 {
-    //put your code here
+    /**
+     * The value of the Iswc
+     *
+     * @example T-070.899.612-6
+     *
+     * @var string
+     */
+    protected $iswc;
+
+    /**
+     * Constructor
+     *
+     * @param string $iswc
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public function __construct($iswc)
+    {
+        if (! is_string($iswc)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
+        $this->iswc = $iswc;
+    }
+
+    /**
+     * Return a string representation of the Iswc
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->iswc;
+    }
 }

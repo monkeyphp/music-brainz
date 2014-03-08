@@ -25,7 +25,8 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Artist;
-use Zend\Filter\Word\DashToCamelCase;
+use Zend\Filter\Word\DashToUnderscore;
+use Zend\Filter\Word\UnderscoreToDash;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -94,7 +95,7 @@ class ArtistStrategy implements StrategyInterface
         }
 
         $values = $this->getHydrator()->extract($object);
-        $filter = new \Zend\Filter\Word\UnderscoreToDash();
+        $filter = new UnderscoreToDash();
         $filtered = array();
 
         array_walk($values, function ($value, $key) use ($filter, &$filtered) {
@@ -124,9 +125,7 @@ class ArtistStrategy implements StrategyInterface
             return null;
         }
 
-        //$filter = new DashToCamelCase();
-
-        $filter = new \Zend\Filter\Word\DashToUnderscore();
+        $filter = new DashToUnderscore();
         $filtered = array();
 
         array_walk($values, function ($value, $key) use ($filter, &$filtered) {
@@ -139,10 +138,6 @@ class ArtistStrategy implements StrategyInterface
             unset($filtered['id']);
         }
         $artist = $this->getHydrator()->hydrate($filtered, new Artist());
-
-        //var_dump($artist);
-
-//        die();
 
         return $artist;
     }

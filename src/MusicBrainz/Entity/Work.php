@@ -113,7 +113,7 @@ class Work
 
     /**
      * Return the Disambiguation instance
-     * 
+     *
      * @return Disambiguation|null
      */
     public function getDisambiguation()
@@ -128,7 +128,7 @@ class Work
      *
      * @return Work
      */
-    public function setMbid(Mbid $mbid)
+    public function setMbid(Mbid $mbid = null)
     {
         $this->mbid = $mbid;
         return $this;
@@ -141,7 +141,7 @@ class Work
      *
      * @return Work
      */
-    public function setTitle(Title $title)
+    public function setTitle(Title $title = null)
     {
         $this->title = $title;
         return $this;
@@ -150,11 +150,11 @@ class Work
     /**
      * Set the Iswc instance
      *
-     * @param \MusicBrainz\Entity\Iswc $iswc
+     * @param Iswc $iswc
      *
      * @return Work
      */
-    public function setIswc(Iswc $iswc)
+    public function setIswc(Iswc $iswc = null)
     {
         $this->iswc = $iswc;
         return $this;
@@ -163,11 +163,11 @@ class Work
     /**
      * Set the instance of IswcList
      *
-     * @param \MusicBrainz\Entity\IswcList $iswcList
+     * @param IswcList $iswcList
      *
      * @return Work
      */
-    public function setIswcList(IswcList $iswcList)
+    public function setIswcList(IswcList $iswcList = null)
     {
         $this->iswcList = $iswcList;
         return $this;
@@ -180,7 +180,7 @@ class Work
      *
      * @return Work
      */
-    public function setDisambiguation(Disambiguation $disambiguation)
+    public function setDisambiguation(Disambiguation $disambiguation = null)
     {
         $this->disambiguation = $disambiguation;
         return $this;
