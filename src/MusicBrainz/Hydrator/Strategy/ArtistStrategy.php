@@ -107,7 +107,6 @@ class ArtistStrategy implements StrategyInterface
             $filtered['id'] = $filtered['mbid'];
         }
         unset($filtered['mbid']);
-//        return $this->getHydrator()->extract($object);
 
         return $filtered;
     }
@@ -115,7 +114,7 @@ class ArtistStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of Artist
      *
-     * @param array $value
+     * @param array $values The array of values to hydrate the Artist with
      *
      * @return Artist|null
      */
