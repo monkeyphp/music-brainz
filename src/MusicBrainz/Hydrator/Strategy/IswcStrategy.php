@@ -45,5 +45,4 @@ class IswcStrategy implements StrategyInterface
     {
 
     }
-
 }

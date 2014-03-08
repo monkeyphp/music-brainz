@@ -48,7 +48,7 @@ class ReleaseEvent
 
     /**
      * Return the date
-     * 
+     *
      * @return string
      */
     public function getDate()
@@ -92,4 +92,3 @@ class ReleaseEvent
         return $this;
     }
 }
-

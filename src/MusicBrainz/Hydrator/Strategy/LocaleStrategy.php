@@ -49,7 +49,7 @@ class LocaleStrategy implements StrategyInterface
     {
         try {
             return new Locale($value);
-        } catch(Exception $exception) {
+        } catch (Exception $exception) {
             return null;
         }
     }

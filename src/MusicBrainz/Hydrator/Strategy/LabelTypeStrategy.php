@@ -53,5 +53,4 @@ class LabelTypeStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

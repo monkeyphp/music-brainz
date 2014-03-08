@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C) David White
+ * IsniListStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,10 +26,13 @@ namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\IsniList;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of IsniListStrategy
+ * IsniListStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class IsniListStrategy implements StrategyInterface
 {
@@ -38,5 +48,4 @@ class IsniListStrategy implements StrategyInterface
         }
         return new IsniList();
     }
-
 }

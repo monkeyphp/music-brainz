@@ -25,6 +25,7 @@
 namespace MusicBrainz\Entity;
 
 use InvalidArgumentException;
+
 /**
  * Name
  *

@@ -1,6 +1,6 @@
 <?php
 /**
- * RecodingStrategyr.php
+ * RecodingStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
@@ -34,7 +34,6 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
- *
  */
 class RecordingStrategy implements StrategyInterface
 {
@@ -47,7 +46,7 @@ class RecordingStrategy implements StrategyInterface
 
     /**
      * Return an instance of ClassMethods
-     * 
+     *
      * @return ClassMethods
      */
     protected function getHydrator()
@@ -76,5 +75,4 @@ class RecordingStrategy implements StrategyInterface
         }
         return $this->getHydrator()->hydrate($value, new Recording());
     }
-
 }

@@ -50,5 +50,4 @@ class QualityStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

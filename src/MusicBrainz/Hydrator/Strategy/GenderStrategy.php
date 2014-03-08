@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C)
+ * GenderStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,10 +25,13 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+
 /**
- * Description of GenderStrategy
+ * GenderStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class GenderStrategy implements StrategyInterface
 {
@@ -38,5 +48,4 @@ class GenderStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

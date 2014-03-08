@@ -39,7 +39,7 @@ class MbidStrategy implements StrategyInterface
 {
     /**
      * Extract the value from the instance of Mbid
-     * 
+     *
      * @param Mbid $value
      *
      * @return null|string
@@ -63,7 +63,7 @@ class MbidStrategy implements StrategyInterface
     {
         try {
             return new Mbid($value);
-        } catch(Exception $exception) {
+        } catch (Exception $exception) {
             return null;
         }
     }
