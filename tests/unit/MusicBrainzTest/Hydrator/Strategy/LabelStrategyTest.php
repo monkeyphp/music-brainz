@@ -26,6 +26,7 @@ namespace MusicBrainzTest\Hydrator\Strategy;
 
 use MusicBrainz\Hydrator\Strategy\LabelStrategy;
 use PHPUnit_Framework_TestCase;
+use stdClass;
 
 /**
  * LabelStrategyTest
@@ -53,7 +54,7 @@ class LabelStrategyTest extends PHPUnit_Framework_TestCase
         $begin = 1929;
         $values = array(
             'id' => $id,
-            //'type' => $type,
+            'type' => $type,
             'name' => $name,
             'sort-name' => $name,
             'label-code' => $labelCode,
@@ -72,4 +73,17 @@ class LabelStrategyTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('\MusicBrainz\Entity\Label', $label);
     }
+
+    /**
+     * Test that attempting to hydrate using a non array parameter returns null
+     *
+     * @covers \MusicBrainz\Hydrator\Strategy\LabelStrategy::hydrate
+     */
+    public function testHydrateReturnsNull()
+    {
+        $labelStrategy = new LabelStrategy();
+
+        $this->assertNull($labelStrategy->hydrate(new stdClass()));
+    }
+
 }

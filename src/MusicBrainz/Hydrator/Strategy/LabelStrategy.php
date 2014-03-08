@@ -60,7 +60,7 @@ class LabelStrategy implements StrategyInterface
             $hydrator->addStrategy('name', new NameStrategy());
             $hydrator->addStrategy('sort_name', new NameStrategy());
             $hydrator->addStrategy('label_code', new LabelCodeStrategy());
-            //$hydrator->addStrategy('type', new LabelTypeStrategy());
+            $hydrator->addStrategy('type', new LabelTypeStrategy());
             $hydrator->addStrategy('country', new CountryStrategy());
             $hydrator->addStrategy('area', new AreaStrategy());
             $hydrator->addStrategy('life_span', new LifeSpanStrategy());
