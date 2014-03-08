@@ -37,11 +37,28 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class LabelCodeStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract the value from the supplied LabelCode instance
+     * 
+     * @param LabelCode $object
+     *
+     * @return null|string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof LabelCode) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Hydrate and return an instance of LabelCode
+     *
+     * @param string $value
+     *
+     * @return LabelCode|null
+     */
     public function hydrate($value)
     {
         try {

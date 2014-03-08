@@ -37,6 +37,13 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class MbidStrategy implements StrategyInterface
 {
+    /**
+     * Extract the value from the instance of Mbid
+     * 
+     * @param Mbid $value
+     *
+     * @return null|string
+     */
     public function extract($value)
     {
         if (! $value instanceof Mbid) {
@@ -45,6 +52,13 @@ class MbidStrategy implements StrategyInterface
         return $value->__toString();
     }
 
+    /**
+     * Hydrate and return an instance of Mbid
+     *
+     * @param string $value
+     *
+     * @return Mbid|null
+     */
     public function hydrate($value)
     {
         try {

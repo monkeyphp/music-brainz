@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+
 /**
  * LabelCode
  *
@@ -49,12 +51,15 @@ class LabelCode
      */
     public function __construct($labelCode)
     {
+        if (! is_scalar($labelCode) || ! ctype_digit((string)$labelCode)) {
+            throw new InvalidArgumentException('Expects a digit');
+        }
         $this->labelCode = $labelCode;
     }
 
     /**
      * Return a string representation of the LabelCode
-     * 
+     *
      * @return string
      */
     public function __toString()

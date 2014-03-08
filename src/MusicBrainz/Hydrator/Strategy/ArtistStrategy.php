@@ -54,21 +54,21 @@ class ArtistStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods(false);
+            $hydrator = new ClassMethods(true);
             $hydrator->addStrategy('area', new AreaStrategy());
-            $hydrator->addStrategy('beginArea', new AreaStrategy());
-            $hydrator->addStrategy('lifeSpan', new LifeSpanStrategy());
-            $hydrator->addStrategy('aliasList', new AliasListStrategy());
-            $hydrator->addStrategy('tagList', new TagListStrategy());
-            $hydrator->addStrategy('ipiList', new IpiListStrategy());
-            $hydrator->addStrategy('isniList', new IsniListStrategy());
-            $hydrator->addStrategy('releaseList', new ReleaseListStrategy());
-            $hydrator->addStrategy('releaseGroupList', new ReleaseGroupListStrategy());
-            $hydrator->addStrategy('recordingList', new RecordingListStrategy());
-            $hydrator->addStrategy('workList', new WorkListStrategy());
+            $hydrator->addStrategy('begin_area', new AreaStrategy());
+            $hydrator->addStrategy('life_span', new LifeSpanStrategy());
+            $hydrator->addStrategy('alias_list', new AliasListStrategy());
+            $hydrator->addStrategy('tag_list', new TagListStrategy());
+            $hydrator->addStrategy('ipi_list', new IpiListStrategy());
+            $hydrator->addStrategy('isni_list', new IsniListStrategy());
+            $hydrator->addStrategy('release_list', new ReleaseListStrategy());
+            $hydrator->addStrategy('release_group_list', new ReleaseGroupListStrategy());
+            $hydrator->addStrategy('recording_list', new RecordingListStrategy());
+            $hydrator->addStrategy('work_list', new WorkListStrategy());
             $hydrator->addStrategy('type', new ArtistTypeStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
-            $hydrator->addStrategy('sortName', new NameStrategy());
+            $hydrator->addStrategy('sort_name', new NameStrategy());
             $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('score', new ScoreStrategy());
             $hydrator->addStrategy('gender', new GenderStrategy());
@@ -92,7 +92,23 @@ class ArtistStrategy implements StrategyInterface
         if (! $object instanceof Artist) {
             return null;
         }
-        return $this->getHydrator()->extract($object);
+
+        $values = $this->getHydrator()->extract($object);
+        $filter = new \Zend\Filter\Word\UnderscoreToDash();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = $filter->filter($key);
+            $filtered[$_] = $value;
+        });
+
+        if ($filtered['mbid']) {
+            $filtered['id'] = $filtered['mbid'];
+        }
+        unset($filtered['mbid']);
+//        return $this->getHydrator()->extract($object);
+
+        return $filtered;
     }
 
     /**
@@ -108,7 +124,9 @@ class ArtistStrategy implements StrategyInterface
             return null;
         }
 
-        $filter = new DashToCamelCase();
+        //$filter = new DashToCamelCase();
+
+        $filter = new \Zend\Filter\Word\DashToUnderscore();
         $filtered = array();
 
         array_walk($values, function ($value, $key) use ($filter, &$filtered) {
@@ -120,6 +138,12 @@ class ArtistStrategy implements StrategyInterface
             $filtered['mbid'] = $filtered['id'];
             unset($filtered['id']);
         }
-        return $this->getHydrator()->hydrate($filtered, new Artist());
+        $artist = $this->getHydrator()->hydrate($filtered, new Artist());
+
+        //var_dump($artist);
+
+//        die();
+
+        return $artist;
     }
 }

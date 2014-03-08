@@ -98,7 +98,7 @@ abstract class AbstractConnector implements ConnectorInterface
 
     /**
      * The name of the search strategy class
-     * 
+     *
      * The property should be implemented in child classes
      *
      * @var string|null
@@ -324,6 +324,8 @@ abstract class AbstractConnector implements ConnectorInterface
 
             $reader = $this->getReader($options['format']);
             $data = $reader->fromString($body);
+
+            print_r($data);
 
             return $this->getSearchStrategy()->hydrate($data);
 

@@ -24,6 +24,20 @@
  */
 namespace MusicBrainzTest\Hydrator\Strategy;
 
+use MusicBrainz\Entity\Alias;
+use MusicBrainz\Entity\AliasList;
+use MusicBrainz\Entity\Area;
+use MusicBrainz\Entity\Artist;
+use MusicBrainz\Entity\ArtistType;
+use MusicBrainz\Entity\Count;
+use MusicBrainz\Entity\Country;
+use MusicBrainz\Entity\Disambiguation;
+use MusicBrainz\Entity\LifeSpan;
+use MusicBrainz\Entity\Mbid;
+use MusicBrainz\Entity\Name;
+use MusicBrainz\Entity\Score;
+use MusicBrainz\Entity\Tag;
+use MusicBrainz\Entity\TagList;
 use MusicBrainz\Hydrator\Strategy\ArtistStrategy;
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -130,7 +144,60 @@ class ArtistStrategyTest extends PHPUnit_Framework_TestCase
      */
     public function testExtract()
     {
-        $this->markTestIncomplete();
+        $id = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab';
+        $type = 'Group';
+        $name = $sortName = 'Metallica';
+        $score = '100';
+        $begin = '1981-10';
+        $ended = 'false';
+
+        $area = new Area();
+        $area->setMbid(new Mbid('489ce91b-6658-3307-9877-795b68554c98'))
+            ->setName(new Name('United States'))
+            ->setSortName(new Name('United States'));
+
+        $beginArea = new Area();
+        $beginArea->setMbid(new Mbid('1f40c6e1-47ba-4e35-996f-fe6ee5840e62'))
+            ->setName(new Name('Los Angeles'))
+            ->setSortName(new Name('Los Angeles'));
+
+        $lifeSpan = new LifeSpan();
+        $lifeSpan->setBegin($begin)->setEnded($ended);
+
+        $alias = new Alias();
+        $alias->setSortName(new Name($name));
+
+        $aliasList = new AliasList();
+        $aliasList->addAlias($alias);
+
+        $tag = new Tag();
+        $tag->setCount(new Count(1))
+            ->setName(new Name('usa'));
+        $tagList = new TagList();
+        $tagList->addTag($tag);
+
+
+        $artist = new Artist();
+        $artist->setMbid(new Mbid($id))
+            ->setSortName(new Name($name))
+            ->setName(new Name($sortName))
+            ->setType(new ArtistType($type))
+            ->setScore(new Score($score))
+            ->setGender(null)
+            ->setDisambiguation(new Disambiguation('American metal band'))
+            ->setCountry(new Country('US'))
+            ->setArea($area)
+            ->setBeginArea($beginArea)
+            ->setLifeSpan($lifeSpan)
+            ->setAliasList($aliasList);
+
+        $artistStrategy = new ArtistStrategy();
+
+        $extracted = $artistStrategy->extract($artist);
+
+        //print_r($extracted);
+
+        $this->assertInternalType('array', $extracted);
     }
 
     /**

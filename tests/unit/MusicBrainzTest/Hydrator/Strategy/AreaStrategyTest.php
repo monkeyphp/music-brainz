@@ -49,12 +49,27 @@ class AreaStrategyTest extends PHPUnit_Framework_TestCase
     public function testHydrate()
     {
         $strategy = new AreaStrategy();
-        $id = '1f40c6e1-47ba-4e35-996f-fe6ee5840e62';
-        $name = $sortName = 'Los Angeles';
+        $id = '6a264f94-6ff1-30b1-9a81-41f7bfabd616';
+        $name = $sortName = 'Finland';
         $values = array(
             'id' => $id,
             'name' => $name,
-            'sort-name' => $sortName
+            'sort-name' => $sortName,
+            'name' => 'Finland',
+            'type' => 'Country',
+            'life-span' => array('ended' => false),
+            'alias-list' => array(
+                'alias' => array(
+                    array(
+                        'locale' => 'no',
+                        'sort-name' => 'Finland',
+                        'primary' => 'primary'
+                    )
+                )
+            ),
+            'iso-3166-1-code-list' => array(
+
+            )
         );
 
         $area = $strategy->hydrate($values);
@@ -93,13 +108,14 @@ class AreaStrategyTest extends PHPUnit_Framework_TestCase
         $value = $strategy->extract($area);
 
         $this->assertInternalType('array', $value);
-        $this->assertArrayHasKey('name', $value);
-        $this->assertArrayHasKey('sortName', $value);
-        $this->assertArrayHasKey('mbid', $value);
 
-        $this->assertEquals($mbid, $value['mbid']);
+        $this->assertArrayHasKey('name', $value);
+        $this->assertArrayHasKey('sort-name', $value);
+        $this->assertArrayHasKey('id', $value);
+
+        $this->assertEquals($mbid, $value['id']);
         $this->assertEquals($name, $value['name']);
-        $this->assertEquals($sortName, $value['sortName']);
+        $this->assertEquals($sortName, $value['sort-name']);
     }
 
     /**

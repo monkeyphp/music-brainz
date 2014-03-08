@@ -53,15 +53,15 @@ class AreaStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods(false);
+            $hydrator = new ClassMethods(true);
             $hydrator->addStrategy('iso31661CodeList', new Iso31661CodeListStrategy());
             $hydrator->addStrategy('mbid', new MbidStrategy());
-            $hydrator->addStrategy('sortName', new NameStrategy());
+            $hydrator->addStrategy('sort_name', new NameStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
             $hydrator->addStrategy('type', new AreaTypeStrategy());
             $hydrator->addStrategy('score', new ScoreStrategy());
-            $hydrator->addStrategy('lifeSpan', new LifeSpanStrategy());
-            $hydrator->addStrategy('aliasList', new AliasListStrategy());
+            $hydrator->addStrategy('life_span', new LifeSpanStrategy());
+            $hydrator->addStrategy('alias_list', new AliasListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -71,51 +71,61 @@ class AreaStrategy implements StrategyInterface
     /**
      * Extract the values from the supplied Area instance and return them
      *
-     * @param Area $value The Area instance
+     * @param Area $object The Area instance
      *
      * @return null|array
      */
-    public function extract($value)
+    public function extract($object)
     {
-        if (! $value instanceof Area) {
+        if (! $object instanceof Area) {
             return null;
         }
-        return $this->getHydrator()->extract($value);
+
+        $values = $this->getHydrator()->extract($object);
+        $filter = new \Zend\Filter\Word\UnderscoreToDash();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = $filter->filter($key);
+            $filtered[$_] = $value;
+        });
+
+        if ($filtered['mbid']) {
+            $filtered['id'] = $filtered['mbid'];
+        }
+        unset($filtered['mbid']);
+
+        return $filtered;
+
     }
 
     /**
      * Hydrate and return an instance of Area hydrated with the values
      * contained in the supplied array
      *
-     * @param array $value Array of values to hydrate Area instance with
+     * @param array $values Array of values to hydrate Area instance with
      *
      * @return null|Area
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        if (isset($value['id'])) {
-            $value['mbid'] = $value['id'];
-            unset($value['id']);
+
+        $filter = new \Zend\Filter\Word\DashToUnderscore();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
+        if (isset($filtered['id'])) {
+            $filtered['mbid'] = $filtered['id'];
+            unset($filtered['id']);
         }
-        if (isset($value['sort-name'])) {
-            $value['sortName'] = $value['sort-name'];
-            unset($value['sort-name']);
-        }
-        if (isset($value['iso-3166-1-code-list'])) {
-            $value['iso31661CodeList'] = $value['iso-3166-1-code-list'];
-            unset($value['iso-3166-1-code-list']);
-        }
-        if (isset($value['alias-list'])) {
-            $value['aliasList'] = $value['alias-list'];
-            unset($value['alias-list']);
-        }
-        if (isset($value['life-span'])) {
-            $value['lifeSpan'] = $value['life-span'];
-            unset($value['life-span']);
-        }
-        return $this->getHydrator()->hydrate($value, new Area());
+
+        return $this->getHydrator()->hydrate($filtered, new Area());
     }
 }
