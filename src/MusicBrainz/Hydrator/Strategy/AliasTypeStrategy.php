@@ -1,7 +1,13 @@
 <?php
-
-/*
- * Copyright (C)
+/**
+ * AliasTypeStrategy
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +22,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Hydrator\Strategy;
 
 use Exception;
@@ -24,17 +29,36 @@ use MusicBrainz\Entity\AliasType;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of AreaTypeStrategy
+ * AreaTypeStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class AliasTypeStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract the values from the supplied AliasType instance
+     *
+     * @param AliasType $object
+     *
+     * @return null|string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof AliasType) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Attempt to hydrate and return an instance of AliasType
+     *
+     * @param string $value
+     *
+     * @return AliasType|null
+     */
     public function hydrate($value)
     {
         try {

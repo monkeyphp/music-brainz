@@ -1,6 +1,6 @@
 <?php
 /**
- * Type.php
+ * ArtistType.php
  *
  * @category    MusicBrainz
  * @package     MusicBrainz
@@ -28,7 +28,7 @@ use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
 
 /**
- * Type
+ * ArtistType
  *
  * @category    MusicBrainz
  * @package     MusicBrainz
@@ -37,8 +37,8 @@ use MusicBrainz\Connector\ConnectorInterface;
 class ArtistType
 {
     /**
-     * An array of value types
-     * 
+     * An array of valid ArtistType values
+     *
      * @var array
      */
     public static $artistTypes = array (
@@ -47,35 +47,35 @@ class ArtistType
     );
 
     /**
-     * The value of the Type
+     * The value of the ArtistType
      *
      * @var string
      */
-    protected $type;
+    protected $artistType;
 
     /**
      * Constructor
      *
-     * @param string $type
+     * @param string $artistType
      *
      * @throws InvalidArgumentException
      * @return void
      */
-    public function __construct($type)
+    public function __construct($artistType)
     {
-        if (! is_string($type) || ! in_array($type, static::$artistTypes)) {
+        if (! is_string($artistType) || ! in_array($artistType, static::$artistTypes)) {
             throw new InvalidArgumentException('Supplied type is invalid');
         }
-        $this->type = $type;
+        $this->artistType = $artistType;
     }
 
     /**
-     * Return a string representation of the Type
+     * Return a string representation of the ArtistType
      *
      * @return string
      */
     public function __toString()
     {
-        return $this->type;
+        return $this->artistType;
     }
 }

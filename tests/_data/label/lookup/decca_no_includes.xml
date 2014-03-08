@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://musicbrainz.org/ns/mmd-2.0#">
+    <label type="Original Production" id="f18f3b31-8263-4de3-966a-fda317492d3d">
+        <name>Decca Records</name>
+        <sort-name>Decca Records</sort-name>
+        <label-code>171</label-code>
+        <country>US</country>
+        <area id="489ce91b-6658-3307-9877-795b68554c98">
+            <name>United States</name>
+            <sort-name>United States</sort-name>
+            <iso-3166-1-code-list>
+                <iso-3166-1-code>US</iso-3166-1-code>
+            </iso-3166-1-code-list>
+        </area>
+        <life-span>
+            <begin>1929</begin>
+        </life-span>
+    </label>
+</metadata>

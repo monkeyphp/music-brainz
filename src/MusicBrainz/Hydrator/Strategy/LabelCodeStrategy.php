@@ -1,6 +1,6 @@
 <?php
 /**
- * RecordingListStrategy.php
+ * LabelCodeStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
@@ -24,24 +24,30 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
+use Exception;
+use MusicBrainz\Entity\LabelCode;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * RecordingListStrategy
+ * LabelCodeStrategy
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
  */
-class RecordingListStrategy implements StrategyInterface
+class LabelCodeStrategy implements StrategyInterface
 {
-    public function extract($object)
+    public function extract($value)
     {
 
     }
 
     public function hydrate($value)
     {
-
+        try {
+            return new LabelCode($value);
+        } catch (Exception $exception) {
+            return null;
+        }
     }
 }

@@ -1,13 +1,13 @@
 <?php
 /**
- * AliasListStrategy.php
+ * LabelStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) David White <david@monkeyphp.com>
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,28 +24,29 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\AliasList;
+use MusicBrainz\Entity\Label;
+use Zend\Filter\Word\DashToCamelCase;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * AliasListStrategy
+ * LabelStrategy
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
  */
-class AliasListStrategy implements StrategyInterface
+class LabelStrategy implements StrategyInterface
 {
     /**
-     * Instance of ClassMethods
+     * Instance of ClassMethdods hydrator
      *
      * @var ClassMethods
      */
     protected $hydrator;
 
     /**
-     * Return an instance of ClassMethods
+     * Return an instance of ClassMethods hydrator
      *
      * @return ClassMethods
      */
@@ -54,55 +55,52 @@ class AliasListStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
+            $hydrator->addStrategy('name', new NameStrategy());
+            $hydrator->addStrategy('sortName', new NameStrategy());
+            $hydrator->addStrategy('labelCode', new LabelCodeStrategy());
+            $hydrator->addStrategy('country', new CountryStrategy());
+            $hydrator->addStrategy('area', new AreaStrategy());
+            $hydrator->addStrategy('lifeSpan', new LifeSpanStrategy());
+            $hydrator->addStrategy('aliasList', new AliasListStrategy());
+            $hydrator->addStrategy('tagList', new TagListStrategy());
+            $hydrator->addStrategy('ipiList', new IpiListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
         // @codeCoverageIgnoreEnd
     }
 
-    /**
-     * Extract and return the values from the AliasList
-     *
-     * @param AliasList $object
-     *
-     * @return array|null
-     */
-    public function extract($object)
+    public function extract($value)
     {
-        if (! $object instanceof AliasList) {
-            return null;
-        }
 
-        $values = $this->getHydrator()->extract($object);
-
-        $aliasStrategy = new AliasStrategy();
-        foreach ($values['aliases'] as $index => $alias) {
-            $values['aliases'][$index] = $aliasStrategy->extract($alias);
-        }
-
-        return $values;
     }
 
     /**
-     * Hydrate and return an instance of AliasList
+     * Hydrate and return an instance of Label
      *
-     * @param array $value The array of values to hydrate the AliasList instance with
+     * @param array $values An array of values
      *
-     * @return AliasList|null
+     * @return null|Label
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value) || ! isset($value['alias']) || ! is_array($value['alias'])) {
+        if (! is_array($values)) {
             return null;
         }
-        $values = array();
-        $aliases = array();
-        $aliasStrategy = new AliasStrategy();
-        foreach ($value['alias'] as $index => $alias) {
-            $aliases[$index] = $aliasStrategy->hydrate($alias);
+
+        $filter = new DashToCamelCase();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
+        if (isset($filtered['id'])) {
+            $filtered['mbid'] = $filtered['id'];
+            unset($filtered['id']);
         }
-        $values['aliases'] = $aliases;
-        unset($value['alias']);
-        return $this->getHydrator()->hydrate($values, new AliasList());
+
+        return $this->getHydrator()->hydrate($filtered, new Label());
     }
 }

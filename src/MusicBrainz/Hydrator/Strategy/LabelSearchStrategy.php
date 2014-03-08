@@ -1,13 +1,13 @@
 <?php
 /**
- * AliasListStrategy.php
+ * LabelSearchStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) David White <david@monkeyphp.com>
+ * Copyright (C) 2014  David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,25 +20,26 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\AliasList;
+use MusicBrainz\Entity\LabelList;
+use MusicBrainz\Entity\LabelSearch;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * AliasListStrategy
+ * LabelSearchStrategy
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
  */
-class AliasListStrategy implements StrategyInterface
+class LabelSearchStrategy implements StrategyInterface
 {
     /**
-     * Instance of ClassMethods
+     * Instance of ClassMethods hydrator
      *
      * @var ClassMethods
      */
@@ -54,6 +55,7 @@ class AliasListStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
+            $hydrator->addStrategy('labelList', new LabelListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -61,48 +63,40 @@ class AliasListStrategy implements StrategyInterface
     }
 
     /**
-     * Extract and return the values from the AliasList
+     * Extract and return the values from the supplied LabelSearch instance
+     * 
+     * @param LabelSearch $object
      *
-     * @param AliasList $object
-     *
-     * @return array|null
+     * @return null|array
      */
     public function extract($object)
     {
-        if (! $object instanceof AliasList) {
+        if (! $object instanceof LabelSearch) {
             return null;
         }
-
-        $values = $this->getHydrator()->extract($object);
-
-        $aliasStrategy = new AliasStrategy();
-        foreach ($values['aliases'] as $index => $alias) {
-            $values['aliases'][$index] = $aliasStrategy->extract($alias);
-        }
-
-        return $values;
+        return $this->getHydrator()->extract($object);
     }
 
     /**
-     * Hydrate and return an instance of AliasList
+     * Hydrate and return an instance of LabelSearch
      *
-     * @param array $value The array of values to hydrate the AliasList instance with
+     * @param array $values The array of values
      *
-     * @return AliasList|null
+     * @return null|LabelSearch
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value) || ! isset($value['alias']) || ! is_array($value['alias'])) {
+        if (! is_array($values)) {
             return null;
         }
-        $values = array();
-        $aliases = array();
-        $aliasStrategy = new AliasStrategy();
-        foreach ($value['alias'] as $index => $alias) {
-            $aliases[$index] = $aliasStrategy->hydrate($alias);
+
+        if (! isset($values['label-list']) || ! is_array($values['label-list'])) {
+            return null;
         }
-        $values['aliases'] = $aliases;
-        unset($value['alias']);
-        return $this->getHydrator()->hydrate($values, new AliasList());
+
+        $values['labelList'] = $values['label-list'];
+        unset($values['label-list']);
+
+        return $this->getHydrator()->hydrate($values, new LabelList());
     }
 }
