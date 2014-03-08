@@ -33,5 +33,36 @@ namespace MusicBrainz\Entity;
  */
 class LabelSearch
 {
-    //put your code here
+    /**
+     * Instance of LabelList
+     *
+     * @var LabelList
+     */
+    protected $labelList;
+
+    /**
+     * Return an instance of LabelList
+     *
+     * @return LabelList|null
+     */
+    public function getLabelList()
+    {
+        if (! isset($this->labelList)) {
+            $this->labelList = new LabelList();
+        }
+        return $this->labelList;
+    }
+
+    /**
+     * Set the LabelList
+     *
+     * @param LabelList $labelList
+     *
+     * @return LabelSearch
+     */
+    public function setLabelList(LabelList $labelList = null)
+    {
+        $this->labelList = $labelList;
+        return $this;
+    }
 }
