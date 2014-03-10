@@ -36,20 +36,43 @@ use MusicBrainz\Connector\ConnectorInterface;
  */
 class Format
 {
+    /**
+     * The value of the Format
+     *
+     * @var string
+     */
     protected $format;
 
+    /**
+     * Array of valid format valids
+     *
+     * @var array
+     */
     public static $formats = array(
         ConnectorInterface::FORMAT_CD
     );
 
+    /**
+     * Constructor
+     *
+     * @param string $format
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($format)
     {
-        if (! is_string($format) || ! in_array(static::$formats)) {
+        if (! is_string($format) || ! in_array($format, static::$formats)) {
             throw new InvalidArgumentException('Invalid format supplied');
         }
         $this->format = $format;
     }
 
+    /**
+     * Return a string representation of the Format
+     * 
+     * @return string
+     */
     public function __toString()
     {
         return $this->format;
