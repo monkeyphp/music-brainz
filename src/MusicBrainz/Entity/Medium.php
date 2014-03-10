@@ -29,12 +29,54 @@ class Medium
 {
     /**
      *
-     * @var Count ??
+     * @var Count
      */
     protected $position;
 
-
+    /**
+     *
+     * @var Format
+     */
     protected $format;
 
+    /**
+     *
+     * @var TrackList
+     */
     protected $trackList;
+
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    public function getFormat()
+    {
+        return $this->format;
+    }
+
+    public function getTrackList()
+    {
+        return $this->trackList;
+    }
+
+    public function setPosition(Count $position)
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    public function setFormat(Format $format)
+    {
+        $this->format = $format;
+        return $this;
+    }
+
+    public function setTrackList(TrackList $trackList)
+    {
+        $this->trackList = $trackList;
+        return $this;
+    }
+
+
 }

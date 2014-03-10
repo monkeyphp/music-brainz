@@ -1,10 +1,10 @@
 <?php
 /**
- * UrlConnector.php
+ * PrimaryTypeTest.php
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
  * Copyright (C) 2014  David White
@@ -22,33 +22,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-namespace MusicBrainz\Connector;
+namespace MusicBrainzTest\Entity;
 
 /**
- * UrlConnector
+ * PrimaryTypeTest
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector
- * @author     David White [monkeyphp] <david@monkeyphp.com>
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
  */
-class UrlConnector extends AbstractConnector
+class PrimaryTypeTest extends \PHPUnit_Framework_TestCase
 {
-    protected $resource = ConnectorInterface::RESOURCE_URL;
-
     /**
-     * Search
+     * Test that we can construct an instance
      *
-     * > ... except that search is not implemented for URL entities at this time.
-     *
-     * @param string $query
-     * @param array  $options
-     *
-     * @throws RuntimeException
-     * @return void
+     * @covers \MusicBrainz\Entity\PrimaryType::__construct
      */
-    public function search($query, $options = array())
+    public function test__construct()
     {
-        throw new RuntimeException('Search is not available for Url');
+        $this->markTestIncomplete();
     }
 }

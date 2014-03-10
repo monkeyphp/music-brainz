@@ -1,6 +1,6 @@
 <?php
 /**
- * RecordingSearchTest.php
+ * ReleaseEventTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -24,32 +24,34 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\RecordingList;
-use MusicBrainz\Entity\RecordingSearch;
-use PHPUnit_Framework_TestCase;
-
 /**
- * RecordingSearchTest
+ * ReleaseEventTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class RecordingSearchTest extends PHPUnit_Framework_TestCase
+class ReleaseEventTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can get and set the RecordingList
+     * Test that we can get and set the date
      *
-     * @covers \MusicBrainz\Entity\RecordingSearch::getRecordingList
-     * @covers \MusicBrainz\Entity\RecordingSearch::setRecordingList
+     * @covers \MusicBrainz\Entity\ReleaseEvent::getDate
+     * @covers \MusicBrainz\Entity\ReleaseEvent::setDate
      */
-    public function testGetSetRecordingList()
+    public function testGetSetDate()
     {
-        $recordingList = new RecordingList();
-        $recordingSearch = new RecordingSearch();
+        $this->markTestIncomplete();
+    }
 
-        $this->assertInstanceOf('\MusicBrainz\Entity\RecordingList', $recordingSearch->getRecordingList());
-        $this->assertSame($recordingSearch, $recordingSearch->setRecordingList($recordingList));
-        $this->assertSame($recordingList, $recordingSearch->getRecordingList());
+    /**
+     * Test that we can get and set the Area
+     *
+     * @covers \MusicBrainz\Entity\ReleaseEvent::getArea
+     * @covers \MusicBrainz\Entity\ReleaseEvent::setArea
+     */
+    public function testGetSetArea()
+    {
+        $this->markTestIncomplete();
     }
 }

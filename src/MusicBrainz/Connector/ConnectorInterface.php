@@ -33,6 +33,13 @@ namespace MusicBrainz\Connector;
  */
 interface ConnectorInterface
 {
+    const FORMAT_CD = 'CD';
+    const FORMAT_VINYL = 'Vinyl';
+    const FORMAT_12_INCH_VINYL = '12" Vinyl';
+    const FORMAT_DIGITAL_MEDIA = 'Digital Media';
+
+    const PRIMARY_TYPE_ALBUM = 'Album';
+    const PRIMARY_TYPE_EP = 'EP';
 
     const RELEASE_GROUP_TYPE_ALBUM = 'Album';
     const RELEASE_GROUP_TYPE_COMPILATION = 'Compilation';

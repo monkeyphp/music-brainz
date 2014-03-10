@@ -1,13 +1,13 @@
 <?php
 /**
- * ReleaseConnector.php
+ * TrackListTest.php
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,28 +22,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-namespace MusicBrainz\Connector;
+namespace MusicBrainzTest\Entity;
 
 /**
- * ReleaseConnector
+ * TrackListTest
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Connector
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
  */
-class ReleaseConnector extends AbstractConnector
+class TrackListTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * The resouce that this Connector handle
-     * 
-     * @var string
-     */
-    protected $resource = ConnectorInterface::RESOURCE_RELEASE;
+    public function testGetSetTracks()
+    {
+        $this->markTestIncomplete();
+    }
 
-    /**
-     * The classname for search results
-     *
-     * @var string
-     */
-    protected $searchStrategyClassname = 'MusicBrainz\Hydrator\Strategy\ReleaseSearchStrategy';
+    public function testAddTrack()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testGetSetCount()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testGetSetOffset()
+    {
+        $this->markTestIncomplete();
+    }
 }

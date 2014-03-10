@@ -1,6 +1,6 @@
 <?php
 /**
- * RecordingSearchTest.php
+ * ReleaseGroupTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -24,32 +24,47 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\RecordingList;
-use MusicBrainz\Entity\RecordingSearch;
 use PHPUnit_Framework_TestCase;
 
 /**
- * RecordingSearchTest
+ * ReleaseGroupTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class RecordingSearchTest extends PHPUnit_Framework_TestCase
+class ReleaseGroupTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can get and set the RecordingList
+     * Test that we can get and set the Mbid
      *
-     * @covers \MusicBrainz\Entity\RecordingSearch::getRecordingList
-     * @covers \MusicBrainz\Entity\RecordingSearch::setRecordingList
+     * @covers \MusicBrainz\Entity\ReleaseGroup::getMbid
+     * @covers \MusicBrainz\Entity\ReleaseGroup::setMbid
      */
-    public function testGetSetRecordingList()
+    public function testGetSetMbid()
     {
-        $recordingList = new RecordingList();
-        $recordingSearch = new RecordingSearch();
 
-        $this->assertInstanceOf('\MusicBrainz\Entity\RecordingList', $recordingSearch->getRecordingList());
-        $this->assertSame($recordingSearch, $recordingSearch->setRecordingList($recordingList));
-        $this->assertSame($recordingList, $recordingSearch->getRecordingList());
+    }
+
+    /**
+     * Test that we can get and set the type
+     *
+     * @covers \MusicBrainz\Entity\ReleaseGroup::getType
+     * @covers \MusicBrainz\Entity\ReleaseGroup::setType
+     */
+    public function testGetSetType()
+    {
+
+    }
+
+    /**
+     * Test that we can get and set the PrimaryType
+     *
+     * @covers \MusicBrainz\Entity\ReleaseGroup::setPrimaryType
+     * @covers \MusicBrainz\Entity\ReleaseGroup::getPrimaryType
+     */
+    public function testGetSetPrimaryType()
+    {
+
     }
 }

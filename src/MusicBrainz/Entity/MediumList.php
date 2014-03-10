@@ -27,8 +27,6 @@ namespace MusicBrainz\Entity;
  */
 class MediumList
 {
-    //put your code here
-
     /**
      *
      * @var Count

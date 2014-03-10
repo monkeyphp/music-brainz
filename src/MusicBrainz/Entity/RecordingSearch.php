@@ -57,7 +57,7 @@ class RecordingSearch
 
     /**
      * Set the RecordingList instance
-     * 
+     *
      * @param RecordingList $recordingList
      *
      * @return RecordingSearch

@@ -31,6 +31,7 @@ use MusicBrainz\Entity\MediumList;
 use MusicBrainz\Entity\Quality;
 use MusicBrainz\Entity\Release;
 use MusicBrainz\Entity\ReleaseEventList;
+use MusicBrainz\Entity\ReleaseGroup;
 use MusicBrainz\Entity\Status;
 use MusicBrainz\Entity\TextRepresentation;
 use MusicBrainz\Entity\Title;
@@ -171,5 +172,31 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MusicBrainz\Entity\MediumList', $release->getMediumList());
         $this->assertSame($release, $release->setMediumList($mediumList));
         $this->assertSame($mediumList, $release->getMediumList());
+    }
+
+    public function testGetSetPackaging()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testGetSetBarcode()
+    {
+        $this->markTestIncomplete();
+    }
+
+    /**
+     * Test that we can get and set the ReleaseGroup
+     *
+     * @covers \MusicBrainz\Entity\Release::getReleaseGroup
+     * @covers \MusicBrainz\Entity\Release::setReleaseGroup
+     */
+    public function testGetSetReleaseGroup()
+    {
+        $release = new Release();
+        $releaseGroup = new ReleaseGroup();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseGroup', $release->getReleaseGroup());
+        $this->assertSame($release, $release->setReleaseGroup($releaseGroup));
+        $this->assertSame($releaseGroup, $release->getReleaseGroup());
     }
 }

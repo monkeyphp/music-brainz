@@ -57,6 +57,8 @@ class Recording
     /**
      * The Disambiguation of the Recording
      *
+     * @todo Verify that this is a property
+     *
      * @var Disambiguation|null
      */
     protected $disambiguation;
@@ -255,7 +257,7 @@ class Recording
 
     /**
      * Return the TagList
-     * 
+     *
      * @return TagList
      */
     public function getTagList()

@@ -1,13 +1,13 @@
 <?php
 /**
- * DismabiguationTest.php
+ * LengthTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
- * @author     David White <david@monkeyphp.com>
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) David White <david@monkeyphp.com>
+ * Copyright (C) 2014  David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,59 +20,58 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 namespace MusicBrainzTest\Entity;
 
-use InvalidArgumentException;
-use MusicBrainz\Entity\Disambiguation;
+use MusicBrainz\Entity\Length;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 
 /**
- * DisambiguationTest
+ * LengthTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class DisambiguationTest extends PHPUnit_Framework_TestCase
+class LengthTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test that we can construct an instance
      *
-     * @covers \MusicBrainz\Entity\Disambiguation::__construct
+     * @covers \MusicBrainz\Entity\Length::__construct
      */
     public function test__construct()
     {
-        $string = 'Some string';
-        $disambiguation = new Disambiguation($string);
+        $number = 338760;
+        $length = new Length($number);
 
-        $this->assertInstanceOf('\MusicBrainz\Entity\Disambiguation', $disambiguation);
+        $this->assertInstanceOf('\MusicBrainz\Entity\Length', $length);
     }
 
     /**
-     * Test that attempting to construct an instance with an invalid
-     * parameter will throw an exception
+     * Test that attempting to construct an instance with an invalid parameter results
+     * in an exception being thrown
      *
      * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Disambiguation::__construct
+     * @covers \MusicBrainz\Entity\Length::__construct
      */
     public function test__constructThrowsException()
     {
-        $disambiguation = new Disambiguation(new stdClass());
+        $length = new Length(new stdClass());
     }
 
     /**
-     * Test that we can get a string representation of the Disambiguation
+     * Test that we can get a string representation of the Length
      *
-     * @covers \MusicBrainz\Entity\Disambiguation::__toString
+     * @covers \MusicBrainz\Entity\Length::__toString
      */
     public function test__toString()
     {
-        $string = 'Some string';
-        $disambiguation = new Disambiguation($string);
+        $number = 338760;
+        $length = new Length($number);
 
-        $this->assertEquals($string, $disambiguation);
+        $this->assertEquals($number, $length->__toString());
     }
 }

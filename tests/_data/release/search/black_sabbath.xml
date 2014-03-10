@@ -1,0 +1,1392 @@
+<?xml version="1.0" standalone="yes"?>
+<metadata created="2014-03-10T13:33:48.778Z" xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ext="http://musicbrainz.org/ns/ext#-2.0">
+    <release-list count="5703" offset="0">
+        <release id="30ff08af-0cba-3e86-91e4-5712f4380966" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1986</date>
+            <country>GB</country>
+            <release-event-list>
+                <release-event>
+                    <date>1986</date>
+                    <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                        <name>United Kingdom</name>
+                        <sort-name>United Kingdom</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>GB</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>5017615619621</barcode>
+            <asin>B000002KB8</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>CLACD 196</catalog-number>
+                    <label id="f3acf224-8e44-49a1-a3a1-6ed1ea5f5016">
+                        <name>Castle Communications</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>7</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="3"/>
+                    <track-list count="7"/>
+                </medium>
+            </medium-list>
+            <tag-list>
+                <tag count="1">
+                    <name>8. wicked world</name>
+                </tag>
+            </tag-list>
+        </release>
+        <release id="15c44ff8-449b-47bd-bd6d-30e85cb16891" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2010-02-23</date>
+            <country>XE</country>
+            <release-event-list>
+                <release-event>
+                    <date>2010-02-23</date>
+                    <area id="89a675c2-3e37-3518-b83c-418bad59a85a">
+                        <name>Europe</name>
+                        <sort-name>Europe</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>XE</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>602527303246</barcode>
+            <asin>B00359XZIW</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>2730324</catalog-number>
+                    <label id="94469373-73c9-4699-85df-414d577f9a7b">
+                        <name>Sanctuary Records</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>7</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="1"/>
+                    <track-list count="7"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="9d47a0cf-f5c7-4efc-af50-db275cda5a24" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <country>FR</country>
+            <release-event-list>
+                <release-event>
+                    <area id="08310658-51eb-3801-80de-5a0739207115">
+                        <name>France</name>
+                        <sort-name>France</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>FR</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>5017615619621</barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>CLACD 196</catalog-number>
+                    <label id="f3acf224-8e44-49a1-a3a1-6ed1ea5f5016">
+                        <name>Castle Communications</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>7</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="1"/>
+                    <track-list count="7"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="ecec0dd8-57ed-4eaf-8d1c-7b6240e40701" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="b556bdfa-e55f-4891-a9cd-ba40010634e8">
+                        <name>Les Baxter</name>
+                        <sort-name>Baxter, Les</sort-name>
+                        <alias-list>
+                            <alias sort-name="Lex Baxter">Lex Baxter</alias>
+                            <alias sort-name="Lez Baxter">Lez Baxter</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="8e648252-d948-4ed1-a091-4cf0b83d4b8f" type="Soundtrack">
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Soundtrack</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <date>2012-10-15</date>
+            <country>US</country>
+            <release-event-list>
+                <release-event>
+                    <date>2012-10-15</date>
+                    <area id="489ce91b-6658-3307-9877-795b68554c98">
+                        <name>United States</name>
+                        <sort-name>United States</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>US</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>720258521521</barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>Special Collection Volume 215</catalog-number>
+                    <label id="97f04af0-d08b-4d17-8f41-d49b68f14983">
+                        <name>Intrada</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>4</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="0"/>
+                    <track-list count="4"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="8f4c556f-136a-47f6-9b05-3fcd957ee133" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Bootleg</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1970</date>
+            <country>DE</country>
+            <release-event-list>
+                <release-event>
+                    <date>1970</date>
+                    <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                        <name>Germany</name>
+                        <sort-name>Germany</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>DE</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>VO 6, 847 903 VTY</catalog-number>
+                    <label id="1b3b52a5-ef89-4f8b-8d5f-e15a7a58863b">
+                        <name>Vertigo</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>8</track-count>
+                <medium>
+                    <format>Vinyl</format>
+                    <disc-list count="0"/>
+                    <track-list count="8"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="a55102aa-9658-454b-83d2-22f8bb13c5d6" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1987</date>
+            <country>US</country>
+            <release-event-list>
+                <release-event>
+                    <date>1987</date>
+                    <area id="489ce91b-6658-3307-9877-795b68554c98">
+                        <name>United States</name>
+                        <sort-name>United States</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>US</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>016726600622</barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>6006</catalog-number>
+                    <label id="73e96c9a-e1d0-4bdb-8737-86bd3610dd64">
+                        <name>Creative Sounds Ltd.</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>5</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="1"/>
+                    <track-list count="5"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="7bf735e8-d0aa-35b7-8e05-e1487ed17976" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1970</date>
+            <country>DE</country>
+            <release-event-list>
+                <release-event>
+                    <date>1970</date>
+                    <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                        <name>Germany</name>
+                        <sort-name>Germany</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>DE</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode></barcode>
+            <asin>B000002KB8</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>847 903 VTY</catalog-number>
+                    <label id="1b3b52a5-ef89-4f8b-8d5f-e15a7a58863b">
+                        <name>Vertigo</name>
+                    </label>
+                </label-info>
+                <label-info>
+                    <catalog-number>VO 6</catalog-number>
+                    <label id="1b3b52a5-ef89-4f8b-8d5f-e15a7a58863b">
+                        <name>Vertigo</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>7</track-count>
+                <medium>
+                    <format>12" Vinyl</format>
+                    <disc-list count="0"/>
+                    <track-list count="7"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="ef3c8944-51af-3d29-92fb-9e9b22f3d5a4" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1988-07-01</date>
+            <country>US</country>
+            <release-event-list>
+                <release-event>
+                    <date>1988-07-01</date>
+                    <area id="489ce91b-6658-3307-9877-795b68554c98">
+                        <name>United States</name>
+                        <sort-name>United States</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>US</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>075992718523</barcode>
+            <asin>B000002KB8</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>1871-2</catalog-number>
+                    <label id="c595c289-47ce-4fba-b999-b87503e8cb71">
+                        <name>Warner Bros. Records</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>5</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="5"/>
+                    <track-list count="5"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="48a62b21-5686-4520-97bc-d06f937d0d5d" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <disambiguation>deluxe edition</disambiguation>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2009-07-02</date>
+            <country>XE</country>
+            <release-event-list>
+                <release-event>
+                    <date>2009-07-02</date>
+                    <area id="89a675c2-3e37-3518-b83c-418bad59a85a">
+                        <name>Europe</name>
+                        <sort-name>Europe</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>XE</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>602527008172</barcode>
+            <asin>B001TKMAGW</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>2700818</catalog-number>
+                    <label id="94469373-73c9-4699-85df-414d577f9a7b">
+                        <name>Sanctuary Records</name>
+                    </label>
+                </label-info>
+                <label-info>
+                    <catalog-number>2700819</catalog-number>
+                    <label id="94469373-73c9-4699-85df-414d577f9a7b">
+                        <name>Sanctuary Records</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="2">
+                <track-count>16</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="2"/>
+                    <track-list count="7"/>
+                </medium>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="1"/>
+                    <track-list count="9"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="290c3f11-64c1-4fc9-b2d6-05cc05354ad6" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2007-02-21</date>
+            <country>JP</country>
+            <release-event-list>
+                <release-event>
+                    <date>2007-02-21</date>
+                    <area id="2db42837-c832-3c27-b4a3-08198f75693c">
+                        <name>Japan</name>
+                        <sort-name>Japan</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>JP</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>4988005459107</barcode>
+            <asin>B000LZ54FK</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>POCE-1097</catalog-number>
+                    <label id="3d9fb42b-5ae4-491d-9f1f-d64c9652d72f">
+                        <name>Strange Days Records</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>8</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="0"/>
+                    <track-list count="8"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="8fb485eb-5b23-4069-b644-bff47da191de" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Bootleg</status>
+            <text-representation>
+                <language>rus</language>
+                <script>Cyrl</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <name>Блэк Саббат</name>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="b3d0a501-7fe6-4428-9d1e-eb6699f0d863" type="Compilation">
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <date>1990-10-04</date>
+            <country>SU</country>
+            <release-event-list>
+                <release-event>
+                    <date>1990-10-04</date>
+                    <area id="32f90933-b4b4-3248-b98c-e573d5329f57">
+                        <name>Soviet Union</name>
+                        <sort-name>Soviet Union</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>SU</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>С9029145002</catalog-number>
+                    <label id="90fb1e37-35d4-4150-a4d6-4b438fbbc7a6">
+                        <name>Мелодия</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>8</track-count>
+                <medium>
+                    <format>12" Vinyl</format>
+                    <disc-list count="0"/>
+                    <track-list count="8"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="d42bea88-0d85-41c9-a192-83e777ba2edb" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2010-11-24</date>
+            <country>JP</country>
+            <release-event-list>
+                <release-event>
+                    <date>2010-11-24</date>
+                    <area id="2db42837-c832-3c27-b4a3-08198f75693c">
+                        <name>Japan</name>
+                        <sort-name>Japan</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>JP</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>UICY20038</catalog-number>
+                    <label id="4ef2a03c-57ae-4571-b23a-3fb29b9caa11">
+                        <name>Universal International</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>7</track-count>
+                <medium>
+                    <format>HDCD</format>
+                    <disc-list count="0"/>
+                    <track-list count="7"/>
+                </medium>
+            </medium-list>
+            <tag-list>
+                <tag count="1">
+                    <name>heavy metal</name>
+                </tag>
+            </tag-list>
+        </release>
+        <release id="069dc077-63e4-3ee8-903b-0dd53cf555bf" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1970</date>
+            <country>US</country>
+            <release-event-list>
+                <release-event>
+                    <date>1970</date>
+                    <area id="489ce91b-6658-3307-9877-795b68554c98">
+                        <name>United States</name>
+                        <sort-name>United States</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>US</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>1871</catalog-number>
+                    <label id="c595c289-47ce-4fba-b999-b87503e8cb71">
+                        <name>Warner Bros. Records</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>5</track-count>
+                <medium>
+                    <format>12" Vinyl</format>
+                    <disc-list count="0"/>
+                    <track-list count="5"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="d4d6b8d9-413f-3aa6-9f4b-d51be1eb740c" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2004</date>
+            <country>GB</country>
+            <release-event-list>
+                <release-event>
+                    <date>2004</date>
+                    <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                        <name>United Kingdom</name>
+                        <sort-name>United Kingdom</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>GB</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>5050749203120</barcode>
+            <asin>B00022TPSO</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>SMRCD031</catalog-number>
+                    <label id="84f6693d-dfe5-470a-852a-3c21ece19439">
+                        <name>Sanctuary Midline</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>8</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="6"/>
+                    <track-list count="8"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="6b52eae0-6de5-4b9f-b8d5-60632e84967c" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1970-02-13</date>
+            <country>GB</country>
+            <release-event-list>
+                <release-event>
+                    <date>1970-02-13</date>
+                    <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                        <name>United Kingdom</name>
+                        <sort-name>United Kingdom</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>GB</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode></barcode>
+            <asin>B000002KB8</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>VO 6</catalog-number>
+                    <label id="1b3b52a5-ef89-4f8b-8d5f-e15a7a58863b">
+                        <name>Vertigo</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>7</track-count>
+                <medium>
+                    <format>12" Vinyl</format>
+                    <disc-list count="0"/>
+                    <track-list count="7"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="588dc172-c06d-42ac-b206-fd25bed8e8cf" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1996-02-28</date>
+            <country>GB</country>
+            <release-event-list>
+                <release-event>
+                    <date>1996-02-28</date>
+                    <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                        <name>United Kingdom</name>
+                        <sort-name>United Kingdom</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>GB</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>5017615830125</barcode>
+            <asin>B000005RFH</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>ESM CD 301</catalog-number>
+                    <label id="9351301f-8a99-41f3-96f5-9aac14bf7ac7">
+                        <name>Essential! Records</name>
+                    </label>
+                </label-info>
+                <label-info>
+                    <catalog-number>GAS 0000301ESM</catalog-number>
+                    <label id="9351301f-8a99-41f3-96f5-9aac14bf7ac7">
+                        <name>Essential! Records</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>8</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="6"/>
+                    <track-list count="8"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="a8f1c659-b680-4ec9-9c11-00ca50e985e1" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1996</date>
+            <country>US</country>
+            <release-event-list>
+                <release-event>
+                    <date>1996</date>
+                    <area id="489ce91b-6658-3307-9877-795b68554c98">
+                        <name>United States</name>
+                        <sort-name>United States</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>US</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>013624600624</barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>6006-2</catalog-number>
+                    <label/>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>5</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="5"/>
+                    <track-list count="5"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="3afbfe6c-a1aa-4859-ac82-89d3662e2851" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <country>US</country>
+            <release-event-list>
+                <release-event>
+                    <area id="489ce91b-6658-3307-9877-795b68554c98">
+                        <name>United States</name>
+                        <sort-name>United States</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>US</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode></barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>W2-1871</catalog-number>
+                    <label id="c595c289-47ce-4fba-b999-b87503e8cb71">
+                        <name>Warner Bros. Records</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>5</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="1"/>
+                    <track-list count="5"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="a820f2b3-7d5e-42db-a5aa-031640b04f08" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>1986</date>
+            <release-event-list>
+                <release-event>
+                    <date>1986</date>
+                </release-event>
+            </release-event-list>
+            <barcode>5013428706022</barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>NELCD 6002</catalog-number>
+                    <label id="f3acf224-8e44-49a1-a3a1-6ed1ea5f5016">
+                        <name>Castle Communications</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>8</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="0"/>
+                    <track-list count="8"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="75c03291-bcb5-421e-af31-dbb279615299" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2012-07-25</date>
+            <country>JP</country>
+            <release-event-list>
+                <release-event>
+                    <date>2012-07-25</date>
+                    <area id="2db42837-c832-3c27-b4a3-08198f75693c">
+                        <name>Japan</name>
+                        <sort-name>Japan</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>JP</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>4988005718327</barcode>
+            <asin>B007Y7RGIG</asin>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>UIGY-9094</catalog-number>
+                    <label id="4ef2a03c-57ae-4571-b23a-3fb29b9caa11">
+                        <name>Universal International</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>7</track-count>
+                <medium>
+                    <format>SACD</format>
+                    <disc-list count="0"/>
+                    <track-list count="7"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="3a92c09d-94c6-4517-8988-142e3cc64f77" ext:score="100">
+            <title>Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="826c9743-a3f0-3479-bf06-8df2e140ef1d" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2006</date>
+            <country>AR</country>
+            <release-event-list>
+                <release-event>
+                    <date>2006</date>
+                    <area id="0df04709-c7d8-3b55-a6ea-f3e5069a947b">
+                        <name>Argentina</name>
+                        <sort-name>Argentina</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>AR</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>5050749203120</barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>ICARUS 229</catalog-number>
+                    <label id="2204bf02-54a5-4a17-844d-602db0352e9f">
+                        <name>Icarus Music</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>8</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="1"/>
+                    <track-list count="8"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="975bf99a-ee65-476d-acc0-71a7bba085a8" ext:score="79">
+            <title>Paranoid / Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="92c80d1e-4ed5-427c-b3ec-ab215b63504b" type="Compilation">
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <date>1987-12-05</date>
+            <country>JP</country>
+            <release-event-list>
+                <release-event>
+                    <date>1987-12-05</date>
+                    <area id="2db42837-c832-3c27-b4a3-08198f75693c">
+                        <name>Japan</name>
+                        <sort-name>Japan</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>JP</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>33PD-353</catalog-number>
+                    <label id="1b3b52a5-ef89-4f8b-8d5f-e15a7a58863b">
+                        <name>Vertigo</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>13</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="0"/>
+                    <track-list count="13"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="d0a884d0-6d9e-40b9-870e-e5aa7e3a73f3" ext:score="79">
+            <title>The Black Sabbath Story</title>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5182c1d9-c7d2-4dad-afa0-ccfeada921a8">
+                        <name>Black Sabbath</name>
+                        <sort-name>Black Sabbath</sort-name>
+                        <alias-list>
+                            <alias sort-name="ブラック・サバス">ブラック・サバス</alias>
+                            <alias sort-name="Black Sabath">Black Sabath</alias>
+                            <alias sort-name="Blac Sabat">Blac Sabat</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="45625871-3888-367a-a35e-75cca63512e8" type="Compilation">
+                <primary-type>Album</primary-type>
+                <secondary-type-list>
+                    <secondary-type>Compilation</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <date>1991</date>
+            <country>DE</country>
+            <release-event-list>
+                <release-event>
+                    <date>1991</date>
+                    <area id="85752fda-13c4-31a3-bee5-0e5cb1f51dad">
+                        <name>Germany</name>
+                        <sort-name>Germany</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>DE</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <barcode>4010946702827</barcode>
+            <label-info-list>
+                <label-info>
+                    <catalog-number>CHC 7028</catalog-number>
+                    <label id="f3acf224-8e44-49a1-a3a1-6ed1ea5f5016">
+                        <name>Castle Communications</name>
+                    </label>
+                </label-info>
+            </label-info-list>
+            <medium-list count="1">
+                <track-count>14</track-count>
+                <medium>
+                    <format>CD</format>
+                    <disc-list count="1"/>
+                    <track-list count="14"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="4c22fb4c-aeb0-463e-8332-84fdbc9828ea" ext:score="79">
+            <title>Tribute to Black Sabbath</title>
+            <status>Promotion</status>
+            <disambiguation>Fer Bueno, Edu Bueno. Jorge Cortés</disambiguation>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="40d1611d-00c9-4666-9242-f8ea7f497e3a">
+                        <name>Los Cerdos</name>
+                        <sort-name>Cerdos, Los</sort-name>
+                        <disambiguation>Tribute Band for Black Sabbath &amp; Ronnie James Dio</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="df66a77a-7b9b-4e65-b01a-2afe43e1fdad">
+                <secondary-type-list>
+                    <secondary-type>Live</secondary-type>
+                </secondary-type-list>
+            </release-group>
+            <date>2011-05-01</date>
+            <country>MX</country>
+            <release-event-list>
+                <release-event>
+                    <date>2011-05-01</date>
+                    <area id="3e08b2cd-69f3-317c-b1e4-e71be581839e">
+                        <name>Mexico</name>
+                        <sort-name>Mexico</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>MX</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <medium-list count="1">
+                <track-count>1</track-count>
+                <medium>
+                    <format>DVD-Video</format>
+                    <disc-list count="0"/>
+                    <track-list count="1"/>
+                </medium>
+            </medium-list>
+        </release>
+        <release id="083f54b7-e1f2-4233-8544-2d2272c1bfe8" ext:score="77">
+            <title>Sabbath Crosses: Tributo a Black Sabbath</title>
+            <status>Official</status>
+            <text-representation>
+                <language>eng</language>
+                <script>Latn</script>
+            </text-representation>
+            <artist-credit>
+                <name-credit>
+                    <artist id="89ad4ac3-39f7-470e-963a-56509c546377">
+                        <name>Various Artists</name>
+                        <sort-name>Various Artists</sort-name>
+                        <disambiguation>add compilations to this artist</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-group id="f6395231-10f6-324c-a470-ed6fcb6fafe9" type="Album">
+                <primary-type>Album</primary-type>
+            </release-group>
+            <date>2004-08-13</date>
+            <country>AR</country>
+            <release-event-list>
+                <release-event>
+                    <date>2004-08-13</date>
+                    <area id="0df04709-c7d8-3b55-a6ea-f3e5069a947b">
+                        <name>Argentina</name>
+                        <sort-name>Argentina</sort-name>
+                        <iso-3166-1-code-list>
+                            <iso-3166-1-code>AR</iso-3166-1-code>
+                        </iso-3166-1-code-list>
+                    </area>
+                </release-event>
+            </release-event-list>
+            <medium-list count="1">
+                <track-count>10</track-count>
+                <medium>
+                    <disc-list count="0"/>
+                    <track-list count="10"/>
+                </medium>
+            </medium-list>
+        </release>
+    </release-list>
+</metadata>

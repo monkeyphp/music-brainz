@@ -34,7 +34,6 @@ use PHPUnit_Framework_TestCase;
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class TagListTest extends PHPUnit_Framework_TestCase
 {

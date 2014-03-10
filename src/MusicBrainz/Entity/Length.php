@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+
 /**
  * Length
  *
@@ -49,12 +51,15 @@ class Length
      */
     public function __construct($length)
     {
+        if (! is_scalar($length) || ! ctype_digit((string)$length)) {
+            throw new InvalidArgumentException('Expects a number');
+        }
         $this->length = $length;
     }
 
     /**
      * Return a string representation of the Length
-     * 
+     *
      * @return string
      */
     public function __toString()

@@ -62,9 +62,9 @@ class ReleaseGroup
     protected $firstReleaseDate;
 
     /**
-     * Instance of ReleaseGroupType
+     * Set the PrimaryType
      *
-     * @var ReleaseGroupType
+     * @var PrimaryType
      */
     protected $primaryType;
 
@@ -115,8 +115,9 @@ class ReleaseGroup
     }
 
     /**
-     *
-     * @return ReleaseGroupType|null
+     * Return the PrimaryType
+     * 
+     * @return PrimaryType|null
      */
     public function getPrimaryType()
     {
@@ -187,11 +188,11 @@ class ReleaseGroup
     /**
      * Set the primary type
      *
-     * @param ReleaseGroupType $primaryType
+     * @param PrimaryType $primaryType
      *
      * @return ReleaseGroup
      */
-    public function setPrimaryType(ReleaseGroupType $primaryType = null)
+    public function setPrimaryType(PrimaryType $primaryType = null)
     {
         $this->primaryType = $primaryType;
         return $this;

@@ -1,13 +1,13 @@
 <?php
 /**
- * Format.php
+ * PrimaryType.php
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Entity
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) David White <david@monkeyphp.com>
+ * Copyright (C) 2014  David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,31 +27,34 @@ namespace MusicBrainz\Entity;
 use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
 
-/**
- * Format
- *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Entity
- */
-class Format
-{
-    protected $format;
 
-    public static $formats = array(
-        ConnectorInterface::FORMAT_CD
+/**
+ * PrimaryType
+ *
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
+ */
+class PrimaryType
+{
+    protected $primaryType;
+
+    public static $primaryTypes = array(
+        ConnectorInterface::PRIMARY_TYPE_ALBUM
     );
 
-    public function __construct($format)
+
+    public function __construct($primaryType)
     {
-        if (! is_string($format) || ! in_array(static::$formats)) {
-            throw new InvalidArgumentException('Invalid format supplied');
+        if (! is_string($primaryType) || ! in_array(static::$primaryTypes)) {
+            throw new InvalidArgumentException('Invalid primary type supplied');
         }
-        $this->format = $format;
+        $this->primaryType = $primaryType;
+        return $this;
     }
 
     public function __toString()
     {
-        return $this->format;
+        return $this->primaryType;
     }
 }
