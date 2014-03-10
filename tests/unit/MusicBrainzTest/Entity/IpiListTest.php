@@ -7,7 +7,7 @@
  * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -68,5 +68,13 @@ class IpiListTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($ipiList->getIpis());
         $this->assertSame($ipiList, $ipiList->setIpis($ipis));
         $this->assertCount(count($ipis), $ipiList->getIpis());
+    }
+
+    /**
+     * Test the iterator implementation
+     */
+    public function testIterator()
+    {
+        $this->markTestIncomplete();
     }
 }

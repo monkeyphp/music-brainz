@@ -30,7 +30,6 @@ namespace MusicBrainz\Entity;
  * @category    MusicBrainz
  * @package     MusicBrainz
  * @subpackage  MusicBrainz\Entity
- * @author      David White <david@monkeyphp.com>
  */
 class Tag
 {

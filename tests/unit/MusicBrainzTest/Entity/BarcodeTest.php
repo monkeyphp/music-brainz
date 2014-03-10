@@ -1,6 +1,6 @@
 <?php
 /**
- * TagTest.php
+ * BarcodeTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -24,49 +24,40 @@
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\Count;
-use MusicBrainz\Entity\Name;
-use MusicBrainz\Entity\Tag;
 use PHPUnit_Framework_TestCase;
 
 /**
- * TagTest
+ * BarcodeTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class TagTest extends PHPUnit_Framework_TestCase
+class BarcodeTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can get and set the name
+     * Test that we can construct an instance
      *
-     * @covers \MusicBrainz\Entity\Tag::getName
-     * @covers \MusicBrainz\Entity\Tag::setName
+     * @covers \MusicBrainz\Entity\Barcode::__construct
      */
-    public function testGetSetName()
+    public function test__construct()
     {
-        $tag = new Tag();
-        $name = new Name('metal');
+        $string = '075596039642';
+        $barcode = new \MusicBrainz\Entity\Barcode($string);
 
-        $this->assertNull($tag->getName());
-        $this->assertSame($tag, $tag->setName($name));
-        $this->assertSame($name, $tag->getName());
+        $this->assertInstanceOf('\MusicBrainz\Entity\Barcode', $barcode);
     }
 
     /**
-     * Test that we can get and set the count
+     * Test that we can get a string representation of the Barcode
      *
-     * @covers \MusicBrainz\Entity\Tag::getCount
-     * @covers \MusicBrainz\Entity\Tag::setCount
+     * @covers \MusicBrainz\Entity\Barcode::__toString
      */
-    public function testSetGetCount()
+    public function test__toString()
     {
-        $tag = new Tag();
-        $count = new Count(1);
+        $string = '075596039642';
+        $barcode = new \MusicBrainz\Entity\Barcode($string);
 
-        $this->assertNull($tag->getCount());
-        $this->assertSame($tag, $tag->setCount($count));
-        $this->assertSame($count, $tag->getCount());
+        $this->assertEquals($string, $barcode->__toString());
     }
 }

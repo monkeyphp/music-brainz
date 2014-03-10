@@ -138,7 +138,7 @@ class Alias
      *
      * @return Alias
      */
-    public function setPrimary($primary = null)
+    public function setPrimary(Primary $primary = null)
     {
         $this->primary = $primary;
         return $this;

@@ -1,5 +1,7 @@
 <?php
 /**
+ * Barcode.php
+ *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
@@ -31,10 +33,32 @@ namespace MusicBrainz\Entity;
  */
 class Barcode
 {
+    /**
+     * The value of the Barcode
+     *
+     * @var string
+     */
     protected $barcode;
 
+    /**
+     * Constructor
+     *
+     * @param string $barcode The barcode string
+     *
+     * @return string
+     */
     public function __construct($barcode)
     {
         $this->barcode = $barcode;
+    }
+
+    /**
+     * Return the string representation of the Barcode
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->barcode;
     }
 }

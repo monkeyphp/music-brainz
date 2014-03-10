@@ -30,27 +30,50 @@ namespace MusicBrainz\Entity;
  * @category    MusicBrainz
  * @package     MusicBrainz
  * @subpackage  MusicBrainz\Entity
- * @author      David White <david@monkeyphp.com>
  */
 class LifeSpan
 {
+    /**
+     * The begin date
+     *
+     * @var string|null
+     */
     protected $begin;
 
+    /**
+     * The end date
+     *
+     * @var string|null
+     */
     protected $end;
 
+    /**
+     * Is the LifeSpan ended
+     *
+     * @var boolean|null
+     */
     protected $ended;
 
     /**
+     * Return the begin value
+     *
      * @example 1981-10
      *
-     * @return type
+     * @return string
      */
     public function getBegin()
     {
         return $this->begin;
     }
 
-    public function setBegin($begin)
+    /**
+     * Set the begin value
+     *
+     * @param string|null $begin
+     *
+     * @return LifeSpan
+     */
+    public function setBegin($begin = null)
     {
         $this->begin = $begin;
         return $this;
@@ -58,8 +81,6 @@ class LifeSpan
 
     /**
      * Return the ended value
-     *
-     * @exmple false
      *
      * @return boolean|null
      */

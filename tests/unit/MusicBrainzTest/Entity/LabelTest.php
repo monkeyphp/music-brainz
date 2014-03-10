@@ -170,4 +170,39 @@ class LabelTest extends PHPUnit_Framework_TestCase
         $this->assertSame($label, $label->setArea($area));
         $this->assertSame($area, $label->getArea());
     }
+
+    public function testGetSetLifeSpan()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testAddAlias()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testGetSetAliasList()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testAddTag()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testGetSetTagList()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testAddIpi()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function testGetSetIpiList()
+    {
+        $this->markTestIncomplete();
+    }
 }

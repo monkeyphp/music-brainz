@@ -312,9 +312,9 @@ class Label
     }
 
     /**
-     * Set the LifeSpan instance
+     * Set the LifeSpan
      *
-     * @param LifeSpan $lifeSpan
+     * @param LifeSpan $lifeSpan The LifeSpan
      *
      * @return Label
      */
