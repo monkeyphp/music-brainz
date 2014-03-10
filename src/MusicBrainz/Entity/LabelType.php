@@ -45,7 +45,7 @@ class LabelType
 
     /**
      * An array of valid LabelType values
-     * 
+     *
      * @var array
      */
     public static $labelTypes = array(
@@ -59,7 +59,7 @@ class LabelType
     /**
      * Constructor
      *
-     * @param string $labelType
+     * @param string $labelType The value to set the LabelType with
      *
      * @throws InvalidArgumentException
      * @return void
