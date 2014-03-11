@@ -45,7 +45,7 @@ class Name
     /**
      * Constructor
      *
-     * @param string $name
+     * @param string $name The value of the Name
      *
      * @throws InvalidArgumentException
      * @return void
