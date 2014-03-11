@@ -27,7 +27,6 @@ namespace MusicBrainz\Entity;
 use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
 
-
 /**
  * PrimaryType
  *

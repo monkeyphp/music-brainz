@@ -63,7 +63,7 @@ class CountStrategy implements StrategyInterface
     {
         try {
             return new Count($value);
-        } catch(Exception $exception) {
+        } catch (Exception $exception) {
             return null;
         }
     }

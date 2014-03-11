@@ -1,5 +1,12 @@
 <?php
 /**
+ * ReleaseEventListStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,9 +27,11 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of ReleaseEventListStrategy
+ * ReleaseEventListStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class ReleaseEventListStrategy implements StrategyInterface
 {
@@ -36,5 +45,4 @@ class ReleaseEventListStrategy implements StrategyInterface
     {
 
     }
-
 }
