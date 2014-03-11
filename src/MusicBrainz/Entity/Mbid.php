@@ -52,7 +52,7 @@ class Mbid
      */
     public function __construct($mbid)
     {
-        if (! preg_match('#\A[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\z#', $mbid)) {
+        if (! is_string($mbid) || ! preg_match('#\A[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\z#', $mbid)) {
             throw new InvalidArgumentException('The supplied id is invalid');
         }
         $this->mbid = $mbid;

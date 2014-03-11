@@ -48,4 +48,39 @@ class MbidTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('\MusicBrainz\Entity\Mbid', $mbid);
     }
+
+    /**
+     * Test that passing an invalid paramter type throws an exception
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Mbid::__construct
+     */
+    public function test__constructInvalidTypeThrowsException()
+    {
+        $mbid = new Mbid(new \stdClass());
+    }
+
+    /**
+     * Test that passing an invalid string throws an exception
+     *
+     * @expectedException InvalidArgumentException
+     * @covers \MusicBrainz\Entity\Mbid::__construct
+     */
+    public function test__constructInvalidStringThrowsException()
+    {
+        $mbid = new Mbid('an invalid string');
+    }
+
+    /**
+     * Test that we can get a string representation of the Mbid
+     *
+     * @covers \MusicBrainz\Entity\Mbid::__toString
+     */
+    public function test__toString()
+    {
+        $string = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab';
+        $mbid = new Mbid($string);
+
+        $this->assertEquals($string, $mbid->__toString());
+    }
 }
