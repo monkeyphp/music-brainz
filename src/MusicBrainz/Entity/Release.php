@@ -118,6 +118,13 @@ class Release
     protected $mediumList;
 
     /**
+     * Instance of LabelInfoList
+     * 
+     * @var LabelInfoList
+     */
+    protected $labelInfoList;
+
+    /**
      * Return the Mbid instance
      *
      * @return Mbid|null

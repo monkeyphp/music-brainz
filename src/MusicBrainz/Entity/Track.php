@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "02-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Track.php
+ *
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,33 +25,131 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of Track
+ * Track
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
 class Track
 {
     /**
+     * The Mbid instance
      *
      * @var Mbid
      */
     protected $mbid;
 
     /**
+     * The number of the Track
      *
      * @var Count
      */
     protected $number;
 
     /**
+     * The Title of the Track
      *
      * @var Title
      */
     protected $title;
 
     /**
+     * The Length of the Track
      *
      * @var Length
      */
     protected $length;
+
+    /**
+     * Return the Mbid of the Track
+     *
+     * @return Mbid|null
+     */
+    public function getMbid()
+    {
+        return $this->mbid;
+    }
+
+    /**
+     * Return the number of the Track
+     *
+     * @return Count|null
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Return the Title of the Track
+     *
+     * @return Title|null
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Return the Length of the Track
+     *
+     * @return Length|null
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * Set the Mbid
+     *
+     * @param Mbid $mbid
+     *
+     * @return Track
+     */
+    public function setMbid(Mbid $mbid)
+    {
+        $this->mbid = $mbid;
+        return $this;
+    }
+
+    /**
+     * Set the number of the Track
+     *
+     * @param Count $number
+     *
+     * @return Track
+     */
+    public function setNumber(Count $number)
+    {
+        $this->number = $number;
+        return $this;
+    }
+
+    /**
+     * Set the Title
+     *
+     * @param Title $title The Title
+     *
+     * @return Track
+     */
+    public function setTitle(Title $title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * Set the Length of the Track
+     *
+     * @param Length $length The Length value
+     *
+     * @return Track
+     */
+    public function setLength(Length $length)
+    {
+        $this->length = $length;
+        return $this;
+    }
 }
