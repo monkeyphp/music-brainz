@@ -64,7 +64,7 @@ class Release
     /**
      * Instance of Barcode
      *
-     * @var \MusicBrainz\Entity\Barcode
+     * @var Barcode
      */
     protected $barcode;
 
@@ -119,10 +119,17 @@ class Release
 
     /**
      * Instance of LabelInfoList
-     * 
+     *
      * @var LabelInfoList
      */
     protected $labelInfoList;
+
+    /**
+     * Instance of Asin
+     *
+     * @var Asin|null
+     */
+    protected $asin;
 
     /**
      * Return the Mbid instance
@@ -405,6 +412,55 @@ class Release
     public function setReleaseGroup(ReleaseGroup $releaseGroup = null)
     {
         $this->releaseGroup = $releaseGroup;
+        return $this;
+    }
+
+    /**
+     * Return the LabelInfoList
+     *
+     * @return LabelInfoList
+     */
+    public function getLabelInfoList()
+    {
+        if (! isset($this->labelInfoList)) {
+            $this->labelInfoList = new LabelInfoList();
+        }
+        return $this->labelInfoList;
+    }
+
+    /**
+     * Return the Asin
+     *
+     * @return Asin|null
+     */
+    public function getAsin()
+    {
+        return $this->asin;
+    }
+
+    /**
+     * Set the LabelInfoList
+     *
+     * @param LabelInfoList $labelInfoList
+     *
+     * @return Release
+     */
+    public function setLabelInfoList(LabelInfoList $labelInfoList = null)
+    {
+        $this->labelInfoList = $labelInfoList;
+        return $this;
+    }
+
+    /**
+     * Set the Asin
+     *
+     * @param Asin $asin
+     *
+     * @return Release
+     */
+    public function setAsin(Asin $asin = null)
+    {
+        $this->asin = $asin;
         return $this;
     }
 }

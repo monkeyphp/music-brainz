@@ -25,6 +25,7 @@
 namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Entity\Barcode;
 use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\MediumList;
@@ -179,9 +180,20 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->markTestIncomplete();
     }
 
+    /**
+     * Test that we can get and set the Barcode
+     *
+     * @covers \MusicBrainz\Entity\Release::getBarcode
+     * @covers \MusicBrainz\Entity\Release::setBarcode
+     */
     public function testGetSetBarcode()
     {
-        $this->markTestIncomplete();
+        $release = new Release();
+        $barcode = new Barcode(075596039642);
+
+        $this->assertNull($release->getBarcode());
+        $this->assertSame($release, $release->setBarcode($barcode));
+        $this->assertSame($barcode, $release->getBarcode());
     }
 
     /**

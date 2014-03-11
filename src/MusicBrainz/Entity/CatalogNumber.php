@@ -1,11 +1,11 @@
 <?php
 /**
- * Barcode.php
+ * CatalogNumber.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
- * @author     David white <david@monkeyphp.com>
+ * @author     David White <david@monkeyphp.com>
  *
  * Copyright (C) David White <david@monkeyphp.com>
  *
@@ -27,44 +27,46 @@ namespace MusicBrainz\Entity;
 use InvalidArgumentException;
 
 /**
- * Barcode
+ * CatalogNumber
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
  */
-class Barcode
+class CatalogNumber
 {
     /**
-     * The value of the Barcode
+     * The CatalogNumber value
+     *
+     * @example POCE-1097
      *
      * @var string
      */
-    protected $barcode;
+    protected $catalogNumber;
 
     /**
      * Constructor
      *
-     * @param int|string $barcode The barcode string
+     * @param string $catalogNumber
      *
      * @throws InvalidArgumentException
      * @return void
      */
-    public function __construct($barcode)
+    public function __construct($catalogNumber)
     {
-        if (! is_scalar($barcode) || ! ctype_digit((string)$barcode)) {
-            throw new InvalidArgumentException('Invalid barcode supplied');
+        if (! is_string($catalogNumber)) {
+            throw new InvalidArgumentException('Expects a string');
         }
-        $this->barcode = $barcode;
+        $this->catalogNumber = $catalogNumber;
     }
 
     /**
-     * Return the string representation of the Barcode
+     * Return a string representation of the CatalogNumber
      *
      * @return string
      */
     public function __toString()
     {
-        return $this->barcode;
+        return $this->catalogNumber;
     }
 }

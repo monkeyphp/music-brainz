@@ -1,13 +1,13 @@
 <?php
 /**
- * BarcodeTest.php
+ * CatalogNumberTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,57 +20,57 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\Barcode;
+use MusicBrainz\Entity\CatalogNumber;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 
 /**
- * BarcodeTest
+ * CatalogNumber
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class BarcodeTest extends PHPUnit_Framework_TestCase
+class CatalogNumberTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can construct an instance
+     * Test that we can construct an instance of CatalogNumber
      *
-     * @covers \MusicBrainz\Entity\Barcode::__construct
+     * @covers \MusicBrainz\Entity\CatalogNumber::__construct
      */
     public function test__construct()
     {
-        $string = '075596039642';
-        $barcode = new Barcode($string);
+        $string = 'POCE-1097';
+        $catalogNumber = new CatalogNumber($string);
 
-        $this->assertInstanceOf('\MusicBrainz\Entity\Barcode', $barcode);
+        $this->assertInstanceOf('\MusicBrainz\Entity\CatalogNumber', $catalogNumber);
     }
 
     /**
-     * Test that passing an invalid type throws an exception
+     * Test that passing an invalid parameter throws an exception
      *
      * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Barcode::__construct
+     * @covers \MusicBrainz\Entity\CatalogNumber::__construct
      */
     public function test__constructThrowsException()
     {
-        $barcode = new Barcode(new stdClass());
+        $catalogNumber = new CatalogNumber(new stdClass());
     }
 
     /**
-     * Test that we can get a string representation of the Barcode
+     * Test that we can get a string representation of the CatalogNumber
      *
-     * @covers \MusicBrainz\Entity\Barcode::__toString
+     * @covers \MusicBrainz\Entity\CatalogNumber::__toString
      */
     public function test__toString()
     {
-        $string = '075596039642';
-        $barcode = new Barcode($string);
+        $string = 'POCE-1097';
+        $catalogNumber = new CatalogNumber($string);
 
-        $this->assertEquals($string, $barcode->__toString());
+        $this->assertEquals($string, $catalogNumber->__toString());
     }
 }

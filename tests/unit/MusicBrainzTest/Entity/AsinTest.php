@@ -1,13 +1,13 @@
 <?php
 /**
- * BarcodeTest.php
+ * AsinTest.php
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,57 +20,55 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 namespace MusicBrainzTest\Entity;
 
-use MusicBrainz\Entity\Barcode;
+use MusicBrainz\Entity\Asin;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 
 /**
- * BarcodeTest
+ * AsinTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class BarcodeTest extends PHPUnit_Framework_TestCase
+class AsinTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test that we can construct an instance
+     * Test that we can construct an instance of Asin
      *
-     * @covers \MusicBrainz\Entity\Barcode::__construct
+     * @covers \MusicBrainz\Entity\Asin::__construct
      */
     public function test__construct()
     {
-        $string = '075596039642';
-        $barcode = new Barcode($string);
+        $string = 'B000005RFH';
+        $asin = new Asin($string);
 
-        $this->assertInstanceOf('\MusicBrainz\Entity\Barcode', $barcode);
+        $this->assertInstanceof('\MusicBrainz\Entity\Asin', $asin);
     }
 
     /**
-     * Test that passing an invalid type throws an exception
-     *
      * @expectedException InvalidArgumentException
-     * @covers \MusicBrainz\Entity\Barcode::__construct
+     * @covers \MusicBrainz\Entity\Asin::__construct
      */
     public function test__constructThrowsException()
     {
-        $barcode = new Barcode(new stdClass());
+        $asin = new Asin(new stdClass());
     }
 
     /**
-     * Test that we can get a string representation of the Barcode
+     * Test that we can get a string representation of the Asin
      *
-     * @covers \MusicBrainz\Entity\Barcode::__toString
+     * @covers \MusicBrainz\Entity\Asin::__toString
      */
     public function test__toString()
     {
-        $string = '075596039642';
-        $barcode = new Barcode($string);
+        $string = 'B000005RFH';
+        $asin = new Asin($string);
 
-        $this->assertEquals($string, $barcode->__toString());
+        $this->assertEquals($string, $asin->__toString());
     }
 }

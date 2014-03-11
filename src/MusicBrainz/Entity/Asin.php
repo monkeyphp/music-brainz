@@ -1,11 +1,11 @@
 <?php
 /**
- * Barcode.php
+ * Asin.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
- * @author     David white <david@monkeyphp.com>
+ * @author     David White <david@monkeyphp.com>
  *
  * Copyright (C) David White <david@monkeyphp.com>
  *
@@ -27,44 +27,46 @@ namespace MusicBrainz\Entity;
 use InvalidArgumentException;
 
 /**
- * Barcode
+ * Asin
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
  */
-class Barcode
+class Asin
 {
     /**
-     * The value of the Barcode
+     * The asin value
+     *
+     * @example B000005RFH
      *
      * @var string
      */
-    protected $barcode;
+    protected $asin;
 
     /**
      * Constructor
      *
-     * @param int|string $barcode The barcode string
+     * @param string $asin
      *
      * @throws InvalidArgumentException
      * @return void
      */
-    public function __construct($barcode)
+    public function __construct($asin)
     {
-        if (! is_scalar($barcode) || ! ctype_digit((string)$barcode)) {
-            throw new InvalidArgumentException('Invalid barcode supplied');
+        if (! is_string($asin)) {
+            throw new InvalidArgumentException('Expects a string');
         }
-        $this->barcode = $barcode;
+        $this->asin = $asin;
     }
 
     /**
-     * Return the string representation of the Barcode
+     * Return a string representation of the Asin
      *
      * @return string
      */
     public function __toString()
     {
-        return $this->barcode;
+        return $this->asin;
     }
 }
