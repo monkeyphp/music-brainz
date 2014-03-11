@@ -1,7 +1,13 @@
 <?php
-
-/*
- * Copyright (C)
+/**
+ * LabelInfo.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,51 +25,69 @@
 namespace MusicBrainz\Entity;
 
 /**
- * Description of LabelInfo
+ * LabelInfo
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class LabelInfo
 {
-    /*
-     * <label-info-list>
-                <label-info>
-                    <catalog-number>POCE-1097</catalog-number>
-                    <label id="3d9fb42b-5ae4-491d-9f1f-d64c9652d72f">
-                        <name>Strange Days Records</name>
-                    </label>
-                </label-info>
-            </label-info-list>
-     */
-
     /**
+     * The catalog number
+     *
      * @var CatalogNumber|null
      */
     protected $catalogNumber;
 
     /**
+     * The Label
      *
      * @var Label|null
      */
     protected $label;
 
+    /**
+     * Return the CatalogNumber
+     *
+     * @return CatalogNumber|null
+     */
     public function getCatalogNumber()
     {
         return $this->catalogNumber;
     }
 
+    /**
+     * Return the Label
+     *
+     * @return Label|null
+     */
     public function getLabel()
     {
         return $this->label;
     }
 
-    public function setCatalogNumber(CatalogNumber $catalogNumber)
+    /**
+     * Set the CatalogNumber
+     *
+     * @param CatalogNumber $catalogNumber
+     *
+     * @return LabelInfo
+     */
+    public function setCatalogNumber(CatalogNumber $catalogNumber = null)
     {
         $this->catalogNumber = $catalogNumber;
         return $this;
     }
 
-    public function setLabel(Label $label)
+    /**
+     * Set the Label
+     * 
+     * @param Label $label
+     *
+     * @return LabelInfo
+     */
+    public function setLabel(Label $label = null)
     {
         $this->label = $label;
         return $this;
