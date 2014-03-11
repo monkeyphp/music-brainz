@@ -1,6 +1,12 @@
 <?php
-
-/*
+/**
+ * TrackList.php
+ *
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,46 +22,82 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Entity;
 
 /**
- * Description of TrackList
+ * TrackList
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
 class TrackList
 {
     /**
+     * The array of Tracks
      *
      * @var array
      */
-    protected $tracks;
+    protected $tracks = array();
 
     /**
+     * The Count of the TrackList
      *
      * @var Count
      */
     protected $count;
 
     /**
+     * The offset of the TrackList
      *
      * @var Count
      */
     protected $offset;
 
-    public function addTracks($tracks = array())
+    public function setTracks($tracks = array())
     {
-
+        if (is_array($tracks) || $tracks instanceof \Traversable) {
+            foreach ($tracks as $track) {
+                if ($track instanceof Track) {
+                    $this->addTrack($track);
+                }
+            }
+        }
+        return $this;
     }
 
     public function addTrack(Track $track)
     {
-
+        if (! in_array($track, $this->tracks, true)) {
+            $this->tracks[] = $track;
+        }
+        return $this;
     }
 
     public function getTracks()
     {
+        return $this->tracks;
+    }
 
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    public function getOffset()
+    {
+        return $this->offset;
+    }
+
+    public function setCount(Count $count)
+    {
+        $this->count = $count;
+        return $this;
+    }
+
+    public function setOffset(Count $offset)
+    {
+        $this->offset = $offset;
+        return $this;
     }
 }

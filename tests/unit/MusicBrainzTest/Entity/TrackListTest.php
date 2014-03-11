@@ -24,6 +24,11 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Entity\Count;
+use MusicBrainz\Entity\Track;
+use MusicBrainz\Entity\TrackList;
+use PHPUnit_Framework_TestCase;
+
 /**
  * TrackListTest
  *
@@ -31,25 +36,71 @@ namespace MusicBrainzTest\Entity;
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class TrackListTest extends \PHPUnit_Framework_TestCase
+class TrackListTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test that we can get and set the tracks
+     *
+     * @covers \MusicBrainz\Entity\TrackList::getTracks
+     * @covers \MusicBrainz\Entity\TrackList::setTracks
+     */
     public function testGetSetTracks()
     {
-        $this->markTestIncomplete();
+        $trackList = new TrackList();
+        $tracks = array(
+            new Track(),
+            new Track()
+        );
+
+        $this->assertEmpty($trackList->getTracks());
+        $this->assertSame($trackList, $trackList->setTracks($tracks));
+        $this->assertCount(count($tracks), $trackList->getTracks());
     }
 
+    /**
+     * Test that we can add a Track
+     *
+     * @covers \MusicBrainz\Entity\TrackList::addTrack
+     */
     public function testAddTrack()
     {
-        $this->markTestIncomplete();
+        $trackList = new TrackList();
+        $track = new Track();
+
+        $this->assertEmpty($trackList->getTracks());
+        $this->assertSame($trackList, $trackList->addTrack($track));
+        $this->assertCount(1, $trackList->getTracks());
     }
 
+    /**
+     * Test that we can get and set the Count
+     *
+     * @covers \MusicBrainz\Entity\TrackList::getCount
+     * @covers \MusicBrainz\Entity\TrackList::setCount
+     */
     public function testGetSetCount()
     {
-        $this->markTestIncomplete();
+        $trackList = new TrackList();
+        $count = new Count(8);
+
+        $this->assertNull($trackList->getCount());
+        $this->assertSame($trackList, $trackList->setCount($count));
+        $this->assertEquals($count, $trackList->getCount());
     }
 
+    /**
+     * Test that we can get and set the offset
+     *
+     * @covers \MusicBrainz\Entity\TrackList::getOffset
+     * @covers \MusicBrainz\Entity\TrackList::setOffset
+     */
     public function testGetSetOffset()
     {
-        $this->markTestIncomplete();
+        $trackList = new TrackList();
+        $offset = new Count(5);
+
+        $this->assertNull($trackList->getOffset());
+        $this->assertSame($trackList, $trackList->setOffset($offset));
+        $this->assertSame($offset, $trackList->getOffset());
     }
 }
