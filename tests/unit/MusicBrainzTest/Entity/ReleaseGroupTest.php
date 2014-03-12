@@ -24,6 +24,10 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Entity\Mbid;
+use MusicBrainz\Entity\ReleaseGroup;
+use MusicBrainz\Entity\ReleaseGroupType;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -43,7 +47,12 @@ class ReleaseGroupTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetMbid()
     {
+        $releaseGroup = new ReleaseGroup();
+        $mbid = new Mbid('0da580f2-6768-498f-af9d-2becaddf15e0');
 
+        $this->assertNull($releaseGroup->getMbid());
+        $this->assertSame($releaseGroup, $releaseGroup->setMbid($mbid));
+        $this->assertSame($mbid, $releaseGroup->getMbid());
     }
 
     /**
@@ -54,7 +63,12 @@ class ReleaseGroupTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetType()
     {
+        $releaseGroup = new ReleaseGroup();
+        $releaseGroupType = new ReleaseGroupType(ConnectorInterface::RELEASE_GROUP_TYPE_ALBUM);
 
+        $this->assertNull($releaseGroup->getType());
+        $this->assertSame($releaseGroup, $releaseGroup->setType($releaseGroupType));
+        $this->assertSame($releaseGroupType, $releaseGroup->getType());
     }
 
     /**
@@ -65,6 +79,6 @@ class ReleaseGroupTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetPrimaryType()
     {
-
+        $this->markTestIncomplete();
     }
 }

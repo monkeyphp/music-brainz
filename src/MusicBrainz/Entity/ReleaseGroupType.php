@@ -1,7 +1,13 @@
 <?php
-
 /**
- * Copyright (C) David White
+ * ReleaseGroupType.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,32 +24,58 @@
  */
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
 use MusicBrainz\Connector\ConnectorInterface;
 
 /**
- * Description of ReleaseGroupType
+ * ReleaseGroupType
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class ReleaseGroupType
 {
-    public static $types = array(
+    /**
+     * The value of the ReleaseGroupType
+     *
+     * @var string
+     */
+    protected $releaseGroupType;
+
+    /**
+     * An array of valid release group types
+     *
+     * @var array
+     */
+    public static $releaseGroupTypes = array(
         ConnectorInterface::RELEASE_GROUP_TYPE_ALBUM,
         ConnectorInterface::RELEASE_GROUP_TYPE_COMPILATION
     );
 
-    protected $type;
-
-    public function __construct($type)
+    /**
+     * Constructor
+     * 
+     * @param string $releaseGroupType
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public function __construct($releaseGroupType)
     {
-        if (! in_array($type, static::$types)) {
+        if (! in_array($releaseGroupType, static::$releaseGroupTypes)) {
             throw new InvalidArgumentException('Invalid type supplied');
         }
-        $this->type = $type;
+        $this->releaseGroupType = $releaseGroupType;
     }
 
+    /**
+     * Return a string representation of the ReleaseGroupType
+     *
+     * @return string
+     */
     public function __toString()
     {
-        return $this->type;
+        return $this->releaseGroupType;
     }
 }
