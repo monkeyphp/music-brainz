@@ -41,6 +41,13 @@ class NameCredit
     protected $artist;
 
     /**
+     * @todo
+     * 
+     * @var string|null
+     */
+    protected $joinPhrase;
+
+    /**
      * Return the Artist instance
      *
      * @return Artist|null

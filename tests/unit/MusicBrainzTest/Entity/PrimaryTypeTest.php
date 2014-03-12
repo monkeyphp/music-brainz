@@ -24,6 +24,10 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Entity\PrimaryType;
+use PHPUnit_Framework_TestCase;
+
 /**
  * PrimaryTypeTest
  *
@@ -31,7 +35,7 @@ namespace MusicBrainzTest\Entity;
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class PrimaryTypeTest extends \PHPUnit_Framework_TestCase
+class PrimaryTypeTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test that we can construct an instance
@@ -40,6 +44,8 @@ class PrimaryTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function test__construct()
     {
-        $this->markTestIncomplete();
+        $primaryType = new PrimaryType(ConnectorInterface::PRIMARY_TYPE_ALBUM);
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\PrimaryType', $primaryType);
     }
 }

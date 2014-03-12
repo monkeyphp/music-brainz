@@ -40,6 +40,8 @@ interface ConnectorInterface
 
     const PRIMARY_TYPE_ALBUM = 'Album';
     const PRIMARY_TYPE_EP = 'EP';
+    const PRIMARY_TYPE_SINGLE = 'Single';
+    const PRIMARY_TYPE_OTHER = 'Other';
 
     const RELEASE_GROUP_TYPE_ALBUM = 'Album';
     const RELEASE_GROUP_TYPE_COMPILATION = 'Compilation';

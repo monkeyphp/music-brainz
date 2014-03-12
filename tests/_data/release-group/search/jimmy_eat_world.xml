@@ -1,0 +1,652 @@
+<?xml version="1.0" standalone="yes"?>
+<metadata created="2014-03-12T13:50:50.102Z" xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ext="http://musicbrainz.org/ns/ext#-2.0">
+    <release-group-list count="7577" offset="0">
+        <release-group id="7c0c321a-538b-3080-bcc2-982e8e37bf87" type="Album" ext:score="100">
+            <title>Jimmy Eat World</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="ae147f6c-8a98-4d3a-8cd5-6b014d9d6276">
+                    <title>Jimmy Eat World</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="d71aab86-da5c-38bd-b69e-eeea5559072c" type="EP" ext:score="100">
+            <title>Jimmy Eat World</title>
+            <primary-type>EP</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="798c146e-9dd5-407e-be5a-4ce06d99ac75">
+                    <title>Jimmy Eat World</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="3">
+                    <name>alternative rock</name>
+                </tag>
+            </tag-list>
+        </release-group>
+        <release-group id="f2d8f8ca-190a-31ec-bb9f-48d643834e52" type="Compilation" ext:score="100">
+            <title>Jimmy Eat World</title>
+            <primary-type>Album</primary-type>
+            <secondary-type-list>
+                <secondary-type>Compilation</secondary-type>
+            </secondary-type-list>
+            <artist-credit>
+                <name-credit>
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="3">
+                <release id="c1df9930-a20a-49f6-b08a-d2e9cfb5396c">
+                    <title>Jimmy Eat World</title>
+                    <status>Official</status>
+                </release>
+                <release id="109979eb-4e6d-46ed-a9cc-b107ba141e2b">
+                    <title>Jimmy Eat World</title>
+                    <status>Official</status>
+                </release>
+                <release id="1266a3cd-1849-479c-a3bb-5d0285d82b90">
+                    <title>Jimmy Eat World</title>
+                    <status>-</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>alternative rock</name>
+                </tag>
+            </tag-list>
+        </release-group>
+        <release-group id="1f31bae8-c9c8-30e0-ad31-a44b32a77bc9" type="EP" ext:score="87">
+            <title>Jebediah &amp; Jimmy Eat World</title>
+            <primary-type>EP</primary-type>
+            <artist-credit>
+                <name-credit joinphrase=" / ">
+                    <artist id="71ec3b1a-5935-46e8-ab91-b509ec5776bd">
+                        <name>Jebediah</name>
+                        <sort-name>Jebediah</sort-name>
+                    </artist>
+                </name-credit>
+                <name-credit>
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="2">
+                <release id="15675c0d-0297-4fbe-a213-910aa8d6386a">
+                    <title>Jebediah &amp; Jimmy Eat World</title>
+                    <status>Official</status>
+                </release>
+                <release id="da6a6fa3-0802-499f-8a98-04c43b6b662c">
+                    <title>Jebediah &amp; Jimmy Eat World</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="dd9ff97d-1003-3cfb-bc85-6c1a933e0feb" type="Single" ext:score="87">
+            <title>JeJune / Jimmy Eat World</title>
+            <primary-type>Single</primary-type>
+            <artist-credit>
+                <name-credit joinphrase=" / ">
+                    <artist id="6fb1e6e6-07ab-434d-8e4c-5b8df0f92cac">
+                        <name>Jejune</name>
+                        <sort-name>Jejune</sort-name>
+                    </artist>
+                </name-credit>
+                <name-credit>
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="462dae29-f970-4ddc-9afe-0a110d0ea2ae">
+                    <title>JeJune / Jimmy Eat World</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="b4d3a7e9-a0bc-3f46-8a9d-7ea43a8c0641" type="Single" ext:score="87">
+            <title>Jimmy Eat World / Blueprint</title>
+            <primary-type>Single</primary-type>
+            <artist-credit>
+                <name-credit joinphrase=" / ">
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+                <name-credit>
+                    <artist id="b7ac1110-df02-4244-ab63-b1287f6ce847">
+                        <name>Blueprint</name>
+                        <sort-name>Blueprint</sort-name>
+                        <disambiguation>Indie group from Houston, TX</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="df4150ef-d31f-4396-ad24-ec50bfbc1026">
+                    <title>Jimmy Eat World / Blueprint</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="0fd89933-721d-3963-a149-25a4f639bbb2" type="Single" ext:score="87">
+            <title>Jimmy Eat World / Emery</title>
+            <primary-type>Single</primary-type>
+            <artist-credit>
+                <name-credit joinphrase=" / ">
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+                <name-credit>
+                    <artist id="6b22de04-fb48-44aa-bd02-c1427f635477">
+                        <name>Emery</name>
+                        <sort-name>Emery</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="12dac7d6-41df-4e10-982a-3370c7152d4d">
+                    <title>Jimmy Eat World / Emery</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="cdc6d3e3-9bdb-3916-aa19-6c6e5f33ecb8" type="Other" ext:score="62">
+            <title>Mineral / Jimmy Eat World / Sense Field</title>
+            <primary-type>Other</primary-type>
+            <artist-credit>
+                <name-credit joinphrase=" / ">
+                    <artist id="b12a70be-abea-4c27-9e99-201841a0da6b">
+                        <name>Mineral</name>
+                        <sort-name>Mineral</sort-name>
+                        <disambiguation>US emo</disambiguation>
+                    </artist>
+                </name-credit>
+                <name-credit joinphrase=" / ">
+                    <artist id="bbc5b66b-d037-4f26-aecf-0b129e7f876a">
+                        <name>Jimmy Eat World</name>
+                        <sort-name>Jimmy Eat World</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Eats World">Jimmy Eats World</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+                <name-credit>
+                    <artist id="8d7bf045-1526-404d-b37c-6f49b714d614">
+                        <name>Sense Field</name>
+                        <sort-name>Sense Field</sort-name>
+                        <alias-list>
+                            <alias sort-name="Sensefield">Sensefield</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="6edcfde1-f40f-4455-ae87-4f2b597ec13e">
+                    <title>Mineral / Jimmy Eat World / Sense Field</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="01262b29-67b0-3441-a97a-830d19ae55a9" type="Single" ext:score="28">
+            <title>Jimmy</title>
+            <primary-type>Single</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="7cf0ea9d-86b9-4dad-ba9e-2355a64899ea">
+                        <name>M.I.A.</name>
+                        <sort-name>M.I.A.</sort-name>
+                        <disambiguation>hip hop artist Maya Arulpragasam</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="5">
+                <release id="a381e904-b393-44ed-a452-9326bb3a2091">
+                    <title>Jimmy</title>
+                    <status>Official</status>
+                </release>
+                <release id="cafa574b-9134-39f5-bd87-0518d376568c">
+                    <title>Jimmy</title>
+                    <status>Official</status>
+                </release>
+                <release id="2ad504bc-4c25-4b96-993a-dc6c1f00605f">
+                    <title>Jimmy</title>
+                    <status>Official</status>
+                </release>
+                <release id="5f0f0f62-f08c-4d1c-99ab-e467fe1dad36">
+                    <title>Jimmy</title>
+                    <status>Official</status>
+                </release>
+                <release id="7d3671a2-b0ea-4e20-86eb-c5fb13a477ba">
+                    <title>Jimmy (Remixes)</title>
+                    <status>Promotion</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>electronic</name>
+                </tag>
+                <tag count="1">
+                    <name>electro</name>
+                </tag>
+            </tag-list>
+        </release-group>
+        <release-group id="dbf29deb-9cc7-4be4-8b71-da00e78abf44" type="Single" ext:score="28">
+            <title>Jimmy</title>
+            <primary-type>Single</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="35dc36a6-3017-45e4-95c6-9b87cf1637c8">
+                        <name>The Purple Hearts</name>
+                        <sort-name>Purple Hearts, The</sort-name>
+                        <disambiguation>UK mod band</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="036f35f3-d428-452a-91b0-4ff64509a5a8">
+                    <title>Jimmy</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="58dfff2f-2cee-48e8-81a2-f68a9f9820be" type="EP" ext:score="28">
+            <title>Jimmy</title>
+            <primary-type>EP</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="35c0d032-7f11-4452-947c-7e145b96c32f">
+                        <name>Low Budget Band</name>
+                        <sort-name>Low Budget Band</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="21d8d0d2-39f5-459e-a751-87c4c7d73410">
+                    <title>Jimmy</title>
+                    <status>Promotion</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="23cdba38-08b9-4414-9cf4-056e3984ff22" type="Single" ext:score="28">
+            <title>Jimmy</title>
+            <primary-type>Single</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="d4ece8ba-ef0d-47ad-84ee-3aa564ceafda">
+                        <name>New Theory</name>
+                        <sort-name>New Theory</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="a131e6d1-4be0-4b0b-87a2-0dd384842f9d">
+                    <title>Jimmy</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="0eed8f7d-1640-39bb-9e0e-ec9ca5d634ac" type="Album" ext:score="26">
+            <title>Eat</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5ab6612a-fc45-45d0-a8c8-7f199830057f">
+                        <name>Charming Hostess</name>
+                        <sort-name>Charming Hostess</sort-name>
+                        <alias-list>
+                            <alias sort-name="The Charming Hostess Big Band">The Charming Hostess Big Band</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="92ed1632-c0f7-4d45-9632-92ce7e8a7194">
+                    <title>Eat</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="a537d586-97c5-385c-9806-e1230c3034f9" type="Single" ext:score="24">
+            <title>Jimmy Jimmy</title>
+            <primary-type>Single</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="d188e4cd-d187-4df2-8516-6ff8dfd3735c">
+                        <name>The Undertones</name>
+                        <sort-name>Undertones, The</sort-name>
+                        <disambiguation>northern irish punk rock band</disambiguation>
+                        <alias-list>
+                            <alias sort-name="Undertones">Undertones</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="b33384d9-6339-4c70-844e-c9dc5b3a8e06">
+                    <title>Jimmy Jimmy</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="676033ea-5ba2-3b8c-95d4-8679cdbc0249" type="Album" ext:score="19">
+            <title>People That Can Eat People Are the Luckiest People in the World</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5e1dbdb2-87ac-41ff-9960-4a42a872327a">
+                        <name>Andrew Jackson Jihad</name>
+                        <sort-name>Andrew Jackson Jihad</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="2">
+                <release id="a39122b3-3c97-30b5-a4af-3d8826f8ed2c">
+                    <title>People That Can Eat People Are the Luckiest People in the World</title>
+                    <status>Official</status>
+                </release>
+                <release id="565cdcdb-e066-4eb4-871c-fa252dc850cf">
+                    <title>People That Can Eat People Are the Luckiest People in the World</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="87f331e3-2599-4e36-9543-40551de46c68" type="Album" ext:score="18">
+            <title>Eat Dog Eat</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="b5fe748c-28e4-409f-84d6-732555d27ce1">
+                        <name>Fastway</name>
+                        <sort-name>Fastway</sort-name>
+                        <disambiguation>'80s British rock group</disambiguation>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="f6212c84-3ed9-47d6-a13b-e4bc579674b0">
+                    <title>Eat Dog Eat</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="adb71a7d-a9d5-3a12-bc44-0ea3d1a46a28" ext:score="17">
+            <title>Jimmy Yancey</title>
+            <artist-credit>
+                <name-credit>
+                    <artist id="b123ba15-c4a5-4281-8117-2e57f8f02496">
+                        <name>Big Joe Turner</name>
+                        <sort-name>Turner, Big Joe</sort-name>
+                        <alias-list>
+                            <alias sort-name="'Big' Joe Turner">'Big' Joe Turner</alias>
+                            <alias sort-name="&quot;Big&quot; Joe Turner">"Big" Joe Turner</alias>
+                            <alias sort-name="Joe Turner">Joe Turner</alias>
+                            <alias sort-name="Joe Turner &amp; His Blues Kings">Joe Turner &amp; His Blues Kings</alias>
+                            <alias sort-name="Joe Turner (with The Cookies)">Joe Turner (with The Cookies)</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="de9d02e4-e3ff-4021-9212-647258a967c6">
+                    <title>Jimmy Yancey</title>
+                    <status>-</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="10c53e60-b992-39fd-8877-128d9f5ba684" type="Album" ext:score="17">
+            <title>Jimmy Wayne</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="5cf7e696-3c52-4021-866c-7ce71ab8671a">
+                        <name>Jimmy Wayne</name>
+                        <sort-name>Wayne, Jimmy</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="c281f697-79e2-4673-9741-1969c27887c7">
+                    <title>Jimmy Wayne</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>country</name>
+                </tag>
+            </tag-list>
+        </release-group>
+        <release-group id="fa395b74-3875-3268-860c-9eec7e579c9f" type="Album" ext:score="17">
+            <title>Jimmy, ballando</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="777bfd31-0c54-49b9-b057-c1fa742cdcf1">
+                        <name>Paolo Conte</name>
+                        <sort-name>Conte, Paolo</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="2">
+                <release id="7934f237-1350-4213-8beb-0e53e1a4f9b9">
+                    <title>Jimmy, ballando</title>
+                    <status>Official</status>
+                </release>
+                <release id="367978e2-0f55-4ec1-967a-7ed91421f851">
+                    <title>Jimmy, ballando</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="f02bec4c-8799-32fd-bdca-8a23cb04f0e3" type="Album" ext:score="17">
+            <title>Jimmy Cozier</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="059e0aca-516b-4655-acb3-8ef5dbec4887">
+                        <name>Jimmy Cozier</name>
+                        <sort-name>Cozier, Jimmy</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Coier">Jimmy Coier</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="894e778f-ccca-4783-81d5-c90816ad2e0e">
+                    <title>Jimmy Cozier</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>255</name>
+                </tag>
+            </tag-list>
+        </release-group>
+        <release-group id="70478278-aa6b-3b94-a09b-515b120aad69" ext:score="17">
+            <title>Jimmy Reed</title>
+            <artist-credit>
+                <name-credit>
+                    <artist id="018d8a5e-76c7-450d-a0a1-a97f8c26466f">
+                        <name>Jimmy Reed</name>
+                        <sort-name>Reed, Jimmy</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="bedc53b2-6820-4427-96e3-c5aaefde9639">
+                    <title>Jimmy Reed</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="f660d2ee-fa8c-3dc7-8b1a-990727c99975" ext:score="17">
+            <title>Jimmy Witherspoon</title>
+            <artist-credit>
+                <name-credit>
+                    <artist id="1eaf1688-4f52-49e8-98bc-743828fe3e7e">
+                        <name>Jimmy Witherspoon</name>
+                        <sort-name>Witherspoon, Jimmy</sort-name>
+                        <alias-list>
+                            <alias sort-name="Jimmy Witherspoom">Jimmy Witherspoom</alias>
+                            <alias sort-name="Witherspoon Jimmy">Witherspoon Jimmy</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="b0c99c52-ee5a-48ea-8c0f-10ee916342ed">
+                    <title>Jimmy Witherspoon</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+        </release-group>
+        <release-group id="27a5f1f0-93c4-39b9-8848-ed24e9606dd1" type="EP" ext:score="17">
+            <title>Jimmy James</title>
+            <primary-type>EP</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="9beb62b2-88db-4cea-801e-162cd344ee53">
+                        <name>Beastie Boys</name>
+                        <sort-name>Beastie Boys</sort-name>
+                        <alias-list>
+                            <alias sort-name="Beastie Boys-01">Beastie Boys-01</alias>
+                            <alias sort-name="Beastie Boys-11">Beastie Boys-11</alias>
+                            <alias sort-name="Beastie Boys - Sabotage">Beastie Boys - Sabotage</alias>
+                            <alias sort-name="Beastie Boys, The">Beastie Boys, The</alias>
+                            <alias sort-name="Beasty Boys">Beasty Boys</alias>
+                            <alias sort-name="The Beastie Boys">The Beastie Boys</alias>
+                            <alias sort-name="The Beasty Boys">The Beasty Boys</alias>
+                        </alias-list>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="3">
+                <release id="a669e189-97ea-3b89-969a-5d192725ef29">
+                    <title>Jimmy James</title>
+                    <status>Official</status>
+                </release>
+                <release id="ae7b7d1a-e1ef-4f25-9670-486a24754c1a">
+                    <title>Jimmy James</title>
+                    <status>Official</status>
+                </release>
+                <release id="9cb21451-2c69-3b68-a7e2-f178b574396e">
+                    <title>Jimmy James</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>electronic</name>
+                </tag>
+                <tag count="1">
+                    <name>downtempo</name>
+                </tag>
+                <tag count="1">
+                    <name>hip-hop</name>
+                </tag>
+            </tag-list>
+        </release-group>
+        <release-group id="bb8f218b-7074-303d-9d32-ac6f0b873c2d" type="Album" ext:score="17">
+            <title>Jimmy Ray</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="bc6ee7b7-178e-4c63-9cbf-9135601566e8">
+                        <name>Jimmy Ray</name>
+                        <sort-name>Ray, Jimmy</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="4cede6f0-c81d-4a0c-aba3-e48aed1def7e">
+                    <title>Jimmy Ray</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>alternative rock</name>
+                </tag>
+            </tag-list>
+        </release-group>
+        <release-group id="294d088d-0f44-3106-8fe6-12e43b9baea9" type="Album" ext:score="17">
+            <title>Jimmy II.</title>
+            <primary-type>Album</primary-type>
+            <artist-credit>
+                <name-credit>
+                    <artist id="ffac990c-3daa-4d3d-943f-e4a08d0dfe43">
+                        <name>Zámbó Jimmy</name>
+                        <sort-name>Zámbó Jimmy</sort-name>
+                    </artist>
+                </name-credit>
+            </artist-credit>
+            <release-list count="1">
+                <release id="9ea06f58-26c5-4404-b431-e82015fe645e">
+                    <title>Jimmy II.</title>
+                    <status>Official</status>
+                </release>
+            </release-list>
+            <tag-list>
+                <tag count="1">
+                    <name>pop</name>
+                </tag>
+                <tag count="1">
+                    <name>hungarian</name>
+                </tag>
+                <tag count="1">
+                    <name>pop_hungarian</name>
+                </tag>
+            </tag-list>
+        </release-group>
+    </release-group-list>
+</metadata>
