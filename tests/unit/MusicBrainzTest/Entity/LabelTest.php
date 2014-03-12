@@ -25,13 +25,19 @@
 namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Entity\Alias;
+use MusicBrainz\Entity\AliasList;
+use MusicBrainz\Entity\Area;
 use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\Label;
 use MusicBrainz\Entity\LabelCode;
 use MusicBrainz\Entity\LabelType;
+use MusicBrainz\Entity\LifeSpan;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\Name;
 use MusicBrainz\Entity\Score;
+use MusicBrainz\Entity\Tag;
+use MusicBrainz\Entity\TagList;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -164,36 +170,88 @@ class LabelTest extends PHPUnit_Framework_TestCase
     public function testGetSetArea()
     {
         $label = new Label();
-        $area = new \MusicBrainz\Entity\Area();
+        $area = new Area();
 
         $this->assertNull($label->getArea());
         $this->assertSame($label, $label->setArea($area));
         $this->assertSame($area, $label->getArea());
     }
 
+    /**
+     * Test that we can get and set the LifeSpan
+     *
+     * @covers \MusicBrainz\Entity\Label::getLifeSpan
+     * @covers \MusicBrainz\Entity\Label::setLifeSpan
+     */
     public function testGetSetLifeSpan()
     {
-        $this->markTestIncomplete();
+        $label = new Label();
+        $lifeSpan = new LifeSpan();
+
+        $this->assertNull($label->getLifeSpan());
+        $this->assertSame($label, $label->setLifeSpan($lifeSpan));
+        $this->assertSame($lifeSpan, $label->getLifeSpan());
     }
 
+    /**
+     * Test that we can add an Alias
+     *
+     * @covers \MusicBrainz\Entity\Label::addAlias
+     */
     public function testAddAlias()
     {
-        $this->markTestIncomplete();
+        $label = new Label();
+
+        $this->assertEmpty($label->getAliasList()->getAliases());
+        $this->assertSame($label, $label->addAlias(new Alias()));
+        $this->assertCount(1, $label->getAliasList()->getAliases());
     }
 
+    /**
+     * Test that we can get and set the AliasList
+     *
+     * @covers \MusicBrainz\Entity\Label::getAliasList
+     * @covers \MusicBrainz\Entity\Label::setAliasList
+     */
     public function testGetSetAliasList()
     {
-        $this->markTestIncomplete();
+        $label = new Label();
+        $aliasList = new AliasList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\AliasList', $label->getAliasList());
+        $this->assertSame($label, $label->setAliasList($aliasList));
+        $this->assertSame($aliasList, $label->getAliasList());
     }
 
-    public function testAddTag()
-    {
-        $this->markTestIncomplete();
-    }
-
+    /**
+     * Test that we can get and set the TagList
+     *
+     * @covers \MusicBrainz\Entity\Label::getTagList
+     * @covers \MusicBrainz\Entity\Label::setTagList
+     */
     public function testGetSetTagList()
     {
-        $this->markTestIncomplete();
+        $label = new Label();
+        $tagList = new TagList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\TagList', $label->getTagList());
+        $this->assertSame($label, $label->setTagList($tagList));
+        $this->assertSame($tagList, $label->getTagList());
+    }
+
+    /**
+     * Test that we can add a Tag
+     *
+     * @covers \MusicBrainz\Entity\Label::addTag
+     */
+    public function testAddTag()
+    {
+        $label = new Label();
+        $tag = new Tag();
+
+        $this->assertEmpty($label->getTagList()->getTags());
+        $this->assertSame($label, $label->addTag($tag));
+        $this->assertCount(1, $label->getTagList()->getTags());
     }
 
     public function testAddIpi()
