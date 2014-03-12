@@ -86,4 +86,33 @@ class ReleaseGroupListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($releaseGroupList, $releaseGroupList->setReleaseGroups($releaseGroups));
         $this->assertCount(count($releaseGroups), $releaseGroupList->getReleaseGroups());
     }
+
+    /**
+     * Test the Iterator interface
+     *
+     * @covers \MusicBrainz\Entity\ReleaseGroupList::current
+     * @covers \MusicBrainz\Entity\ReleaseGroupList::key
+     * @covers \MusicBrainz\Entity\ReleaseGroupList::next
+     * @covers \MusicBrainz\Entity\ReleaseGroupList::valid
+     * @covers \MusicBrainz\Entity\ReleaseGroupList::rewind
+     */
+    public function testIterator()
+    {
+        $releaseGroupList = new ReleaseGroupList();
+        $releaseGroups = array(
+            new ReleaseGroup(),
+            new ReleaseGroup(),
+            new ReleaseGroup(),
+        );
+
+        $releaseGroupList->setReleaseGroups($releaseGroups);
+
+        $count = 0;
+
+        foreach ($releaseGroupList as $releaseGroup) {
+            $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseGroup', $releaseGroup);
+            $count++;
+        }
+        $this->assertCount($count, $releaseGroups);
+    }
 }

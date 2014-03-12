@@ -2,6 +2,11 @@
 /**
  * ReleaseGroupListStrategy.php
  *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,18 +22,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\ReleaseGroup;
 use MusicBrainz\Entity\ReleaseGroupList;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of ReleaseGroupListStrategy
+ * ReleaseGroupListStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class ReleaseGroupListStrategy implements StrategyInterface
 {
