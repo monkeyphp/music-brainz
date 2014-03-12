@@ -31,6 +31,7 @@ use MusicBrainz\Entity\Country;
 use MusicBrainz\Entity\LabelInfoList;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\MediumList;
+use MusicBrainz\Entity\Packaging;
 use MusicBrainz\Entity\Quality;
 use MusicBrainz\Entity\Release;
 use MusicBrainz\Entity\ReleaseEventList;
@@ -185,7 +186,12 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetPackaging()
     {
-        $this->markTestIncomplete();
+        $release = new Release();
+        $packaging = new Packaging(ConnectorInterface::RELEASE_PACKAGING_JEWEL_CASE);
+
+        $this->assertNull($release->getPackaging());
+        $this->assertSame($release, $release->setPackaging($packaging));
+        $this->assertSame($packaging, $release->getPackaging());
     }
 
     /**

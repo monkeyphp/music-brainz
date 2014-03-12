@@ -36,10 +36,15 @@ use MusicBrainz\Connector\ConnectorInterface;
  */
 class Packaging
 {
+    /**
+     * An array of valid packaging types
+     *
+     * @var array
+     */
     public static $packagingTypes = array(
         ConnectorInterface::RELEASE_PACKAGING_CASSETTE_CASE,
         ConnectorInterface::RELEASE_PACKAGING_JEWEL_CASE,
-        ConnectorInterface::RELEASE_PACKAGING_CARDBOAD_PAPER_SLEEVE,
+        ConnectorInterface::RELEASE_PACKAGING_CARDBOARD_PAPER_SLEEVE,
     );
 
     /**
@@ -52,7 +57,7 @@ class Packaging
     /**
      * Constructor
      *
-     * @param string $packaging
+     * @param string $packaging The packaging value
      *
      * @throws InvalidArgumentException
      * @return void

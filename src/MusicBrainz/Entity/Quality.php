@@ -38,6 +38,7 @@ class Quality
 {
     /**
      * An array of quality types
+     * 
      * @var array
      */
     public static $qualityTypes = array(
