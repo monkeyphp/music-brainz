@@ -63,7 +63,7 @@ class TitleStrategy implements StrategyInterface
     {
         try {
             return new Title($value);
-        } catch(Exception $exception) {
+        } catch (Exception $exception) {
             return null;
         }
     }

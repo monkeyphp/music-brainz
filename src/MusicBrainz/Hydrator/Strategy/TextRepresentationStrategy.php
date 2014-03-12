@@ -1,6 +1,13 @@
 <?php
 /**
- * Copyright (C)
+ * TextRepresentationStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White [monkeyphp] <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,9 +29,11 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of TextRepresentationStrategy
+ * TextRepresentationStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class TextRepresentationStrategy implements StrategyInterface
 {
@@ -53,5 +62,4 @@ class TextRepresentationStrategy implements StrategyInterface
         }
         return $this->getHydrator()->hydrate($value, new TextRepresentation());
     }
-
 }

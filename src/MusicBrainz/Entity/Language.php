@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Entity;
 
+use InvalidArgumentException;
+
 /**
  * Language
  *
@@ -33,10 +35,28 @@ namespace MusicBrainz\Entity;
  */
 class Language
 {
+    /**
+     * The value of the Language
+     *
+     * @example 'eng'
+     *
+     * @var string
+     */
     protected $language;
 
+    /**
+     * Constructor
+     *
+     * @param string $language
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
     public function __construct($language)
     {
+        if (! is_string($language)) {
+            throw new InvalidArgumentException('Expects a string');
+        }
         $this->language = $language;
     }
 

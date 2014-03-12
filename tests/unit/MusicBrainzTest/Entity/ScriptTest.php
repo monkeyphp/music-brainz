@@ -43,7 +43,7 @@ class ScriptTest extends PHPUnit_Framework_TestCase
      */
     public function test__construct()
     {
-        $string = 'lat';
+        $string = 'Latn';
         $script = new Script($string);
 
         $this->assertInstanceOf('\MusicBrainz\Entity\Script', $script);
@@ -54,7 +54,7 @@ class ScriptTest extends PHPUnit_Framework_TestCase
      */
     public function test__toString()
     {
-        $string = 'lat';
+        $string = 'Latn';
         $script = new Script($string);
 
         $this->assertEquals($string, $script);

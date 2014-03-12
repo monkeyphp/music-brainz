@@ -1,13 +1,13 @@
 <?php
 /**
- * ReleaseGroupTypeStrategy.php
+ * LanguageTest.php
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) David White <david@monkeyphp.com>
+ * Copyright (C) David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,32 +22,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace MusicBrainz\Hydrator\Strategy;
+namespace MusicBrainzTest\Entity;
 
-use Exception;
-use MusicBrainz\Entity\ReleaseGroupType;
-use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
+use MusicBrainz\Entity\Language;
+use PHPUnit_Framework_TestCase;
 /**
- * ReleaseGroupTypeStrategy
+ * LanguageTest
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
+ * @category   MusicBrainzTest
+ * @package    MusicBrainzTest
+ * @subpackage MusicBrainzTest\Entity
  */
-class ReleaseGroupTypeStrategy implements StrategyInterface
+class LanguageTest extends PHPUnit_Framework_TestCase
 {
-    public function extract($value)
+    /**
+     * Test that we can construct an instance of Language
+     *
+     * @covers \MusicBrainz\Entity\Language::__construct
+     */
+    public function test__construct()
     {
+        $string = 'eng';
+        $language = new Language($string);
 
-    }
-
-    public function hydrate($value)
-    {
-        try {
-            return new ReleaseGroupType($value);
-        } catch (Exception $exception) {
-            return null;
-        }
+        $this->assertInstanceOf('\MusicBrainz\Entity\Language', $language);
     }
 }

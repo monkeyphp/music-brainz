@@ -83,6 +83,4 @@ class Medium
         $this->trackList = $trackList;
         return $this;
     }
-
-
 }
