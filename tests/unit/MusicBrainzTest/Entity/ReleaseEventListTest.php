@@ -7,7 +7,7 @@
  * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -70,5 +70,33 @@ class ReleaseEventListTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($releaseEventList->getReleaseEvents());
         $this->assertSame($releaseEventList, $releaseEventList->setReleaseEvents($releaseEvents));
         $this->assertCount(count($releaseEvents), $releaseEventList->getReleaseEvents());
+    }
+
+    /**
+     * Test the Iterator interface
+     *
+     * @covers \MusicBrainz\Entity\ReleaseEventList::current
+     * @covers \MusicBrainz\Entity\ReleaseEventList::key
+     * @covers \MusicBrainz\Entity\ReleaseEventList::next
+     * @covers \MusicBrainz\Entity\ReleaseEventList::valid
+     * @covers \MusicBrainz\Entity\ReleaseEventList::rewind
+     */
+    public function testIterator()
+    {
+        $releaseEventList = new ReleaseEventList();
+        $releaseEvents = array(
+            new ReleaseEvent(),
+            new ReleaseEvent(),
+            new ReleaseEvent(),
+        );
+
+        $count = 0;
+        $releaseEventList->setReleaseEvents($releaseEvents);
+
+        foreach ($releaseEventList as $releaseEvent) {
+            $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseEvent', $releaseEvent);
+            $count++;
+        }
+        $this->assertCount($count, $releaseEvents);
     }
 }
