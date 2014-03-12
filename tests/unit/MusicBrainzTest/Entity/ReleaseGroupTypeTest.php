@@ -28,6 +28,7 @@ use MusicBrainz\Connector\ConnectorInterface;
 use MusicBrainz\Entity\ReleaseGroupType;
 use PHPUnit_Framework_TestCase;
 use stdClass;
+use Zend\Validator\Exception\InvalidArgumentException;
 
 /**
  * ReleaseGroupTypeTest
@@ -59,5 +60,18 @@ class ReleaseGroupTypeTest extends PHPUnit_Framework_TestCase
     public function test__constructThrowsException()
     {
         $releaseGroupType = new ReleaseGroupType(new stdClass());
+    }
+
+    /**
+     * Test that we can get a string representation of the ReleaseGroupType
+     *
+     * @covers \MusicBrainz\Entity\ReleaseGroupType::__toString
+     */
+    public function test__toString()
+    {
+        $string = ConnectorInterface::RELEASE_GROUP_TYPE_COMPILATION;
+        $releaseGroupType = new ReleaseGroupType($string);
+
+        $this->assertEquals($string, $releaseGroupType);
     }
 }
