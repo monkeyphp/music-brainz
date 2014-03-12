@@ -7,7 +7,7 @@
  * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,8 +25,10 @@
 namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Entity\Asin;
 use MusicBrainz\Entity\Barcode;
 use MusicBrainz\Entity\Country;
+use MusicBrainz\Entity\LabelInfoList;
 use MusicBrainz\Entity\Mbid;
 use MusicBrainz\Entity\MediumList;
 use MusicBrainz\Entity\Quality;
@@ -104,7 +106,7 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
     public function testGetSetQuality()
     {
         $release = new Release();
-        $quality = new Quality('high');
+        $quality = new Quality('high'); // @todo - replace with constant
 
         $this->assertNull($release->getQuality());
         $this->assertSame($release, $release->setQuality($quality));
@@ -175,6 +177,12 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->assertSame($mediumList, $release->getMediumList());
     }
 
+    /**
+     * Test that we can get and set the Packaging
+     *
+     * @covers \MusicBrainz\Entity\Release::getPackaging
+     * @covers \MusicBrainz\Entity\Release::setPackaging
+     */
     public function testGetSetPackaging()
     {
         $this->markTestIncomplete();
@@ -210,5 +218,37 @@ class ReleaseTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MusicBrainz\Entity\ReleaseGroup', $release->getReleaseGroup());
         $this->assertSame($release, $release->setReleaseGroup($releaseGroup));
         $this->assertSame($releaseGroup, $release->getReleaseGroup());
+    }
+
+    /**
+     * Test that we can get and set the LabelInfoList
+     *
+     * @covers \MusicBrainz\Entity\Release::getLabelInfoList
+     * @covers \MusicBrainz\Entity\Release::setLabelInfoList
+     */
+    public function testGetSetLabelInfoList()
+    {
+        $release = new Release();
+        $labelInfoList = new LabelInfoList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\LabelInfoList', $release->getLabelInfoList());
+        $this->assertSame($release, $release->setLabelInfoList($labelInfoList));
+        $this->assertSame($labelInfoList, $release->getLabelInfoList());
+    }
+
+    /**
+     * Test that we can get and set the Asin
+     *
+     * @covers \MusicBrainz\Entity\Release::getAsin
+     * @covers \MusicBrainz\Entity\Release::setAsin
+     */
+    public function testGetSetAsin()
+    {
+        $release = new Release();
+        $asin = new Asin('B000005RFH');
+
+        $this->assertNull($release->getAsin());
+        $this->assertSame($release, $release->setAsin($asin));
+        $this->assertSame($asin, $release->getAsin());
     }
 }

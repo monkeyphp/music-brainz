@@ -454,7 +454,7 @@ class Release
     /**
      * Set the Asin
      *
-     * @param Asin $asin
+     * @param Asin $asin The Asin instance
      *
      * @return Release
      */
