@@ -1,6 +1,6 @@
 <?php
 /**
- * AliasTypeStrategy.php
+ * AreaSearchStrategy.php
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
@@ -24,47 +24,29 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
-use Exception;
-use MusicBrainz\Entity\AliasType;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * AreaTypeStrategy
+ * AreaSearchStrategy
  *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
  */
-class AliasTypeStrategy implements StrategyInterface
+class AreaSearchStrategy implements StrategyInterface
 {
-    /**
-     * Extract the values from the supplied AliasType instance
-     *
-     * @param AliasType $object
-     *
-     * @return null|string
-     */
-    public function extract($object)
+    public function extract($value)
     {
-        if (! $object instanceof AliasType) {
-            return null;
-        }
-        return $object->__toString();
+
     }
 
-    /**
-     * Attempt to hydrate and return an instance of AliasType
-     *
-     * @param string $value
-     *
-     * @return AliasType|null
-     */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        try {
-            return new AliasType($value);
-        } catch (Exception $exception) {
+        if (! is_array($value) || ! isset($values['area-list']) || ! is_array($values['area-list'])) {
             return null;
         }
+
+        
     }
+
 }
