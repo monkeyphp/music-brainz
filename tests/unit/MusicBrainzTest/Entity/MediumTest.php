@@ -24,6 +24,13 @@
  */
 namespace MusicBrainzTest\Entity;
 
+use MusicBrainz\Connector\ConnectorInterface;
+use MusicBrainz\Entity\Count;
+use MusicBrainz\Entity\Format;
+use MusicBrainz\Entity\Medium;
+use MusicBrainz\Entity\TrackList;
+use PHPUnit_Framework_TestCase;
+
 /**
  * MediumTest
  *
@@ -31,20 +38,53 @@ namespace MusicBrainzTest\Entity;
  * @package    MusicBrainzTest
  * @subpackage MusicBrainzTest\Entity
  */
-class MediumTest extends \PHPUnit_Framework_TestCase
+class MediumTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test that we can get and set the positition
+     *
+     * @covers \MusicBrainz\Entity\Medium::getPosition
+     * @covers \MusicBrainz\Entity\Medium::setPosition
+     */
     public function testGetSetPosition()
     {
-        $this->markTestIncomplete();
+        $medium = new Medium();
+        $position = new Count(1);
+
+        $this->assertNull($medium->getPosition());
+        $this->assertSame($medium, $medium->setPosition($position));
+        $this->assertSame($position, $medium->getPosition());
     }
 
+    /**
+     * Test that we can get and set the Format
+     *
+     * @covers \MusicBrainz\Entity\Medium::getFormat
+     * @covers \MusicBrainz\Entity\Medium::setFormat
+     */
     public function testGetSetFormat()
     {
-        $this->markTestIncomplete();
+        $medium = new Medium();
+        $format = new Format(ConnectorInterface::FORMAT_DIGITAL_MEDIA);
+
+        $this->assertNull($medium->getFormat());
+        $this->assertSame($medium, $medium->setFormat($format));
+        $this->assertSame($format, $medium->getFormat());
     }
 
+    /**
+     * Test that we can get and set the TrackList
+     *
+     * @covers \MusicBrainz\Entity\Medium::getTrackList
+     * @covers \MusicBrainz\Entity\Medium::setTrackList
+     */
     public function testGetSetTrackList()
     {
-        $this->markTestIncomplete();
+        $medium = new Medium();
+        $trackList = new TrackList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\TrackList', $medium->getTrackList());
+        $this->assertSame($medium, $medium->setTrackList($trackList));
+        $this->assertSame($trackList, $medium->getTrackList());
     }
 }

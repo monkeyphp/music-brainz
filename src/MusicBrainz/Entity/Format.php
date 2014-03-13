@@ -49,7 +49,10 @@ class Format
      * @var array
      */
     public static $formats = array(
-        ConnectorInterface::FORMAT_CD
+        ConnectorInterface::FORMAT_CD,
+        ConnectorInterface::FORMAT_VINYL,
+        ConnectorInterface::FORMAT_12_INCH_VINYL,
+        ConnectorInterface::FORMAT_DIGITAL_MEDIA,
     );
 
     /**
@@ -70,7 +73,7 @@ class Format
 
     /**
      * Return a string representation of the Format
-     * 
+     *
      * @return string
      */
     public function __toString()

@@ -34,18 +34,21 @@ namespace MusicBrainz\Entity;
 class Medium
 {
     /**
+     * The position of the Medium
      *
      * @var Count
      */
     protected $position;
 
     /**
+     * The Format of the Medium
      *
      * @var Format
      */
     protected $format;
 
     /**
+     * Instance of TrackList
      *
      * @var TrackList
      */
@@ -63,6 +66,9 @@ class Medium
 
     public function getTrackList()
     {
+        if (! isset($this->trackList)) {
+            $this->trackList = new TrackList();
+        }
         return $this->trackList;
     }
 
