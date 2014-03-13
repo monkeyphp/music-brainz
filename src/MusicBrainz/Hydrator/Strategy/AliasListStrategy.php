@@ -86,23 +86,27 @@ class AliasListStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of AliasList
      *
-     * @param array $value The array of values to hydrate the AliasList instance with
+     * @param array $values The array of values to hydrate the AliasList instance with
      *
      * @return AliasList|null
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value) || ! isset($value['alias']) || ! is_array($value['alias'])) {
+        if (! is_array($values) || ! isset($values['alias']) || ! is_array($values['alias'])) {
             return null;
         }
-        $values = array();
+
+
         $aliases = array();
         $aliasStrategy = new AliasStrategy();
-        foreach ($value['alias'] as $index => $alias) {
+
+        foreach ($values['alias'] as $index => $alias) {
             $aliases[$index] = $aliasStrategy->hydrate($alias);
         }
+
         $values['aliases'] = $aliases;
-        unset($value['alias']);
+        unset($values['alias']);
+
         return $this->getHydrator()->hydrate($values, new AliasList());
     }
 }

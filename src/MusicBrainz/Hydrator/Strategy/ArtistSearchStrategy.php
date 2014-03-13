@@ -25,6 +25,7 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\ArtistSearch;
+use Zend\Filter\Word\UnderscoreToDash;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -34,7 +35,6 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 class ArtistSearchStrategy implements StrategyInterface
 {
@@ -54,8 +54,8 @@ class ArtistSearchStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods(false);
-            $hydrator->addStrategy('artistList', new ArtistListStrategy());
+            $hydrator = new ClassMethods(true);
+            $hydrator->addStrategy('artist_list', new ArtistListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -77,29 +77,43 @@ class ArtistSearchStrategy implements StrategyInterface
         if (! $object instanceof ArtistSearch) {
             return null;
         }
-        return $this->getHydrator()->extract($object);
+
+        $values = $this->getHydrator()->extract($object);
+        $filter = new UnderscoreToDash();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = $filter->filter($key);
+            $filtered[$_] = $value;
+        });
+
+        return $filtered;
     }
 
     /**
      * Hydrate and return an instance of ArtistSearch
      *
-     * @param array $value
+     * @param array $values The values to populate the ArtistSearch instance with
      *
      * @return null|ArtistSearch
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values) ||
+            ! isset($values['artist-list']) ||
+            ! is_array($values['artist-list'])
+        ) {
             return null;
         }
 
-        if (! isset($value['artist-list']) || ! is_array($value['artist-list'])) {
-            return null;
+        $values['artist_list'] = $values['artist-list'];
+        unset($values['artist-list']);
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values  = $values + $attributes;
         }
-
-        $value['artistList'] = $value['artist-list'];
-        unset($value['artist-list']);
-
-        return $this->getHydrator()->hydrate($value, new ArtistSearch());
+        return $this->getHydrator()->hydrate($values, new ArtistSearch());
     }
 }

@@ -18,6 +18,7 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Iso31661CodeList;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -28,16 +29,46 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 class Iso31661CodeListStrategy implements StrategyInterface
 {
 
+    protected $hydrator;
+
+    protected function getHydrator()
+    {
+        // @codeCoverageIgnoreStart
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods(true);
+            $this->hydrator = $hydrator;
+        }
+        return $this->hydrator;
+        // @codeCoverageIgnoreEnd
+    }
+
     public function extract($value)
     {
 
     }
 
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        return new Iso31661CodeList();
+
+        $iso31661Codes = array();
+        $iso31661CodeStrategy = new Iso31661CodeStrategy();
+
+        foreach ($values as $key => $value) {
+            $iso31661Codes[] = $iso31661CodeStrategy->hydrate($value);
+        }
+
+        $values['iso31661Codes'] = $iso31661Codes;
+
+
+
+        $return = $this->getHydrator()->hydrate($values, new Iso31661CodeList());
+
+//        var_dump($return);
+
+        return $return;
+
     }
 }

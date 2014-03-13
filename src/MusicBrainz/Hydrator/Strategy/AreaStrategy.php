@@ -7,7 +7,7 @@
  * @subpackage MusicBrainz\Hydrator\Strategy
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Area;
+use Zend\Filter\Word\DashToUnderscore;
+use Zend\Filter\Word\UnderscoreToDash;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -54,7 +56,7 @@ class AreaStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods(true);
-            $hydrator->addStrategy('iso31661CodeList', new Iso31661CodeListStrategy());
+            $hydrator->addStrategy('iso31661_code_list', new Iso31661CodeListStrategy());
             $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('sort_name', new NameStrategy());
             $hydrator->addStrategy('name', new NameStrategy());
@@ -82,7 +84,7 @@ class AreaStrategy implements StrategyInterface
         }
 
         $values = $this->getHydrator()->extract($object);
-        $filter = new \Zend\Filter\Word\UnderscoreToDash();
+        $filter = new UnderscoreToDash();
         $filtered = array();
 
         array_walk($values, function ($value, $key) use ($filter, &$filtered) {
@@ -96,7 +98,6 @@ class AreaStrategy implements StrategyInterface
         unset($filtered['mbid']);
 
         return $filtered;
-
     }
 
     /**
@@ -113,7 +114,13 @@ class AreaStrategy implements StrategyInterface
             return null;
         }
 
-        $filter = new \Zend\Filter\Word\DashToUnderscore();
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+
+        $filter = new DashToUnderscore();
         $filtered = array();
 
         array_walk($values, function ($value, $key) use ($filter, &$filtered) {
@@ -126,6 +133,10 @@ class AreaStrategy implements StrategyInterface
             unset($filtered['id']);
         }
 
+        if (isset($filtered['iso_3166_1_code_list'])) {
+            $filtered['iso31661_code_list'] = $filtered['iso_3166_1_code_list'];
+            unset($filtered['iso_31661_code_list']);
+        }
         return $this->getHydrator()->hydrate($filtered, new Area());
     }
 }

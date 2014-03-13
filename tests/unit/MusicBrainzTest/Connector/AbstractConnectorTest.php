@@ -374,21 +374,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
 
         $reader = $connector->getReader('xml');
 
-        $this->assertInstanceOf('\Zend\Config\Reader\Xml', $reader);
-    }
-
-    /**
-     * Test that we can get the Json reader
-     *
-     * @covers \MusicBrainz\Connector\AbstractConnector::getReader
-     */
-    public function testGetReaderJson()
-    {
-        $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
-
-        $reader = $connector->getReader('json');
-
-        $this->assertInstanceOf('\Zend\Config\Reader\Json', $reader);
+        $this->assertInstanceOf('\MusicBrainz\Reader\Xml', $reader);
     }
 
     /**
@@ -428,7 +414,7 @@ class AbstractConnectorTest extends PHPUnit_Framework_TestCase
     public function testSetDefaultFormat()
     {
         $connector = $this->getMockForAbstractClass('\MusicBrainz\Connector\AbstractConnector', array(new Identity('test')));
-        $format = 'json';
+        $format = 'xml';
 
         $this->assertSame($connector, $connector->setDefaultFormat($format));
         $this->assertEquals($format, $connector->getDefaultFormat());

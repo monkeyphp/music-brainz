@@ -25,6 +25,8 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Alias;
+use Zend\Filter\Word\DashToUnderscore;
+use Zend\Filter\Word\UnderscoreToDash;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -53,8 +55,8 @@ class AliasStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods(false);
-            $hydrator->addStrategy('sortName', new NameStrategy());
+            $hydrator = new ClassMethods(true);
+            $hydrator->addStrategy('sort_name', new NameStrategy());
             $hydrator->addStrategy('locale', new LocaleStrategy());
             $hydrator->addStrategy('primary', new PrimaryStrategy());
             $hydrator->addStrategy('type', new AliasTypeStrategy());
@@ -76,25 +78,45 @@ class AliasStrategy implements StrategyInterface
         if (! $object instanceof Alias) {
             return null;
         }
-        return $this->gethydrator()->extract($object);
+        $values = $this->getHydrator()->extract($object);
+        $filter = new UnderscoreToDash();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = $filter->filter($key);
+            $filtered[$_] = $value;
+        });
+
+        return $filtered;
     }
 
     /**
      * Hydrate and return an instance of Alias
      *
-     * @param array $value The array of values
+     * @param array $values The array of values
      *
      * @return null|Alias
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        if (isset($value['sort-name'])) {
-            $value['sortName'] = $value['sort-name'];
-            unset($value['sort-name']);
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
         }
-        return $this->getHydrator()->hydrate($value, new Alias());
+
+        $filter = new DashToUnderscore();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
+        return $this->getHydrator()->hydrate($filtered, new Alias());
     }
 }

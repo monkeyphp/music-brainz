@@ -30,9 +30,8 @@ use MusicBrainz\Identity\Identity;
 use MusicBrainz\InputFilter\BrowseFilter;
 use MusicBrainz\InputFilter\LookupFilter;
 use MusicBrainz\InputFilter\SearchFilter;
+use MusicBrainz\Reader\Xml;
 use RuntimeException;
-use Zend\Config\Reader\Json;
-use Zend\Config\Reader\Xml;
 use Zend\Http\Client;
 use Zend\Http\Request;
 use Zend\Http\Response;
@@ -46,7 +45,6 @@ use Zend\Uri\Http;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Connector
- * @author     David White [monkeyphp] <david@monkeyphp.com>
  */
 abstract class AbstractConnector implements ConnectorInterface
 {
@@ -324,8 +322,6 @@ abstract class AbstractConnector implements ConnectorInterface
 
             $reader = $this->getReader($options['format']);
             $data = $reader->fromString($body);
-
-            print_r($data);
 
             return $this->getSearchStrategy()->hydrate($data);
 
@@ -672,20 +668,18 @@ abstract class AbstractConnector implements ConnectorInterface
     }
 
     /**
-     * Reader a config reader instance
+     * Reader a reader instance
      *
      * @param string $mode
      *
      * @throws \InvalidArgumentException
-     * @return Xml|Json
+     * @return Xml
      */
     public function getReader($mode)
     {
         switch ($mode) {
             case ConnectorInterface::FORMAT_XML:
                 return new Xml();
-            case ConnectorInterface::FORMAT_JSON:
-                return new Json();
             default:
                 throw new \InvalidArgumentException('Invalid format supplied');
         }
@@ -850,10 +844,12 @@ abstract class AbstractConnector implements ConnectorInterface
     /**
      * Array of acceptable formats
      *
+     * @todo implment a JSON reader
+     * Currently the only accepted format is XML
+     *
      * @var array
      */
     protected $formats = array(
-        ConnectorInterface::FORMAT_JSON,
         ConnectorInterface::FORMAT_XML
     );
 

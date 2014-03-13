@@ -100,9 +100,9 @@ class AliasStrategyTest extends PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $values);
         $this->assertArrayHasKey('primary', $values);
         $this->assertArrayHasKey('locale', $values);
-        $this->assertArrayHasKey('sortName', $values);
+        $this->assertArrayHasKey('sort-name', $values);
         $this->assertEquals($values['primary'], $primary);
-        $this->assertEquals($values['sortName'], $sortName);
+        $this->assertEquals($values['sort-name'], $sortName);
         $this->assertEquals($values['locale'], $locale);
     }
 

@@ -105,8 +105,9 @@ class ArtistStrategy implements StrategyInterface
 
         if ($filtered['mbid']) {
             $filtered['id'] = $filtered['mbid'];
+            unset($filtered['mbid']);
         }
-        unset($filtered['mbid']);
+
 
         return $filtered;
     }
@@ -124,6 +125,12 @@ class ArtistStrategy implements StrategyInterface
             return null;
         }
 
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values  = $values + $attributes;
+        }
+
         $filter = new DashToUnderscore();
         $filtered = array();
 
@@ -136,8 +143,6 @@ class ArtistStrategy implements StrategyInterface
             $filtered['mbid'] = $filtered['id'];
             unset($filtered['id']);
         }
-        $artist = $this->getHydrator()->hydrate($filtered, new Artist());
-
-        return $artist;
+        return $this->getHydrator()->hydrate($filtered, new Artist());
     }
 }

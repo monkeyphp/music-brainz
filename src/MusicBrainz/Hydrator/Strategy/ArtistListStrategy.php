@@ -104,6 +104,12 @@ class ArtistListStrategy implements StrategyInterface
             return null;
         }
 
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values  = $values + $attributes;
+        }
+
         $artists = array();
         $artistStrategy = new ArtistStrategy();
 

@@ -118,7 +118,7 @@ class ArtistSearchStrategyTest extends PHPUnit_Framework_TestCase
         $values = $strategy->extract($artistSearch);
 
         $this->assertInternalType('array', $values);
-        $this->assertArrayHasKey('artistList', $values);
-        $this->assertInternalType('array', $values['artistList']);
+        $this->assertArrayHasKey('artist-list', $values);
+        $this->assertInternalType('array', $values['artist-list']);
     }
 }
