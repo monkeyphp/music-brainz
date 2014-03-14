@@ -37,6 +37,12 @@ use Traversable;
 class RecordingList implements Iterator
 {
     /**
+     *
+     * @var Count|null
+     */
+    protected $count;
+
+    /**
      * An array of Recording instances
      *
      * @var array
@@ -93,6 +99,18 @@ class RecordingList implements Iterator
         }
         return $this;
     }
+
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    public function setCount(Count $count = null)
+    {
+        $this->count = $count;
+        return $this;
+    }
+
 
     /**
      * Return the current Recording

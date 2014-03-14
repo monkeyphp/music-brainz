@@ -67,6 +67,7 @@ class LabelStrategy implements StrategyInterface
             $hydrator->addStrategy('alias_list', new AliasListStrategy());
             $hydrator->addStrategy('tag_list', new TagListStrategy());
             $hydrator->addStrategy('ipi_list', new IpiListStrategy());
+            $hydrator->addStrategy('score', new ScoreStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -107,6 +108,12 @@ class LabelStrategy implements StrategyInterface
     {
         if (! is_array($values)) {
             return null;
+        }
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
         }
 
         $filter = new DashToUnderscore();

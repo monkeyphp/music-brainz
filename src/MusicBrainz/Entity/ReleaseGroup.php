@@ -75,6 +75,12 @@ class ReleaseGroup
      */
     protected $secondaryTypeList;
 
+    protected $artistCredit;
+
+    protected $releaseList;
+
+    protected $tagList;
+
     /**
      * Return the release group type
      *
@@ -116,7 +122,7 @@ class ReleaseGroup
 
     /**
      * Return the PrimaryType
-     * 
+     *
      * @return PrimaryType|null
      */
     public function getPrimaryType()
@@ -140,7 +146,7 @@ class ReleaseGroup
      *
      * @return ReleaseGroup
      */
-    public function setType(ReleaseGroupType $type)
+    public function setType(ReleaseGroupType $type = null)
     {
         $this->type = $type;
         return $this;
@@ -210,4 +216,39 @@ class ReleaseGroup
         $this->secondaryTypeList = $secondaryTypeList;
         return $this;
     }
+
+    public function getArtistCredit()
+    {
+        return $this->artistCredit;
+    }
+
+    public function getReleaseList()
+    {
+        return $this->releaseList;
+    }
+
+    public function getTagList()
+    {
+        return $this->tagList;
+    }
+
+    public function setArtistCredit($artistCredit)
+    {
+        $this->artistCredit = $artistCredit;
+        return $this;
+    }
+
+    public function setReleaseList($releaseList)
+    {
+        $this->releaseList = $releaseList;
+        return $this;
+    }
+
+    public function setTagList($tagList)
+    {
+        $this->tagList = $tagList;
+        return $this;
+    }
+
+
 }

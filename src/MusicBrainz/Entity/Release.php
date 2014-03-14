@@ -259,7 +259,7 @@ class Release
      *
      * @return Release
      */
-    public function setStatus(Status $status)
+    public function setStatus(Status $status = null)
     {
         $this->status = $status;
         return $this;
@@ -324,7 +324,7 @@ class Release
      *
      * @return Release
      */
-    public function setReleaseEventList(ReleaseEventList $releaseEventList)
+    public function setReleaseEventList(ReleaseEventList $releaseEventList = null)
     {
         $this->releaseEventList = $releaseEventList;
         return $this;
@@ -337,7 +337,7 @@ class Release
      *
      * @return Release
      */
-    public function setMediumList(MediumList $mediumList)
+    public function setMediumList(MediumList $mediumList = null)
     {
         $this->mediumList = $mediumList;
         return $this;

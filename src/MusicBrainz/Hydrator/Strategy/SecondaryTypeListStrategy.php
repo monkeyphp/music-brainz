@@ -1,14 +1,8 @@
 <?php
 
-/**
- * IswcListStrategy.php
- *
- * @category   MusicBrainzTest
- * @package    MusicBrainzTest
- * @subpackage MusicBrainzTest\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
- *
- * Copyright (C) 2014  David White
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+  The string doesn't match the expected date/time format. The string to parse was: "13-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,39 +23,20 @@ namespace MusicBrainz\Hydrator\Strategy;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * IswcListStrategy
+ * Description of SecondaryTypeListStrategy
  *
- * @category   MusicBrainzTest
- * @package    MusicBrainzTest
- * @subpackage MusicBrainzTest\Hydrator\Strategy
+ * @author David White <david@monkeyphp.com>
  */
-class IswcListStrategy implements StrategyInterface
+class SecondaryTypeListStrategy implements StrategyInterface
 {
     public function extract($value)
     {
 
     }
 
-    public function hydrate($values)
+    public function hydrate($value)
     {
-        /*
-         * Array
-(
-    [iswc] => T-906.257.012-1
-)
-Array
-(
-    [iswc] => Array
-        (
-            [0] => T-900.206.444-0
-            [1] => T-902.126.567-8
-        )
-
-)
-         *
-         */
-
         return null;
-        //print_r($values);
     }
+
 }

@@ -102,6 +102,12 @@ class LabelListStrategy implements StrategyInterface
             return null;
         }
 
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+        
         $labels = array();
         $labelStrategy = new LabelStrategy();
 

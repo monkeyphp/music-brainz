@@ -80,15 +80,22 @@ class TagStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of Tag
      *
-     * @param array $value The array of values
+     * @param array $values The array of values
      *
      * @return null|Tag
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        return $this->getHydrator()->hydrate($value, new Tag());
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+
+        return $this->getHydrator()->hydrate($values, new Tag());
     }
 }

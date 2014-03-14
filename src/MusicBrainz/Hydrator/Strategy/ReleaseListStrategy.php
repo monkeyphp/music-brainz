@@ -79,24 +79,34 @@ class ReleaseListStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of ReleaseList
      *
-     * @param array $value
+     * @param array $values
      *
      * @return null|ReleaseList
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value) || ! isset($value['release']) || ! is_array($value['release'])) {
+        if (! is_array($values) ||
+            ! isset($values['release']) ||
+            ! is_array($values['release'])
+        ) {
             return null;
         }
-        $values = array();
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+
         $releases = array();
         $releaseStrategy = new ReleaseStrategy();
-        foreach ($value['release'] as $index => $release) {
+        foreach ($values['release'] as $index => $release) {
             $releases[$index] = $releaseStrategy->hydrate($release);
         }
+
         $values['releases'] = $releases;
-        unset($value['releases']);
-        $values['count'] = $value['count'];
+        unset($values['release']);
+
         return $this->getHydrator()->hydrate($values, new ReleaseList());
     }
 }

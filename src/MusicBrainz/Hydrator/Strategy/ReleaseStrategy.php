@@ -25,9 +25,17 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\Release;
+use MusicBrainz\Hydrator\Strategy\BarcodeStrategy;
 use MusicBrainz\Hydrator\Strategy\CountryStrategy;
 use MusicBrainz\Hydrator\Strategy\MbidStrategy;
+use MusicBrainz\Hydrator\Strategy\MediumListStrategy;
+use MusicBrainz\Hydrator\Strategy\PackagingStrategy;
+use MusicBrainz\Hydrator\Strategy\QualityStrategy;
+use MusicBrainz\Hydrator\Strategy\ReleaseEventListStrategy;
+use MusicBrainz\Hydrator\Strategy\StatusStrategy;
+use MusicBrainz\Hydrator\Strategy\TextRepresentationStrategy;
 use MusicBrainz\Hydrator\Strategy\TitleStrategy;
+use Zend\Filter\Word\DashToUnderscore;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -56,17 +64,17 @@ class ReleaseStrategy implements StrategyInterface
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
+            $hydrator = new ClassMethods(true);
             $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('title', new TitleStrategy());
             $hydrator->addStrategy('status', new StatusStrategy());
             $hydrator->addStrategy('quality', new QualityStrategy());
             $hydrator->addStrategy('packaging', new PackagingStrategy());
-            $hydrator->addStrategy('textRepresentation', new TextRepresentationStrategy());
+            $hydrator->addStrategy('text_representation', new TextRepresentationStrategy());
             $hydrator->addStrategy('country', new CountryStrategy());
-            $hydrator->addStrategy('releaseEventList', new ReleaseEventListStrategy());
+            $hydrator->addStrategy('release_event_list', new ReleaseEventListStrategy());
             $hydrator->addStrategy('barcode', new BarcodeStrategy());
-            $hydrator->addStrategy('mediumList', new MediumListStrategy());
+            $hydrator->addStrategy('medium_list', new MediumListStrategy());
             // date
             $this->hydrator = $hydrator;
         }
@@ -92,27 +100,35 @@ class ReleaseStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of Release
      *
-     * @param array $value
+     * @param array $values
      *
      * @return null|Release
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        if (isset($value['id'])) {
-            $value['mbid'] = $value['id'];
-            unset($value['id']);
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
         }
-        if (isset($value['release-event-list'])) {
-            $value['releaseEventList'] = $value['release-event-list'];
-            unset($value['release-event-list']);
+
+        $filter = new DashToUnderscore();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
+
+        if (isset($filtered['id'])) {
+            $filtered['mbid'] = $filtered['id'];
+            unset($filtered['id']);
         }
-        if (isset($value['text-representation'])) {
-            $value['textRepresentation'] = $value['text-representation'];
-            unset($value['text-representation']);
-        }
-        return $this->getHydrator()->hydrate($value, new Release());
+        return $this->getHydrator()->hydrate($filtered, new Release());
     }
 }

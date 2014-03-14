@@ -1,13 +1,8 @@
 <?php
-/**
- * LabelSearchStrategy.php
- *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
- *
- * Copyright (C) 2014  David White
+
+/*
+ * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
+  The string doesn't match the expected date/time format. The string to parse was: "14-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,24 +15,22 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\LabelList;
-use MusicBrainz\Entity\LabelSearch;
+use MusicBrainz\Entity\ArtistCredit;
 use Zend\Filter\Word\DashToUnderscore;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * LabelSearchStrategy
+ * Description of ArtistCreditStrategy
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author David White <david@monkeyphp.com>
  */
-class LabelSearchStrategy implements StrategyInterface
+class ArtistCreditStrategy implements StrategyInterface
 {
     /**
      * Instance of ClassMethods hydrator
@@ -56,48 +49,25 @@ class LabelSearchStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods(true);
-            $hydrator->addStrategy('label_list', new LabelListStrategy());
+            //$hydrator->addStrategy('name_credits', new NameCreditStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
         // @codeCoverageIgnoreEnd
     }
 
-    /**
-     * Extract and return the values from the supplied LabelSearch instance
-     *
-     * @param LabelSearch $object
-     *
-     * @return null|array
-     */
     public function extract($object)
     {
-        if (! $object instanceof LabelSearch) {
-            return null;
-        }
-        return $this->getHydrator()->extract($object);
+
     }
 
-    /**
-     * Hydrate and return an instance of LabelSearch
-     *
-     * @param array $values The array of values
-     *
-     * @return null|LabelSearch
-     */
     public function hydrate($values)
     {
         if (! is_array($values) ||
-            ! isset($values['label-list']) ||
-            ! is_array($values['label-list'])
+            ! isset($values['name-credit']) ||
+            ! is_array($values['name-credit'])
         ) {
             return null;
-        }
-
-        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
-            $attributes = $values['@attributes'];
-            unset($values['@attributes']);
-            $values = $values + $attributes;
         }
 
         $filter = new DashToUnderscore();
@@ -108,6 +78,21 @@ class LabelSearchStrategy implements StrategyInterface
             $filtered[$_] = $value;
         });
 
-        return $this->getHydrator()->hydrate($filtered, new LabelSearch());
+        $nameCredits = array();
+        $nameCreditStrategy = new NameCreditStrategy();
+
+        foreach ($filtered['name_credit'] as $index => $key) {
+            if (! is_int($index)) {
+                $nameCredits[] = $nameCreditStrategy->hydrate($filtered['name_credit']);
+                break;
+            }
+            $nameCredits[$index] = $nameCreditStrategy->hydrate($key);
+        }
+        unset($filtered['name_credit']);
+        $filtered['name_credits'] = $nameCredits;
+
+//        var_dump(array_keys($filtered));
+
+        return $this->getHydrator()->hydrate($filtered, new ArtistCredit());
     }
 }

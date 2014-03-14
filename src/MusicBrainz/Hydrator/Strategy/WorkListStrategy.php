@@ -55,6 +55,7 @@ class WorkListStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
+            $hydrator->addStrategy('count', new CountStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -79,15 +80,30 @@ class WorkListStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of WorkList
      *
-     * @param array $value
+     * @param array $values
      *
      * @return null|WorkList
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        return $this->getHydrator()->hydrate($value, new WorkList());
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+
+        $works = array();
+        $workStrategy = new WorkStrategy();
+
+        foreach ($values['work'] as $index => $work) {
+            $works[$index] = $workStrategy->hydrate($work);
+        }
+        $values['works'] = $works;
+        unset($values['work']);
+
+        return $this->getHydrator()->hydrate($values, new WorkList());
     }
 }

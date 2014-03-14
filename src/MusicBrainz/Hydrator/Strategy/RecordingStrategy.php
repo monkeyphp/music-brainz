@@ -68,11 +68,23 @@ class RecordingStrategy implements StrategyInterface
 
     }
 
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        return $this->getHydrator()->hydrate($value, new Recording());
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+
+        if (isset($values['id'])) {
+            $values['mbid'] = $values['id'];
+            unset($values['id']);
+        }
+
+        return $this->getHydrator()->hydrate($values, new Recording());
     }
 }

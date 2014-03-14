@@ -37,11 +37,12 @@ class MediumListStrategy implements StrategyInterface
 {
     public function extract($value)
     {
-        throw Exception('Not yet implemented');
+        throw new \Exception('Not yet implemented');
     }
 
     public function hydrate($value)
     {
-        throw Exception('Not yet implemented');
+        return null;
+        // throw new \Exception('Not yet implemented');
     }
 }

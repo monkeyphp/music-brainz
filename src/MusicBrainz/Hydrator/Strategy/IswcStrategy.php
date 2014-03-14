@@ -25,6 +25,7 @@
 
 namespace MusicBrainz\Hydrator\Strategy;
 
+use MusicBrainz\Entity\Iswc;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -43,6 +44,10 @@ class IswcStrategy implements StrategyInterface
 
     public function hydrate($value)
     {
-
+        try {
+            return new Iswc($value);
+        } catch (Exception $exception) {
+            return null;
+        }
     }
 }

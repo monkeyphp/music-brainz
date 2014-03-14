@@ -36,30 +36,30 @@ class ArtistCredit
     /**
      * Instance of NameCredit
      *
-     * @var NameCredit
+     * @var array
      */
-    protected $nameCredit;
+    protected $nameCredits;
 
     /**
      * Return the NameCredit
-     * 
+     *
      * @return NameCredit|null
      */
-    public function getNameCredit()
+    public function getNameCredits()
     {
-        return $this->nameCredit;
+        return $this->nameCredits;
     }
 
     /**
-     * Set the NameCredit instance
+     * Set the name credits
      *
-     * @param NameCredit $nameCredit
+     * @param array $nameCredits
      *
      * @return ArtistCredit
      */
-    public function setNameCredit(NameCredit $nameCredit = null)
+    public function setNameCredits($nameCredits = array())
     {
-        $this->nameCredit = $nameCredit;
+        $this->nameCredits = $nameCredits;
         return $this;
     }
 }

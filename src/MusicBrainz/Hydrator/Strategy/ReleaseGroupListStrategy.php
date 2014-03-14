@@ -25,6 +25,9 @@
 namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\ReleaseGroupList;
+use MusicBrainz\Hydrator\Strategy\CountStrategy;
+use MusicBrainz\Hydrator\Strategy\ReleaseGroupStrategy;
+use Zend\Filter\Word\DashToUnderscore;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -67,24 +70,41 @@ class ReleaseGroupListStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of ReleaseGroupList
      *
-     * @param array $value
+     * @param array $values
      *
      * @return null|ReleaseGroupList
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value) || ! is_array($value['release-group'])) {
+        if (! is_array($values) ||
+            ! is_array($values['release-group'])
+        ) {
             return null;
         }
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+
+        $filter = new DashToUnderscore();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
         $releaseGroups = array();
         $releaseGroupStrategy = new ReleaseGroupStrategy();
 
-        foreach ($value['release-group'] as $index => $releaseGroup) {
+        foreach ($filtered['release_group'] as $index => $releaseGroup) {
             $releaseGroups[$index] = $releaseGroupStrategy->hydrate($releaseGroup);
         }
-        $value['releaseGroups'] = $releaseGroups;
-        unset($value['release-group']);
+        $filtered['release_groups'] = $releaseGroups;
+        unset($filtered['release-group']);
 
-        return $this->getHydrator()->hydrate($value, new ReleaseGroupList());
+        return $this->getHydrator()->hydrate($filtered, new ReleaseGroupList());
     }
 }

@@ -1,13 +1,6 @@
 <?php
+
 /**
- * WorkStrategy.php
- *
- * @category    MusicBrainz
- * @package     MusicBrainz
- * @subpackage  MusicBrainz\Entity
- * @author      David White <david@monkeyphp.com>
- *
- * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,24 +15,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\Work;
-use MusicBrainz\Hydrator\Strategy\DisambiguationStrategy;
-use MusicBrainz\Hydrator\Strategy\MbidStrategy;
-use MusicBrainz\Hydrator\Strategy\TitleStrategy;
+use MusicBrainz\Entity\NameCredit;
 use Zend\Filter\Word\DashToUnderscore;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * WorkStrategy
+ * Description of NameCreditStrategy
  *
- * @category    MusicBrainz
- * @package     MusicBrainz
- * @subpackage  MusicBrainz\Entity
+ * @author David White <david@monkeyphp.com>
  */
-class WorkStrategy implements StrategyInterface
+class NameCreditStrategy implements StrategyInterface
 {
     /**
      * Instance of ClassMethods
@@ -58,50 +47,33 @@ class WorkStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods(true);
-            $hydrator->addStrategy('mbid', new MbidStrategy());
-            $hydrator->addStrategy('title', new TitleStrategy());
-            $hydrator->addStrategy('iswc', new IswcStrategy());
-            $hydrator->addStrategy('iswc_list', new IswcListStrategy());
-            $hydrator->addStrategy('disambiguation', new DisambiguationStrategy());
-
+            $hydrator->addStrategy('artist', new ArtistStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
         // @codeCoverageIgnoreEnd
     }
 
-    /**
-     * Extract the values from the supplied Work instance
-     *
-     * @param Work $object
-     *
-     * @return null|array
-     */
-    public function extract($object)
+    public function extract($value)
     {
-        if (! $object instanceof Work) {
-            return null;
-        }
-        return $this->getHydrator()->extract($object);
+
     }
 
-    /**
-     * Hydrate and return an instance of Work
-     *
-     * @param array $values
-     *
-     * @return null|Work
-     */
     public function hydrate($values)
     {
-        if (! is_array($values)) {
+        //var_dump(array_keys($values));
+
+        if (! is_array($values) ||
+            ! isset($values['artist'])
+        ) {
+
             return null;
         }
 
         if (isset($values['@attributes']) && is_array($values['@attributes'])) {
             $attributes = $values['@attributes'];
             unset($values['@attributes']);
-            $values = $values + $attributes;
+            $values  = $values + $attributes;
         }
 
         $filter = new DashToUnderscore();
@@ -111,11 +83,6 @@ class WorkStrategy implements StrategyInterface
             $_ = lcfirst($filter->filter($key));
             $filtered[$_] = $value;
         });
-
-        if (isset($filtered['id'])) {
-            $filtered['mbid'] = $filtered['id'];
-            unset($filtered['id']);
-        }
-        return $this->getHydrator()->hydrate($filtered, new Work());
+        return $this->getHydrator()->hydrate($filtered, new NameCredit());
     }
 }

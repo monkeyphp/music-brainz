@@ -50,8 +50,8 @@ class LabelConnector extends AbstractConnector
 
     /**
      * The name of the strategy class that will hydrate from lookup results
-     * 
+     *
      * @var string
      */
-    protected $lookupStrategyClassname = 'MusicBrainz\Hydrator\Strategy\LabelLookupStragegy';
+    protected $lookupStrategyClassname = 'MusicBrainz\Hydrator\Strategy\LabelLookupStrategy';
 }

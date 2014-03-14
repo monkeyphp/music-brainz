@@ -25,6 +25,8 @@
 
 namespace MusicBrainz\Hydrator\Strategy;
 
+use Exception;
+use MusicBrainz\Entity\Length;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -43,6 +45,10 @@ class LengthStrategy implements StrategyInterface
 
     public function hydrate($value)
     {
-        
+        try {
+            return new Length($value);
+        } catch (Exception $exception) {
+            return null;
+        }
     }
 }

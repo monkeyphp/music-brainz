@@ -1,13 +1,7 @@
 <?php
-/**
- * RecordingListStrategy.php
- *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
- * @author     David White [monkeyphp] <david@monkeyphp.com>
- *
- * Copyright (C) David White <david@monkeyphp.com>
+
+/*
+ * Copyright (C)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,40 +16,38 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\RecordingList;
+use MusicBrainz\Entity\ReleaseGroupSearch;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * RecordingListStrategy
+ * Description of ReleaseGroupSearchStrategy
  *
- * @category   MusicBrainz
- * @package    MusicBrainz
- * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author David White <david@monkeyphp.com>
  */
-class RecordingListStrategy implements StrategyInterface
+class ReleaseGroupSearchStrategy implements StrategyInterface
 {
     /**
-     * Instance of ClassMethods hydrator
+     * Instance of ClassMethods
      *
      * @var ClassMethods
      */
     protected $hydrator;
 
     /**
-     * Return an instance of ClassMethods hydrator
+     * Return an instance of ClassMethods
      *
      * @return ClassMethods
      */
-    public function getHydrator()
+    protected function getHydrator()
     {
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
-            $hydrator->addStrategy('count', new CountStrategy());
-            $hydrator->addStrategy('offset', new CountStrategy());
+            $hydrator = new ClassMethods(true);
+            $hydrator->addStrategy('release_group_list', new ReleaseGroupListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -69,25 +61,21 @@ class RecordingListStrategy implements StrategyInterface
 
     public function hydrate($values)
     {
-        if (! is_array($values)) {
+        if (! is_array($values) ||
+            ! isset($values['release-group-list'])
+        ) {
             return null;
         }
+
+        $values['release_group_list'] = $values['release-group-list'];
+        unset($values['release-group-list']);
 
         if (isset($values['@attributes']) && is_array($values['@attributes'])) {
             $attributes = $values['@attributes'];
             unset($values['@attributes']);
-            $values = $values + $attributes;
+            $values  = $values + $attributes;
         }
 
-        $recordings = array();
-        $recordingStrategy = new RecordingStrategy();
-        foreach ($values['recording'] as $index => $recording) {
-            $recordings[$index] = $recordingStrategy->hydrate($recording);
-        }
-
-        $values['recordings'] = $recordings;
-        unset($values['recording']);
-
-        return $this->getHydrator()->hydrate($values, new RecordingList());
+        return $this->getHydrator()->hydrate($values, new ReleaseGroupSearch());
     }
 }

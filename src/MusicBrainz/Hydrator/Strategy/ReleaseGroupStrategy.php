@@ -26,9 +26,9 @@ namespace MusicBrainz\Hydrator\Strategy;
 
 use MusicBrainz\Entity\ReleaseGroup;
 use MusicBrainz\Hydrator\Strategy\MbidStrategy;
-use MusicBrainz\Hydrator\Strategy\ReleaseGroupStrategy;
 use MusicBrainz\Hydrator\Strategy\ReleaseGroupTypeStrategy;
 use MusicBrainz\Hydrator\Strategy\TitleStrategy;
+use Zend\Filter\Word\DashToUnderscore;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -61,9 +61,12 @@ class ReleaseGroupStrategy implements StrategyInterface
             $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('title', new TitleStrategy());
             $hydrator->addStrategy('type', new ReleaseGroupTypeStrategy());
-            $hydrator->addStrategy('primaryType', new ReleaseGroupStrategy());
+            $hydrator->addStrategy('primary_type', new PrimaryTypeStrategy());
             // firstReleaseDate
-            // secondaryTypeList
+            $hydrator->addStrategy('artist_credit', new ArtistCreditStrategy());
+            $hydrator->addStrategy('release_list', new ReleaseListStrategy());
+            $hydrator->addStrategy('secondary_type_list', new SecondaryTypeListStrategy());
+            $hydrator->addStrategy('tag_list', new TagListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -88,31 +91,37 @@ class ReleaseGroupStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of ReleaseGroup
      *
-     * @param array $value
+     * @param array $values
      *
      * @return null|ReleaseGroup
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value)) {
+        if (! is_array($values)) {
             return null;
         }
-        if (isset($value['id'])) {
-            $value['mbid'] = $value['id'];
-            unset($value['id']);
+
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
         }
-        if (isset($value['first-release-date'])) {
-            unset($value['first-release-date']);
-            //$value['firstReleaseDate'] = $value['first-release-date'];
+
+        $filter = new DashToUnderscore();
+        $filtered = array();
+
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
+        if (isset($filtered['id'])) {
+            $filtered['mbid'] = $filtered['id'];
+            unset($filtered['id']);
         }
-        if (isset($value['primary-type'])) {
-            $value['primaryType'] = $value['primary-type'];
-            unset($value['primary-type']);
-        }
-        if (isset($value['secondary-type-list'])) {
-            unset($value['secondary-type-list']);
-            //$value['secondaryTypeList'] = $value['secondary-type-list'];
-        }
-        return $this->getHydrator()->hydrate($value, new ReleaseGroup());
+
+        //print_r($filtered);
+
+        return $this->getHydrator()->hydrate($filtered, new ReleaseGroup());
     }
 }

@@ -44,6 +44,12 @@ class WorkList implements Iterator
     protected $works = array();
 
     /**
+     *
+     * @var Count
+     */
+    protected $count;
+
+    /**
      * Iterator position
      *
      * @var int
@@ -93,6 +99,18 @@ class WorkList implements Iterator
         return $this->works;
     }
 
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    public function setCount(Count $count)
+    {
+        $this->count = $count;
+        return $this;
+    }
+
+    
     /**
      * Return the current Work instance
      *
