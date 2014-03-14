@@ -40,16 +40,14 @@ class ArtistCreditTest extends PHPUnit_Framework_TestCase
     /**
      * Test that we can get and set the NameCredit
      *
-     * @covers \MusicBrainz\Entity\ArtistCredit::getNameCredit
-     * @covers \MusicBrainz\Entity\ArtistCredit::setNameCredit
+     * @covers \MusicBrainz\Entity\ArtistCredit::setNameCredits
      */
-    public function testGetSetNameCredit()
+    public function testGetSetNameCredits()
     {
         $artistCredit = new ArtistCredit();
-        $nameCredit = new NameCredit();
+        $nameCredits = array(new NameCredit());
 
-        $this->assertNull($artistCredit->getNameCredit());
-        $this->assertSame($artistCredit, $artistCredit->setNameCredit($nameCredit));
-        $this->assertSame($nameCredit, $artistCredit->getNameCredit());
+        $this->assertSame($artistCredit, $artistCredit->setNameCredits($nameCredits));
+
     }
 }
