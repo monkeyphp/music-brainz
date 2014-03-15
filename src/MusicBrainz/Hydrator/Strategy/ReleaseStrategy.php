@@ -65,17 +65,18 @@ class ReleaseStrategy implements StrategyInterface
         // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods(true);
-            $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('title', new TitleStrategy());
             $hydrator->addStrategy('status', new StatusStrategy());
+            $hydrator->addStrategy('release_group', new ReleaseGroupStrategy());
+            $hydrator->addStrategy('country', new CountryStrategy());
+            $hydrator->addStrategy('release_event_list', new ReleaseEventListStrategy());
+            $hydrator->addStrategy('medium_list', new MediumListStrategy());
+            $hydrator->addStrategy('mbid', new MbidStrategy());
+
             $hydrator->addStrategy('quality', new QualityStrategy());
             $hydrator->addStrategy('packaging', new PackagingStrategy());
             $hydrator->addStrategy('text_representation', new TextRepresentationStrategy());
-            $hydrator->addStrategy('country', new CountryStrategy());
-            $hydrator->addStrategy('release_event_list', new ReleaseEventListStrategy());
             $hydrator->addStrategy('barcode', new BarcodeStrategy());
-            $hydrator->addStrategy('medium_list', new MediumListStrategy());
-            $hydrator->addStrategy('release_group', new ReleaseGroupStrategy());
             $hydrator->addStrategy('asin', new AsinStrategy());
             $hydrator->addStrategy('label_info_list', new LabelInfoListStrategy());
             $hydrator->addStrategy('artist_credit', new ArtistCreditStrategy());
@@ -133,7 +134,7 @@ class ReleaseStrategy implements StrategyInterface
             $filtered['mbid'] = $filtered['id'];
             unset($filtered['id']);
         }
-
+        
         return $this->getHydrator()->hydrate($filtered, new Release());
     }
 }

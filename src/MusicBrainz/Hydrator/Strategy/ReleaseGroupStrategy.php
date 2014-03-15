@@ -120,8 +120,25 @@ class ReleaseGroupStrategy implements StrategyInterface
             unset($filtered['id']);
         }
 
-        //print_r($filtered);
-
         return $this->getHydrator()->hydrate($filtered, new ReleaseGroup());
     }
+
+    /*
+     * Array
+(
+    [primary_type] => Album
+    [secondary_type_list] => Array
+        (
+            [secondary-type] => Array
+                (
+                    [0] => Live
+                    [1] => Compilation
+                )
+
+        )
+
+    [type] => Compilation
+    [mbid] => 51f4ca8c-6805-351a-a62c-09703f4b1079
+)
+     */
 }

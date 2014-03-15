@@ -71,7 +71,7 @@ class ReleaseGroup
     /**
      * Instance of SecondaryTypeList
      *
-     * @var ReleaseGroupTypeList|null
+     * @var SecondaryTypeList|null
      */
     protected $secondaryTypeList;
 
@@ -207,11 +207,11 @@ class ReleaseGroup
     /**
      * Set the secondary type list
      *
-     * @param ReleaseGroupTypeList $secondaryTypeList
+     * @param SecondaryTypeList $secondaryTypeList
      *
      * @return ReleaseGroup
      */
-    public function setSecondaryTypeList(ReleaseGroupTypeList $secondaryTypeList = null)
+    public function setSecondaryTypeList(SecondaryTypeList $secondaryTypeList = null)
     {
         $this->secondaryTypeList = $secondaryTypeList;
         return $this;

@@ -253,19 +253,6 @@ class MusicBrainz implements MusicBrainzInterface
     }
 
     /**
-     * Search for a Url
-     *
-     * @param string $query   The Lucene query string
-     * @param array  $options An optional array of options
-     *
-     * @return UrlSearch
-     */
-    public function searchUrl($query, $options = array())
-    {
-        return $this->search(ConnectorInterface::RESOURCE_URL, $query, $options);
-    }
-
-    /**
      * Search for a Work
      *
      * @param string $query   The Lucene query string

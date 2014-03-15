@@ -55,6 +55,7 @@ class ReleaseListStrategy implements StrategyInterface
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
             $hydrator->addStrategy('count', new CountStrategy());
+            $hydrator->addStrategy('offset', new CountStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
@@ -100,8 +101,12 @@ class ReleaseListStrategy implements StrategyInterface
 
         $releases = array();
         $releaseStrategy = new ReleaseStrategy();
-        foreach ($values['release'] as $index => $release) {
-            $releases[$index] = $releaseStrategy->hydrate($release);
+        foreach ($values['release'] as $index => $key) {
+            if (! is_int($index)) {
+                $releases[] = $releaseStrategy->hydrate($values['release']);
+                break;
+            }
+            $releases[] = $releaseStrategy->hydrate($key);
         }
 
         $values['releases'] = $releases;

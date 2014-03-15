@@ -1,4 +1,5 @@
 <?php
+
 /**
  * RecodingStrategy.php
  *
@@ -24,10 +25,19 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
+
 use MusicBrainz\Entity\Recording;
+use MusicBrainz\Hydrator\Strategy\ArtistCreditStrategy;
+use MusicBrainz\Hydrator\Strategy\DisambiguationStrategy;
+use MusicBrainz\Hydrator\Strategy\LengthStrategy;
+use MusicBrainz\Hydrator\Strategy\MbidStrategy;
+use MusicBrainz\Hydrator\Strategy\ReleaseListStrategy;
+use MusicBrainz\Hydrator\Strategy\ScoreStrategy;
+use MusicBrainz\Hydrator\Strategy\TagListStrategy;
+use MusicBrainz\Hydrator\Strategy\TitleStrategy;
+use Zend\Filter\Word\DashToUnderscore;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
 /**
  * RecordingStrategy
  *
@@ -45,7 +55,9 @@ class RecordingStrategy implements StrategyInterface
     protected $hydrator;
 
     /**
-     * Return an instance of ClassMethods
+     * Return an instance of ClassMethods hydrator configured
+     * with the strategies required to fully hydrate the Recording
+     * instance
      *
      * @return ClassMethods
      */
@@ -53,9 +65,13 @@ class RecordingStrategy implements StrategyInterface
     {
         if (! isset($this->hydrator)) {
             $hydrator = new ClassMethods();
-            $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('title', new TitleStrategy());
             $hydrator->addStrategy('length', new LengthStrategy());
+            $hydrator->addStrategy('artist_credit', new ArtistCreditStrategy());
+            $hydrator->addStrategy('release_list', new ReleaseListStrategy());
+            $hydrator->addStrategy('tag_list', new TagListStrategy());
+            $hydrator->addStrategy('score', new ScoreStrategy());
+            $hydrator->addStrategy('mbid', new MbidStrategy());
             $hydrator->addStrategy('disambiguation', new DisambiguationStrategy());
             $this->hydrator = $hydrator;
         }
@@ -80,11 +96,18 @@ class RecordingStrategy implements StrategyInterface
             $values = $values + $attributes;
         }
 
-        if (isset($values['id'])) {
-            $values['mbid'] = $values['id'];
-            unset($values['id']);
-        }
+        $filter = new DashToUnderscore();
+        $filtered = array();
 
-        return $this->getHydrator()->hydrate($values, new Recording());
+        array_walk($values, function ($value, $key) use ($filter, &$filtered) {
+            $_ = lcfirst($filter->filter($key));
+            $filtered[$_] = $value;
+        });
+
+        if (isset($filtered['id'])) {
+            $filtered['mbid'] = $filtered['id'];
+            unset($filtered['id']);
+        }
+        return $this->getHydrator()->hydrate($filtered, new Recording());
     }
 }

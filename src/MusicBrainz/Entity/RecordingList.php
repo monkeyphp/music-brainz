@@ -57,6 +57,12 @@ class RecordingList implements Iterator
     protected $position = 0;
 
     /**
+     *
+     * @var Count|null
+     */
+    protected $offset;
+
+    /**
      * Set the Recordings
      *
      * @param Traversable $recordings
@@ -108,6 +114,17 @@ class RecordingList implements Iterator
     public function setCount(Count $count = null)
     {
         $this->count = $count;
+        return $this;
+    }
+
+    public function getOffset()
+    {
+        return $this->offset;
+    }
+
+    public function setOffset(Count $offset = null)
+    {
+        $this->offset = $offset;
         return $this;
     }
 

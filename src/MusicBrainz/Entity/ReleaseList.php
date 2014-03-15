@@ -61,6 +61,12 @@ class ReleaseList implements Iterator
     protected $position;
 
     /**
+     *
+     * @var Count|null
+     */
+    protected $offset;
+
+    /**
      * Set the Releases
      *
      * @param Traversable|array $releases
@@ -127,9 +133,20 @@ class ReleaseList implements Iterator
         return $this;
     }
 
+    public function getOffset()
+    {
+        return $this->offset;
+    }
+
+    public function setOffset(Count $offset = null)
+    {
+        $this->offset = $offset;
+        return $this;
+    }
+
     /**
      * Return the current Release
-     * 
+     *
      * @return Release
      */
     public function current()

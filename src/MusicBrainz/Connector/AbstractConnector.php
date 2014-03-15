@@ -323,6 +323,9 @@ abstract class AbstractConnector implements ConnectorInterface
             $reader = $this->getReader($options['format']);
             $data = $reader->fromString($body);
 
+//            print_r($data);
+//            die();
+
             return $this->getSearchStrategy()->hydrate($data);
 
         } catch (Exception $exception) {

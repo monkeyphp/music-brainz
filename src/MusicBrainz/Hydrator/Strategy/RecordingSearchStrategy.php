@@ -1,8 +1,7 @@
 <?php
-
 /*
  * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "13-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+  The string doesn't match the expected date/time format. The string to parse was: "15-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,36 +19,40 @@
 
 namespace MusicBrainz\Hydrator\Strategy;
 
-use MusicBrainz\Entity\SecondaryTypeList;
+use MusicBrainz\Entity\RecordingSearch;
+use MusicBrainz\Hydrator\Strategy\RecordingListStrategy;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of SecondaryTypeListStrategy
+ * Description of RecordingSearchStrategy
  *
  * @author David White <david@monkeyphp.com>
  */
-class SecondaryTypeListStrategy implements StrategyInterface
+class RecordingSearchStrategy implements StrategyInterface
 {
     /**
-     * Instance of ClassMethods hydrator
+     * An instance of the ClassMethods hydrator
      *
      * @var ClassMethods
      */
     protected $hydrator;
 
     /**
-     * Return an instance of ClassMethods hydrator
+     * Return an inastance of a ClassMethods hydrator
      *
      * @return ClassMethods
      */
     protected function getHydrator()
     {
+        // @codeCoverageIgnoreStart
         if (! isset($this->hydrator)) {
-            $hydrator = new ClassMethods();
+            $hydrator = new ClassMethods(true);
+            $hydrator->addStrategy('recording_list', new RecordingListStrategy());
             $this->hydrator = $hydrator;
         }
         return $this->hydrator;
+        // @codeCoverageIgnoreEnd
     }
 
     public function extract($value)
@@ -60,25 +63,21 @@ class SecondaryTypeListStrategy implements StrategyInterface
     public function hydrate($values)
     {
         if (! is_array($values) ||
-            (! isset($values['secondary-type']))
+            ! isset($values['recording-list']) ||
+            ! is_array($values['recording-list'])
         ) {
             return null;
         }
 
-        $secondaryTypes = array();
-        $secondaryTypeStrategy = new SecondaryTypeStrategy();
+        $values['recording_list'] = $values['recording-list'];
+        unset($values['recording-list']);
 
-        foreach ($values as $index => $key) {
-            if (! is_int($index)) {
-                $secondaryTypes[] = $secondaryTypeStrategy->hydrate($values['secondary-type']);
-                break;
-            }
-            $secondaryTypes[] = $secondaryTypeStrategy->hydrate($key);
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values  = $values + $attributes;
         }
 
-        $values['secondary_types'] = $secondaryTypes;
-        unset($values['secondary-type']);
-
-        return $this->getHydrator()->hydrate($values, new SecondaryTypeList());
+        return $this->getHydrator()->hydrate($values, new RecordingSearch());
     }
 }

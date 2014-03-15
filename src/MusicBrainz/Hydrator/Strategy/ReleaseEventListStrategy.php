@@ -24,6 +24,8 @@
  */
 namespace MusicBrainz\Hydrator\Strategy;
 
+use MusicBrainz\Entity\ReleaseEventList;
+use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
@@ -35,14 +37,88 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
  */
 class ReleaseEventListStrategy implements StrategyInterface
 {
+    /**
+     * Instance of ClassMethods hydrator
+     *
+     * @var ClassMethods
+     */
+    protected $hydrator;
+
+    /**
+     * Return an instance of ClassMethods hydrator
+     *
+     * @return ClassMethods
+     */
+    protected function getHydrator()
+    {
+        if (! isset($this->hydrator)) {
+            $hydrator = new ClassMethods();
+            $this->hydrator = $hydrator;
+        }
+        return $this->hydrator;
+    }
+
 
     public function extract($value)
     {
 
     }
 
-    public function hydrate($value)
+    public function hydrate($values)
     {
+        if (! is_array($values) ||
+            ! isset($values['release-event']) ||
+            ! is_array($values['release-event'])
+        ) {
+            return null;
+        }
 
+        if (isset($values['@attributes']) && is_array($values['@attributes'])) {
+            $attributes = $values['@attributes'];
+            unset($values['@attributes']);
+            $values = $values + $attributes;
+        }
+
+        $releaseEvents = array();
+        $releaseEventStrategy = new ReleaseEventStrategy();
+
+        foreach ($values['release-event'] as $index => $key) {
+            if (! is_int($index)) {
+                $releaseEvents[] = $releaseEventStrategy->hydrate($values['release-event']);
+                break;
+            }
+            $releaseEvents[] = $releaseEventStrategy->hydrate($key);
+        }
+
+        $values['release_events'] = $releaseEvents;
+        unset($values['release-events']);
+
+        return $this->getHydrator()->hydrate($values, new ReleaseEventList());
     }
+    /*
+     * [release_event_list] => Array
+        (
+            [release-event] => Array
+                (
+                    [date] => 2007-08-09
+                    [area] => Array
+                        (
+                            [name] => Netherlands
+                            [sort-name] => Netherlands
+                            [iso-3166-1-code-list] => Array
+                                (
+                                    [iso-3166-1-code] => NL
+                                )
+
+                            [@attributes] => Array
+                                (
+                                    [id] => ef1b7cc0-cd26-36f4-8ea0-04d9623786c7
+                                )
+
+                        )
+
+                )
+
+        )
+     */
 }

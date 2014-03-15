@@ -84,23 +84,32 @@ class TagListStrategy implements StrategyInterface
     /**
      * Hydrate and return an instance of TagList
      *
-     * @param array $value The array of values
+     * @param array $values The array of values
      *
      * @return null|TagList
      */
-    public function hydrate($value)
+    public function hydrate($values)
     {
-        if (! is_array($value) || ! isset($value['tag']) || ! is_array($value['tag'])) {
+        if (! is_array($values) ||
+            ! isset($values['tag']) ||
+            ! is_array($values['tag'])
+        ) {
             return null;
         }
-        $values = array();
+
         $tags = array();
         $tagStrategy = new TagStrategy();
-        foreach ($value['tag'] as $index => $tag) {
-            $tags[$index] = $tagStrategy->hydrate($tag);
+
+        foreach ($values['tag'] as $index => $key) {
+            if (! is_int($index)) {
+                $tags[] = $tagStrategy->hydrate($values['tag']);
+                break;
+            }
+            $tags[] = $tagStrategy->hydrate($key);
         }
         $values['tags'] = $tags;
-        unset($value['tags']);
+        unset($values['tag']);
+
         return $this->getHydrator()->hydrate($values, new TagList());
     }
 }
