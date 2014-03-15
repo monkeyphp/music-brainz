@@ -52,7 +52,14 @@ class LabelInfoList
 
     public function setLabelInfos($labelInfos = array())
     {
-
+        if (is_array($labelInfos) || $labelInfos instanceof \Traversable) {
+            foreach ($labelInfos as $labelInfo) {
+                if ($labelInfo instanceof LabelInfo) {
+                    $this->addLabelInfo($labelInfo);
+                }
+            }
+        }
+        return $this;
     }
 
     public function getLabelInfos()
@@ -62,6 +69,9 @@ class LabelInfoList
 
     public function addLabelInfo(LabelInfo $labelInfo)
     {
-
+        if (! in_array($labelInfo, $this->labelInfos, true)) {
+            $this->labelInfos[] = $labelInfo;
+        }
+        return $this;
     }
 }

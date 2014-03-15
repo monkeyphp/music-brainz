@@ -131,6 +131,8 @@ class Release
      */
     protected $asin;
 
+    protected $artistCredit;
+
     /**
      * Return the Mbid instance
      *
@@ -463,4 +465,17 @@ class Release
         $this->asin = $asin;
         return $this;
     }
+
+    public function getArtistCredit()
+    {
+        return $this->artistCredit;
+    }
+
+    public function setArtistCredit(ArtistCredit $artistCredit = null)
+    {
+        $this->artistCredit = $artistCredit;
+        return $this;
+    }
+
+
 }
