@@ -22,7 +22,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Entity;
 
 /**
@@ -37,7 +36,7 @@ class Ended
     /**
      * The value of the Ended
      *
-     * @var booleab
+     * @var boolean
      */
     protected $ended;
 
@@ -58,7 +57,7 @@ class Ended
 
     /**
      * Return a string representation of the Ended
-     * 
+     *
      * @return string
      */
     public function __toString()

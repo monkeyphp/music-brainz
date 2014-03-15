@@ -51,6 +51,8 @@ class AsinTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that passing an invalid will result in an exception
+     *
      * @expectedException InvalidArgumentException
      * @covers \MusicBrainz\Entity\Asin::__construct
      */

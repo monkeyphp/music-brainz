@@ -63,8 +63,6 @@ class Artist
     /**
      * The type of the Artist (e.g. Group)
      *
-     * @todo rename Type to ArtistType
-     *
      * @var ArtistType
      */
     protected $type;
@@ -629,7 +627,7 @@ class Artist
     /**
      * Add a Recording to the Artist
      *
-     * @param Recording $recording
+     * @param Recording $recording The Recording to add
      *
      * @return Artist
      */
@@ -668,7 +666,7 @@ class Artist
     /**
      * Add a Release to the Artist
      *
-     * @param Release $release
+     * @param Release $release The Release to add
      *
      * @return Artist
      */
@@ -731,6 +729,7 @@ class Artist
     }
 
     /**
+     * Set the WorkList
      *
      * @param WorkList $workList
      *
@@ -745,7 +744,7 @@ class Artist
     /**
      * Add a Work instance to the Artist
      *
-     * @param Work $work
+     * @param Work $work The Work instance to add
      *
      * @return Artist
      */

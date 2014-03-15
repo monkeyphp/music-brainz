@@ -56,7 +56,7 @@ class AliasType
     /**
      * Constructor
      *
-     * @param string $type
+     * @param string $type The string alias type
      *
      * @throws InvalidArgumentException
      * @return void

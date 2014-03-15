@@ -29,6 +29,9 @@ use InvalidArgumentException;
 /**
  * Asin
  *
+ * A class representing an Amazon Standard Identification Number.
+ * @link http://en.wikipedia.org/wiki/Amazon_Standard_Identification_Number
+ *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity

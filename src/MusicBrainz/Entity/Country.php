@@ -32,7 +32,6 @@ use InvalidArgumentException;
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
- * @author     David White <david@monkeyphp.com>
  */
 class Country
 {

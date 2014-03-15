@@ -108,28 +108,51 @@ class AreaList implements Iterator
         return $this->areas;
     }
 
+    /**
+     * Return the count
+     *
+     * @return Count|null
+     */
     public function getCount()
     {
         return $this->count;
     }
 
+    /**
+     * Return the offset
+     *
+     * @return Count|null
+     */
     public function getOffset()
     {
         return $this->offset;
     }
 
+    /**
+     * Set the count
+     * 
+     * @param Count $count
+     *
+     * @return AreaList
+     */
     public function setCount(Count $count = null)
     {
         $this->count = $count;
         return $this;
     }
 
+    /**
+     * Set the offset
+     *
+     * @param Count $offset
+     *
+     * @return AreaList
+     */
     public function setOffset(Count $offset = null)
     {
         $this->offset = $offset;
         return $this;
     }
-
 
     /**
      * Iterator implementation

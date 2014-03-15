@@ -142,6 +142,8 @@ class AreaTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can get and set the LifeSpan
+     *
      * @covers \MusicBrainz\Entity\Area::getLifeSpan
      * @covers \MusicBrainz\Entity\Area::setLifeSpan
      */
@@ -156,10 +158,12 @@ class AreaTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can get and set the AliasList
+     *
      * @covers \MusicBrainz\Entity\Area::getAliasList
      * @covers \MusicBrainz\Entity\Area::setAliasList
      */
-    public function testGetSetLifeAliasList()
+    public function testGetSetAliasList()
     {
         $area = new Area();
         $aliasList = new AliasList();

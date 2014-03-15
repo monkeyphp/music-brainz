@@ -57,7 +57,7 @@ class AreaType
     /**
      * Constructor
      *
-     * @param string $areaType
+     * @param string $areaType The value of the AreaType
      *
      * @throws InvalidArgumentException
      * @return void

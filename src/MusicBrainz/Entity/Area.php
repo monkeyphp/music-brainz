@@ -7,7 +7,7 @@
  * @subpackage MusicBrainz\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -106,7 +106,7 @@ class Area
      *
      * @return Area
      */
-    public function setMbid($mbid = null)
+    public function setMbid(Mbid $mbid = null)
     {
         $this->mbid = $mbid;
         return $this;
@@ -129,7 +129,7 @@ class Area
      *
      * @return Area
      */
-    public function setName($name = null)
+    public function setName(Name $name = null)
     {
         $this->name = $name;
         return $this;
@@ -142,7 +142,7 @@ class Area
      *
      * @return Area
      */
-    public function setSortName($sortName = null)
+    public function setSortName(Name $sortName = null)
     {
         $this->sortName = $sortName;
         return $this;

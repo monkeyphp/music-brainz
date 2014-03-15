@@ -45,6 +45,8 @@ class Primary
     /**
      * Constructor
      *
+     * @todo Create ConnectorInterface constant to represent primary string
+     *
      * @param string $primary
      *
      * @throws InvalidArgumentException
@@ -60,7 +62,7 @@ class Primary
 
     /**
      * Return a string representation of the Primary
-     * 
+     *
      * @return string
      */
     public function __toString()

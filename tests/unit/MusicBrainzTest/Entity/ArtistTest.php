@@ -386,6 +386,8 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can get and set the IsniList
+     *
      * @covers \MusicBrainz\Entity\Artist::getIsniList
      * @covers \MusicBrainz\Entity\Artist::setIsniList
      */

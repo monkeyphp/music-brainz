@@ -38,12 +38,12 @@ class ArtistCredit
      *
      * @var array
      */
-    protected $nameCredits;
+    protected $nameCredits = array();
 
     /**
-     * Return the NameCredit
+     * Return the array of NameCredit instances
      *
-     * @return NameCredit|null
+     * @return array
      */
     public function getNameCredits()
     {

@@ -26,6 +26,7 @@ namespace MusicBrainzTest\Entity;
 
 use MusicBrainz\Entity\Area;
 use MusicBrainz\Entity\AreaList;
+use MusicBrainz\Entity\Count;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -69,6 +70,38 @@ class AreaListTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($areaList->getAreas());
         $this->assertSame($areaList, $areaList->addArea($area));
         $this->assertNotEmpty($areaList->getAreas());
+    }
+
+    /**
+     * Test that we can get and set the Count
+     *
+     * @covers \MusicBrainz\Entity\AreaList::getCount
+     * @covers \MusicBrainz\Entity\AreaList::setCount
+     */
+    public function testGetSetCount()
+    {
+        $areaList = new AreaList();
+        $count = new Count(10);
+
+        $this->assertNull($areaList->getCount());
+        $this->assertSame($areaList, $areaList->setCount($count));
+        $this->assertSame($count, $areaList->getCount());
+    }
+
+    /**
+     * Test that we can get and set the offset
+     *
+     * @covers \MusicBrainz\Entity\AreaList::getOffset
+     * @covers \MusicBrainz\Entity\AreaList::setOffset
+     */
+    public function testGetSetOffset()
+    {
+        $areaList = new AreaList();
+        $offset = new Count(0);
+
+        $this->assertNull($areaList->getOffset());
+        $this->assertSame($areaList, $areaList->setOffset($offset));
+        $this->assertSame($offset, $areaList->getOffset());
     }
 
     /**

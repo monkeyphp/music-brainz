@@ -7,7 +7,7 @@
  * @subpackage MusicBrainzTest\Entity
  * @author     David White [monkeyphp] <david@monkeyphp.com>
  *
- * Copyright (C) 2014  David White
+ * Copyright (C) 2014 David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,14 +40,17 @@ class ArtistCreditTest extends PHPUnit_Framework_TestCase
     /**
      * Test that we can get and set the NameCredit
      *
+     * @covers \MusicBrainz\Entity\ArtistCredit::getNameCredits
      * @covers \MusicBrainz\Entity\ArtistCredit::setNameCredits
      */
     public function testGetSetNameCredits()
     {
         $artistCredit = new ArtistCredit();
-        $nameCredits = array(new NameCredit());
+        $nameCredits = array(
+            new NameCredit()
+        );
 
         $this->assertSame($artistCredit, $artistCredit->setNameCredits($nameCredits));
-
+        $this->assertInternalType('array', $artistCredit->getNameCredits());
     }
 }

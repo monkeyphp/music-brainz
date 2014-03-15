@@ -48,7 +48,6 @@ class Disambiguation
      * @param string $disambiguation
      *
      * @throws InvalidArgumentException
-     *
      * @return void
      */
     public function __construct($disambiguation)

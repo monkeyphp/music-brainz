@@ -33,7 +33,7 @@ use MusicBrainz\Entity\Primary;
 use PHPUnit_Framework_TestCase;
 
 /**
- * AliasList
+ * AliasTest
  *
  * @category   MusicBrainzTest
  * @package    MusicBrainzTest
@@ -83,7 +83,7 @@ class AliasTest extends PHPUnit_Framework_TestCase
     public function testGetSetPrimary()
     {
         $alias = new Alias();
-        $primary = new Primary("primary");
+        $primary = new Primary("primary");// @todo replace with constant
 
         $this->assertNull($alias->getPrimary());
         $this->assertSame($alias, $alias->setPrimary($primary));
