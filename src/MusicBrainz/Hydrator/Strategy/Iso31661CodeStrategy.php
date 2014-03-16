@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "13-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * Iso31661CodeStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +22,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Hydrator\Strategy;
 
 use Exception;
@@ -25,17 +29,36 @@ use MusicBrainz\Entity\Iso31661Code;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of Iso31661CodeStrategy
+ * Iso31661CodeStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class Iso31661CodeStrategy implements StrategyInterface
 {
-    public function extract($value)
+    /**
+     * Extract the value from the supplied Iso31661Code instance
+     *
+     * @param Iso31661Code $object
+     *
+     * @return null|string
+     */
+    public function extract($object)
     {
-
+        if (! $object instanceof Iso31661Code) {
+            return null;
+        }
+        return $object->__toString();
     }
 
+    /**
+     * Hydrate and return an instance of Iso31661Code
+     *
+     * @param string $value
+     *
+     * @return Iso31661Code|null
+     */
     public function hydrate($value)
     {
         try {
@@ -44,5 +67,4 @@ class Iso31661CodeStrategy implements StrategyInterface
             return null;
         }
     }
-
 }

@@ -1,5 +1,12 @@
 <?php
 /**
+ * Iso31661CodeListStrategy.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
+ * @author     David White <david@monkeyphp.com>
+ *
  * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,15 +29,26 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
- * Description of Iso31661CodeListStrategy
+ * Iso31661CodeListStrategy
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Hydrator\Strategy
  */
 class Iso31661CodeListStrategy implements StrategyInterface
 {
-
+    /**
+     * Instance of ClassMethods hydrator
+     *
+     * @var ClassMethods
+     */
     protected $hydrator;
 
+    /**
+     * Return an instance of ClassMethods
+     * 
+     * @return ClassMethods
+     */
     protected function getHydrator()
     {
         // @codeCoverageIgnoreStart
@@ -42,33 +60,31 @@ class Iso31661CodeListStrategy implements StrategyInterface
         // @codeCoverageIgnoreEnd
     }
 
-    public function extract($value)
+    public function extract($object)
     {
 
     }
 
+    /**
+     * Hydrate and return an instance of Iso31661CodeList
+     *
+     * @param array $values
+     *
+     * @return null|Iso31661CodeList
+     */
     public function hydrate($values)
     {
         if (! is_array($values)) {
             return null;
         }
-
         $iso31661Codes = array();
         $iso31661CodeStrategy = new Iso31661CodeStrategy();
 
         foreach ($values as $key => $value) {
             $iso31661Codes[] = $iso31661CodeStrategy->hydrate($value);
         }
-
         $values['iso31661Codes'] = $iso31661Codes;
-
-
-
         $return = $this->getHydrator()->hydrate($values, new Iso31661CodeList());
-
-//        var_dump($return);
-
         return $return;
-
     }
 }

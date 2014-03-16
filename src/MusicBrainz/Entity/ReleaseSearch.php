@@ -1,8 +1,13 @@
 <?php
-
-/*
- * Copyright (C) Error: on line 4, column 33 in Templates/Licenses/license-gpl30.txt
-  The string doesn't match the expected date/time format. The string to parse was: "15-Mar-2014". The expected format was: "MMM d, yyyy". David White <david@monkeyphp.com>
+/**
+ * ReleaseSearch.php
+ *
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
+ * @author     David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White <david@monkeyphp.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,25 +23,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 namespace MusicBrainz\Entity;
+
 /**
- * Description of ReleaseSearch
+ * ReleaseSearch
  *
- * @author David White <david@monkeyphp.com>
+ * @category   MusicBrainz
+ * @package    MusicBrainz
+ * @subpackage MusicBrainz\Entity
  */
 class ReleaseSearch
 {
+    /**
+     * Instance of ReleaseList
+     *
+     * @var ReleaseList
+     */
     protected $releaseList;
 
+    /**
+     * Return the ReleaseList
+     * 
+     * @return ReleaseList
+     */
     public function getReleaseList()
     {
         return $this->releaseList;
     }
 
+    /**
+     * Set the ReleaseList
+     *
+     * @param ReleaseList $releaseList
+     *
+     * @return ReleaseSearch
+     */
     public function setReleaseList(ReleaseList $releaseList = null)
     {
         $this->releaseList = $releaseList;
         return $this;
     }
-
-
 }
