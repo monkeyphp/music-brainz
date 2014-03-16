@@ -139,13 +139,9 @@ class Xml
                 } else {
                     $children[$name] = $child;
                 }
-            }
-
-            elseif ($reader->nodeType === XMLReader::END_ELEMENT) {
+            } elseif ($reader->nodeType === XMLReader::END_ELEMENT) {
                 break;
-            }
-
-            elseif ($reader->nodeType === XMLReader::TEXT) {
+            } elseif ($reader->nodeType === XMLReader::TEXT) {
                 $text = $reader->value;
             }
         }
@@ -167,7 +163,7 @@ class Xml
         $attributes = array();
 
         if ($reader->hasAttributes) {
-            while($reader->moveToNextAttribute()) {
+            while ($reader->moveToNextAttribute()) {
                 $attributes[$reader->localName] = $reader->value;
             }
             $this->reader->moveToElement();

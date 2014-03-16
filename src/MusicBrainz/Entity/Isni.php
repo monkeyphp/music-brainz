@@ -27,11 +27,33 @@ namespace MusicBrainz\Entity;
 /**
  * Isni
  *
+ * Class for representing an International Standard Name Indentifier (ISO 27729)
+ *
+ * @link http://www.isni.org/
+ *
  * @category    MusicBrainz
  * @package     MusicBrainz
  * @subpackage  MusicBrainz\Entity
  */
 class Isni
 {
-    // nada
+    /**
+     * The Isni value
+     *
+     * @example 0000000122939631
+     *
+     * @var string
+     */
+    protected $isni;
+
+    public function __construct($isni)
+    {
+        $this->isni = $isni;
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->isni;
+    }
 }

@@ -27,6 +27,10 @@ namespace MusicBrainz\Entity;
 /**
  * Ipi
  *
+ * A class representing the Interested Parties Information
+ *
+ * @link http://en.wikipedia.org/wiki/Interested_Parties_Information
+ *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
@@ -42,7 +46,7 @@ class Ipi
 
     /**
      * Constructor
-     * 
+     *
      * @param string $ipi
      *
      * @return void

@@ -72,9 +72,30 @@ class IpiListTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test the iterator implementation
+     *
+     * @covers \MusicBrainz\Entity\IpiList::current
+     * @covers \MusicBrainz\Entity\IpiList::rewind
+     * @covers \MusicBrainz\Entity\IpiList::key
+     * @covers \MusicBrainz\Entity\IpiList::next
+     * @covers \MusicBrainz\Entity\IpiList::valid
      */
     public function testIterator()
     {
-        $this->markTestIncomplete();
+        $ipiList = new IpiList();
+        $ipis = array(
+            new Ipi(1),
+            new Ipi(2),
+            new Ipi(3),
+        );
+
+        $this->assertEmpty($ipiList->getIpis());
+        $this->assertSame($ipiList, $ipiList->setIpis($ipis));
+
+        $count = 0;
+        foreach ($ipiList as $ipi) {
+            $this->assertInstanceOf('\MusicBrainz\Entity\Ipi', $ipi);
+            $count++;
+        }
+        $this->assertCount($count, $ipis);
     }
 }

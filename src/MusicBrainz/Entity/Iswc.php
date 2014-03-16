@@ -29,6 +29,8 @@ use InvalidArgumentException;
 /**
  * Iswc
  *
+ * @link http://www.iswc.org/en/faq.html
+ *
  * @category   MusicBrainz
  * @package    MusicBrainz
  * @subpackage MusicBrainz\Entity
@@ -62,7 +64,7 @@ class Iswc
 
     /**
      * Return a string representation of the Iswc
-     * 
+     *
      * @return string
      */
     public function __toString()
