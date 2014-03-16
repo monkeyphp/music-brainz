@@ -111,7 +111,6 @@ class Xml
         $children = array();
         $text = '';
 
-
         while ($reader->read()) {
 
             if ($reader->nodeType === XMLReader::ELEMENT) {

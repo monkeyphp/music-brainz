@@ -131,6 +131,11 @@ class Release
      */
     protected $asin;
 
+    /**
+     * Instance of ArtistCredit
+     *
+     * @var ArtistCredit
+     */
     protected $artistCredit;
 
     /**
@@ -466,16 +471,26 @@ class Release
         return $this;
     }
 
+    /**
+     * Return the ArtistCredit instance
+     * 
+     * @return ArtistCredit|null
+     */
     public function getArtistCredit()
     {
         return $this->artistCredit;
     }
 
+    /**
+     * Set the ArtistCredit instance
+     *
+     * @param ArtistCredit $artistCredit
+     *
+     * @return Release
+     */
     public function setArtistCredit(ArtistCredit $artistCredit = null)
     {
         $this->artistCredit = $artistCredit;
         return $this;
     }
-
-
 }
