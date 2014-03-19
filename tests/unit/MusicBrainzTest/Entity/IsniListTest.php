@@ -45,7 +45,7 @@ class IsniListTest extends PHPUnit_Framework_TestCase
     public function testAddIsni()
     {
         $isniList = new IsniList();
-        $isni = new Isni();
+        $isni = new Isni(0000000122939631);
 
         $this->assertEmpty($isniList->getIsnis());
         $this->assertSame($isniList, $isniList->addIsni($isni));
@@ -62,8 +62,8 @@ class IsniListTest extends PHPUnit_Framework_TestCase
     {
         $isniList = new IsniList();
         $isnis = array(
-            new Isni(),
-            new Isni(),
+            new Isni(0000000122939631),
+            new Isni(0000000122939632),
         );
 
         $this->assertEmpty($isniList->getIsnis());

@@ -380,7 +380,7 @@ class ArtistTest extends PHPUnit_Framework_TestCase
     public function testAddIsni()
     {
         $artist = new Artist();
-        $isni = new Isni();
+        $isni = new Isni(0000000122939631);
 
         $this->assertSame($artist, $artist->addIsni($isni));
     }
