@@ -133,11 +133,23 @@ class ReleaseList implements Iterator
         return $this;
     }
 
+    /**
+     * Return the offset
+     *
+     * @return Count|null
+     */
     public function getOffset()
     {
         return $this->offset;
     }
 
+    /**
+     * Set the offset
+     * 
+     * @param Count $offset
+     *
+     * @return ReleaseList
+     */
     public function setOffset(Count $offset = null)
     {
         $this->offset = $offset;

@@ -46,14 +46,26 @@ class Isni
      */
     protected $isni;
 
+    /**
+     * Constructor
+     *
+     * @param string $isni The Isni number value
+     *
+     * @return \MusicBrainz\Entity\Isni
+     */
     public function __construct($isni)
     {
         $this->isni = $isni;
         return $this;
     }
 
+    /**
+     * Return a string representation of the Isni
+     * 
+     * @return string
+     */
     public function __toString()
     {
-        return $this->isni;
+        return (string)$this->isni;
     }
 }

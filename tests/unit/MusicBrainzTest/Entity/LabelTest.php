@@ -254,13 +254,32 @@ class LabelTest extends PHPUnit_Framework_TestCase
         $this->assertCount(1, $label->getTagList()->getTags());
     }
 
+    /**
+     * Test that we can add an Ipi
+     *
+     * @covers \MusicBrainz\Entity\Label::addIpi
+     */
     public function testAddIpi()
     {
-        $this->markTestIncomplete();
+        $label = new Label();
+
+        $this->assertSame($label, $label->addIpi(new \MusicBrainz\Entity\Ipi('ipi')));
+        $this->assertCount(1, $label->getIpiList()->getIpis());
     }
 
+    /**
+     * Test that we can get and set the IpiList
+     *
+     * @covers \MusicBrainz\Entity\Label::getIpiList
+     * @covers \MusicBrainz\Entity\Label::setIpiList
+     */
     public function testGetSetIpiList()
     {
-        $this->markTestIncomplete();
+        $label = new Label();
+        $ipiList = new \MusicBrainz\Entity\IpiList();
+
+        $this->assertInstanceOf('\MusicBrainz\Entity\IpiList', $label->getIpiList());
+        $this->assertSame($label, $label->setIpiList($ipiList));
+        $this->assertSame($ipiList, $label->getIpiList());
     }
 }

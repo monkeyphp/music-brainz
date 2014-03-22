@@ -86,7 +86,7 @@ class IsniList implements Iterator
 
     /**
      * Return the array of Isnis
-     * 
+     *
      * @return array
      */
     public function getIsnis()
@@ -111,7 +111,9 @@ class IsniList implements Iterator
      */
     public function key()
     {
+        // @codeCoverageIgnoreStart
         return $this->position;
+        // @codeCoverageIgnoreEnd
     }
 
     /**

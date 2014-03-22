@@ -70,4 +70,32 @@ class IsniListTest extends PHPUnit_Framework_TestCase
         $this->assertSame($isniList, $isniList->setIsnis($isnis));
         $this->assertCount(count($isnis), $isniList->getIsnis());
     }
+
+    /**
+     * Test the Iterator
+     *
+     * @covers \MusicBrainz\Entity\IsniList::rewind
+     * @covers \MusicBrainz\Entity\IsniList::next
+     * @covers \MusicBrainz\Entity\IsniList::key
+     * @covers \MusicBrainz\Entity\IsniList::current
+     * @covers \MusicBrainz\Entity\IsniList::valid
+     */
+    public function testIterator()
+    {
+        $isniList = new IsniList();
+        $isnis = array(
+            new Isni(0000000122939631),
+            new Isni(0000000122939632),
+        );
+        $isniList->setIsnis($isnis);
+        
+        $count = 0;
+
+        foreach ($isniList as $isni) {
+            $this->assertInstanceOf('\MusicBrainz\Entity\Isni', $isni);
+            $count++;
+        }
+
+        $this->assertCount($count, $isnis);
+    }
 }

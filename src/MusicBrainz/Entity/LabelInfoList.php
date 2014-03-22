@@ -1,7 +1,13 @@
 <?php
-
-/*
- * Copyright (C)
+/**
+ * LabelInfoList.php
+ *
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
+ * @author      David White <david@monkeyphp.com>
+ *
+ * Copyright (C) David White
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,33 +22,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 namespace MusicBrainz\Entity;
 
+use Iterator;
+use Traversable;
+
 /**
- * Description of LabelInfoList
+ * LabelInfoList
  *
- * @author David White <david@monkeyphp.com>
+ * @category    MusicBrainz
+ * @package     MusicBrainz
+ * @subpackage  MusicBrainz\Entity
  */
-class LabelInfoList
+class LabelInfoList implements Iterator
 {
-    //put your code here
-    /*
-     * <label-info-list>
-                <label-info>
-                    <catalog-number>ESM CD 301</catalog-number>
-                    <label id="9351301f-8a99-41f3-96f5-9aac14bf7ac7">
-                        <name>Essential! Records</name>
-                    </label>
-                </label-info>
-                <label-info>
-                    <catalog-number>GAS 0000301ESM</catalog-number>
-                    <label id="9351301f-8a99-41f3-96f5-9aac14bf7ac7">
-                        <name>Essential! Records</name>
-                    </label>
-                </label-info>
-            </label-info-list>
-     */
     /**
      * An array of LabelInfo instances
      *
@@ -50,9 +43,11 @@ class LabelInfoList
      */
     protected $labelInfos = array();
 
+    protected $position = 0;
+
     public function setLabelInfos($labelInfos = array())
     {
-        if (is_array($labelInfos) || $labelInfos instanceof \Traversable) {
+        if (is_array($labelInfos) || $labelInfos instanceof Traversable) {
             foreach ($labelInfos as $labelInfo) {
                 if ($labelInfo instanceof LabelInfo) {
                     $this->addLabelInfo($labelInfo);
@@ -64,7 +59,7 @@ class LabelInfoList
 
     public function getLabelInfos()
     {
-
+        return $this->labelInfos;
     }
 
     public function addLabelInfo(LabelInfo $labelInfo)
@@ -73,5 +68,32 @@ class LabelInfoList
             $this->labelInfos[] = $labelInfo;
         }
         return $this;
+    }
+
+    public function current()
+    {
+        return $this->labelInfos[$this->position];
+    }
+
+    public function key()
+    {
+        // @codeCoverageIgnoreStart
+        return $this->position;
+        // @codeCoverageIgnoreEnd
+    }
+
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    public function rewind()
+    {
+        $this->position = 0;
+    }
+
+    public function valid()
+    {
+        return isset($this->labelInfos[$this->position]);
     }
 }

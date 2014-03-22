@@ -74,6 +74,22 @@ class ReleaseListTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test that we can get and set the offset
+     *
+     * @covers \MusicBrainz\Entity\ReleaseList::getOffset
+     * @covers \MusicBrainz\Entity\ReleaseList::setOffset
+     */
+    public function testGetSetOffset()
+    {
+        $releaseList = new ReleaseList;
+        $offset = new Count(2);
+
+        $this->assertNull($releaseList->getOffset());
+        $this->assertSame($releaseList, $releaseList->setOffset($offset));
+        $this->assertSame($offset, $releaseList->getOffset());
+    }
+
+    /**
      * Test that we can add a Release
      *
      * @covers \MusicBrainz\Entity\ReleaseList::addRelease
